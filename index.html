@@ -169,6 +169,22 @@
       flex-wrap: wrap;
     }
 
+    .quick-metrics {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+
     .btn {
       display: inline-block;
       text-decoration: none;
@@ -275,16 +291,44 @@
 
     <section class="hero">
       <div>
-        <h1>Signal Layer for Autonomous Markets</h1>
-        <p class="sub">Vectora is designed to move quietly but prove itself publicly. Core controls are disabled, supply is fixed, and operational truth is published on-chain.</p>
+        <h1>The Signal Infrastructure Bet for Autonomous Markets</h1>
+        <p class="sub">Vectora is a high-conviction thesis on measurable signal quality, transparent treasury operations, and fixed-supply alignment. The model is built for execution discipline, not narrative hype.</p>
+        <div class="quick-metrics">
+          <span class="metric">Fixed supply: 1B</span>
+          <span class="metric">Mint authority: revoked</span>
+          <span class="metric">Freeze authority: revoked</span>
+          <span class="metric">Daily transparency cadence</span>
+        </div>
         <div class="cta">
-          <a class="btn" href="./whitepaper.html">Read Whitepaper</a>
+          <a class="btn" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Investor Channel</a>
+          <a class="btn alt" href="./whitepaper.html">Read Whitepaper</a>
           <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Track on DexScreener</a>
         </div>
       </div>
       <div class="hero-banner">
         <img src="./assets/vtrai-banner.svg" alt="Vectora futuristic banner" />
       </div>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Investor Thesis</div>
+        <ul class="list">
+          <li>Exposure to an AI-signal coordination layer on Solana with strict supply controls.</li>
+          <li>Operational trust is reinforced by public mint, wallet labels, and recurring reporting.</li>
+          <li>Design focus is long-duration system quality: routing, timing, and confidence calibration.</li>
+          <li>Token economics prioritize participation quality over short-lived incentive spikes.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Risk Controls</div>
+        <ul class="list">
+          <li>No hidden emissions and no stealth minting path.</li>
+          <li>Treasury actions are expected to be reason-coded and observable.</li>
+          <li>Core policy changes are staged and communicated where possible.</li>
+          <li>Always verify the official mint before trading.</li>
+        </ul>
+      </article>
     </section>
 
     <section class="grid">
