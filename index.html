@@ -288,9 +288,53 @@
       justify-content: center;
     }
 
+    .launch {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(8, 14, 29, 0.85);
+      padding: 16px;
+    }
+
+    .launch h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.2px;
+    }
+
+    .launch-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 12px;
+    }
+
+    .gate {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      background: rgba(18, 30, 52, 0.6);
+    }
+
+    .gate-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #cdeeff;
+      font-size: 0.9rem;
+    }
+
+    .state {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .state.green { color: var(--good); }
+    .state.amber { color: #ffd27f; }
+
     @media (max-width: 930px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
+      .launch-grid { grid-template-columns: 1fr; }
       h1 { font-size: 2.12rem; }
     }
   </style>
@@ -329,6 +373,34 @@
       </div>
       <div class="hero-banner">
         <img src="./assets/vtrai-banner.svg" alt="Vectora futuristic banner" />
+      </div>
+    </section>
+
+    <section class="launch reveal">
+      <h2>Launch Build-Up: Market-Gated Execution</h2>
+      <div class="launch-grid">
+        <article class="gate">
+          <div class="gate-title">Launch Signal Board</div>
+          <ul class="list">
+            <li>Gate 1: market trend alignment (risk-on condition).</li>
+            <li>Gate 2: depth + liquidity readiness for stable discovery.</li>
+            <li>Gate 3: social readiness across website, Telegram, X, and proof links.</li>
+            <li>Gate 4: no major macro event window during launch sequence.</li>
+          </ul>
+          <div class="state amber">Current status: BUILD-UP MODE (awaiting full green conditions).</div>
+        </article>
+        <article class="gate">
+          <div class="gate-title">How to Track the Launch</div>
+          <ul class="list">
+            <li>All official updates are posted first in Telegram.</li>
+            <li>Official mint and pair links are repeated in every launch notice.</li>
+            <li>Launch confirmation only counts if it appears on official channels.</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Launch Alerts</a>
+            <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Watch Pair Setup</a>
+          </div>
+        </article>
       </div>
     </section>
 
