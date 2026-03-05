@@ -266,6 +266,18 @@
       font-size: 0.84rem;
     }
 
+    .cta-strip {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     @media (max-width: 930px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
@@ -312,34 +324,11 @@
 
     <section class="grid">
       <article class="card reveal">
-        <div class="k">Investor Thesis</div>
-        <ul class="list">
-          <li>Exposure to an AI-signal coordination layer on Solana with strict supply controls.</li>
-          <li>Operational trust is reinforced by public mint, wallet labels, and recurring reporting.</li>
-          <li>Design focus is long-duration system quality: routing, timing, and confidence calibration.</li>
-          <li>Token economics prioritize participation quality over short-lived incentive spikes.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Risk Controls</div>
-        <ul class="list">
-          <li>No hidden emissions and no stealth minting path.</li>
-          <li>Treasury actions are expected to be reason-coded and observable.</li>
-          <li>Core policy changes are staged and communicated where possible.</li>
-          <li>Always verify the official mint before trading.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="grid">
-      <article class="card reveal">
         <div class="k">Official Links</div>
         <ul class="list">
-          <li><a href="https://getvectora.ai" target="_blank" rel="noreferrer">Website</a></li>
-          <li><a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a></li>
+          <li><a href="https://getvectora.ai" target="_blank" rel="noreferrer">Website + Whitepaper</a></li>
+          <li><a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Official Telegram</a></li>
           <li><a href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">DexScreener Pair</a></li>
-          <li><a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Solscan Token</a></li>
-          <li><a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium Swap</a></li>
         </ul>
       </article>
       <article class="card reveal">
@@ -348,12 +337,31 @@
         <div class="warn">Security: any other contract claiming to be VTRAI is fake.</div>
       </article>
       <article class="card reveal">
+        <div class="k">Investor Thesis</div>
+        <ul class="list">
+          <li>Exposure to an AI-signal coordination layer on Solana with strict supply controls.</li>
+          <li>Operational trust is reinforced by public mint, wallet labels, and recurring reporting.</li>
+          <li>Token economics prioritize durable participation over short-lived incentive spikes.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
         <div class="k">Immutable Trust Signals</div>
-        <div class="v">
-          <span class="ok">Mint authority:</span> revoked<br>
-          <span class="ok">Freeze authority:</span> revoked<br>
-          Fixed supply: <strong>1,000,000,000</strong>
-        </div>
+        <ul class="list">
+          <li><span class="ok">Mint authority:</span> revoked.</li>
+          <li><span class="ok">Freeze authority:</span> revoked.</li>
+          <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Risk Controls</div>
+        <ul class="list">
+          <li>No hidden emissions and no stealth minting path.</li>
+          <li>Treasury actions are expected to be reason-coded and observable.</li>
+          <li>Always verify the official mint before trading.</li>
+        </ul>
       </article>
     </section>
 
@@ -361,12 +369,9 @@
       <article class="card reveal">
         <div class="k">Allocation Map</div>
         <ul class="list">
-          <li>W1 LP/Launch: 22%</li>
-          <li>W2 Community Rewards: 25%</li>
-          <li>W3 Ecosystem Grants: 18%</li>
-          <li>W4 Treasury Multisig: 20%</li>
-          <li>W5 Team Vesting: 10%</li>
-          <li>W6 Ops/MM: 5%</li>
+          <li>Launch + rewards + grants: 22% + 25% + 18%.</li>
+          <li>Treasury + team + ops: 20% + 10% + 5%.</li>
+          <li>Schedule-driven unlock discipline across treasury and vesting wallets.</li>
         </ul>
       </article>
       <article class="card reveal">
@@ -374,8 +379,7 @@
         <ul class="list">
           <li>Daily chain snapshots via Telegram automation</li>
           <li>LP and treasury changes logged in runbook</li>
-          <li>No return promises, no private solicitations</li>
-          <li>Canonical mint published in every official post</li>
+          <li>Canonical mint repeated in every official post</li>
         </ul>
       </article>
     </section>
@@ -385,9 +389,8 @@
         <div class="k">Ecosystem Roles</div>
         <ul class="list">
           <li>Signal operators maintain scoring and execution safeguards.</li>
-          <li>Curators evaluate module quality and reliability.</li>
+          <li>Curators evaluate module quality while builders expand integration surfaces.</li>
           <li>Liquidity stewards manage depth and spread stability.</li>
-          <li>Builders ship integrations that expand signal surfaces.</li>
         </ul>
       </article>
       <article class="card reveal">
@@ -396,7 +399,6 @@
           <li>$VTRAI coordinates participation, access, and long-horizon alignment.</li>
           <li>Reward routing emphasizes measurable contribution quality.</li>
           <li>Incentive weighting can include timing accuracy and confidence calibration.</li>
-          <li>Design focus: durable participation over short-term extraction.</li>
         </ul>
       </article>
     </section>
@@ -426,8 +428,7 @@
         <ul class="list">
           <li>Liquidity depth and spread stability on primary pair(s).</li>
           <li>Treasury balance changes with reason tags.</li>
-          <li>Allocation and vesting movement versus planned schedule.</li>
-          <li>Controlled signal quality metrics (stability, confidence drift).</li>
+          <li>Allocation/vesting movement versus schedule plus controlled signal quality metrics.</li>
         </ul>
       </article>
       <article class="card reveal">
@@ -438,6 +439,12 @@
           <li>Phase C: modular intelligence layers disclosed incrementally.</li>
         </ul>
       </article>
+    </section>
+
+    <section class="cta-strip reveal">
+      <a class="btn" href="./whitepaper.html">Read Whitepaper</a>
+      <a class="btn alt" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Telegram</a>
+      <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Track Pair</a>
     </section>
 
     <p class="footer">Vectora publishes data, not guarantees. Always verify mint address before trading.</p>
