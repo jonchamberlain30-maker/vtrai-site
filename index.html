@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vectora | VTRAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #050912;
+      --bg-2: #0b1630;
+      --bg-3: #101d3f;
+      --ink: #e8f8ff;
+      --muted: #9ab1c8;
+      --line: #243753;
+      --cyan: #4deaff;
+      --vio: #9d7cff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+      --card: rgba(9, 16, 32, 0.7);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(920px 560px at 10% -10%, rgba(77,234,255,0.20), transparent 55%),
+        radial-gradient(820px 640px at 100% 110%, rgba(157,124,255,0.16), transparent 55%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(to right, rgba(93,124,170,0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(93,124,170,0.18) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, #000 35%, transparent 90%);
+      z-index: 0;
+      animation: drift 28s linear infinite;
+    }
+
+    @keyframes drift {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: rgba(8, 14, 29, 0.78);
+      border-radius: 14px;
+      padding: 10px 14px;
+      backdrop-filter: blur(6px);
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand img {
+      width: 24px;
+      height: 24px;
+      filter: drop-shadow(0 0 12px rgba(77,234,255,0.35));
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .tag { color: var(--cyan); }
+
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      margin-left: 12px;
+      border-bottom: 1px dashed #466487;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .hero {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--card);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 14px;
+      align-items: center;
+      overflow: hidden;
+      backdrop-filter: blur(7px);
+    }
+
+    .hero-banner {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      min-height: 220px;
+      background: #070d1b;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: zoom 18s ease-in-out infinite;
+    }
+
+    @keyframes zoom {
+      0%, 100% { transform: scale(1.02); }
+      50% { transform: scale(1.08); }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.35rem;
+      letter-spacing: 0.6px;
+      line-height: 1.05;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 640px;
+      line-height: 1.45;
+    }
+
+    .cta {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 11px;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn.alt {
+      color: var(--ink);
+      background: rgba(35, 53, 84, 0.68);
+      border: 1px solid var(--line);
+    }
+
+    .grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .k { color: var(--muted); font-size: 0.82rem; margin-bottom: 4px; }
+    .v { font-size: 0.96rem; line-height: 1.4; }
+
+    code {
+      background: rgba(35, 51, 78, 0.84);
+      color: #dff9ff;
+      border-radius: 7px;
+      padding: 2px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      word-break: break-all;
+    }
+
+    .warn {
+      margin-top: 10px;
+      border: 1px solid #4c2a37;
+      border-radius: 12px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 11px;
+      font-size: 0.92rem;
+    }
+
+    .ok { color: var(--good); }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 930px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <main class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <img src="./assets/vtrai-logo.svg" alt="VTRAI logo" />
+        <span>Vectora <span class="tag">$VTRAI</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="./whitepaper.html">Whitepaper</a>
+        <a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Solscan</a>
+        <a href="https://raydium.io/" target="_blank" rel="noreferrer">Raydium</a>
+        <a href="https://t.me/c/3509708835" target="_blank" rel="noreferrer">Telegram</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <h1>Signal Layer for Autonomous Markets</h1>
+        <p class="sub">Vectora is designed to move quietly but prove itself publicly. Core controls are disabled, supply is fixed, and operational truth is published on-chain.</p>
+        <div class="cta">
+          <a class="btn" href="./whitepaper.html">Read Whitepaper</a>
+          <a class="btn alt" href="https://dexscreener.com/solana" target="_blank" rel="noreferrer">Track on DexScreener</a>
+        </div>
+      </div>
+      <div class="hero-banner">
+        <img src="./assets/vtrai-banner.svg" alt="Vectora futuristic banner" />
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Official Mint (only valid contract)</div>
+        <div class="v"><code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code></div>
+        <div class="warn">Security: any other contract claiming to be VTRAI is fake.</div>
+      </article>
+      <article class="card reveal">
+        <div class="k">Immutable Trust Signals</div>
+        <div class="v">
+          <span class="ok">Mint authority:</span> revoked<br>
+          <span class="ok">Freeze authority:</span> revoked<br>
+          Fixed supply: <strong>1,000,000,000</strong>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Allocation Map</div>
+        <ul class="list">
+          <li>W1 LP/Launch: 22%</li>
+          <li>W2 Community Rewards: 25%</li>
+          <li>W3 Ecosystem Grants: 18%</li>
+          <li>W4 Treasury Multisig: 20%</li>
+          <li>W5 Team Vesting: 10%</li>
+          <li>W6 Ops/MM: 5%</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Public Transparency</div>
+        <ul class="list">
+          <li>Daily chain snapshots via Telegram automation</li>
+          <li>LP and treasury changes logged in runbook</li>
+          <li>No return promises, no private solicitations</li>
+          <li>Canonical mint published in every official post</li>
+        </ul>
+      </article>
+    </section>
+
+    <p class="footer">Vectora publishes data, not guarantees. Always verify mint address before trading.</p>
+  </main>
+
+  <script>
+    const cards = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.16 });
+    cards.forEach((c, i) => {
+      c.style.transitionDelay = `${i * 90}ms`;
+      io.observe(c);
+    });
+  </script>
+</body>
+</html>

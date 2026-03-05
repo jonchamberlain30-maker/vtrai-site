@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vectora Whitepaper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+    }
+    .top a { color: var(--cyan); text-decoration: none; }
+    .paper {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      padding: 20px;
+    }
+    h1 { margin: 0; font-size: 2rem; }
+    h2 { margin-top: 20px; font-size: 1.17rem; }
+    p, li { color: var(--muted); line-height: 1.5; font-size: 0.94rem; }
+    ul { margin: 0; padding-left: 18px; }
+    code {
+      background: rgba(35, 50, 76, 0.82);
+      border-radius: 7px;
+      padding: 2px 6px;
+      color: #dff9ff;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>Vectora Whitepaper v1.0</strong>
+      <a href="./index.html">Back to Site</a>
+    </div>
+
+    <article class="paper">
+      <h1>Vectora ($VTRAI)</h1>
+      <p>Vectora is a Solana-native token project focused on transparent, automated operational reporting while preserving product-level mystery around future signal mechanics.</p>
+
+      <h2>1. Core Principles</h2>
+      <ul>
+        <li>Public verifiability over narrative claims.</li>
+        <li>Low-maintenance operational model with automation-first reporting.</li>
+        <li>Security-first communications to reduce contract spoofing risk.</li>
+      </ul>
+
+      <h2>2. Token Specification</h2>
+      <ul>
+        <li>Mint: <code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code></li>
+        <li>Total supply: 1,000,000,000</li>
+        <li>Decimals: 9</li>
+        <li>Mint authority: revoked</li>
+        <li>Freeze authority: revoked</li>
+      </ul>
+
+      <h2>3. Allocation</h2>
+      <ul>
+        <li>22% LP/Launch</li>
+        <li>25% Community Rewards</li>
+        <li>18% Ecosystem Grants</li>
+        <li>20% Treasury Multisig</li>
+        <li>10% Team Vesting</li>
+        <li>5% Ops/MM</li>
+      </ul>
+
+      <h2>4. Market Structure</h2>
+      <ul>
+        <li>Primary liquidity starts on Raydium CLMM with transparent sizing.</li>
+        <li>Liquidity can be increased in tranches as usage and depth improve.</li>
+        <li>No return promises, no hidden emissions, no stealth minting.</li>
+      </ul>
+
+      <h2>5. Transparency Operations</h2>
+      <ul>
+        <li>Daily automated snapshot drafts generated from on-chain market data.</li>
+        <li>Official announcements published to Telegram (and optionally X).</li>
+        <li>Runbook records significant signatures and state transitions.</li>
+      </ul>
+
+      <h2>6. Security & Risk</h2>
+      <ul>
+        <li>Only trust the official mint above.</li>
+        <li>Never share seed phrase/private keys.</li>
+        <li>Users should verify contract addresses before trading.</li>
+      </ul>
+
+      <h2>7. Roadmap (Adaptive)</h2>
+      <ul>
+        <li>Phase A: Launch hardening, trust proofs, channel setup.</li>
+        <li>Phase B: Consistent transparency cadence and liquidity strengthening.</li>
+        <li>Phase C: Product-level signal modules disclosed incrementally.</li>
+      </ul>
+
+      <h2>8. Disclaimer</h2>
+      <p>This document is informational and does not constitute financial advice, solicitation, or guarantees of returns.</p>
+    </article>
+  </main>
+</body>
+</html>
