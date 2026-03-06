@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <title>Vectora Proof Pack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .hero, .card {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      padding: 20px;
+    }
+    .hero h1 { margin: 0; font-size: 2rem; }
+    .hero p, p, li { color: var(--muted); line-height: 1.55; font-size: 0.95rem; }
+    h2 { margin: 0 0 10px; font-size: 1.08rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      font-size: 0.82rem;
+    }
+    .ok { color: var(--good); }
+    .warn {
+      margin-top: 12px;
+      border: 1px solid #4c2a37;
+      border-radius: 12px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+    .links a, .cta a {
+      color: var(--cyan);
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .cta { margin-top: 14px; }
+    code {
+      display: inline-block;
+      background: rgba(35, 50, 76, 0.82);
+      border-radius: 7px;
+      padding: 4px 8px;
+      color: #dff9ff;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    ul, ol { margin: 0; padding-left: 18px; }
+    .proof-block {
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 12px;
+      padding: 14px;
+      background: rgba(8, 15, 30, 0.68);
+      margin-top: 12px;
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>Vectora Proof Pack</strong>
+      <div>
+        <a href="./index.html">Back to Site</a>
+        <a href="./updates.html">Updates</a>
+        <a href="./whitepaper.html">Whitepaper</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Official Contract Proof, Safe Route Checks, and Scam Filters</h1>
+      <p>This page is for customers who want the shortest possible path to verify the real Vectora token before they click anything else. Use this as the canonical reference pack.</p>
+      <div class="chips">
+        <span class="chip">Official mint published</span>
+        <span class="chip">Mint authority revoked</span>
+        <span class="chip">Freeze authority revoked</span>
+        <span class="chip">Website-first verification</span>
+      </div>
+      <div class="cta">
+        <a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Open Solscan</a>
+        <a href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Open DexScreener Pair</a>
+        <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Open Raydium Route</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Canonical Contract</h2>
+        <p>Only this Solana mint is valid for Vectora.</p>
+        <div class="proof-block">
+          <code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
+        </div>
+        <div class="warn">Any token, post, pair, or wallet route using a different mint should be treated as fake.</div>
+      </article>
+      <article class="card">
+        <h2>Immutable Trust Signals</h2>
+        <ul>
+          <li><span class="ok">Mint authority:</span> revoked.</li>
+          <li><span class="ok">Freeze authority:</span> revoked.</li>
+          <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
+          <li>Official public verification starts from this site, not from DMs.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>How To Verify</h2>
+        <ol>
+          <li>Copy the canonical mint from this page.</li>
+          <li>Paste it into the homepage trust checker and confirm the result says <strong>Verified official token</strong>.</li>
+          <li>Open the Solscan, DexScreener, and Raydium links from this page or the trust result.</li>
+          <li>Cross-check the same mint against the latest website update and official Telegram post.</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>How To Buy Safely</h2>
+        <ol>
+          <li>Start from this proof page or the homepage, not from a social reply.</li>
+          <li>Use the official Raydium or DexScreener route only.</li>
+          <li>Check the output token address in your wallet before confirming the swap.</li>
+          <li>Reject any request for private keys, seed phrases, remote access, or manual “support validation.”</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Official Channels</h2>
+        <div class="links">
+          <a href="https://getvectora.ai" target="_blank" rel="noreferrer">Website</a>
+          <a href="./updates.html">Updates</a>
+          <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+          <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
+        </div>
+        <p>Launch confirmation only counts if it appears on these channels and repeats the same mint.</p>
+      </article>
+      <article class="card">
+        <h2>Scam Filters</h2>
+        <ul>
+          <li>No private sale DMs.</li>
+          <li>No seed phrase requests.</li>
+          <li>No “support wallet” or “recovery wallet” flow.</li>
+          <li>No second contract, migration mint, or substitute launch route unless published here first.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
