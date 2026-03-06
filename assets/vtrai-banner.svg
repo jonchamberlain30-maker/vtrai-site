@@ -26,9 +26,13 @@
       <stop offset="0.52" stop-color="#74D8FF"/>
       <stop offset="1" stop-color="#9A7CFF"/>
     </linearGradient>
-    <linearGradient id="mark" x1="1030" y1="266" x2="1268" y2="572" gradientUnits="userSpaceOnUse">
+    <linearGradient id="mark" x1="1010" y1="236" x2="1292" y2="610" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F5FEFF"/>
       <stop offset="1" stop-color="#9DDFFF"/>
+    </linearGradient>
+    <linearGradient id="markEdge" x1="1048" y1="248" x2="1280" y2="572" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DEEFF"/>
+      <stop offset="1" stop-color="#A083FF"/>
     </linearGradient>
   </defs>
 
@@ -62,8 +66,9 @@
   <g>
     <circle cx="1160" cy="422" r="230" stroke="url(#ring)" stroke-width="16"/>
     <circle cx="1160" cy="422" r="188" stroke="#81ECFF" stroke-width="2" opacity="0.16"/>
-    <path d="M1030 298L1152 578C1156 589 1168 589 1172 578L1292 298" stroke="url(#mark)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M1238 280L1128 450" stroke="#7CEEFF" stroke-opacity="0.82" stroke-width="16" stroke-linecap="round"/>
+    <path d="M1006 272L1114 272L1160 424L1206 272L1314 272L1202 612L1118 612L1006 272Z" fill="url(#mark)"/>
+    <path d="M1062 314H1132L1160 410L1188 314H1258L1178 566H1142L1062 314Z" fill="#0A1527" opacity="0.34"/>
+    <path d="M1266 248L1144 434" stroke="url(#markEdge)" stroke-width="24" stroke-linecap="round"/>
   </g>
 
   <g opacity="0.72">

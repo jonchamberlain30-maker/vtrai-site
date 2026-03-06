@@ -18,11 +18,11 @@
       <stop offset="0.52" stop-color="#74D7FF"/>
       <stop offset="1" stop-color="#9B7BFF"/>
     </linearGradient>
-    <linearGradient id="core" x1="330" y1="284" x2="700" y2="744" gradientUnits="userSpaceOnUse">
+    <linearGradient id="core" x1="318" y1="250" x2="708" y2="760" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F4FEFF"/>
       <stop offset="1" stop-color="#9BDFFF"/>
     </linearGradient>
-    <linearGradient id="slash" x1="366" y1="266" x2="678" y2="694" gradientUnits="userSpaceOnUse">
+    <linearGradient id="edge" x1="372" y1="248" x2="706" y2="730" gradientUnits="userSpaceOnUse">
       <stop stop-color="#83F3FF" stop-opacity="0.95"/>
       <stop offset="1" stop-color="#A88BFF" stop-opacity="0.88"/>
     </linearGradient>
@@ -39,9 +39,10 @@
   <circle cx="512" cy="512" r="288" stroke="url(#frame)" stroke-width="28"/>
   <circle cx="512" cy="512" r="248" stroke="#85ECFF" stroke-width="2" opacity="0.18"/>
 
-  <path d="M334 312L498 744C503 757 521 757 526 744L690 312" stroke="url(#core)" stroke-width="74" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M612 292L468 510" stroke="url(#slash)" stroke-width="22" stroke-linecap="round" opacity="0.9"/>
-  <path d="M412 352L512 586" stroke="#57DFFF" stroke-opacity="0.16" stroke-width="14" stroke-linecap="round"/>
+  <path d="M300 268L438 268L512 516L586 268L724 268L554 756L470 756L300 268Z" fill="url(#core)"/>
+  <path d="M376 268H478L512 384L546 268H648L520 690H504L376 268Z" fill="#091628" opacity="0.32"/>
+  <path d="M640 246L458 520" stroke="url(#edge)" stroke-width="30" stroke-linecap="round"/>
+  <path d="M352 318L452 318L512 516L572 318L672 318" stroke="#56DDFF" stroke-opacity="0.15" stroke-width="12" stroke-linecap="square"/>
 
   <g opacity="0.2" filter="url(#softGlow)">
     <circle cx="512" cy="512" r="254" stroke="#64E9FF" stroke-width="16"/>
