@@ -863,6 +863,7 @@
     const SOLSCAN_BASE = 'https://solscan.io/token/';
     const RAYDIUM_BASE = 'https://raydium.io/swap/?inputMint=sol&outputMint=';
     const DEX_SEARCH_BASE = 'https://dexscreener.com/search?q=';
+    const TRUST_API_BASE = 'https://api.getvectora.ai';
     const NETWORKS = {
       solana: {
         label: 'Solana',
@@ -974,6 +975,9 @@
     }
 
     function renderCard({ title, tone, summary, meta, bullets, links, reasons = [] }) {
+      const linkHtml = Array.isArray(links)
+        ? links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
+        : links;
       renderTrustResult(`
         <strong style="color: ${tone};">${title}</strong>
         <div class="v">${summary}</div>
@@ -991,8 +995,20 @@
         <ul class="trust-bullets">
           ${bullets.map((item) => `<li>${item}</li>`).join('')}
         </ul>
-        <div class="trust-links">${links}</div>
+        <div class="trust-links">${linkHtml}</div>
       `);
+    }
+
+    function renderApiReport(report) {
+      renderCard({
+        title: report.title,
+        tone: buildStatusTone(report.level),
+        summary: report.summary,
+        meta: report.meta || [],
+        reasons: report.reasons || [],
+        bullets: report.notes || [],
+        links: report.links || [],
+      });
     }
 
     async function fetchEvmSecurity(chainId, address) {
@@ -1244,6 +1260,19 @@
       `);
 
       try {
+        try {
+          const apiResponse = await fetch(`${TRUST_API_BASE}/check?network=${encodeURIComponent(selectedNetwork)}&address=${encodeURIComponent(raw)}`);
+          if (apiResponse.ok) {
+            const apiPayload = await apiResponse.json();
+            if (apiPayload.ok && apiPayload.report) {
+              renderApiReport(apiPayload.report);
+              return;
+            }
+          }
+        } catch {
+          // Fall back to browser-side checks if the public API is unavailable.
+        }
+
         if (selectedNetwork === 'auto') {
           if (isLikelySolanaAddress(raw)) {
             const data = await fetchSolanaSecurity(raw);
