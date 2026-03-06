@@ -1014,6 +1014,7 @@
   <script>
     const OFFICIAL_MINT = 'Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J';
     const OFFICIAL_PAIR = 'https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu';
+    const OFFICIAL_IMAGE = 'https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva';
     const SOLSCAN_BASE = 'https://solscan.io/token/';
     const RAYDIUM_BASE = 'https://raydium.io/swap/?inputMint=sol&outputMint=';
     const DEX_SEARCH_BASE = 'https://dexscreener.com/search?q=';
@@ -1218,7 +1219,7 @@
         reasons: report.reasons || [],
         bullets: report.notes || [],
         links: report.links || [],
-        imageUrl: report.image_url || '',
+        imageUrl: report.image_url || (report.official_vectora_mint === report.address ? OFFICIAL_IMAGE : ''),
       });
     }
 
