@@ -331,10 +331,77 @@
     .state.green { color: var(--good); }
     .state.amber { color: #ffd27f; }
 
+    .status-board {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(10, 18, 36, 0.82);
+      padding: 14px;
+    }
+
+    .status-board h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.03rem;
+      letter-spacing: 0.2px;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .status-item {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(21, 34, 58, 0.66);
+      padding: 10px;
+      font-size: 0.88rem;
+      color: #d5ebff;
+      line-height: 1.45;
+    }
+
+    .status-item strong {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.2px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .chip {
+      display: inline-block;
+      margin-top: 6px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 0.74rem;
+      border: 1px solid transparent;
+    }
+
+    .chip.now {
+      color: #84ffc4;
+      border-color: rgba(74, 227, 181, 0.55);
+      background: rgba(12, 72, 48, 0.4);
+    }
+
+    .chip.next {
+      color: #ffe08f;
+      border-color: rgba(255, 210, 127, 0.55);
+      background: rgba(94, 67, 20, 0.42);
+    }
+
+    .chip.later {
+      color: #d7c7ff;
+      border-color: rgba(157, 124, 255, 0.5);
+      background: rgba(62, 44, 92, 0.38);
+    }
+
     @media (max-width: 930px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
       .launch-grid { grid-template-columns: 1fr; }
+      .status-row { grid-template-columns: 1fr; }
       h1 { font-size: 2.12rem; }
     }
   </style>
@@ -402,6 +469,37 @@
           </div>
         </article>
       </div>
+    </section>
+
+    <section class="status-board reveal">
+      <h2>Current Milestone Status</h2>
+      <div class="status-row">
+        <article class="status-item">
+          <strong>Now</strong>
+          M0: Market-Gated Build-Up
+          <br />Launch stays locked until all risk gates are green.
+          <span class="chip now">ACTIVE</span>
+        </article>
+        <article class="status-item">
+          <strong>Next</strong>
+          M1: Trust Card Engine
+          <br />First release of rapid claim + contract verification cards.
+          <span class="chip next">TARGET: POST-LAUNCH WINDOW 1</span>
+        </article>
+        <article class="status-item">
+          <strong>After</strong>
+          M2: Threat Graph
+          <br />Impersonation cluster mapping and source-risk propagation.
+          <span class="chip later">TARGET: WINDOW 2</span>
+        </article>
+        <article class="status-item">
+          <strong>Forward View</strong>
+          M3/M4: Signal Market + Sentinel
+          <br />Stake-weighted signal disputes, then codename module reveal.
+          <span class="chip later">TRACKED WEEKLY</span>
+        </article>
+      </div>
+      <div class="state amber">ETA windows are intentionally high-level; exact module details publish after hardening milestones.</div>
     </section>
 
     <section class="grid">
