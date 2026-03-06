@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="VGwsr6WslzYIC7IC5MMwNFu19gLNROlnyDVxLLW8OTI" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
   <title>Vectora | VTRAI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,9 +150,9 @@
 
     h1 {
       margin: 0;
-      font-size: 2.35rem;
-      letter-spacing: 0.6px;
-      line-height: 1.05;
+      font-size: 2.52rem;
+      letter-spacing: 0.25px;
+      line-height: 1.04;
     }
 
     .sub {
@@ -161,15 +169,31 @@
       flex-wrap: wrap;
     }
 
+    .quick-metrics {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+
     .btn {
       display: inline-block;
       text-decoration: none;
       color: #031019;
       background: linear-gradient(90deg, var(--cyan), #86e8ff);
       font-weight: 700;
-      padding: 10px 14px;
+      padding: 10px 15px;
       border-radius: 11px;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       transition: transform 0.2s ease;
     }
 
@@ -191,7 +215,7 @@
     .card {
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 14px;
+      padding: 16px;
       background: var(--card);
       backdrop-filter: blur(6px);
       opacity: 0;
@@ -204,8 +228,14 @@
       transform: translateY(0);
     }
 
-    .k { color: var(--muted); font-size: 0.82rem; margin-bottom: 4px; }
-    .v { font-size: 0.96rem; line-height: 1.4; }
+    .k {
+      color: #c9e9ff;
+      font-size: 0.93rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      margin-bottom: 8px;
+    }
+    .v { font-size: 0.97rem; line-height: 1.45; }
 
     code {
       background: rgba(35, 51, 78, 0.84);
@@ -232,20 +262,196 @@
       margin: 0;
       padding-left: 18px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.55;
       font-size: 0.94rem;
     }
+
+    .list li { margin-bottom: 6px; }
+    .list li:last-child { margin-bottom: 0; }
 
     .footer {
       margin-top: 14px;
       color: var(--muted);
       font-size: 0.84rem;
+      text-align: center;
+    }
+
+    .cta-strip {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .launch {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(8, 14, 29, 0.85);
+      padding: 16px;
+    }
+
+    .launch h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.2px;
+    }
+
+    .launch-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 12px;
+    }
+
+    .gate {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      background: rgba(18, 30, 52, 0.6);
+    }
+
+    .gate-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #cdeeff;
+      font-size: 0.9rem;
+    }
+
+    .state {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .state.green { color: var(--good); }
+    .state.amber { color: #ffd27f; }
+
+    .status-board {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(10, 18, 36, 0.82);
+      padding: 14px;
+    }
+
+    .status-board h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.03rem;
+      letter-spacing: 0.2px;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .status-item {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(21, 34, 58, 0.66);
+      padding: 10px;
+      font-size: 0.88rem;
+      color: #d5ebff;
+      line-height: 1.45;
+    }
+
+    .status-item strong {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.2px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .chip {
+      display: inline-block;
+      margin-top: 6px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 0.74rem;
+      border: 1px solid transparent;
+    }
+
+    .chip.now {
+      color: #84ffc4;
+      border-color: rgba(74, 227, 181, 0.55);
+      background: rgba(12, 72, 48, 0.4);
+    }
+
+    .chip.next {
+      color: #ffe08f;
+      border-color: rgba(255, 210, 127, 0.55);
+      background: rgba(94, 67, 20, 0.42);
+    }
+
+    .chip.later {
+      color: #d7c7ff;
+      border-color: rgba(157, 124, 255, 0.5);
+      background: rgba(62, 44, 92, 0.38);
+    }
+
+    .trust-tool {
+      display: grid;
+      gap: 12px;
+    }
+
+    .trust-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    .trust-input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(14, 24, 43, 0.82);
+      color: var(--ink);
+      padding: 12px 14px;
+      font: inherit;
+    }
+
+    .trust-result {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: rgba(10, 18, 36, 0.78);
+      min-height: 116px;
+    }
+
+    .trust-result strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+    }
+
+    .trust-links {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .trust-links a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-size: 0.88rem;
     }
 
     @media (max-width: 930px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
-      h1 { font-size: 1.95rem; }
+      .launch-grid { grid-template-columns: 1fr; }
+      .status-row { grid-template-columns: 1fr; }
+      .trust-form { grid-template-columns: 1fr; }
+      h1 { font-size: 2.12rem; }
     }
   </style>
 </head>
@@ -259,19 +465,29 @@
       </div>
       <div class="nav-links">
         <a href="./whitepaper.html">Whitepaper</a>
+        <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+        <a href="./updates.html">Updates</a>
         <a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Solscan</a>
-        <a href="https://raydium.io/" target="_blank" rel="noreferrer">Raydium</a>
-        <a href="https://t.me/c/3509708835" target="_blank" rel="noreferrer">Telegram</a>
+        <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium</a>
+        <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
       </div>
     </div>
 
     <section class="hero">
       <div>
-        <h1>Signal Layer for Autonomous Markets</h1>
-        <p class="sub">Vectora is designed to move quietly but prove itself publicly. Core controls are disabled, supply is fixed, and operational truth is published on-chain.</p>
+        <h1>Proof Before Momentum</h1>
+        <p class="sub">Humans lose to speed when claims spread faster than verification. Vectora is building an AI trust layer that compresses proof time from hours to seconds, with architecture disclosed in controlled stages.</p>
+        <div class="quick-metrics">
+          <span class="metric">Fixed supply: 1B</span>
+          <span class="metric">Mint authority: revoked</span>
+          <span class="metric">Freeze authority: revoked</span>
+          <span class="metric">Verification-first roadmap</span>
+        </div>
         <div class="cta">
-          <a class="btn" href="./whitepaper.html">Read Whitepaper</a>
-          <a class="btn alt" href="https://dexscreener.com/solana" target="_blank" rel="noreferrer">Track on DexScreener</a>
+          <a class="btn" href="./updates.html">Official Updates</a>
+          <a class="btn" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Investor Channel</a>
+          <a class="btn alt" href="./whitepaper.html">Read Whitepaper</a>
+          <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Track on DexScreener</a>
         </div>
       </div>
       <div class="hero-banner">
@@ -279,18 +495,116 @@
       </div>
     </section>
 
+    <section class="launch reveal">
+      <h2>Launch Build-Up: Market-Gated Execution</h2>
+      <div class="launch-grid">
+        <article class="gate">
+          <div class="gate-title">Launch Signal Board</div>
+          <ul class="list">
+            <li>Gate 1: market trend alignment (risk-on condition).</li>
+            <li>Gate 2: depth + liquidity readiness for stable discovery.</li>
+            <li>Gate 3: social readiness across website, Telegram, X, and proof links.</li>
+            <li>Gate 4: no major macro event window during launch sequence.</li>
+            <li>Gate 5: bootstrap capital discipline preserved (reserve remains intact).</li>
+          </ul>
+          <div class="state amber">Current status: BUILD-UP MODE (awaiting full green conditions).</div>
+        </article>
+        <article class="gate">
+          <div class="gate-title">How to Track the Launch</div>
+          <ul class="list">
+            <li>Primary launch log now runs from this website updates page.</li>
+            <li>Public update cadence appears at `/updates.html` and includes the latest proof snapshot.</li>
+            <li>Official mint and pair links are repeated in every launch notice.</li>
+            <li>Launch confirmation only counts if it appears on official channels.</li>
+            <li>Liquidity policy is published at the covenant page before launch.</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="./updates.html">Read Official Updates</a>
+            <a class="btn alt" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Launch Alerts</a>
+            <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Watch Pair Setup</a>
+            <a class="btn alt" href="./liquidity-covenant.html">Read Covenant</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="status-board reveal">
+      <h2>Current Milestone Status</h2>
+      <div class="status-row">
+        <article class="status-item">
+          <strong>Now</strong>
+          M0: Market-Gated Build-Up
+          <br />Launch stays locked until all risk gates are green.
+          <span class="chip now">ACTIVE</span>
+        </article>
+        <article class="status-item">
+          <strong>Next</strong>
+          M1: Trust Card Engine
+          <br />First release of rapid claim + contract verification cards.
+          <span class="chip next">TARGET: POST-LAUNCH WINDOW 1</span>
+        </article>
+        <article class="status-item">
+          <strong>After</strong>
+          M2: Threat Graph
+          <br />Impersonation cluster mapping and source-risk propagation.
+          <span class="chip later">TARGET: WINDOW 2</span>
+        </article>
+        <article class="status-item">
+          <strong>Forward View</strong>
+          M3/M4: Signal Market + Sentinel
+          <br />Stake-weighted signal disputes, then codename module reveal.
+          <span class="chip later">TRACKED WEEKLY</span>
+        </article>
+      </div>
+      <div class="state amber">Execution mode: capital-efficient bootstrap. ETA windows are intentionally high-level; exact module details publish after hardening milestones.</div>
+    </section>
+
     <section class="grid">
+      <article class="card reveal">
+        <div class="k">Official Links</div>
+        <ul class="list">
+          <li><a href="https://getvectora.ai" target="_blank" rel="noreferrer">Website + Whitepaper</a></li>
+          <li><a href="./liquidity-covenant.html" target="_blank" rel="noreferrer">Liquidity Covenant</a></li>
+          <li><a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Official Telegram</a></li>
+          <li><a href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">DexScreener Pair</a></li>
+        </ul>
+      </article>
       <article class="card reveal">
         <div class="k">Official Mint (only valid contract)</div>
         <div class="v"><code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code></div>
         <div class="warn">Security: any other contract claiming to be VTRAI is fake.</div>
       </article>
       <article class="card reveal">
+        <div class="k">The Real AI Problem</div>
+        <ul class="list">
+          <li>People act before they verify because market timelines are too short.</li>
+          <li>Critical truth is fragmented across chain data, chats, dashboards, and fake clones.</li>
+          <li>Bad decisions come from verification latency, not lack of information.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
         <div class="k">Immutable Trust Signals</div>
-        <div class="v">
-          <span class="ok">Mint authority:</span> revoked<br>
-          <span class="ok">Freeze authority:</span> revoked<br>
-          Fixed supply: <strong>1,000,000,000</strong>
+        <ul class="list">
+          <li><span class="ok">Mint authority:</span> revoked.</li>
+          <li><span class="ok">Freeze authority:</span> revoked.</li>
+          <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Vectora Trust Check</div>
+        <div class="trust-tool">
+          <div class="v">Paste any Solana token mint to compare it against the canonical Vectora contract and route to proof links.</div>
+          <div class="trust-form">
+            <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
+            <button id="trustButton" class="btn" type="button">Check Token</button>
+          </div>
+          <div id="trustResult" class="trust-result">
+            <strong>Awaiting input.</strong>
+            <div class="v">Current phase checks the contract against the official Vectora mint and provides direct evidence links. Broader cross-token risk scoring comes later in the roadmap.</div>
+          </div>
         </div>
       </article>
     </section>
@@ -299,12 +613,9 @@
       <article class="card reveal">
         <div class="k">Allocation Map</div>
         <ul class="list">
-          <li>W1 LP/Launch: 22%</li>
-          <li>W2 Community Rewards: 25%</li>
-          <li>W3 Ecosystem Grants: 18%</li>
-          <li>W4 Treasury Multisig: 20%</li>
-          <li>W5 Team Vesting: 10%</li>
-          <li>W6 Ops/MM: 5%</li>
+          <li>Launch + rewards + grants: 22% + 25% + 18%.</li>
+          <li>Treasury + team + ops: 20% + 10% + 5%.</li>
+          <li>Schedule-driven unlock discipline across treasury and vesting wallets.</li>
         </ul>
       </article>
       <article class="card reveal">
@@ -312,16 +623,104 @@
         <ul class="list">
           <li>Daily chain snapshots via Telegram automation</li>
           <li>LP and treasury changes logged in runbook</li>
-          <li>No return promises, no private solicitations</li>
-          <li>Canonical mint published in every official post</li>
+          <li>Canonical mint repeated in every official post</li>
         </ul>
       </article>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Contributor Network</div>
+        <ul class="list">
+          <li>Operators submit threat intel and verification trails.</li>
+          <li>Curators challenge false positives and improve detector precision.</li>
+          <li>Maintainers ship policy updates with transparent change logs.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Token Utility (Roadmap-Aligned)</div>
+        <ul class="list">
+          <li>$VTRAI unlocks premium verification queries and API throughput tiers.</li>
+          <li>Staking gates signal publication rights and reputation weight.</li>
+          <li>Governance controls detector priorities, risk thresholds, and treasury grants.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">No-Live Traction Engine</div>
+        <ul class="list">
+          <li>Daily trust reports and claim breakdowns replace livestream dependency.</li>
+          <li>Telegram AI host handles routine investor questions 24/7.</li>
+          <li>Milestone receipts are published on a fixed cadence.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Liquidity Discipline</div>
+        <ul class="list">
+          <li>Initial liquidity is deployed conservatively with explicit reserve protection.</li>
+          <li>Reserve capital is only used for stability conditions, not narrative pumps.</li>
+          <li>LP growth is designed to scale from proven traction and realized performance.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Treasury Policy</div>
+        <ul class="list">
+          <li>Treasury actions should be reason-coded and publicly logged.</li>
+          <li>Priority order: resilience, liquidity health, incentives, expansion.</li>
+          <li>Usage remains auditable via wallet labels and periodic reporting.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Governance Controls</div>
+        <ul class="list">
+          <li>Core policy changes are staged and communicated before execution when possible.</li>
+          <li>Key controls reduce unilateral, unannounced parameter changes.</li>
+          <li>Governance expansion can phase in as contributor quality matures.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Proof KPIs</div>
+        <ul class="list">
+          <li>Mean time to verification for high-risk claims.</li>
+          <li>True-positive rate versus false-positive rate in trust alerts.</li>
+          <li>Coverage share of top market narratives with evidence-backed responses.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Milestone Radar (Post-Launch)</div>
+        <ul class="list">
+          <li>M1: Trust Card Engine live for contract and claim verification.</li>
+          <li>M2: Threat Graph release with impersonation cluster mapping.</li>
+          <li>M3: Stake-weighted signal market with challenge and dispute flow.</li>
+          <li>M4: Sentinel module reveal (codename only until launch-ready).</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="cta-strip reveal">
+      <a class="btn" href="./whitepaper.html">Read Whitepaper</a>
+      <a class="btn alt" href="./updates.html">Read Updates</a>
+      <a class="btn alt" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Telegram</a>
+      <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Track Pair</a>
     </section>
 
     <p class="footer">Vectora publishes data, not guarantees. Always verify mint address before trading.</p>
   </main>
 
   <script>
+    const OFFICIAL_MINT = 'Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J';
+    const OFFICIAL_PAIR = 'https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu';
+    const SOLSCAN_BASE = 'https://solscan.io/token/';
+    const RAYDIUM_BASE = 'https://raydium.io/swap/?inputMint=sol&outputMint=';
+
     const cards = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -331,6 +730,57 @@
     cards.forEach((c, i) => {
       c.style.transitionDelay = `${i * 90}ms`;
       io.observe(c);
+    });
+
+    const trustInput = document.getElementById('trustInput');
+    const trustButton = document.getElementById('trustButton');
+    const trustResult = document.getElementById('trustResult');
+
+    function renderTrustResult(html) {
+      trustResult.innerHTML = html;
+    }
+
+    function checkToken() {
+      const raw = trustInput.value.trim();
+      if (!raw) {
+        renderTrustResult(`
+          <strong>Awaiting input.</strong>
+          <div class="v">Paste a token mint to compare it against the official Vectora contract.</div>
+        `);
+        return;
+      }
+
+      const mint = raw.replace(/[^1-9A-HJ-NP-Za-km-z]/g, '');
+      const solscan = `${SOLSCAN_BASE}${encodeURIComponent(mint)}`;
+      const dexscreener = `https://dexscreener.com/solana/${encodeURIComponent(mint)}`;
+
+      if (mint === OFFICIAL_MINT) {
+        renderTrustResult(`
+          <strong class="ok">Verified official Vectora mint.</strong>
+          <div class="v">This mint matches the canonical contract published on the site, in Telegram, and in official launch posts.</div>
+          <div class="trust-links">
+            <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">View on Solscan</a>
+            <a href="${OFFICIAL_PAIR}" target="_blank" rel="noreferrer">Open DexScreener Pair</a>
+            <a href="${RAYDIUM_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Raydium Route</a>
+          </div>
+        `);
+        return;
+      }
+
+      renderTrustResult(`
+        <strong style="color: var(--warn);">Unverified by Vectora.</strong>
+        <div class="v">This mint does not match the official Vectora contract. Treat it as unrelated or potentially impersonating until proven otherwise.</div>
+        <div class="trust-links">
+          <a href="${solscan}" target="_blank" rel="noreferrer">Inspect on Solscan</a>
+          <a href="${dexscreener}" target="_blank" rel="noreferrer">Search on DexScreener</a>
+          <a href="./updates.html" target="_blank" rel="noreferrer">Check official updates</a>
+        </div>
+      `);
+    }
+
+    trustButton.addEventListener('click', checkToken);
+    trustInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') checkToken();
     });
   </script>
 </body>

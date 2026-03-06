@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <title>Vectora Liquidity Covenant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+      --good: #4ae3b5;
+      --amber: #ffd27f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top a { color: var(--cyan); text-decoration: none; }
+    .paper {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      padding: 20px;
+    }
+    h1 { margin: 0; font-size: 2rem; }
+    h2 { margin-top: 20px; font-size: 1.1rem; }
+    p, li { color: var(--muted); line-height: 1.5; font-size: 0.94rem; }
+    ul { margin: 0; padding-left: 18px; }
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(255,210,127,0.55);
+      color: var(--amber);
+      background: rgba(84, 61, 24, 0.45);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .ok { color: var(--good); }
+    code {
+      background: rgba(35, 50, 76, 0.82);
+      border-radius: 7px;
+      padding: 2px 6px;
+      color: #dff9ff;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>Vectora Liquidity Covenant v1.0</strong>
+      <div>
+        <a href="./index.html">Back to Site</a> |
+        <a href="./whitepaper.html">Whitepaper</a>
+      </div>
+    </div>
+
+    <article class="paper">
+      <h1>Liquidity Covenant <span class="badge">Bootstrap Mode</span></h1>
+      <p>This covenant defines how liquidity and reserve capital are managed for Vectora during the bootstrap phase. It is designed to maximize survival, transparency, and investor trust under limited initial capital.</p>
+
+      <h2>1. Core Rules</h2>
+      <ul>
+        <li>No fake volume, no wash behavior, no synthetic activity.</li>
+        <li>No return guarantees and no promise-based liquidity claims.</li>
+        <li>All material liquidity actions are reason-coded and announced.</li>
+      </ul>
+
+      <h2>2. Bootstrap Capital Plan</h2>
+      <ul>
+        <li>Initial LP seed target: <strong>$800 equivalent</strong>.</li>
+        <li>Stability reserve target: <strong>$700 equivalent</strong>.</li>
+        <li>Reserve is defensive capital; it is not used for narrative pumps.</li>
+      </ul>
+
+      <h2>3. Reserve Usage Policy</h2>
+      <ul>
+        <li>Reserve deployment must map to explicit stability conditions.</li>
+        <li>Any reserve action includes: timestamp, reason, size, expected effect.</li>
+        <li>Post-action status is reported in next daily trust report.</li>
+      </ul>
+
+      <h2>4. LP Expansion Policy</h2>
+      <ul>
+        <li>LP growth is performance-led, not hype-led.</li>
+        <li>Scale-up source priority:
+          1) realized profits,
+          2) then treasury-approved strategic top-ups.</li>
+        <li>Target allocation from realized profits: 20-35% to LP, 10-20% to reserve.</li>
+      </ul>
+
+      <h2>5. Transparency Commitments</h2>
+      <ul>
+        <li>Canonical mint is repeated in official posts and alerts.</li>
+        <li>Official mint: <code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>.</li>
+        <li>Daily trust report includes liquidity health and risk notes.</li>
+      </ul>
+
+      <h2>6. Governance and Change Control</h2>
+      <ul>
+        <li>Covenant updates are announced before execution when possible.</li>
+        <li>Emergency changes are allowed only for security or market integrity.</li>
+        <li>Post-change rationale is published with a concise impact summary.</li>
+      </ul>
+
+      <h2>7. Verification and Security</h2>
+      <ul>
+        <li class="ok">Mint authority: revoked.</li>
+        <li class="ok">Freeze authority: revoked.</li>
+        <li>Any contract claiming to be VTRAI other than the official mint is fake.</li>
+      </ul>
+
+      <h2>8. Disclaimer</h2>
+      <p>This covenant is an operational policy document, not financial advice or return solicitation.</p>
+    </article>
+  </main>
+</body>
+</html>
