@@ -6,13 +6,6 @@ Vectora ($VTRAI) official details:
 Official mint (ONLY valid contract):
 Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J
 
-Official links:
-- Website: https://getvectora.ai
-- Telegram: https://t.me/vectorasignal
-- DexScreener: https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu
-- Solscan: https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J
-- Raydium: https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J
-
 Security:
 - Any other contract is fake.
 - We never ask for seed phrase/private keys.
