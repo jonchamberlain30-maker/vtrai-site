@@ -482,30 +482,77 @@
       margin-bottom: 4px;
     }
 
-    .trust-bullets {
-      margin: 10px 0 0;
+    .trust-list {
+      margin: 0;
       padding-left: 18px;
       color: var(--muted);
       line-height: 1.5;
     }
 
-    .trust-bullets li {
-      margin-bottom: 5px;
+    .trust-list li {
+      margin-bottom: 6px;
     }
 
     .trust-result {
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 14px;
-      background: rgba(10, 18, 36, 0.78);
-      min-height: 116px;
+      border-radius: 16px;
+      padding: 16px;
+      background:
+        radial-gradient(420px 180px at 0% 0%, rgba(77, 234, 255, 0.08), transparent 65%),
+        rgba(10, 18, 36, 0.84);
+      min-height: 132px;
       text-align: left;
     }
 
     .trust-result strong {
       display: block;
-      margin-bottom: 8px;
       font-size: 0.98rem;
+    }
+
+    .trust-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .trust-title {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+
+    .trust-badge {
+      flex-shrink: 0;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid currentColor;
+      background: rgba(255, 255, 255, 0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .trust-summary {
+      color: #d7ecff;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .trust-section {
+      margin-top: 12px;
+      border-top: 1px solid rgba(70, 100, 135, 0.35);
+      padding-top: 12px;
+    }
+
+    .trust-section h3 {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #9cc5e7;
     }
 
     .trust-links {
@@ -516,9 +563,19 @@
     }
 
     .trust-links a {
-      color: var(--cyan);
+      color: #06131b;
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+    }
+
+    .trust-links a.alt-link {
+      color: var(--ink);
+      background: rgba(35, 53, 84, 0.68);
+      border: 1px solid var(--line);
     }
 
     .trust-note {
@@ -1059,11 +1116,37 @@
 
     function renderCard({ title, tone, summary, meta, bullets, links, reasons = [] }) {
       const linkHtml = Array.isArray(links)
-        ? links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
+        ? links.map((link, index) => `<a class="${index === 0 ? '' : 'alt-link'}" href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
         : links;
+      const badgeLabel = buildStatusLabel((title || '').toLowerCase().includes('verified') ? 'verified'
+        : (title || '').toLowerCase().includes('high caution') ? 'high'
+        : (title || '').toLowerCase().includes('medium caution') ? 'medium'
+        : 'low').toUpperCase();
+      const reasonsHtml = reasons.length ? `
+        <div class="trust-section">
+          <h3>Why this score</h3>
+          <ul class="trust-list">
+            ${reasons.map((item) => `<li><strong>${item.label}:</strong> ${item.text}</li>`).join('')}
+          </ul>
+        </div>
+      ` : '';
+      const checksHtml = bullets.length ? `
+        <div class="trust-section">
+          <h3>Checks observed</h3>
+          <ul class="trust-list">
+            ${bullets.map((item) => `<li>${item}</li>`).join('')}
+          </ul>
+        </div>
+      ` : '';
+      const linksSectionHtml = linkHtml ? `<div class="trust-section"><h3>Proof links</h3><div class="trust-links">${linkHtml}</div></div>` : '';
       renderTrustResult(`
-        <strong style="color: ${tone};">${title}</strong>
-        <div class="v">${summary}</div>
+        <div class="trust-head">
+          <div>
+            <div class="trust-title" style="color: ${tone};">${title}</div>
+          </div>
+          <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
+        </div>
+        <div class="trust-summary">${summary}</div>
         <div class="trust-meta">
           ${meta.map((item) => `
             <div>
@@ -1072,13 +1155,9 @@
             </div>
           `).join('')}
         </div>
-        <ul class="trust-bullets">
-          ${reasons.map((item) => `<li><strong>${item.label}:</strong> ${item.text}</li>`).join('')}
-        </ul>
-        <ul class="trust-bullets">
-          ${bullets.map((item) => `<li>${item}</li>`).join('')}
-        </ul>
-        <div class="trust-links">${linkHtml}</div>
+        ${reasonsHtml}
+        ${checksHtml}
+        ${linksSectionHtml}
       `);
     }
 
