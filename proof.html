@@ -110,6 +110,27 @@
       background: rgba(8, 15, 30, 0.68);
       margin-top: 12px;
     }
+    .mint-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .copy-btn {
+      border: 1px solid var(--line);
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      border-radius: 10px;
+      padding: 7px 10px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      border-color: rgba(77, 234, 255, 0.4);
+      color: var(--cyan);
+    }
     @media (max-width: 860px) {
       .grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 1.7rem; }
@@ -147,8 +168,9 @@
       <article class="card">
         <h2>Canonical Contract</h2>
         <p>Only this Solana mint is valid for Vectora.</p>
-        <div class="proof-block">
-          <code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
+        <div class="proof-block mint-row">
+          <code id="proofMintCode">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
+          <button class="copy-btn" type="button" data-copy-target="proofMintCode">Copy mint</button>
         </div>
         <div class="warn">Any token, post, pair, or wallet route using a different mint should be treated as fake.</div>
       </article>
@@ -206,5 +228,28 @@
       </article>
     </section>
   </main>
+  <script>
+    const copyButtons = document.querySelectorAll('[data-copy-target]');
+
+    async function copyMint(button) {
+      const target = document.getElementById(button.dataset.copyTarget);
+      if (!target) return;
+      const text = target.textContent.trim();
+      const original = button.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = 'Copied';
+      } catch {
+        button.textContent = 'Copy failed';
+      }
+      setTimeout(() => {
+        button.textContent = original;
+      }, 1400);
+    }
+
+    copyButtons.forEach((button) => {
+      button.addEventListener('click', () => copyMint(button));
+    });
+  </script>
 </body>
 </html>
