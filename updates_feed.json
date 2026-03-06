@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-03-06 16:43:17 UTC",
+  "generated_at_utc": "2026-03-06 16:54:40 UTC",
   "items": [
     {
-      "timestamp_utc": "2026-03-06 16:43:17 UTC",
-      "mystery_line": "Not all systems announce themselves loudly.",
+      "timestamp_utc": "2026-03-06 16:54:40 UTC",
+      "mystery_line": "Vectora moves in proofs, not promises.",
       "snapshot": {
         "pair": "VTRAI/USDC",
         "price_usd": "n/a",
@@ -15,23 +15,7 @@
         "website": "https://getvectora.ai",
         "telegram": "https://t.me/vectorasignal"
       },
-      "text": "Daily signal check: Vectora ($VTRAI)\n\nNot all systems announce themselves loudly.\n\nLive snapshot:\n- Price: $n/a\n- 24h Volume: $n/a\n- Liquidity: $n/a\n- Pair: VTRAI/USDC\n\nOfficial mint:\nLy4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n\nProof links:\n- Pair: n/a\n- Website: https://getvectora.ai\n- Telegram: https://t.me/vectorasignal\n\nSecurity:\n- This is the only official mint.\n- No return promises. No private-key requests.\n"
-    },
-    {
-      "timestamp_utc": "2026-03-06 16:25:44 UTC",
-      "mystery_line": "Not all systems announce themselves loudly.",
-      "snapshot": {
-        "pair": "VTRAI/USDC",
-        "price_usd": "n/a",
-        "volume_24h": "n/a",
-        "liquidity_usd": "n/a"
-      },
-      "proof": {
-        "pair": "n/a",
-        "website": "https://getvectora.ai",
-        "telegram": "https://t.me/vectorasignal"
-      },
-      "text": "Daily signal check: Vectora ($VTRAI)\n\nNot all systems announce themselves loudly.\n\nLive snapshot:\n- Price: $n/a\n- 24h Volume: $n/a\n- Liquidity: $n/a\n- Pair: VTRAI/USDC\n\nOfficial mint:\nLy4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n\nProof links:\n- Pair: n/a\n- Website: https://getvectora.ai\n- Telegram: https://t.me/vectorasignal\n\nSecurity:\n- This is the only official mint.\n- No return promises. No private-key requests.\n"
+      "text": "Daily signal check: Vectora ($VTRAI)\n\nVectora moves in proofs, not promises.\n\nLive snapshot:\n- Price: $n/a\n- 24h Volume: $n/a\n- Liquidity: $n/a\n- Pair: VTRAI/USDC\n\nOfficial mint:\nLy4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n\nProof links:\n- Pair: n/a\n- Website: https://getvectora.ai\n- Telegram: https://t.me/vectorasignal\n\nSecurity:\n- This is the only official mint.\n- No return promises. No private-key requests.\n"
     },
     {
       "timestamp_utc": "2026-03-06 11:39:24 UTC",
@@ -178,5 +162,5 @@
       "text": "Daily signal check: Vectora ($VTRAI)\n\nNot all systems announce themselves loudly.\n\nLive snapshot:\n- Price: $n/a\n- 24h Volume: $n/a\n- Liquidity: $n/a\n- Pair: VTRAI/USDC\n\nOfficial mint:\nLy4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n\nProof links:\n- Pair: n/a\n- Website: https://getvectora.ai\n- Telegram: https://t.me/vectorasignal\n\nSecurity:\n- This is the only official mint.\n- No return promises. No private-key requests.\n"
     }
   ],
-  "generated_at_iso": "2026-03-06T16:43:17Z"
+  "generated_at_iso": "2026-03-06T16:54:40Z"
 }

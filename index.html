@@ -446,10 +446,11 @@
 
     .trust-form {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: 180px minmax(0, 1fr) auto;
       gap: 10px;
     }
 
+    .trust-select,
     .trust-input {
       width: 100%;
       border: 1px solid var(--line);
@@ -458,6 +459,38 @@
       color: var(--ink);
       padding: 12px 14px;
       font: inherit;
+    }
+
+    .trust-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .trust-meta div {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(16, 28, 48, 0.64);
+    }
+
+    .trust-meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .trust-bullets {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .trust-bullets li {
+      margin-bottom: 5px;
     }
 
     .trust-result {
@@ -488,12 +521,19 @@
       font-size: 0.88rem;
     }
 
+    .trust-note {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
     @media (max-width: 930px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
       .launch-grid { grid-template-columns: 1fr; }
       .status-row { grid-template-columns: 1fr; }
       .trust-form { grid-template-columns: 1fr; }
+      .trust-meta { grid-template-columns: 1fr; }
       h1 { font-size: 2.12rem; }
     }
   </style>
@@ -540,16 +580,27 @@
 
     <section id="trust-check" class="checker reveal">
       <h2>Check Whether a Token Is the Real Vectora Contract</h2>
-      <p class="sub">Paste a token mint to check whether it matches the official Vectora contract and open the proof links.</p>
+      <p class="sub">Paste a token mint or contract address to inspect it. The checker currently supports Solana plus major EVM networks and returns a simple trust card with proof links.</p>
       <div class="trust-tool">
         <div class="trust-form">
+          <select id="networkSelect" class="trust-select">
+            <option value="auto">Auto detect</option>
+            <option value="solana">Solana</option>
+            <option value="1">Ethereum</option>
+            <option value="8453">Base</option>
+            <option value="56">BNB Chain</option>
+            <option value="42161">Arbitrum</option>
+            <option value="137">Polygon</option>
+            <option value="10">Optimism</option>
+          </select>
           <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
           <button id="trustButton" class="btn" type="button">Check Token</button>
         </div>
         <div id="trustResult" class="trust-result">
           <strong>Awaiting input.</strong>
-          <div class="v">Paste a Solana token mint to see whether it matches the official Vectora contract. This is the current public trust-check feature on the site.</div>
+          <div class="v">Paste a token address to get a first-pass trust card. Exact Vectora verification stays strongest on Solana; broader third-party token scoring is now rolling out across supported chains.</div>
         </div>
+        <div class="trust-note">Supported now: Solana, Ethereum, Base, BNB Chain, Arbitrum, Polygon, and Optimism. Auto detect works for Solana and will sweep the common EVM set when a `0x...` contract is pasted.</div>
       </div>
     </section>
 
@@ -811,6 +862,38 @@
     const OFFICIAL_PAIR = 'https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu';
     const SOLSCAN_BASE = 'https://solscan.io/token/';
     const RAYDIUM_BASE = 'https://raydium.io/swap/?inputMint=sol&outputMint=';
+    const DEX_SEARCH_BASE = 'https://dexscreener.com/search?q=';
+    const NETWORKS = {
+      solana: {
+        label: 'Solana',
+        explorer: 'https://solscan.io/token/',
+      },
+      '1': {
+        label: 'Ethereum',
+        explorer: 'https://etherscan.io/token/',
+      },
+      '8453': {
+        label: 'Base',
+        explorer: 'https://basescan.org/token/',
+      },
+      '56': {
+        label: 'BNB Chain',
+        explorer: 'https://bscscan.com/token/',
+      },
+      '42161': {
+        label: 'Arbitrum',
+        explorer: 'https://arbiscan.io/token/',
+      },
+      '137': {
+        label: 'Polygon',
+        explorer: 'https://polygonscan.com/token/',
+      },
+      '10': {
+        label: 'Optimism',
+        explorer: 'https://optimistic.etherscan.io/token/',
+      },
+    };
+    const EVM_CHAIN_IDS = ['1', '8453', '56', '42161', '137', '10'];
 
     const cards = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
@@ -824,6 +907,7 @@
     });
 
     const trustInput = document.getElementById('trustInput');
+    const networkSelect = document.getElementById('networkSelect');
     const trustButton = document.getElementById('trustButton');
     const trustResult = document.getElementById('trustResult');
 
@@ -831,42 +915,320 @@
       trustResult.innerHTML = html;
     }
 
-    function checkToken() {
-      const raw = trustInput.value.trim();
-      if (!raw) {
-        renderTrustResult(`
-          <strong>Awaiting input.</strong>
-          <div class="v">Paste a token mint to compare it against the official Vectora contract.</div>
-        `);
+    function normalizeInput(raw) {
+      return raw.trim();
+    }
+
+    function isLikelySolanaAddress(value) {
+      return /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(value);
+    }
+
+    function isLikelyEvmAddress(value) {
+      return /^0x[a-fA-F0-9]{40}$/.test(value);
+    }
+
+    function formatValue(value) {
+      if (value === undefined || value === null || value === '') return 'Unknown';
+      const num = Number(value);
+      if (Number.isFinite(num) && Math.abs(num) >= 1) return num.toLocaleString(undefined, { maximumFractionDigits: 2 });
+      return String(value);
+    }
+
+    function buildStatusTone(level) {
+      if (level === 'verified') return 'var(--good)';
+      if (level === 'low') return 'var(--good)';
+      if (level === 'medium') return '#ffd27f';
+      return 'var(--warn)';
+    }
+
+    function buildLinks(networkId, address) {
+      const network = NETWORKS[networkId];
+      const explorerUrl = network ? `${network.explorer}${encodeURIComponent(address)}` : '#';
+      const links = [
+        `<a href="${explorerUrl}" target="_blank" rel="noreferrer">Open explorer</a>`,
+        `<a href="${DEX_SEARCH_BASE}${encodeURIComponent(address)}" target="_blank" rel="noreferrer">Search on DexScreener</a>`,
+      ];
+      if (networkId === 'solana') {
+        links.push(`<a href="${RAYDIUM_BASE}${encodeURIComponent(address)}" target="_blank" rel="noreferrer">Open Raydium route</a>`);
+      }
+      return links.join('');
+    }
+
+    function renderCard({ title, tone, summary, meta, bullets, links }) {
+      renderTrustResult(`
+        <strong style="color: ${tone};">${title}</strong>
+        <div class="v">${summary}</div>
+        <div class="trust-meta">
+          ${meta.map((item) => `
+            <div>
+              <span>${item.label}</span>
+              <strong>${item.value}</strong>
+            </div>
+          `).join('')}
+        </div>
+        <ul class="trust-bullets">
+          ${bullets.map((item) => `<li>${item}</li>`).join('')}
+        </ul>
+        <div class="trust-links">${links}</div>
+      `);
+    }
+
+    async function fetchEvmSecurity(chainId, address) {
+      const url = `https://api.gopluslabs.io/api/v1/token_security/${chainId}?contract_addresses=${encodeURIComponent(address)}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Security API failed for chain ${chainId}`);
+      const payload = await response.json();
+      const key = address.toLowerCase();
+      return payload.result ? payload.result[key] : null;
+    }
+
+    async function fetchSolanaSecurity(address) {
+      const url = `https://api.gopluslabs.io/api/v1/solana/token_security?contract_addresses=${encodeURIComponent(address)}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Security API failed for Solana');
+      const payload = await response.json();
+      return payload.result ? payload.result[address] : null;
+    }
+
+    function analyzeEvmToken(chainId, address, data) {
+      let risk = 0;
+      const bullets = [];
+      const ownerAddress = data.owner_address || '';
+      const buyTax = Number(data.buy_tax || 0);
+      const sellTax = Number(data.sell_tax || 0);
+      const transferTax = Number(data.transfer_tax || 0);
+
+      if (data.is_honeypot === '1') {
+        risk += 4;
+        bullets.push('GoPlus flags this token as a honeypot risk.');
+      }
+      if (data.is_open_source !== '1') {
+        risk += 2;
+        bullets.push('Contract is not reported as open source.');
+      } else {
+        bullets.push('Contract is reported as open source.');
+      }
+      if (ownerAddress && ownerAddress !== '0x0000000000000000000000000000000000000000') {
+        risk += 2;
+        bullets.push('Owner privileges appear to exist on the contract.');
+      } else {
+        bullets.push('No active owner address was reported.');
+      }
+      if (data.is_proxy === '1' || data.proxy === '1') {
+        risk += 1;
+        bullets.push('Proxy or upgrade pattern detected.');
+      }
+      if (data.cannot_buy === '1' || data.cannot_sell_all === '1') {
+        risk += 3;
+        bullets.push('Trading restrictions were reported by the security API.');
+      }
+      if (buyTax > 10 || sellTax > 10 || transferTax > 10) {
+        risk += 1;
+        bullets.push(`Elevated tax detected: buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.`);
+      } else {
+        bullets.push(`Tax profile: buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.`);
+      }
+      if (Array.isArray(data.dex) && data.dex.length > 0) {
+        bullets.push(`DEX liquidity observed across ${data.dex.length} venue(s).`);
+      } else {
+        bullets.push('No DEX liquidity was returned by the security API.');
+      }
+
+      let level = 'low';
+      let title = 'Low caution';
+      if (risk >= 5) {
+        level = 'high';
+        title = 'High caution';
+      } else if (risk >= 2) {
+        level = 'medium';
+        title = 'Medium caution';
+      }
+
+      renderCard({
+        title: `${title} on ${NETWORKS[chainId].label}`,
+        tone: buildStatusTone(level),
+        summary: `This is a first-pass trust card for a third-party token on ${NETWORKS[chainId].label}. It is not a guarantee of safety; it summarizes the main visible contract and trading risks.`,
+        meta: [
+          { label: 'Network', value: NETWORKS[chainId].label },
+          { label: 'Token', value: `${data.token_name || 'Unknown'}${data.token_symbol ? ` (${data.token_symbol})` : ''}` },
+          { label: 'Supply', value: formatValue(data.total_supply) },
+        ],
+        bullets,
+        links: buildLinks(chainId, address),
+      });
+    }
+
+    function analyzeSolanaToken(address, data) {
+      const mintable = data.mintable?.status === '1';
+      const freezable = data.freezable?.status === '1';
+      const metadataMutable = data.metadata_mutable?.status === '1';
+      const nonTransferable = data.non_transferable?.status === '1';
+      let risk = 0;
+      const bullets = [];
+
+      if (address === OFFICIAL_MINT) {
+        renderCard({
+          title: 'Verified official Vectora mint',
+          tone: buildStatusTone('verified'),
+          summary: 'This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.',
+          meta: [
+            { label: 'Network', value: 'Solana' },
+            { label: 'Token', value: `${data.metadata?.name || 'Vectora'} (${data.metadata?.symbol || 'VTRAI'})` },
+            { label: 'Supply', value: formatValue(data.total_supply) },
+          ],
+          bullets: [
+            `Mint authority: ${mintable ? 'active' : 'revoked'}.`,
+            `Freeze authority: ${freezable ? 'active' : 'revoked'}.`,
+            `Metadata mutability: ${metadataMutable ? 'mutable' : 'locked'}.`,
+          ],
+          links: `
+            <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Solscan</a>
+            <a href="${OFFICIAL_PAIR}" target="_blank" rel="noreferrer">Open DexScreener pair</a>
+            <a href="${RAYDIUM_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Raydium route</a>
+          `,
+        });
         return;
       }
 
-      const mint = raw.replace(/[^1-9A-HJ-NP-Za-km-z]/g, '');
-      const solscan = `${SOLSCAN_BASE}${encodeURIComponent(mint)}`;
-      const dexscreener = `https://dexscreener.com/solana/${encodeURIComponent(mint)}`;
+      if (mintable) {
+        risk += 3;
+        bullets.push('Mint authority appears active.');
+      } else {
+        bullets.push('Mint authority appears revoked.');
+      }
+      if (freezable) {
+        risk += 2;
+        bullets.push('Freeze authority appears active.');
+      } else {
+        bullets.push('Freeze authority appears revoked.');
+      }
+      if (metadataMutable) {
+        risk += 1;
+        bullets.push('Metadata is still mutable.');
+      } else {
+        bullets.push('Metadata appears locked.');
+      }
+      if (nonTransferable) {
+        risk += 2;
+        bullets.push('Token is flagged as non-transferable.');
+      }
+      if (Array.isArray(data.dex) && data.dex.length > 0) {
+        bullets.push(`DEX pools found: ${data.dex.length}.`);
+      } else {
+        bullets.push('No DEX pools were returned by the API.');
+      }
 
-      if (mint === OFFICIAL_MINT) {
+      let level = 'low';
+      let title = 'Low caution';
+      if (risk >= 5) {
+        level = 'high';
+        title = 'High caution';
+      } else if (risk >= 2) {
+        level = 'medium';
+        title = 'Medium caution';
+      }
+
+      renderCard({
+        title: `${title} on Solana`,
+        tone: buildStatusTone(level),
+        summary: 'This is a first-pass trust card for a Solana token. It focuses on mint control, freeze control, metadata mutability, and visible pool presence.',
+        meta: [
+          { label: 'Network', value: 'Solana' },
+          { label: 'Token', value: `${data.metadata?.name || 'Unknown'}${data.metadata?.symbol ? ` (${data.metadata.symbol})` : ''}` },
+          { label: 'Supply', value: formatValue(data.total_supply) },
+        ],
+        bullets,
+        links: buildLinks('solana', address),
+      });
+    }
+
+    async function autoDetectEvm(address) {
+      const results = await Promise.all(EVM_CHAIN_IDS.map(async (chainId) => {
+        try {
+          const data = await fetchEvmSecurity(chainId, address);
+          if (!data) return null;
+          const hasSignal = data.token_name || data.token_symbol || data.total_supply || (Array.isArray(data.dex) && data.dex.length > 0);
+          return hasSignal ? { chainId, data } : null;
+        } catch {
+          return null;
+        }
+      }));
+      return results.filter(Boolean);
+    }
+
+    async function checkToken() {
+      const raw = normalizeInput(trustInput.value);
+      const selectedNetwork = networkSelect.value;
+
+      if (!raw) {
         renderTrustResult(`
-          <strong class="ok">Verified official Vectora mint.</strong>
-          <div class="v">This mint matches the canonical contract published on the site, in Telegram, and in official launch posts.</div>
-          <div class="trust-links">
-            <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">View on Solscan</a>
-            <a href="${OFFICIAL_PAIR}" target="_blank" rel="noreferrer">Open DexScreener Pair</a>
-            <a href="${RAYDIUM_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Raydium Route</a>
-          </div>
+          <strong>Awaiting input.</strong>
+          <div class="v">Paste a token mint or contract address to get a first-pass trust card.</div>
         `);
         return;
       }
 
       renderTrustResult(`
-        <strong style="color: var(--warn);">Unverified by Vectora.</strong>
-        <div class="v">This mint does not match the official Vectora contract. Treat it as unrelated or potentially impersonating until proven otherwise.</div>
-        <div class="trust-links">
-          <a href="${solscan}" target="_blank" rel="noreferrer">Inspect on Solscan</a>
-          <a href="${dexscreener}" target="_blank" rel="noreferrer">Search on DexScreener</a>
-          <a href="./updates.html" target="_blank" rel="noreferrer">Check official updates</a>
-        </div>
+        <strong>Checking token...</strong>
+        <div class="v">Fetching contract and token security data.</div>
       `);
+
+      try {
+        if (selectedNetwork === 'auto') {
+          if (isLikelySolanaAddress(raw)) {
+            const data = await fetchSolanaSecurity(raw);
+            if (!data) throw new Error('No Solana data returned for that mint.');
+            analyzeSolanaToken(raw, data);
+            return;
+          }
+
+          if (isLikelyEvmAddress(raw)) {
+            const matches = await autoDetectEvm(raw);
+            if (matches.length === 0) {
+              throw new Error('No token data was found on the common supported EVM networks.');
+            }
+            if (matches.length > 1) {
+              renderCard({
+                title: 'Multiple network matches found',
+                tone: '#ffd27f',
+                summary: 'This address appears on more than one supported EVM network. Pick the intended chain from the selector and run the check again for an exact trust card.',
+                meta: [
+                  { label: 'Address', value: raw },
+                  { label: 'Matches', value: String(matches.length) },
+                  { label: 'Mode', value: 'Auto detect' },
+                ],
+                bullets: matches.map((match) => `Potential match on ${NETWORKS[match.chainId].label}.`),
+                links: buildLinks(matches[0].chainId, raw),
+              });
+              return;
+            }
+            analyzeEvmToken(matches[0].chainId, raw, matches[0].data);
+            return;
+          }
+
+          throw new Error('Auto detect currently supports Solana mints and common EVM contract addresses.');
+        }
+
+        if (selectedNetwork === 'solana') {
+          const data = await fetchSolanaSecurity(raw);
+          if (!data) throw new Error('No Solana token data returned for that mint.');
+          analyzeSolanaToken(raw, data);
+          return;
+        }
+
+        const data = await fetchEvmSecurity(selectedNetwork, raw);
+        if (!data) throw new Error(`No token data returned for ${NETWORKS[selectedNetwork].label}.`);
+        analyzeEvmToken(selectedNetwork, raw, data);
+      } catch (error) {
+        renderTrustResult(`
+          <strong style="color: var(--warn);">Check unavailable</strong>
+          <div class="v">${error.message}</div>
+          <div class="trust-links">
+            <a href="./updates.html" target="_blank" rel="noreferrer">Official updates</a>
+            <a href="${DEX_SEARCH_BASE}${encodeURIComponent(raw)}" target="_blank" rel="noreferrer">Search on DexScreener</a>
+          </div>
+        `);
+      }
     }
 
     trustButton.addEventListener('click', checkToken);
