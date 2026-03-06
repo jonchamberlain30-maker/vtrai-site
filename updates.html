@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vectora | Official Updates</title>
+  <style>
+    :root {
+      --bg-1: #050912;
+      --bg-2: #0b1630;
+      --bg-3: #101d3f;
+      --ink: #e8f8ff;
+      --muted: #9ab1c8;
+      --line: #243753;
+      --cyan: #4deaff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+      --card: rgba(9, 16, 32, 0.7);
+      --warn-strong: #ffd9a7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(920px 560px at 10% -10%, rgba(77,234,255,0.2), transparent 55%),
+        radial-gradient(820px 640px at 100% 110%, rgba(157,124,255,0.16), transparent 55%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
+    .brand {
+      margin-bottom: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: rgba(8, 14, 29, 0.78);
+    }
+    .brand a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px dashed #466487;
+      font-size: 0.93rem;
+      margin-left: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.05rem;
+      letter-spacing: 0.2px;
+    }
+    .sub {
+      color: var(--muted);
+      margin-top: 8px;
+      margin-bottom: 0;
+      max-width: 840px;
+      line-height: 1.45;
+    }
+    .badges {
+      margin: 16px 0 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+    .state {
+      margin: 0;
+      padding: 10px;
+      border: 1px dashed rgba(74, 227, 181, 0.45);
+      border-radius: 10px;
+      background: rgba(17, 63, 54, 0.28);
+      color: var(--good);
+      font-size: 0.9rem;
+    }
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 14px;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .item {
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 12px;
+      background: rgba(10, 18, 36, 0.8);
+    }
+    .item + .item { margin-top: 10px; }
+    .item h3 {
+      margin: 0 0 4px;
+      font-size: 0.97rem;
+    }
+    .meta {
+      color: #b2d2ff;
+      font-size: 0.8rem;
+      margin-bottom: 7px;
+    }
+    .post {
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--ink);
+      background: rgba(5, 10, 20, 0.55);
+      border: 1px solid rgba(93, 124, 170, 0.3);
+      border-radius: 8px;
+      padding: 10px;
+      overflow-x: auto;
+    }
+    .links {
+      margin-top: 8px;
+      color: #bdd9f0;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    .links a {
+      color: #f3fdff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin-right: 8px;
+    }
+    .warn {
+      margin-top: 14px;
+      border: 1px solid #4c2a37;
+      border-radius: 12px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+    .loading {
+      color: var(--warn-strong);
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.7rem; }
+    }
+    .cadence {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      margin-top: 10px;
+      background: rgba(17, 38, 66, 0.4);
+      font-size: 0.86rem;
+      color: #b7d5ee;
+      line-height: 1.45;
+    }
+    .cadence b { color: #e7fbff; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand">
+      <div>
+        <h1>Official Vectora Update Desk</h1>
+        <p class="sub">Primary source for launch notices, proof snapshots, and trust updates while X is still under setup.</p>
+      </div>
+      <div>
+        <a href="./index.html">Back to Homepage</a>
+        <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+      </div>
+    </header>
+
+    <div class="badges">
+      <span class="badge">Proof-first comms</span>
+      <span class="badge">No live videos</span>
+      <span class="badge">Website-first release</span>
+      <span class="badge">X rollout once ready</span>
+    </div>
+    <p class="state" id="status">Loading latest updates...</p>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Latest Bulletin</h2>
+        <div id="latestItem"><p class="loading">Waiting for update feed...</p></div>
+        <div class="cadence">
+          <div><b>Today:</b> Market-gated build-up updates and trust checks.</div>
+          <div><b>This week:</b> Milestone confirmation for Trust Card Engine prerequisites.</div>
+          <div><b>Next:</b> Threat Graph planning update once proof quality passes the launch gate.</div>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Release Plan</h2>
+        <p>We post the same official message content here and then mirror to Telegram/X when both social channels are fully live. This keeps community access consistent and verifiable.</p>
+        <div class="links">
+          <a href="./whitepaper.html">Whitepaper</a>
+          <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+          <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
+        </div>
+        <p class="warn">If a post is not on one of the official channels above, treat it as unverified.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Update History</h2>
+      <div id="history"><p class="loading">No feed loaded yet.</p></div>
+    </section>
+  </main>
+
+  <script>
+    const statusEl = document.getElementById('status');
+    const latestItemEl = document.getElementById('latestItem');
+    const historyEl = document.getElementById('history');
+
+    function renderItem(item) {
+      const snapshot = item.snapshot || {};
+      const links = item.proof || {};
+      const proofPairs = [];
+      if (links.pair) proofPairs.push(`Pair: ${links.pair}`);
+      if (links.website) proofPairs.push(`<a href=\"${links.website}\" target=\"_blank\" rel=\"noreferrer\">Website</a>`);
+      if (links.telegram) proofPairs.push(`<a href=\"${links.telegram}\" target=\"_blank\" rel=\"noreferrer\">Telegram</a>`);
+      if (links.x) proofPairs.push(`<a href=\"${links.x}\" target=\"_blank\" rel=\"noreferrer\">X</a>`);
+
+      return `\\n        <article class=\"item\">\\n          <h3>${item.timestamp_utc}</h3>\\n          <div class=\"meta\">Pair: ${snapshot.pair || 'Vectora'} · Price: ${snapshot.price_usd || 'n/a'} · Volume: ${snapshot.volume_24h || 'n/a'} · Liquidity: ${snapshot.liquidity_usd || 'n/a'}</div>\\n          <pre class=\"post\">${item.text || ''}</pre>\\n          <div class=\"links\">${proofPairs.join(' ')}</div>\\n        </article>\\n      `;
+    }
+
+    fetch('./updates_feed.json', { cache: 'no-store' })
+      .then((res) => {
+        if (!res.ok) throw new Error('no-feed');
+        return res.json();
+      })
+      .then((data) => {
+        const items = (data && Array.isArray(data.items)) ? data.items : [];
+        if (!items.length) {
+          statusEl.textContent = 'Feed is online but empty.';
+          latestItemEl.innerHTML = '<p>No updates yet. Post first update after setup is complete.</p>';
+          historyEl.innerHTML = '<p>Empty.</p>';
+          return;
+        }
+
+        statusEl.textContent = `Feed synced: ${data.generated_at_utc || 'now'} (latest: ${items[0].timestamp_utc || 'n/a'})`;
+        latestItemEl.innerHTML = renderItem(items[0]);
+        if (items.length > 1) {
+          const others = items.slice(1).map(renderItem).join('');
+          historyEl.innerHTML = others;
+        } else {
+          historyEl.innerHTML = '<p>No previous updates yet.</p>';
+        }
+      })
+      .catch(() => {
+        statusEl.textContent = 'Update feed not published yet.';
+        latestItemEl.innerHTML = '<p>Run update automation once to publish the first bulletin.</p>';
+        historyEl.innerHTML = '<p class=\"loading\">No feed file found at /updates_feed.json.</p>';
+      });
+  </script>
+</body>
+</html>
