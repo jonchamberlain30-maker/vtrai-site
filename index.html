@@ -870,26 +870,32 @@
       },
       '1': {
         label: 'Ethereum',
+        dexChainId: 'ethereum',
         explorer: 'https://etherscan.io/token/',
       },
       '8453': {
         label: 'Base',
+        dexChainId: 'base',
         explorer: 'https://basescan.org/token/',
       },
       '56': {
         label: 'BNB Chain',
+        dexChainId: 'bsc',
         explorer: 'https://bscscan.com/token/',
       },
       '42161': {
         label: 'Arbitrum',
+        dexChainId: 'arbitrum',
         explorer: 'https://arbiscan.io/token/',
       },
       '137': {
         label: 'Polygon',
+        dexChainId: 'polygon',
         explorer: 'https://polygonscan.com/token/',
       },
       '10': {
         label: 'Optimism',
+        dexChainId: 'optimism',
         explorer: 'https://optimistic.etherscan.io/token/',
       },
     };
@@ -934,11 +940,24 @@
       return String(value);
     }
 
+    function formatUsd(value) {
+      const num = Number(value);
+      if (!Number.isFinite(num) || num <= 0) return 'Unknown';
+      return `$${num.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+    }
+
     function buildStatusTone(level) {
       if (level === 'verified') return 'var(--good)';
       if (level === 'low') return 'var(--good)';
       if (level === 'medium') return '#ffd27f';
       return 'var(--warn)';
+    }
+
+    function buildStatusLabel(level) {
+      if (level === 'verified') return 'Verified official token';
+      if (level === 'low') return 'Low caution';
+      if (level === 'medium') return 'Medium caution';
+      return 'High caution';
     }
 
     function buildLinks(networkId, address) {
@@ -954,7 +973,7 @@
       return links.join('');
     }
 
-    function renderCard({ title, tone, summary, meta, bullets, links }) {
+    function renderCard({ title, tone, summary, meta, bullets, links, reasons = [] }) {
       renderTrustResult(`
         <strong style="color: ${tone};">${title}</strong>
         <div class="v">${summary}</div>
@@ -966,6 +985,9 @@
             </div>
           `).join('')}
         </div>
+        <ul class="trust-bullets">
+          ${reasons.map((item) => `<li><strong>${item.label}:</strong> ${item.text}</li>`).join('')}
+        </ul>
         <ul class="trust-bullets">
           ${bullets.map((item) => `<li>${item}</li>`).join('')}
         </ul>
@@ -990,40 +1012,65 @@
       return payload.result ? payload.result[address] : null;
     }
 
-    function analyzeEvmToken(chainId, address, data) {
+    async function fetchDexPair(address, preferredChainId) {
+      try {
+        const url = `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(address)}`;
+        const response = await fetch(url);
+        if (!response.ok) return null;
+        const payload = await response.json();
+        const pairs = Array.isArray(payload.pairs) ? payload.pairs : [];
+        if (!pairs.length) return null;
+        const preferred = pairs.filter((pair) => pair.chainId === preferredChainId);
+        const pool = preferred.length ? preferred : pairs;
+        pool.sort((a, b) => (Number(b?.liquidity?.usd || 0) - Number(a?.liquidity?.usd || 0)));
+        return pool[0] || null;
+      } catch {
+        return null;
+      }
+    }
+
+    async function analyzeEvmToken(chainId, address, data) {
       let risk = 0;
       const bullets = [];
+      const reasons = [];
       const ownerAddress = data.owner_address || '';
       const buyTax = Number(data.buy_tax || 0);
       const sellTax = Number(data.sell_tax || 0);
       const transferTax = Number(data.transfer_tax || 0);
+      const topPair = await fetchDexPair(address, NETWORKS[chainId].dexChainId);
 
       if (data.is_honeypot === '1') {
         risk += 4;
+        reasons.push({ label: 'Honeypot signal', text: 'The security API flags potential honeypot behavior.' });
         bullets.push('GoPlus flags this token as a honeypot risk.');
       }
       if (data.is_open_source !== '1') {
         risk += 2;
+        reasons.push({ label: 'Contract visibility', text: 'Contract is not reported as open source.' });
         bullets.push('Contract is not reported as open source.');
       } else {
         bullets.push('Contract is reported as open source.');
       }
       if (ownerAddress && ownerAddress !== '0x0000000000000000000000000000000000000000') {
         risk += 2;
+        reasons.push({ label: 'Owner control', text: 'Owner privileges appear to remain active.' });
         bullets.push('Owner privileges appear to exist on the contract.');
       } else {
         bullets.push('No active owner address was reported.');
       }
       if (data.is_proxy === '1' || data.proxy === '1') {
         risk += 1;
+        reasons.push({ label: 'Upgrade risk', text: 'Proxy or upgrade pattern was detected.' });
         bullets.push('Proxy or upgrade pattern detected.');
       }
       if (data.cannot_buy === '1' || data.cannot_sell_all === '1') {
         risk += 3;
+        reasons.push({ label: 'Trading restrictions', text: 'The security API reports buy or sell restrictions.' });
         bullets.push('Trading restrictions were reported by the security API.');
       }
       if (buyTax > 10 || sellTax > 10 || transferTax > 10) {
         risk += 1;
+        reasons.push({ label: 'Token tax', text: `Elevated tax profile detected at buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.` });
         bullets.push(`Elevated tax detected: buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.`);
       } else {
         bullets.push(`Tax profile: buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.`);
@@ -1035,36 +1082,42 @@
       }
 
       let level = 'low';
-      let title = 'Low caution';
       if (risk >= 5) {
         level = 'high';
-        title = 'High caution';
       } else if (risk >= 2) {
         level = 'medium';
-        title = 'Medium caution';
       }
 
       renderCard({
-        title: `${title} on ${NETWORKS[chainId].label}`,
+        title: `${buildStatusLabel(level)} on ${NETWORKS[chainId].label}`,
         tone: buildStatusTone(level),
         summary: `This is a first-pass trust card for a third-party token on ${NETWORKS[chainId].label}. It is not a guarantee of safety; it summarizes the main visible contract and trading risks.`,
         meta: [
           { label: 'Network', value: NETWORKS[chainId].label },
           { label: 'Token', value: `${data.token_name || 'Unknown'}${data.token_symbol ? ` (${data.token_symbol})` : ''}` },
           { label: 'Supply', value: formatValue(data.total_supply) },
+          { label: 'Top liquidity', value: topPair ? formatUsd(topPair.liquidity?.usd) : 'Unknown' },
+          { label: 'Top venue', value: topPair ? `${topPair.dexId || 'Unknown'} / ${topPair.pairAddress?.slice(0, 8) || ''}` : 'Unknown' },
+          { label: 'Open source', value: data.is_open_source === '1' ? 'Yes' : 'No' },
         ],
+        reasons: reasons.length ? reasons : [{ label: 'Why this score', text: 'No severe contract control or trading restriction flags were returned by the current checks.' }],
         bullets,
-        links: buildLinks(chainId, address),
+        links: `
+          ${buildLinks(chainId, address)}
+          ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
+        `,
       });
     }
 
-    function analyzeSolanaToken(address, data) {
+    async function analyzeSolanaToken(address, data) {
       const mintable = data.mintable?.status === '1';
       const freezable = data.freezable?.status === '1';
       const metadataMutable = data.metadata_mutable?.status === '1';
       const nonTransferable = data.non_transferable?.status === '1';
       let risk = 0;
       const bullets = [];
+      const reasons = [];
+      const topPair = await fetchDexPair(address, 'solana');
 
       if (address === OFFICIAL_MINT) {
         renderCard({
@@ -1075,6 +1128,14 @@
             { label: 'Network', value: 'Solana' },
             { label: 'Token', value: `${data.metadata?.name || 'Vectora'} (${data.metadata?.symbol || 'VTRAI'})` },
             { label: 'Supply', value: formatValue(data.total_supply) },
+            { label: 'Top liquidity', value: topPair ? formatUsd(topPair.liquidity?.usd) : 'Unknown' },
+            { label: 'Top venue', value: topPair ? `${topPair.dexId || 'Unknown'} / ${topPair.pairAddress?.slice(0, 8) || ''}` : 'Unknown' },
+            { label: 'Metadata mutable', value: metadataMutable ? 'Yes' : 'No' },
+          ],
+          reasons: [
+            { label: 'Official match', text: 'The pasted mint exactly matches the canonical Vectora contract.' },
+            { label: 'Mint control', text: `Mint authority is ${mintable ? 'still active' : 'revoked'}.` },
+            { label: 'Freeze control', text: `Freeze authority is ${freezable ? 'still active' : 'revoked'}.` },
           ],
           bullets: [
             `Mint authority: ${mintable ? 'active' : 'revoked'}.`,
@@ -1085,6 +1146,7 @@
             <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Solscan</a>
             <a href="${OFFICIAL_PAIR}" target="_blank" rel="noreferrer">Open DexScreener pair</a>
             <a href="${RAYDIUM_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Raydium route</a>
+            ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
           `,
         });
         return;
@@ -1092,24 +1154,28 @@
 
       if (mintable) {
         risk += 3;
+        reasons.push({ label: 'Mint control', text: 'Mint authority appears active, so supply controls may still exist.' });
         bullets.push('Mint authority appears active.');
       } else {
         bullets.push('Mint authority appears revoked.');
       }
       if (freezable) {
         risk += 2;
+        reasons.push({ label: 'Freeze control', text: 'Freeze authority appears active.' });
         bullets.push('Freeze authority appears active.');
       } else {
         bullets.push('Freeze authority appears revoked.');
       }
       if (metadataMutable) {
         risk += 1;
+        reasons.push({ label: 'Metadata mutability', text: 'Metadata can still be changed.' });
         bullets.push('Metadata is still mutable.');
       } else {
         bullets.push('Metadata appears locked.');
       }
       if (nonTransferable) {
         risk += 2;
+        reasons.push({ label: 'Transferability', text: 'The token is flagged as non-transferable.' });
         bullets.push('Token is flagged as non-transferable.');
       }
       if (Array.isArray(data.dex) && data.dex.length > 0) {
@@ -1119,26 +1185,30 @@
       }
 
       let level = 'low';
-      let title = 'Low caution';
       if (risk >= 5) {
         level = 'high';
-        title = 'High caution';
       } else if (risk >= 2) {
         level = 'medium';
-        title = 'Medium caution';
       }
 
       renderCard({
-        title: `${title} on Solana`,
+        title: `${buildStatusLabel(level)} on Solana`,
         tone: buildStatusTone(level),
         summary: 'This is a first-pass trust card for a Solana token. It focuses on mint control, freeze control, metadata mutability, and visible pool presence.',
         meta: [
           { label: 'Network', value: 'Solana' },
           { label: 'Token', value: `${data.metadata?.name || 'Unknown'}${data.metadata?.symbol ? ` (${data.metadata.symbol})` : ''}` },
           { label: 'Supply', value: formatValue(data.total_supply) },
+          { label: 'Top liquidity', value: topPair ? formatUsd(topPair.liquidity?.usd) : 'Unknown' },
+          { label: 'Top venue', value: topPair ? `${topPair.dexId || 'Unknown'} / ${topPair.pairAddress?.slice(0, 8) || ''}` : 'Unknown' },
+          { label: 'Metadata mutable', value: metadataMutable ? 'Yes' : 'No' },
         ],
+        reasons: reasons.length ? reasons : [{ label: 'Why this score', text: 'No major Solana control flags were returned by the current checks.' }],
         bullets,
-        links: buildLinks('solana', address),
+        links: `
+          ${buildLinks('solana', address)}
+          ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
+        `,
       });
     }
 
@@ -1178,7 +1248,7 @@
           if (isLikelySolanaAddress(raw)) {
             const data = await fetchSolanaSecurity(raw);
             if (!data) throw new Error('No Solana data returned for that mint.');
-            analyzeSolanaToken(raw, data);
+            await analyzeSolanaToken(raw, data);
             return;
           }
 
@@ -1202,7 +1272,7 @@
               });
               return;
             }
-            analyzeEvmToken(matches[0].chainId, raw, matches[0].data);
+            await analyzeEvmToken(matches[0].chainId, raw, matches[0].data);
             return;
           }
 
@@ -1212,13 +1282,13 @@
         if (selectedNetwork === 'solana') {
           const data = await fetchSolanaSecurity(raw);
           if (!data) throw new Error('No Solana token data returned for that mint.');
-          analyzeSolanaToken(raw, data);
+          await analyzeSolanaToken(raw, data);
           return;
         }
 
         const data = await fetchEvmSecurity(selectedNetwork, raw);
         if (!data) throw new Error(`No token data returned for ${NETWORKS[selectedNetwork].label}.`);
-        analyzeEvmToken(selectedNetwork, raw, data);
+        await analyzeEvmToken(selectedNetwork, raw, data);
       } catch (error) {
         renderTrustResult(`
           <strong style="color: var(--warn);">Check unavailable</strong>
