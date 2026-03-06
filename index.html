@@ -558,6 +558,46 @@
       line-height: 1.25;
     }
 
+    .trust-submeta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      border: 1px solid rgba(70, 100, 135, 0.48);
+      background: rgba(18, 30, 52, 0.64);
+      font-size: 0.76rem;
+      color: #d7ecff;
+      letter-spacing: 0.2px;
+    }
+
+    .trust-chip-mark {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+    }
+
+    .trust-chip-mark.status {
+      width: 10px;
+      height: 10px;
+      font-size: 0;
+      background: currentColor;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+    }
+
     .trust-badge {
       flex-shrink: 0;
       border-radius: 999px;
@@ -1157,14 +1197,26 @@
       return cleaned.slice(0, 2).toUpperCase() || 'TK';
     }
 
-    function renderCard({ title, tone, summary, meta, bullets, links, reasons = [], imageUrl = '' }) {
+    function buildNetworkMark(networkLabel) {
+      const map = {
+        'Solana': 'S',
+        'Ethereum': 'E',
+        'Base': 'B',
+        'BNB Chain': 'BN',
+        'Arbitrum': 'A',
+        'Polygon': 'P',
+        'Optimism': 'OP',
+        'Auto detect': 'A',
+      };
+      return map[networkLabel] || buildTokenFallback(networkLabel || 'N');
+    }
+
+    function renderCard({ title, tone, summary, meta, bullets, links, reasons = [], imageUrl = '', level = 'low', networkLabel = '' }) {
       const linkHtml = Array.isArray(links)
         ? links.map((link, index) => `<a class="${index === 0 ? '' : 'alt-link'}" href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
         : links;
-      const badgeLabel = buildStatusLabel((title || '').toLowerCase().includes('verified') ? 'verified'
-        : (title || '').toLowerCase().includes('high caution') ? 'high'
-        : (title || '').toLowerCase().includes('medium caution') ? 'medium'
-        : 'low').toUpperCase();
+      const statusLabel = buildStatusLabel(level);
+      const badgeLabel = statusLabel.toUpperCase();
       const reasonsHtml = reasons.length ? `
         <div class="trust-section">
           <h3>Why this score</h3>
@@ -1185,12 +1237,23 @@
       const logoHtml = imageUrl
         ? `<div class="trust-logo"><img src="${imageUrl}" alt="${title} token logo" loading="lazy" referrerpolicy="no-referrer" /></div>`
         : `<div class="trust-logo"><div class="trust-logo-fallback">${buildTokenFallback(title)}</div></div>`;
+      const derivedNetworkLabel = networkLabel || (meta.find((item) => item.label === 'Network') || {}).value || 'Unknown';
       renderTrustResult(`
         <div class="trust-head">
           <div class="trust-head-main">
             ${logoHtml}
             <div>
               <div class="trust-title" style="color: ${tone};">${title}</div>
+              <div class="trust-submeta">
+                <div class="trust-chip">
+                  <span class="trust-chip-mark">${buildNetworkMark(derivedNetworkLabel)}</span>
+                  <span>${derivedNetworkLabel}</span>
+                </div>
+                <div class="trust-chip" style="color: ${tone};">
+                  <span class="trust-chip-mark status"></span>
+                  <span>${statusLabel}</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
@@ -1220,6 +1283,8 @@
         bullets: report.notes || [],
         links: report.links || [],
         imageUrl: report.image_url || (report.official_vectora_mint === report.address ? OFFICIAL_IMAGE : ''),
+        level: report.level || 'low',
+        networkLabel: report.network_label || '',
       });
     }
 
@@ -1346,6 +1411,8 @@
           ${buildLinks(chainId, address)}
           ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
         `,
+        level,
+        networkLabel: NETWORKS[chainId].label,
       });
     }
 
@@ -1388,6 +1455,8 @@
             <a href="${RAYDIUM_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Raydium route</a>
             ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
           `,
+          level: 'verified',
+          networkLabel: 'Solana',
         });
         return;
       }
@@ -1450,6 +1519,8 @@
           ${buildLinks('solana', address)}
           ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
         `,
+        level,
+        networkLabel: 'Solana',
       });
     }
 
@@ -1523,6 +1594,8 @@
                 ],
                 bullets: matches.map((match) => `Potential match on ${NETWORKS[match.chainId].label}.`),
                 links: buildLinks(matches[0].chainId, raw),
+                level: 'medium',
+                networkLabel: 'Auto detect',
               });
               return;
             }
