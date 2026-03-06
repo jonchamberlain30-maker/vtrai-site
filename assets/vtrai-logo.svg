@@ -31,8 +31,8 @@
   <circle cx="512" cy="512" r="288" stroke="url(#frame)" stroke-width="28"/>
   <circle cx="512" cy="512" r="248" stroke="#85ECFF" stroke-width="2" opacity="0.18"/>
 
-  <path d="M236 236L376 236L506 548L648 236L788 236L542 730L446 730L236 236Z" fill="url(#frame)"/>
-  <path d="M314 286L396 286L506 508L618 286L700 286L528 648H472L314 286Z" fill="#081425" opacity="0.26"/>
+  <path d="M238 214L396 214L512 548L648 236L788 236L542 730L446 730L238 214Z" fill="url(#frame)"/>
+  <path d="M318 272L410 272L510 500L618 286L700 286L528 648H472L318 272Z" fill="#081425" opacity="0.26"/>
 
   <g opacity="0.2" filter="url(#softGlow)">
     <circle cx="512" cy="512" r="254" stroke="#64E9FF" stroke-width="16"/>
