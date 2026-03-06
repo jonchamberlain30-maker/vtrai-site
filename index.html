@@ -517,6 +517,41 @@
       margin-bottom: 10px;
     }
 
+    .trust-head-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .trust-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(77, 234, 255, 0.18), transparent 60%),
+        rgba(13, 22, 41, 0.96);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .trust-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .trust-logo-fallback {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #bdefff;
+      letter-spacing: 0.4px;
+    }
+
     .trust-title {
       margin: 0;
       font-size: 1.08rem;
@@ -1114,7 +1149,14 @@
       return links.join('');
     }
 
-    function renderCard({ title, tone, summary, meta, bullets, links, reasons = [] }) {
+    function buildTokenFallback(title) {
+      const cleaned = (title || 'TK').replace(/[^A-Za-z0-9 ]/g, '').trim();
+      const parts = cleaned.split(/\s+/).filter(Boolean);
+      if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+      return cleaned.slice(0, 2).toUpperCase() || 'TK';
+    }
+
+    function renderCard({ title, tone, summary, meta, bullets, links, reasons = [], imageUrl = '' }) {
       const linkHtml = Array.isArray(links)
         ? links.map((link, index) => `<a class="${index === 0 ? '' : 'alt-link'}" href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
         : links;
@@ -1139,10 +1181,16 @@
         </div>
       ` : '';
       const linksSectionHtml = linkHtml ? `<div class="trust-section"><h3>Proof links</h3><div class="trust-links">${linkHtml}</div></div>` : '';
+      const logoHtml = imageUrl
+        ? `<div class="trust-logo"><img src="${imageUrl}" alt="${title} token logo" loading="lazy" referrerpolicy="no-referrer" /></div>`
+        : `<div class="trust-logo"><div class="trust-logo-fallback">${buildTokenFallback(title)}</div></div>`;
       renderTrustResult(`
         <div class="trust-head">
-          <div>
-            <div class="trust-title" style="color: ${tone};">${title}</div>
+          <div class="trust-head-main">
+            ${logoHtml}
+            <div>
+              <div class="trust-title" style="color: ${tone};">${title}</div>
+            </div>
           </div>
           <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
         </div>
@@ -1170,6 +1218,7 @@
         reasons: report.reasons || [],
         bullets: report.notes || [],
         links: report.links || [],
+        imageUrl: report.image_url || '',
       });
     }
 
@@ -1204,6 +1253,18 @@
         return pool[0] || null;
       } catch {
         return null;
+      }
+    }
+
+    async function fetchMetadataImage(metadataUri) {
+      if (!metadataUri) return '';
+      try {
+        const response = await fetch(metadataUri);
+        if (!response.ok) return '';
+        const payload = await response.json();
+        return payload.image || payload?.properties?.files?.[0]?.uri || '';
+      } catch {
+        return '';
       }
     }
 
@@ -1296,6 +1357,7 @@
       const bullets = [];
       const reasons = [];
       const topPair = await fetchDexPair(address, 'solana');
+      const imageUrl = await fetchMetadataImage(data.metadata?.uri);
 
       if (address === OFFICIAL_MINT) {
         renderCard({
@@ -1318,6 +1380,7 @@
           bullets: [
             `Metadata mutability: ${metadataMutable ? 'mutable' : 'locked'}.`,
           ],
+          imageUrl,
           links: `
             <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Solscan</a>
             <a href="${OFFICIAL_PAIR}" target="_blank" rel="noreferrer">Open DexScreener pair</a>
@@ -1381,6 +1444,7 @@
         ],
         reasons: reasons.length ? reasons : [{ label: 'Why this score', text: 'No major Solana control flags were returned by the current checks.' }],
         bullets,
+        imageUrl,
         links: `
           ${buildLinks('solana', address)}
           ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
