@@ -58,8 +58,8 @@
   <g>
     <circle cx="1160" cy="422" r="230" stroke="url(#ring)" stroke-width="16"/>
     <circle cx="1160" cy="422" r="188" stroke="#81ECFF" stroke-width="2" opacity="0.16"/>
-    <path d="M910 408L1010 308L1152 540L1370 212L1454 212L1182 670L1108 670L910 408Z" fill="url(#ring)"/>
-    <path d="M1000 406L1062 344L1156 498L1332 246H1382L1180 606H1142L1000 406Z" fill="#081425" opacity="0.26"/>
+    <path d="M926 390L1018 298L1152 518L1370 212L1454 212L1182 648L1098 648L926 390Z" fill="url(#ring)"/>
+    <path d="M1010 390L1068 332L1156 476L1332 246H1382L1180 586H1138L1010 390Z" fill="#081425" opacity="0.26"/>
   </g>
 
   <g opacity="0.72">
