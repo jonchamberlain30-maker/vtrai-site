@@ -162,6 +162,22 @@
     .loading {
       color: var(--warn-strong);
     }
+    .empty-state {
+      border: 1px dashed rgba(77, 234, 255, 0.28);
+      border-radius: 12px;
+      background: rgba(10, 19, 38, 0.78);
+      padding: 14px;
+    }
+    .empty-state strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .empty-state p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
     @media (max-width: 860px) {
       .grid { grid-template-columns: 1fr; }
       h1 { font-size: 1.7rem; }
@@ -233,6 +249,15 @@
     const latestItemEl = document.getElementById('latestItem');
     const historyEl = document.getElementById('history');
 
+    function renderEmptyState() {
+      return `
+        <div class="empty-state">
+          <strong>No market-qualified update has been published yet.</strong>
+          <p>The feed stays empty until a real tradable pair and usable market data are visible. Local draft generation can continue in the background without creating public filler posts.</p>
+        </div>
+      `;
+    }
+
     function renderItem(item) {
       const snapshot = item.snapshot || {};
       const links = item.proof || {};
@@ -253,9 +278,9 @@
       .then((data) => {
         const items = (data && Array.isArray(data.items)) ? data.items : [];
         if (!items.length) {
-          statusEl.textContent = 'Feed is online but empty.';
-          latestItemEl.innerHTML = '<p>No updates yet. Post first update after setup is complete.</p>';
-          historyEl.innerHTML = '<p>Empty.</p>';
+          statusEl.textContent = 'Feed is online. Waiting for the first market-qualified bulletin.';
+          latestItemEl.innerHTML = renderEmptyState();
+          historyEl.innerHTML = '<p>No prior bulletins yet.</p>';
           return;
         }
 
@@ -270,7 +295,7 @@
       })
       .catch(() => {
         statusEl.textContent = 'Update feed not published yet.';
-        latestItemEl.innerHTML = '<p>Run update automation once to publish the first bulletin.</p>';
+        latestItemEl.innerHTML = renderEmptyState();
         historyEl.innerHTML = '<p class=\"loading\">No feed file found at /updates_feed.json.</p>';
       });
   </script>
