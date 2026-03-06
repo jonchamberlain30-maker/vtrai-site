@@ -128,6 +128,24 @@
       backdrop-filter: blur(7px);
     }
 
+    .section-head {
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: 0.2px;
+    }
+
+    .section-head p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
     .hero-banner {
       border: 1px solid var(--line);
       border-radius: 14px;
@@ -203,6 +221,28 @@
       color: var(--ink);
       background: rgba(35, 53, 84, 0.68);
       border: 1px solid var(--line);
+    }
+
+    .checker {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.28);
+      border-radius: 18px;
+      padding: 18px;
+      background:
+        radial-gradient(520px 220px at 50% -10%, rgba(77, 234, 255, 0.12), transparent 60%),
+        rgba(7, 13, 27, 0.88);
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .checker h2 {
+      margin: 0;
+      font-size: 1.45rem;
+    }
+
+    .checker .sub {
+      margin: 10px auto 0;
+      max-width: 780px;
     }
 
     .grid {
@@ -400,6 +440,8 @@
     .trust-tool {
       display: grid;
       gap: 12px;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
     .trust-form {
@@ -424,6 +466,7 @@
       padding: 14px;
       background: rgba(10, 18, 36, 0.78);
       min-height: 116px;
+      text-align: left;
     }
 
     .trust-result strong {
@@ -476,18 +519,18 @@
     <section class="hero">
       <div>
         <h1>Proof Before Momentum</h1>
-        <p class="sub">Humans lose to speed when claims spread faster than verification. Vectora is building an AI trust layer that compresses proof time from hours to seconds, with architecture disclosed in controlled stages.</p>
+        <p class="sub">Vectora is building an AI trust layer for crypto. The immediate job is simple: help people verify whether a token is the real contract before they act.</p>
         <div class="quick-metrics">
           <span class="metric">Fixed supply: 1B</span>
           <span class="metric">Mint authority: revoked</span>
           <span class="metric">Freeze authority: revoked</span>
-          <span class="metric">Verification-first roadmap</span>
+          <span class="metric">Trust-check roadmap</span>
         </div>
         <div class="cta">
+          <a class="btn" href="#trust-check">Check a Token</a>
           <a class="btn" href="./updates.html">Official Updates</a>
-          <a class="btn" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Investor Channel</a>
           <a class="btn alt" href="./whitepaper.html">Read Whitepaper</a>
-          <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Track on DexScreener</a>
+          <a class="btn alt" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Investor Channel</a>
         </div>
       </div>
       <div class="hero-banner">
@@ -495,8 +538,52 @@
       </div>
     </section>
 
+    <section id="trust-check" class="checker reveal">
+      <h2>Check Whether a Token Is the Real Vectora Contract</h2>
+      <p class="sub">Paste a token mint below. This phase-zero trust check compares it against the canonical Vectora mint and sends the user to the relevant proof links.</p>
+      <div class="trust-tool">
+        <div class="trust-form">
+          <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
+          <button id="trustButton" class="btn" type="button">Check Token</button>
+        </div>
+        <div id="trustResult" class="trust-result">
+          <strong>Awaiting input.</strong>
+          <div class="v">Paste a Solana token mint to see whether it matches the official Vectora contract. This is the current public trust-check feature on the site.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-head">
+      <h2>What The Site Is Showing</h2>
+      <p>The sections below are split into three jobs: current proof, launch progress, and what investors can expect after launch.</p>
+    </div>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Current Proof</div>
+        <ul class="list">
+          <li>Official mint is published on the site and repeated in official posts.</li>
+          <li>Mint authority and freeze authority are revoked.</li>
+          <li>The project publishes updates, covenant terms, and chain-facing links in one place.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <div class="k">Main Visitor Action</div>
+        <ul class="list">
+          <li>Use the trust check first.</li>
+          <li>Then compare against Solscan, DexScreener, and Raydium.</li>
+          <li>Then verify against the official updates and Telegram channel.</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="section-head">
+      <h2>Launch Progress</h2>
+      <p>This section explains what is active now, what conditions still gate launch, and where the official trail is published.</p>
+    </div>
+
     <section class="launch reveal">
-      <h2>Launch Build-Up: Market-Gated Execution</h2>
+      <h2>Market-Gated Launch Execution</h2>
       <div class="launch-grid">
         <article class="gate">
           <div class="gate-title">Launch Signal Board</div>
@@ -528,6 +615,11 @@
       </div>
     </section>
 
+    <div class="section-head">
+      <h2>Roadmap</h2>
+      <p>This is the progression from a simple contract verifier into a broader crypto trust layer.</p>
+    </div>
+
     <section class="status-board reveal">
       <h2>Current Milestone Status</h2>
       <div class="status-row">
@@ -558,6 +650,11 @@
       </div>
       <div class="state amber">Execution mode: capital-efficient bootstrap. ETA windows are intentionally high-level; exact module details publish after hardening milestones.</div>
     </section>
+
+    <div class="section-head">
+      <h2>Proof And Investor Materials</h2>
+      <p>The remaining sections are reference material for investors: links, token design, utility direction, treasury discipline, and milestone targets.</p>
+    </div>
 
     <section class="grid">
       <article class="card reveal">
@@ -594,18 +691,12 @@
         </ul>
       </article>
       <article class="card reveal">
-        <div class="k">Vectora Trust Check</div>
-        <div class="trust-tool">
-          <div class="v">Paste any Solana token mint to compare it against the canonical Vectora contract and route to proof links.</div>
-          <div class="trust-form">
-            <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
-            <button id="trustButton" class="btn" type="button">Check Token</button>
-          </div>
-          <div id="trustResult" class="trust-result">
-            <strong>Awaiting input.</strong>
-            <div class="v">Current phase checks the contract against the official Vectora mint and provides direct evidence links. Broader cross-token risk scoring comes later in the roadmap.</div>
-          </div>
-        </div>
+        <div class="k">Trust Check Scope</div>
+        <ul class="list">
+          <li>Current live check: exact match against the official Vectora mint.</li>
+          <li>Near-term expansion: authority state and proof-link bundle.</li>
+          <li>Roadmap expansion: broader trust cards for third-party token claims.</li>
+        </ul>
       </article>
     </section>
 
