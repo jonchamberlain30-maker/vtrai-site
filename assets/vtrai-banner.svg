@@ -1,24 +1,34 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="120" y1="60" x2="1480" y2="860" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#090E1E"/>
-      <stop offset="1" stop-color="#04060F"/>
+    <linearGradient id="bg" x1="120" y1="64" x2="1486" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07101F"/>
+      <stop offset="0.6" stop-color="#081427"/>
+      <stop offset="1" stop-color="#04070F"/>
     </linearGradient>
-    <radialGradient id="orbA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 160) rotate(20) scale(700 400)">
-      <stop stop-color="#2CE8FF" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#2CE8FF" stop-opacity="0"/>
+    <radialGradient id="orbA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(248 188) rotate(12) scale(760 410)">
+      <stop stop-color="#39E8FF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#39E8FF" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="orbB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1330 730) rotate(10) scale(760 460)">
-      <stop stop-color="#9B72FF" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#9B72FF" stop-opacity="0"/>
+    <radialGradient id="orbB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1352 742) rotate(8) scale(760 440)">
+      <stop stop-color="#8B72FF" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#8B72FF" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="line" x1="180" y1="210" x2="1420" y2="690" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#47EDFF"/>
-      <stop offset="1" stop-color="#9C78FF"/>
+    <linearGradient id="grid" x1="160" y1="170" x2="1440" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48ECFF"/>
+      <stop offset="1" stop-color="#9C7BFF"/>
     </linearGradient>
-    <linearGradient id="word" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#F2FDFF"/>
-      <stop offset="1" stop-color="#B3EAFF"/>
+    <linearGradient id="word" x1="180" y1="248" x2="708" y2="552" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3FEFF"/>
+      <stop offset="1" stop-color="#A8E5FF"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="984" y1="224" x2="1352" y2="612" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58F0FF"/>
+      <stop offset="0.52" stop-color="#74D8FF"/>
+      <stop offset="1" stop-color="#9A7CFF"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="1030" y1="266" x2="1268" y2="572" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5FEFF"/>
+      <stop offset="1" stop-color="#9DDFFF"/>
     </linearGradient>
   </defs>
 
@@ -26,33 +36,40 @@
   <rect width="1600" height="900" fill="url(#orbA)"/>
   <rect width="1600" height="900" fill="url(#orbB)"/>
 
-  <g opacity="0.22">
-    <path d="M0 150H1600" stroke="url(#line)" stroke-width="1.4"/>
-    <path d="M0 260H1600" stroke="url(#line)" stroke-width="1"/>
-    <path d="M0 370H1600" stroke="url(#line)" stroke-width="1.2"/>
-    <path d="M0 480H1600" stroke="url(#line)" stroke-width="1"/>
-    <path d="M0 590H1600" stroke="url(#line)" stroke-width="1.2"/>
-    <path d="M0 700H1600" stroke="url(#line)" stroke-width="1"/>
-    <path d="M150 0V900" stroke="url(#line)" stroke-width="1"/>
-    <path d="M350 0V900" stroke="url(#line)" stroke-width="1.2"/>
-    <path d="M550 0V900" stroke="url(#line)" stroke-width="1"/>
-    <path d="M750 0V900" stroke="url(#line)" stroke-width="1.3"/>
-    <path d="M950 0V900" stroke="url(#line)" stroke-width="1"/>
-    <path d="M1150 0V900" stroke="url(#line)" stroke-width="1.2"/>
-    <path d="M1350 0V900" stroke="url(#line)" stroke-width="1"/>
+  <g opacity="0.18">
+    <path d="M70 170H1530" stroke="url(#grid)" stroke-width="1.2"/>
+    <path d="M70 292H1530" stroke="url(#grid)" stroke-width="0.9"/>
+    <path d="M70 414H1530" stroke="url(#grid)" stroke-width="1.1"/>
+    <path d="M70 536H1530" stroke="url(#grid)" stroke-width="0.9"/>
+    <path d="M70 658H1530" stroke="url(#grid)" stroke-width="1.1"/>
+    <path d="M70 780H1530" stroke="url(#grid)" stroke-width="0.9"/>
+    <path d="M184 96V820" stroke="url(#grid)" stroke-width="0.9"/>
+    <path d="M358 96V820" stroke="url(#grid)" stroke-width="1.1"/>
+    <path d="M532 96V820" stroke="url(#grid)" stroke-width="0.9"/>
+    <path d="M706 96V820" stroke="url(#grid)" stroke-width="1.1"/>
+    <path d="M880 96V820" stroke="url(#grid)" stroke-width="0.9"/>
+    <path d="M1054 96V820" stroke="url(#grid)" stroke-width="1.1"/>
+    <path d="M1228 96V820" stroke="url(#grid)" stroke-width="0.9"/>
+    <path d="M1402 96V820" stroke="url(#grid)" stroke-width="1.1"/>
   </g>
 
-  <circle cx="1160" cy="430" r="240" stroke="url(#line)" stroke-width="14" opacity="0.95"/>
-  <circle cx="1160" cy="430" r="240" stroke="#62E4FF" stroke-width="4" opacity="0.22"/>
-  <path d="M1010 282L1148 571C1152 581 1162 581 1166 571L1310 282" stroke="url(#word)" stroke-width="52" stroke-linecap="round" stroke-linejoin="round"/>
+  <g opacity="0.85">
+    <text x="170" y="378" fill="url(#word)" font-family="Space Grotesk, Arial, sans-serif" font-size="162" font-weight="700" letter-spacing="4">VTRAI</text>
+    <text x="180" y="456" fill="#7ADFFF" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="500" letter-spacing="7">VECTORA TRUST LAYER</text>
+    <text x="180" y="552" fill="#B7CDE6" font-family="Space Grotesk, Arial, sans-serif" font-size="36" font-weight="500" letter-spacing="1.2">Proof before momentum. Verification before action.</text>
+  </g>
 
-  <text x="140" y="405" fill="url(#word)" font-family="Space Grotesk, Arial, sans-serif" font-size="144" font-weight="700" letter-spacing="3">VTRAI</text>
-  <text x="146" y="470" fill="#77DFFF" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="500" letter-spacing="6" opacity="0.88">VECTORA INTELLIGENCE LAYER</text>
+  <g>
+    <circle cx="1160" cy="422" r="230" stroke="url(#ring)" stroke-width="16"/>
+    <circle cx="1160" cy="422" r="188" stroke="#81ECFF" stroke-width="2" opacity="0.16"/>
+    <path d="M1030 298L1152 578C1156 589 1168 589 1172 578L1292 298" stroke="url(#mark)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1238 280L1128 450" stroke="#7CEEFF" stroke-opacity="0.82" stroke-width="16" stroke-linecap="round"/>
+  </g>
 
-  <g opacity="0.75">
-    <circle cx="180" cy="170" r="4" fill="#7FE9FF"/>
-    <circle cx="280" cy="130" r="5" fill="#8E83FF"/>
-    <circle cx="1430" cy="770" r="5" fill="#76E8FF"/>
-    <circle cx="1280" cy="210" r="4" fill="#9A7CFF"/>
+  <g opacity="0.72">
+    <circle cx="190" cy="170" r="4" fill="#81EFFF"/>
+    <circle cx="286" cy="132" r="5" fill="#9583FF"/>
+    <circle cx="1430" cy="754" r="5" fill="#75EAFF"/>
+    <circle cx="1318" cy="224" r="4" fill="#A07FFF"/>
   </g>
 </svg>
