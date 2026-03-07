@@ -50,9 +50,10 @@
   </g>
 
   <g opacity="0.85">
-    <text x="170" y="378" fill="url(#word)" font-family="Space Grotesk, Arial, sans-serif" font-size="162" font-weight="700" letter-spacing="4">VTRAI</text>
-    <text x="180" y="456" fill="#7ADFFF" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="500" letter-spacing="7">VECTORA TRUST LAYER</text>
-    <text x="180" y="552" fill="#B7CDE6" font-family="Space Grotesk, Arial, sans-serif" font-size="36" font-weight="500" letter-spacing="1.2">Proof before momentum. Verification before action.</text>
+    <text x="164" y="370" fill="url(#word)" font-family="Space Grotesk, Arial, sans-serif" font-size="148" font-weight="700" letter-spacing="4">VTRAI</text>
+    <text x="176" y="442" fill="#7ADFFF" font-family="Space Grotesk, Arial, sans-serif" font-size="28" font-weight="500" letter-spacing="6">VECTORA TRUST LAYER</text>
+    <text x="176" y="536" fill="#B7CDE6" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="500" letter-spacing="0.8">Proof before momentum.</text>
+    <text x="176" y="584" fill="#B7CDE6" font-family="Space Grotesk, Arial, sans-serif" font-size="32" font-weight="500" letter-spacing="0.8">Verification before action.</text>
   </g>
 
   <g>
