@@ -178,10 +178,6 @@
       color: var(--muted);
       line-height: 1.5;
     }
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-      h1 { font-size: 1.7rem; }
-    }
     .cadence {
       border: 1px solid var(--line);
       border-radius: 12px;
@@ -193,6 +189,74 @@
       line-height: 1.45;
     }
     .cadence b { color: #e7fbff; }
+    .snapshot-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .snapshot-badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      background: rgba(18, 30, 52, 0.72);
+      text-transform: capitalize;
+    }
+    .snapshot-badge.good { color: var(--good); }
+    .snapshot-badge.warn { color: #ffd58e; }
+    .snapshot-badge.risk { color: var(--warn); }
+    .snapshot-summary {
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .snapshot-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .snapshot-pill {
+      border: 1px solid rgba(93, 124, 170, 0.3);
+      border-radius: 10px;
+      background: rgba(5, 10, 20, 0.55);
+      padding: 9px 10px;
+      font-size: 0.84rem;
+      color: #d7efff;
+    }
+    .snapshot-pill b {
+      display: block;
+      color: #8fbfe7;
+      font-size: 0.73rem;
+      margin-bottom: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .snapshot-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #dceeff;
+      line-height: 1.45;
+    }
+    .snapshot-links {
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+    .snapshot-links a {
+      color: #f3fdff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin-right: 10px;
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.7rem; }
+      .snapshot-meta { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -238,6 +302,17 @@
       </article>
     </section>
 
+    <section class="grid">
+      <article class="card">
+        <h2>Latest Trust Snapshot</h2>
+        <div id="trustLatest"><p class="loading">Loading trust snapshot...</p></div>
+      </article>
+      <article class="card">
+        <h2>Recent Trust Changes</h2>
+        <div id="trustHistory"><p class="loading">Loading trust change history...</p></div>
+      </article>
+    </section>
+
     <section class="card">
       <h2>Update History</h2>
       <div id="history"><p class="loading">No feed loaded yet.</p></div>
@@ -248,6 +323,8 @@
     const statusEl = document.getElementById('status');
     const latestItemEl = document.getElementById('latestItem');
     const historyEl = document.getElementById('history');
+    const trustLatestEl = document.getElementById('trustLatest');
+    const trustHistoryEl = document.getElementById('trustHistory');
 
     function renderEmptyState() {
       return `
@@ -268,6 +345,56 @@
       if (links.x) proofPairs.push(`<a href=\"${links.x}\" target=\"_blank\" rel=\"noreferrer\">X</a>`);
 
       return `\\n        <article class=\"item\">\\n          <h3>${item.timestamp_utc}</h3>\\n          <div class=\"meta\">Pair: ${snapshot.pair || 'Vectora'} · Price: ${snapshot.price_usd || 'n/a'} · Volume: ${snapshot.volume_24h || 'n/a'} · Liquidity: ${snapshot.liquidity_usd || 'n/a'}</div>\\n          <pre class=\"post\">${item.text || ''}</pre>\\n          <div class=\"links\">${proofPairs.join(' ')}</div>\\n        </article>\\n      `;
+    }
+
+    function snapshotBadgeClass(level) {
+      if (level === 'verified' || level === 'low') return 'good';
+      if (level === 'medium') return 'warn';
+      return 'risk';
+    }
+
+    function renderSnapshotMeta(snapshot) {
+      const meta = Array.isArray(snapshot.meta) ? snapshot.meta.slice(0, 6) : [];
+      if (!meta.length) return '';
+      return `<div class=\"snapshot-meta\">${meta.map((item) => `<div class=\"snapshot-pill\"><b>${item.label || ''}</b>${item.value || 'Unknown'}</div>`).join('')}</div>`;
+    }
+
+    function renderSnapshotLinks(snapshot) {
+      const links = Array.isArray(snapshot.links) ? snapshot.links : [];
+      if (!links.length) return '';
+      return `<div class=\"snapshot-links\">${links.slice(0, 4).map((link) => `<a href=\"${link.url}\" target=\"_blank\" rel=\"noreferrer\">${link.label}</a>`).join('')}</div>`;
+    }
+
+    function renderSnapshot(snapshot) {
+      const changes = Array.isArray(snapshot.change_summary) ? snapshot.change_summary : [];
+      const reasons = Array.isArray(snapshot.reasons) ? snapshot.reasons : [];
+      return `
+        <div class=\"snapshot-title\">
+          <div>
+            <strong>${snapshot.title || 'Trust snapshot'}</strong>
+            <div class=\"meta\">${snapshot.timestamp_utc || snapshot.checked_at_utc || 'Unknown time'}</div>
+          </div>
+          <span class=\"snapshot-badge ${snapshotBadgeClass(snapshot.level)}\">${snapshot.level || 'unknown'}</span>
+        </div>
+        <div class=\"snapshot-summary\">${snapshot.summary || ''}</div>
+        ${renderSnapshotMeta(snapshot)}
+        <ul class=\"snapshot-list\">${changes.map((item) => `<li>${item}</li>`).join('')}</ul>
+        ${reasons.length ? `<ul class=\"snapshot-list\">${reasons.slice(0, 3).map((item) => `<li><b>${item.label || 'Reason'}:</b> ${item.text || ''}</li>`).join('')}</ul>` : ''}
+        ${renderSnapshotLinks(snapshot)}
+      `;
+    }
+
+    function renderSnapshotHistory(items) {
+      if (!items.length) {
+        return '<div class=\"empty-state\"><strong>No prior trust snapshots yet.</strong><p>The first baseline snapshot will appear here once the automation finishes a full trust-report check.</p></div>';
+      }
+      return items.slice(0, 5).map((item) => `
+        <article class=\"item\">
+          <h3>${item.snapshot_date || item.timestamp_utc || 'Snapshot'}</h3>
+          <div class=\"meta\">${item.title || 'Trust snapshot'} · ${item.level || 'unknown'}</div>
+          <ul class=\"snapshot-list\">${(item.change_summary || ['No material trust change since the last snapshot.']).map((line) => `<li>${line}</li>`).join('')}</ul>
+        </article>
+      `).join('');
     }
 
     fetch('./updates_feed.json', { cache: 'no-store' })
@@ -297,6 +424,27 @@
         statusEl.textContent = 'Update feed not published yet.';
         latestItemEl.innerHTML = renderEmptyState();
         historyEl.innerHTML = '<p class=\"loading\">No feed file found at /updates_feed.json.</p>';
+      });
+
+    fetch('./trust_snapshots.json', { cache: 'no-store' })
+      .then((res) => {
+        if (!res.ok) throw new Error('no-snapshots');
+        return res.json();
+      })
+      .then((data) => {
+        const items = (data && Array.isArray(data.items)) ? data.items : [];
+        if (!items.length) {
+          trustLatestEl.innerHTML = '<div class=\"empty-state\"><strong>No trust snapshot published yet.</strong><p>Baseline trust snapshots will appear here as the automation starts capturing daily state.</p></div>';
+          trustHistoryEl.innerHTML = renderSnapshotHistory([]);
+          return;
+        }
+
+        trustLatestEl.innerHTML = renderSnapshot(data.latest || items[0]);
+        trustHistoryEl.innerHTML = renderSnapshotHistory(items.slice(1));
+      })
+      .catch(() => {
+        trustLatestEl.innerHTML = '<div class=\"empty-state\"><strong>No trust snapshot file yet.</strong><p>The updates desk is live, but the trust snapshot feed has not been published yet.</p></div>';
+        trustHistoryEl.innerHTML = renderSnapshotHistory([]);
       });
   </script>
 </body>
