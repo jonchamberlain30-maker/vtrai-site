@@ -59,7 +59,7 @@
   <g>
     <circle cx="1160" cy="422" r="230" stroke="url(#ring)" stroke-width="16"/>
     <circle cx="1160" cy="422" r="188" stroke="#81ECFF" stroke-width="2" opacity="0.16"/>
-    <path d="M950 284L1060 214L1162 456L1434 96L1518 96L1208 668L1148 668L950 284Z" fill="url(#ring)"/>
+    <path d="M962 296L1064 226L1162 452L1434 96L1518 96L1204 656L1148 656L962 296Z" fill="url(#ring)"/>
   </g>
 
   <g opacity="0.72">
