@@ -31,7 +31,7 @@
   <circle cx="512" cy="512" r="288" stroke="url(#frame)" stroke-width="38"/>
   <circle cx="512" cy="512" r="248" stroke="#85ECFF" stroke-width="2" opacity="0.18"/>
 
-  <path d="M264 310L370 244L508 544L806 128L902 128L542 734L478 734L264 310Z" fill="url(#frame)"/>
+  <path d="M294 310L368 258L508 544L786 154L858 154L540 718L488 718L294 310Z" fill="url(#frame)"/>
 
   <g opacity="0.2" filter="url(#softGlow)">
     <circle cx="512" cy="512" r="254" stroke="#64E9FF" stroke-width="16"/>
