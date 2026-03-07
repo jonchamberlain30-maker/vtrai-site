@@ -223,6 +223,12 @@
       border: 1px solid var(--line);
     }
 
+    .btn.gold {
+      color: #1a1202;
+      background: linear-gradient(90deg, #f7d46a, #f0b53a);
+      box-shadow: 0 0 0 1px rgba(255, 214, 111, 0.2), 0 10px 24px rgba(240, 181, 58, 0.18);
+    }
+
     .checker {
       margin-top: 14px;
       border: 1px solid rgba(77, 234, 255, 0.28);
@@ -724,7 +730,7 @@
           <span class="metric">Trust-check roadmap</span>
         </div>
         <div class="cta">
-          <a class="btn" href="#trust-check">Check a Token</a>
+          <a class="btn gold" href="#trust-check">Check a Token</a>
           <a class="btn alt" href="./proof.html">Open Proof Pack</a>
           <a class="btn" href="./updates.html">Official Updates</a>
           <a class="btn alt" href="./whitepaper.html">Read Whitepaper</a>
@@ -752,7 +758,7 @@
             <option value="10">Optimism</option>
           </select>
           <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
-          <button id="trustButton" class="btn" type="button">Check Token</button>
+          <button id="trustButton" class="btn gold" type="button">Check Token</button>
         </div>
         <div id="trustResult" class="trust-result">
           <strong>Awaiting input.</strong>
