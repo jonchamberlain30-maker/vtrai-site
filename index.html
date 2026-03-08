@@ -681,12 +681,6 @@
       background: linear-gradient(90deg, var(--cyan), #86e8ff);
     }
 
-    .trust-links a.alt-link {
-      color: var(--ink);
-      background: rgba(35, 53, 84, 0.68);
-      border: 1px solid var(--line);
-    }
-
     .trust-note {
       color: var(--muted);
       font-size: 0.84rem;
@@ -784,10 +778,14 @@
     }
 
     .watchlist-link {
-      color: #bdefff;
+      display: inline-block;
+      color: #031019;
+      text-decoration: none;
       font-size: 0.82rem;
-      text-decoration: underline;
-      text-underline-offset: 2px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 7px 10px;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
     }
 
     .watch-status {
@@ -1239,7 +1237,7 @@
 
     function renderCard({ title, tone, summary, meta, bullets, links, reasons = [], imageUrl = '', level = 'low', networkLabel = '', watchToken = null }) {
       const linkHtml = Array.isArray(links)
-        ? links.map((link, index) => `<a class="${index === 0 ? '' : 'alt-link'}" href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
+        ? links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
         : links;
       const statusLabel = buildStatusLabel(level);
       const badgeLabel = statusLabel.toUpperCase();
