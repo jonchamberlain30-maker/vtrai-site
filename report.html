@@ -260,6 +260,31 @@
       line-height: 1.5;
       margin-bottom: 12px;
     }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .quick-box {
+      border: 1px solid rgba(93, 124, 170, 0.3);
+      border-radius: 12px;
+      background: rgba(5, 10, 20, 0.55);
+      padding: 12px;
+    }
+    .quick-box h3 {
+      margin: 0 0 6px;
+      font-size: 0.78rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #9cc5e7;
+    }
+    .quick-box p {
+      margin: 0;
+      color: #d7efff;
+      line-height: 1.45;
+      font-size: 0.92rem;
+    }
     .meta-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -319,6 +344,7 @@
     }
     @media (max-width: 900px) {
       .report-form { grid-template-columns: 1fr; }
+      .quick-grid { grid-template-columns: 1fr; }
       .meta-grid { grid-template-columns: 1fr; }
       h1 { font-size: 1.78rem; }
     }
@@ -422,6 +448,56 @@
         'Auto detect': 'A',
       };
       return map[networkLabel] || buildTokenFallback(networkLabel || 'N');
+    }
+
+    function metaValue(report, label) {
+      const entry = (report.meta || []).find((item) => String(item.label || '').toLowerCase() === label.toLowerCase());
+      return entry ? String(entry.value || '').trim() : '';
+    }
+
+    function reasonText(report) {
+      return (report.reasons || []).map((item) => `${item.label || ''} ${item.text || ''}`.trim().toLowerCase()).join(' ');
+    }
+
+    function buildQuickSummary(report) {
+      const reasonsBlob = reasonText(report);
+      const topLiquidity = metaValue(report, 'Top liquidity');
+      const officialRoute = report.level === 'verified'
+        ? 'Matches the official Vectora contract published across the canonical launch routes.'
+        : 'Use the proof links below to verify the contract, socials, and trading route before acting.';
+
+      let controlRisk = 'No severe control flags were surfaced by the current checks.';
+      if (report.level === 'high') {
+        controlRisk = 'High caution: control or trading restrictions need manual review before any trade.';
+      } else if (report.level === 'medium') {
+        controlRisk = 'Medium caution: at least one control or ownership risk was detected and should be checked closely.';
+      } else if (reasonsBlob.includes('owner') || reasonsBlob.includes('mint authority') || reasonsBlob.includes('freeze authority') || reasonsBlob.includes('upgrade')) {
+        controlRisk = 'One or more control privileges were observed; review the reasons section before proceeding.';
+      }
+
+      let liquidityContext = topLiquidity && topLiquidity !== 'Unknown'
+        ? `Observed top liquidity: ${topLiquidity}. Cross-check the venue and pair before trading.`
+        : 'Liquidity context is limited right now. Use the proof links to inspect venue depth before trading.';
+
+      if (report.level === 'verified') {
+        liquidityContext = topLiquidity && topLiquidity !== 'Unknown'
+          ? `Official token match. Current top liquidity reads ${topLiquidity}. Confirm the venue route from the links below.`
+          : 'Official token match. Pair data is still limited here, so verify the route through the proof links below.';
+      }
+
+      let nextAction = 'Open the proof links, confirm the route, and only continue if the contract and venue still line up.';
+      if (report.level === 'verified') {
+        nextAction = 'Use the proof links below to continue verification or move into your saved watchlist.';
+      } else if (report.level === 'high') {
+        nextAction = 'Do not trade from this report alone. Verify explorer data, venue liquidity, and control risks first.';
+      }
+
+      return [
+        { label: 'Official route', text: officialRoute },
+        { label: 'Control risk', text: controlRisk },
+        { label: 'Liquidity context', text: liquidityContext },
+        { label: 'Next action', text: nextAction },
+      ];
     }
 
     function getWatchlist() {
@@ -543,6 +619,7 @@
         report,
       };
       document.title = `Vectora | ${report.title}`;
+      const quickSummary = buildQuickSummary(report);
       const reasonsHtml = (report.reasons || []).length ? `
         <div class="section">
           <h3>Why this score</h3>
@@ -582,6 +659,14 @@
           <div class="level-badge" style="color: ${tone};">${badgeLabel}</div>
         </div>
         <div class="summary">${report.summary}</div>
+        <div class="quick-grid">
+          ${quickSummary.map((item) => `
+            <div class="quick-box">
+              <h3>${item.label}</h3>
+              <p>${item.text}</p>
+            </div>
+          `).join('')}
+        </div>
         <div class="meta-grid">
           ${(report.meta || []).map((item) => `
             <div>
