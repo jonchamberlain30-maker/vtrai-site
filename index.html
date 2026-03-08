@@ -1055,6 +1055,7 @@
 
   <script>
     const OFFICIAL_MINT = 'Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J';
+    const MONITOR_API_BASE = 'https://api.getvectora.ai';
     const OFFICIAL_PAIR = 'https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu';
     const OFFICIAL_IMAGE = 'https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva';
     const SOLSCAN_BASE = 'https://solscan.io/token/';
@@ -1063,6 +1064,7 @@
     const TRUST_API_BASE = 'https://api.getvectora.ai';
     const WATCHLIST_KEY = 'vectora_watchlist_v1';
     const WATCH_HISTORY_LIMIT = 12;
+    let monitorQueueReady = false;
     const NETWORKS = {
       solana: {
         label: 'Solana',
@@ -1171,11 +1173,58 @@
       return `${networkId || 'auto'}:${String(address || '').toLowerCase()}`;
     }
 
+    async function loadMonitorQueueHealth() {
+      try {
+        const response = await fetch(`${MONITOR_API_BASE}/monitor-queue-health`);
+        const payload = await response.json();
+        monitorQueueReady = Boolean(response.ok && payload.ok && payload.ready);
+      } catch {
+        monitorQueueReady = false;
+      }
+    }
+
     function buildReportUrl(token) {
       const params = new URLSearchParams();
       params.set('network', token?.network_id || token?.networkId || 'auto');
       params.set('address', token?.address || '');
       return `./report.html?${params.toString()}`;
+    }
+
+    async function requestScheduledMonitoring(token, button, statusEl) {
+      if (!token?.address || !token?.network_id) return;
+      const original = button.textContent;
+      button.textContent = 'Submitting...';
+      button.disabled = true;
+      try {
+        const response = await fetch(`${MONITOR_API_BASE}/monitor-request`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            network: token.network_id,
+            address: token.address,
+            label: token.token_label || token.title || token.address,
+            source: 'homepage',
+          }),
+        });
+        const payload = await response.json();
+        if (!response.ok || !payload.ok) {
+          throw new Error(payload.error || 'Scheduling request failed.');
+        }
+        button.textContent = payload.status === 'already_scheduled' ? 'Already scheduled' : 'Requested';
+        if (statusEl) {
+          statusEl.textContent = payload.status === 'already_scheduled'
+            ? 'This token is already in scheduled monitoring.'
+            : 'Scheduled monitoring requested. The shared monitor will pick it up after the next automation run.';
+        }
+      } catch (error) {
+        button.textContent = 'Request failed';
+        if (statusEl) statusEl.textContent = error.message || 'Scheduling request failed.';
+      } finally {
+        setTimeout(() => {
+          button.textContent = original;
+          button.disabled = false;
+        }, 1600);
+      }
     }
 
     function shareIconHtml() {
@@ -1368,6 +1417,7 @@
       const watchHtml = watchToken ? `
         <div class="trust-watch-row">
           <button class="copy-btn trust-watch-btn" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
+          ${monitorQueueReady ? '<button class="copy-btn trust-watch-btn" type="button" data-request-monitoring="true">Request scheduled monitoring</button>' : ''}
           <a class="watchlist-link" href="${buildReportUrl(watchToken)}">Open report page</a>
           <a class="watchlist-link" href="./watchlist.html">Open watchlist</a>
         </div>
@@ -1870,7 +1920,7 @@
     trustInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') checkToken();
     });
-    trustResult.addEventListener('click', (event) => {
+    trustResult.addEventListener('click', async (event) => {
       const shareButton = event.target.closest('[data-share-report]');
       if (shareButton && currentWatchToken) {
         const reportUrl = new URL(buildReportUrl(currentWatchToken), window.location.href).href;
@@ -1901,14 +1951,23 @@
         return;
       }
       const button = event.target.closest('[data-watch-toggle]');
-      if (!button || !currentWatchToken) return;
-      const watching = toggleWatchToken(currentWatchToken);
-      button.textContent = watching ? 'Watching on this device' : 'Watch on this device';
-      const status = trustResult.querySelector('[data-watch-status]');
-      if (status) {
-        status.textContent = watching
-          ? 'Saved on this browser. Revisit from your watchlist page.'
-          : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
+      if (button && currentWatchToken) {
+        const watching = toggleWatchToken(currentWatchToken);
+        button.textContent = watching ? 'Watching on this device' : 'Watch on this device';
+        const status = trustResult.querySelector('[data-watch-status]');
+        if (status) {
+          status.textContent = watching
+            ? 'Saved on this browser. Revisit from your watchlist page.'
+            : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
+        }
+        return;
+      }
+
+      const requestButton = event.target.closest('[data-request-monitoring]');
+      if (requestButton && currentWatchToken) {
+        const status = trustResult.querySelector('[data-watch-status]');
+        await requestScheduledMonitoring(currentWatchToken, requestButton, status);
+        return;
       }
     });
 
@@ -1918,6 +1977,8 @@
         if (trustHelpButton) trustHelpButton.setAttribute('aria-expanded', 'false');
       }
     });
+
+    loadMonitorQueueHealth();
   </script>
 </body>
 </html>
