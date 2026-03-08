@@ -474,6 +474,23 @@
       font: inherit;
     }
 
+    .trust-input {
+      border-color: rgba(247, 212, 106, 0.82);
+      box-shadow: inset 0 0 0 1px rgba(247, 212, 106, 0.18);
+    }
+
+    .trust-input::placeholder {
+      color: rgba(247, 212, 106, 0.9);
+    }
+
+    .trust-input:focus {
+      outline: none;
+      border-color: rgba(247, 212, 106, 0.98);
+      box-shadow:
+        inset 0 0 0 1px rgba(247, 212, 106, 0.24),
+        0 0 0 3px rgba(247, 212, 106, 0.14);
+    }
+
     .trust-meta {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -515,6 +532,10 @@
         rgba(10, 18, 36, 0.84);
       min-height: 132px;
       text-align: left;
+    }
+
+    .trust-result:empty {
+      display: none;
     }
 
     .trust-result strong {
@@ -836,9 +857,7 @@
           <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
           <button id="trustButton" class="btn gold" type="button">Check Token</button>
         </div>
-        <div id="trustResult" class="trust-result">
-          <div class="v">Paste a token address to begin.</div>
-        </div>
+        <div id="trustResult" class="trust-result"></div>
         <div class="trust-note">
           <div class="trust-help" id="trustHelp">
             <span class="trust-help-label">Coverage</span>
@@ -1653,9 +1672,7 @@
       const selectedNetwork = networkSelect.value;
 
       if (!raw) {
-        renderTrustResult(`
-          <div class="v">Paste a token mint or contract address to get a first-pass trust card.</div>
-        `);
+        renderTrustResult('');
         return;
       }
 
