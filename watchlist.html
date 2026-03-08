@@ -119,6 +119,11 @@
       font-family: inherit;
     }
     .btn.alt {
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      border: 0;
+    }
+    .btn.destructive {
       color: var(--ink);
       background: rgba(35, 53, 84, 0.68);
       border: 1px solid var(--line);
@@ -307,8 +312,8 @@
       </div>
       <div class="controls">
         <button id="refreshAllButton" class="btn" type="button">Refresh All</button>
-        <button id="clearWatchlistButton" class="btn alt" type="button">Clear Watchlist</button>
-        <a class="btn alt" href="./index.html#trust-check">Check Another Token</a>
+        <button id="clearWatchlistButton" class="btn destructive" type="button">Clear Watchlist</button>
+        <a class="btn" href="./index.html#trust-check">Check Another Token</a>
       </div>
       <div id="watchlistState" class="state">Loading saved watchlist...</div>
     </section>
@@ -433,7 +438,7 @@
             ${renderLinks(item)}
             <div class="actions">
               <button class="btn" type="button" data-refresh-index="${index}">Refresh</button>
-              <button class="btn alt" type="button" data-remove-index="${index}">Remove</button>
+              <button class="btn destructive" type="button" data-remove-index="${index}">Remove</button>
             </div>
             <div class="meta-line" style="margin-top: 10px;">Last checked: ${formatDate(item.last_checked_at_utc || report.checked_at_utc)}</div>
             ${item.last_error ? `<div class="state" style="margin-top: 10px; color: var(--warn-strong); border-color: rgba(255, 191, 208, 0.3);">${item.last_error}</div>` : ''}

@@ -674,9 +674,11 @@
     }
 
     .copy-btn {
-      border: 1px solid var(--line);
-      background: rgba(18, 30, 52, 0.72);
-      color: var(--ink);
+      border: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0) 46%),
+        linear-gradient(90deg, var(--cyan), #86e8ff);
+      color: #031019;
       border-radius: 10px;
       padding: 7px 10px;
       font-family: inherit;
@@ -686,8 +688,7 @@
     }
 
     .copy-btn:hover {
-      border-color: rgba(77, 234, 255, 0.4);
-      color: var(--cyan);
+      transform: translateY(-1px);
     }
 
     .trust-watch-row {
@@ -736,14 +737,11 @@
         <span>Vectora <span class="tag">$VTRAI</span></span>
       </div>
       <div class="nav-links">
+        <a href="./watchlist.html">Watchlist</a>
+        <a href="./updates.html">Updates</a>
         <a href="./proof.html">Proof</a>
         <a href="./whitepaper.html">Whitepaper</a>
         <a href="./liquidity-covenant.html">Liquidity Covenant</a>
-        <a href="./updates.html">Updates</a>
-        <a href="./watchlist.html">Watchlist</a>
-        <a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Solscan</a>
-        <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium</a>
-        <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
       </div>
     </div>
 
@@ -752,10 +750,10 @@
         <h1>Find On DexScreener. Decide On Vectora.</h1>
         <p class="sub">Most traders already discover tokens on X, Telegram, and DexScreener. Vectora is built for the next step: verify the official route, read the key risks in plain English, and decide whether a token deserves more attention.</p>
         <div class="quick-metrics">
-          <span class="metric">Official mint published</span>
-          <span class="metric">Mint authority: revoked</span>
-          <span class="metric">Freeze authority: revoked</span>
-          <span class="metric">Trust reports + alerts roadmap</span>
+          <span class="metric">Multi-chain trust checks</span>
+          <span class="metric">On-demand token reports</span>
+          <span class="metric">Device watchlist live</span>
+          <span class="metric">Snapshot feed live</span>
         </div>
       </div>
       <div class="hero-banner">
@@ -804,8 +802,8 @@
           <li>Ignore, watch, or investigate further instead of trading blindly.</li>
         </ol>
         <div class="cta">
-          <a class="btn" href="./proof.html">Open Proof Page</a>
-          <a class="btn alt" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Open Solscan</a>
+          <a class="btn" href="./watchlist.html">Open Watchlist</a>
+          <a class="btn" href="./updates.html">Open Update Desk</a>
         </div>
       </article>
       <article class="card reveal">
@@ -817,6 +815,34 @@
           <li>A cleaner decision point: ignore, watch, or continue due diligence.</li>
         </ul>
         <div class="warn">Vectora is a first-pass filter, not a promise of safety. Final decisions still need on-chain confirmation.</div>
+      </article>
+    </section>
+
+    <div class="section-head">
+      <h2>Main Utility</h2>
+      <p>The core product path is simple: check a token, save it if it matters, and return for refreshed trust data without setting up Telegram or an account.</p>
+    </div>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">Device Watchlist</div>
+        <ul class="list">
+          <li>Save any checked token on this browser.</li>
+          <li>Refresh trust reports on demand.</li>
+          <li>Use it as a private shortlist before email or Telegram alerts exist.</li>
+        </ul>
+        <div class="cta">
+          <a class="btn" href="./watchlist.html">Open Watchlist</a>
+          <a class="btn" href="./updates.html">Open Update Desk</a>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="k">What To Expect Next</div>
+        <ul class="list">
+          <li>Trust snapshots and diffs for watched tokens.</li>
+          <li>Private alert delivery later by email or Telegram.</li>
+          <li>Shareable trust-report links for tokens you want to revisit.</li>
+        </ul>
       </article>
     </section>
 
@@ -842,44 +868,6 @@
           <li>Then either reject the token quickly or continue research with fewer blind spots.</li>
         </ul>
       </article>
-    </section>
-
-    <div class="section-head">
-      <h2>Launch Progress</h2>
-      <p>The token launch matters, but the product has to be useful on its own. This section tracks launch readiness and the product work that follows it.</p>
-    </div>
-
-    <section class="launch reveal">
-      <h2>Market-Gated Launch Execution</h2>
-      <div class="launch-grid">
-        <article class="gate">
-          <div class="gate-title">Launch Signal Board</div>
-          <ul class="list">
-            <li>Gate 1: market trend alignment (risk-on condition).</li>
-            <li>Gate 2: depth + liquidity readiness for stable discovery.</li>
-            <li>Gate 3: social readiness across website, Telegram, X, and proof links.</li>
-            <li>Gate 4: no major macro event window during launch sequence.</li>
-            <li>Gate 5: bootstrap capital discipline preserved (reserve remains intact).</li>
-          </ul>
-          <div class="state amber">Current status: BUILD-UP MODE (awaiting full green conditions).</div>
-        </article>
-        <article class="gate">
-          <div class="gate-title">How to Track the Launch</div>
-          <ul class="list">
-            <li>Primary launch log now runs from this website updates page.</li>
-            <li>Public update cadence appears at `/updates.html` and includes the latest proof snapshot.</li>
-            <li>Official mint and pair links are repeated in every launch notice.</li>
-            <li>Launch confirmation only counts if it appears on official channels.</li>
-            <li>Liquidity policy is published at the covenant page before launch.</li>
-          </ul>
-          <div class="cta">
-            <a class="btn" href="./updates.html">Read Official Updates</a>
-            <a class="btn alt" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Launch Alerts</a>
-            <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Watch Pair Setup</a>
-            <a class="btn alt" href="./liquidity-covenant.html">Read Covenant</a>
-          </div>
-        </article>
-      </div>
     </section>
 
     <div class="section-head">
@@ -919,40 +907,29 @@
     </section>
 
     <div class="section-head">
-      <h2>Proof And Investor Materials</h2>
-      <p>The remaining sections are reference material for investors: official links, token design, the actual workflow gap, and how the product can grow without wasting capital.</p>
+      <h2>Vectora Token Reference</h2>
+      <p>Everything below is project-specific reference material. The core customer function is the trust checker, watchlist, and update desk above.</p>
     </div>
 
     <section class="grid">
       <article class="card reveal">
-        <div class="k">Official Links</div>
+        <div class="k">Official Token Links</div>
         <ul class="list">
           <li><a href="./proof.html" target="_blank" rel="noreferrer">Proof Pack</a></li>
-          <li><a href="https://getvectora.ai" target="_blank" rel="noreferrer">Website + Whitepaper</a></li>
+          <li><a href="./whitepaper.html" target="_blank" rel="noreferrer">Whitepaper</a></li>
           <li><a href="./liquidity-covenant.html" target="_blank" rel="noreferrer">Liquidity Covenant</a></li>
           <li><a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Official Telegram</a></li>
           <li><a href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">DexScreener Pair</a></li>
         </ul>
       </article>
       <article class="card reveal">
-        <div class="k">Official Mint (only valid contract)</div>
+        <div class="k">Official Mint</div>
         <div class="mint-row">
           <div class="v"><code id="officialMintCode">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code></div>
           <button class="copy-btn" type="button" data-copy-target="officialMintCode">Copy mint</button>
         </div>
         <div class="warn">Security: any other contract claiming to be VTRAI is fake.</div>
       </article>
-      <article class="card reveal">
-        <div class="k">The Real Workflow Gap</div>
-        <ul class="list">
-          <li>People act before they verify because market timelines are too short.</li>
-          <li>Critical truth is fragmented across chain data, chats, dashboards, and fake clones.</li>
-          <li>Bad decisions come from verification latency, not lack of information.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="grid">
       <article class="card reveal">
         <div class="k">Immutable Trust Signals</div>
         <ul class="list">
@@ -961,118 +938,33 @@
           <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
         </ul>
       </article>
-      <article class="card reveal">
-        <div class="k">Trust Check Scope</div>
-        <ul class="list">
-          <li>Current live check: first-pass multi-chain trust cards with exact official Vectora verification.</li>
-          <li>Near-term expansion: saved snapshots and trust-change diff.</li>
-          <li>Next delivery layer: Telegram watchlists, alerts, and shareable report pages.</li>
-        </ul>
-      </article>
     </section>
 
     <section class="grid">
       <article class="card reveal">
-        <div class="k">Allocation Map</div>
+        <div class="k">Project Documents</div>
         <ul class="list">
-          <li>Launch + rewards + grants: 22% + 25% + 18%.</li>
-          <li>Treasury + team + ops: 20% + 10% + 5%.</li>
-          <li>Schedule-driven unlock discipline across treasury and vesting wallets.</li>
+          <li>Use the proof pack for contract verification.</li>
+          <li>Use the covenant for liquidity policy and reserve discipline.</li>
+          <li>Use the whitepaper for token design and roadmap context.</li>
         </ul>
       </article>
       <article class="card reveal">
-        <div class="k">Public Transparency</div>
+        <div class="k">Launch Tracking</div>
         <ul class="list">
-          <li>Daily chain snapshots via Telegram automation</li>
-          <li>LP and treasury changes logged in runbook</li>
-          <li>Canonical mint repeated in every official post</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Low-Cost Operating Stack</div>
-        <ul class="list">
-          <li>GitHub Pages serves the public site with almost no hosting cost.</li>
-          <li>Cloudflare Worker handles the trust-check API without exposing your machine.</li>
-          <li>Telegram bot and local automation handle updates and alert delivery.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Token Alignment (Only If Earned)</div>
-        <ul class="list">
-          <li>The product should stay useful even for users who never buy $VTRAI.</li>
-          <li>Any premium query or API gating should follow real product demand, not forced token mechanics.</li>
-          <li>Governance or staking only matters later if reports and alerts earn repeat use first.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Distribution Model</div>
-        <ul class="list">
-          <li>Discovery still happens on X, Telegram, and DexScreener.</li>
-          <li>Vectora wins by being the link people open to verify what they just found.</li>
-          <li>Telegram alerts create repeat use without needing paid acquisition or livestreams.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Liquidity Discipline</div>
-        <ul class="list">
-          <li>Initial liquidity is deployed conservatively with explicit reserve protection.</li>
-          <li>Reserve capital is only used for stability conditions, not narrative pumps.</li>
-          <li>LP growth is designed to scale from proven traction and realized performance.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Treasury Policy</div>
-        <ul class="list">
-          <li>Treasury actions should be reason-coded and publicly logged.</li>
-          <li>Priority order: resilience, liquidity health, incentives, expansion.</li>
-          <li>Usage remains auditable via wallet labels and periodic reporting.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Governance Controls</div>
-        <ul class="list">
-          <li>Core policy changes are staged and communicated before execution when possible.</li>
-          <li>Key controls reduce unilateral, unannounced parameter changes.</li>
-          <li>Governance expansion can phase in as contributor quality matures.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Proof KPIs</div>
-        <ul class="list">
-          <li>Mean time to verification for high-risk claims.</li>
-          <li>True-positive rate versus false-positive rate in trust alerts.</li>
-          <li>Coverage share of top market narratives with evidence-backed responses.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Milestone Radar (Post-Launch)</div>
-        <ul class="list">
-          <li>M1: Trust Card Engine live for contract and claim verification.</li>
-          <li>M2: Threat Graph release with impersonation cluster mapping.</li>
-          <li>M3: Stake-weighted signal market with challenge and dispute flow.</li>
-          <li>M4: Sentinel module reveal (codename only until launch-ready).</li>
+          <li>Official launch notices publish on the update desk and official Telegram.</li>
+          <li>Pair and route links are only valid if repeated on official channels.</li>
+          <li>Use the trust checker before acting on any launch message.</li>
         </ul>
       </article>
     </section>
 
     <section class="cta-strip reveal">
+      <a class="btn" href="./watchlist.html">Open Watchlist</a>
+      <a class="btn" href="./updates.html">Read Updates</a>
       <a class="btn" href="./proof.html">Open Proof Pack</a>
       <a class="btn" href="./whitepaper.html">Read Whitepaper</a>
-      <a class="btn alt" href="./updates.html">Read Updates</a>
-      <a class="btn alt" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Telegram</a>
-      <a class="btn alt" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">Track Pair</a>
+      <a class="btn" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Telegram</a>
     </section>
 
     <p class="footer">Vectora publishes data, not guarantees. Always verify mint address before trading.</p>

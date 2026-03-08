@@ -117,9 +117,11 @@
       flex-wrap: wrap;
     }
     .copy-btn {
-      border: 1px solid var(--line);
-      background: rgba(18, 30, 52, 0.72);
-      color: var(--ink);
+      border: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0) 46%),
+        linear-gradient(90deg, var(--cyan), #86e8ff);
+      color: #031019;
       border-radius: 10px;
       padding: 7px 10px;
       font-family: inherit;
@@ -128,8 +130,7 @@
       cursor: pointer;
     }
     .copy-btn:hover {
-      border-color: rgba(77, 234, 255, 0.4);
-      color: var(--cyan);
+      transform: translateY(-1px);
     }
     @media (max-width: 860px) {
       .grid { grid-template-columns: 1fr; }
