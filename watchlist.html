@@ -318,6 +318,52 @@
       font-size: 0.82rem;
       line-height: 1.4;
     }
+    .history-item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .history-item-head strong {
+      margin-bottom: 0;
+    }
+    .history-item-sub {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+    .history-timeline {
+      margin-top: 8px;
+      padding-left: 14px;
+      border-left: 1px solid rgba(77, 234, 255, 0.18);
+      display: grid;
+      gap: 8px;
+    }
+    .history-timeline-entry {
+      position: relative;
+      padding-left: 10px;
+      color: inherit;
+    }
+    .history-timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: -19px;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
+    }
+    .history-diff-list {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+    .history-diff-list li + li {
+      margin-top: 4px;
+    }
     .status-badge {
       border-radius: 999px;
       padding: 6px 10px;
@@ -715,6 +761,37 @@
       }));
     }
 
+    function buildChangeDetails(previous, current) {
+      if (!current?.address || !previous?.address) return [];
+
+      const changes = [];
+
+      if ((previous.level || 'unknown') !== (current.level || 'unknown')) {
+        changes.push(`Caution level changed from ${(previous.level || 'unknown').toUpperCase()} to ${(current.level || 'unknown').toUpperCase()}.`);
+      }
+
+      const watchedMeta = ['supply', 'top liquidity', 'top venue', 'open source', 'metadata mutable'];
+      const previousMeta = metaMap(previous);
+      const currentMeta = metaMap(current);
+      watchedMeta.forEach((label) => {
+        const before = previousMeta.get(label);
+        const after = currentMeta.get(label);
+        if (before && after && before !== after) {
+          changes.push(`${label.replace(/\b\w/g, (ch) => ch.toUpperCase())} changed from ${before} to ${after}.`);
+        }
+      });
+
+      const previousReasons = reasonSet(previous);
+      const currentReasons = reasonSet(current);
+      const addedReasons = [...currentReasons].filter((value) => !previousReasons.has(value)).slice(0, 2);
+      addedReasons.forEach((value) => {
+        const [, text] = value.split('::');
+        if (text) changes.push(text);
+      });
+
+      return changes;
+    }
+
     function buildFallback(text) {
       const cleaned = String(text || 'TK').replace(/[^A-Za-z0-9 ]/g, '').trim();
       const parts = cleaned.split(/\s+/).filter(Boolean);
@@ -776,13 +853,33 @@
             </span>
           </summary>
           <ul class="history-list">
-            ${history.map((entry) => {
+            ${history.map((entry, index) => {
+              const previousEntry = history[index + 1] || null;
               const liquidity = (entry.meta || []).find((meta) => String(meta.label || '').toLowerCase() === 'top liquidity');
+              const changes = previousEntry ? buildChangeDetails(previousEntry, entry) : [];
+              const changeClass = previousEntry ? (changes.length ? 'change-hit' : 'change-none') : 'change-pending';
+              const changeLabel = previousEntry ? (changes.length ? 'Changed' : 'No change') : 'Baseline';
               return `
                 <li class="history-item">
-                  <strong>${(entry.level || 'unknown').toUpperCase()} · ${formatDate(entry.checked_at_utc)}</strong>
-                  <div>${entry.summary || 'No summary stored.'}</div>
+                  <div class="history-item-head">
+                    <div>
+                      <strong>${(entry.level || 'unknown').toUpperCase()} · ${formatDate(entry.checked_at_utc)}</strong>
+                      <div class="history-item-sub">${entry.summary || 'No summary stored.'}</div>
+                    </div>
+                    <span class="change-badge ${changeClass}">${changeLabel}</span>
+                  </div>
                   <div>${liquidity?.value ? `Top liquidity: ${liquidity.value}` : 'Top liquidity: Unknown'}</div>
+                  ${previousEntry ? `
+                    <div class="history-timeline">
+                      <div class="history-timeline-entry ${changeClass}">
+                        <strong>Compared with ${formatDate(previousEntry.checked_at_utc)}</strong>
+                        ${changes.length
+                          ? `<ul class="history-diff-list">${changes.slice(0, 4).map((change) => `<li>${change}</li>`).join('')}</ul>`
+                          : `<div class="history-item-sub">No material trust changes detected.</div>`
+                        }
+                      </div>
+                    </div>
+                  ` : ''}
                 </li>
               `;
             }).join('')}
@@ -804,30 +901,7 @@
         `;
       }
 
-      const changes = [];
-
-      if ((previous.level || 'unknown') !== (current.level || 'unknown')) {
-        changes.push(`Caution level changed from ${(previous.level || 'unknown').toUpperCase()} to ${(current.level || 'unknown').toUpperCase()}.`);
-      }
-
-      const watchedMeta = ['supply', 'top liquidity', 'top venue', 'open source', 'metadata mutable'];
-      const previousMeta = metaMap(previous);
-      const currentMeta = metaMap(current);
-      watchedMeta.forEach((label) => {
-        const before = previousMeta.get(label);
-        const after = currentMeta.get(label);
-        if (before && after && before !== after) {
-          changes.push(`${label.replace(/\b\w/g, (ch) => ch.toUpperCase())} changed from ${before} to ${after}.`);
-        }
-      });
-
-      const previousReasons = reasonSet(previous);
-      const currentReasons = reasonSet(current);
-      const addedReasons = [...currentReasons].filter((value) => !previousReasons.has(value)).slice(0, 2);
-      addedReasons.forEach((value) => {
-        const [, text] = value.split('::');
-        if (text) changes.push(text);
-      });
+      const changes = buildChangeDetails(previous, current);
 
       if (!changes.length) {
         return `
@@ -857,24 +931,7 @@
         };
       }
 
-      const changes = [];
-      if ((previous.level || 'unknown') !== (current.level || 'unknown')) {
-        changes.push('level');
-      }
-
-      const watchedMeta = ['supply', 'top liquidity', 'top venue', 'open source', 'metadata mutable'];
-      const previousMeta = metaMap(previous);
-      const currentMeta = metaMap(current);
-      watchedMeta.forEach((label) => {
-        const before = previousMeta.get(label);
-        const after = currentMeta.get(label);
-        if (before && after && before !== after) changes.push(label);
-      });
-
-      const previousReasons = reasonSet(previous);
-      const currentReasons = reasonSet(current);
-      const addedReasons = [...currentReasons].filter((value) => !previousReasons.has(value));
-      if (addedReasons.length) changes.push('reason');
+      const changes = buildChangeDetails(previous, current);
 
       if (changes.length) {
         return {
