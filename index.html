@@ -104,15 +104,60 @@
 
     .tag { color: var(--cyan); }
 
-    .nav-links a {
-      color: var(--ink);
-      text-decoration: none;
-      margin-left: 12px;
-      border-bottom: 1px dashed #466487;
-      font-size: 0.92rem;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a,
+    .nav-menu summary {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px dashed #466487;
+      font-size: 0.92rem;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover,
+    .nav-menu summary:hover { color: var(--cyan); }
+
+    .nav-menu {
+      position: relative;
+    }
+
+    .nav-menu summary::-webkit-details-marker { display: none; }
+
+    .nav-menu[open] .nav-menu-panel {
+      display: grid;
+    }
+
+    .nav-menu-panel {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 220px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(8, 14, 29, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      gap: 8px;
+      z-index: 5;
+    }
+
+    .nav-menu-panel a {
+      margin: 0;
+      border: 1px solid rgba(70, 100, 135, 0.38);
+      border-radius: 10px;
+      padding: 8px 10px;
+      text-decoration: none;
+      background: rgba(18, 30, 52, 0.62);
+    }
 
     .hero {
       margin-top: 14px;
@@ -737,11 +782,20 @@
         <span>Vectora <span class="tag">$VTRAI</span></span>
       </div>
       <div class="nav-links">
+        <a href="#trust-check">Check</a>
         <a href="./watchlist.html">Watchlist</a>
         <a href="./updates.html">Updates</a>
-        <a href="./proof.html">Proof</a>
-        <a href="./whitepaper.html">Whitepaper</a>
-        <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+        <details class="nav-menu">
+          <summary>Vectora Token</summary>
+          <div class="nav-menu-panel">
+            <a href="./proof.html">Proof Pack</a>
+            <a href="./whitepaper.html">Whitepaper</a>
+            <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+            <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
+            <a href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">DexScreener Pair</a>
+            <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium Route</a>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -906,65 +960,10 @@
       <div class="state amber">Execution mode: low-cost workflow tool first. No custom indexer or heavy infrastructure until repeat usage proves it is necessary.</div>
     </section>
 
-    <div class="section-head">
-      <h2>Vectora Token Reference</h2>
-      <p>Everything below is project-specific reference material. The core customer function is the trust checker, watchlist, and update desk above.</p>
-    </div>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Official Token Links</div>
-        <ul class="list">
-          <li><a href="./proof.html" target="_blank" rel="noreferrer">Proof Pack</a></li>
-          <li><a href="./whitepaper.html" target="_blank" rel="noreferrer">Whitepaper</a></li>
-          <li><a href="./liquidity-covenant.html" target="_blank" rel="noreferrer">Liquidity Covenant</a></li>
-          <li><a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Official Telegram</a></li>
-          <li><a href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">DexScreener Pair</a></li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Official Mint</div>
-        <div class="mint-row">
-          <div class="v"><code id="officialMintCode">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code></div>
-          <button class="copy-btn" type="button" data-copy-target="officialMintCode">Copy mint</button>
-        </div>
-        <div class="warn">Security: any other contract claiming to be VTRAI is fake.</div>
-      </article>
-      <article class="card reveal">
-        <div class="k">Immutable Trust Signals</div>
-        <ul class="list">
-          <li><span class="ok">Mint authority:</span> revoked.</li>
-          <li><span class="ok">Freeze authority:</span> revoked.</li>
-          <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Project Documents</div>
-        <ul class="list">
-          <li>Use the proof pack for contract verification.</li>
-          <li>Use the covenant for liquidity policy and reserve discipline.</li>
-          <li>Use the whitepaper for token design and roadmap context.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Launch Tracking</div>
-        <ul class="list">
-          <li>Official launch notices publish on the update desk and official Telegram.</li>
-          <li>Pair and route links are only valid if repeated on official channels.</li>
-          <li>Use the trust checker before acting on any launch message.</li>
-        </ul>
-      </article>
-    </section>
-
     <section class="cta-strip reveal">
+      <a class="btn" href="#trust-check">Check Token</a>
       <a class="btn" href="./watchlist.html">Open Watchlist</a>
       <a class="btn" href="./updates.html">Read Updates</a>
-      <a class="btn" href="./proof.html">Open Proof Pack</a>
-      <a class="btn" href="./whitepaper.html">Read Whitepaper</a>
-      <a class="btn" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Join Telegram</a>
     </section>
 
     <p class="footer">Vectora publishes data, not guarantees. Always verify mint address before trading.</p>
