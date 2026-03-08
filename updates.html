@@ -104,6 +104,10 @@
       text-underline-offset: 2px;
       margin-left: 10px;
     }
+    .token-summary {
+      margin-top: 12px;
+      display: none;
+    }
     .grid {
       margin-top: 16px;
       display: grid;
@@ -296,6 +300,7 @@
     </div>
     <p class="state" id="status">Loading latest updates...</p>
     <div class="filter-state" id="filterState"></div>
+    <section class="card token-summary" id="tokenSummary"></section>
 
     <section class="grid">
       <article class="card">
@@ -345,6 +350,7 @@
     const OFFICIAL_VECTORA_MINT = 'Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J';
     const statusEl = document.getElementById('status');
     const filterStateEl = document.getElementById('filterState');
+    const tokenSummaryEl = document.getElementById('tokenSummary');
     const latestItemEl = document.getElementById('latestItem');
     const historyEl = document.getElementById('history');
     const trustLatestEl = document.getElementById('trustLatest');
@@ -370,6 +376,41 @@
       filterStateEl.innerHTML = `
         <strong>Filtered to token:</strong> ${filterAddress}${filterNetwork ? ` on ${filterNetwork}` : ''}
         <a href="./updates.html">Clear filter</a>
+      `;
+    }
+
+    function renderTokenSummary(item) {
+      if (!hasTokenFilter) return;
+      tokenSummaryEl.style.display = 'block';
+      if (!item) {
+        tokenSummaryEl.innerHTML = `
+          <h2>Latest Token Summary</h2>
+          <div class="empty-state">
+            <strong>This token is not scheduled yet.</strong>
+            <p>No scheduled background summary is available for this token yet. Use the watchlist handoff tools to add it to scheduled monitoring, or use the report page for the latest ad hoc trust check.</p>
+          </div>
+        `;
+        return;
+      }
+      const latest = item.latest || {};
+      const changes = Array.isArray(latest.change_summary) ? latest.change_summary : [];
+      const reportUrl = `./report.html?network=${encodeURIComponent(item.network || latest.network_id || 'auto')}&address=${encodeURIComponent(item.address || latest.address || '')}`;
+      tokenSummaryEl.innerHTML = `
+        <h2>Latest Token Summary</h2>
+        <div class="snapshot-title">
+          <div>
+            <strong>${item.label || latest.title || item.address || 'Watched token'}</strong>
+            <div class="meta">${latest.timestamp_utc || latest.checked_at_utc || 'Unknown time'} · ${latest.network_label || item.network || 'Unknown network'}</div>
+          </div>
+          <span class="snapshot-badge ${snapshotBadgeClass(latest.level)}">${latest.level || item.status || 'unknown'}</span>
+        </div>
+        <div class="snapshot-summary">${latest.summary || 'No scheduled summary available.'}</div>
+        ${renderSnapshotMeta(latest)}
+        <ul class="snapshot-list">${(changes.length ? changes.slice(0, 4) : ['No material trust change since the last scheduled check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
+        <div class="snapshot-links">
+          <a href="${reportUrl}">Open report</a>
+          ${latest.links && latest.links[0] ? `<a href="${latest.links[0].url}" target="_blank" rel="noreferrer">${latest.links[0].label}</a>` : ''}
+        </div>
       `;
     }
 
@@ -542,9 +583,15 @@
       .then((data) => {
         const sourceItems = (data && Array.isArray(data.items)) ? data.items : [];
         const items = sourceItems.filter((item) => matchesToken(item.address, item.network || item.latest?.network_id));
+        if (hasTokenFilter) {
+          renderTokenSummary(items[0] || null);
+        }
         watchedSnapshotsEl.innerHTML = renderWatchedSnapshots(items);
       })
       .catch(() => {
+        if (hasTokenFilter) {
+          renderTokenSummary(null);
+        }
         watchedSnapshotsEl.innerHTML = renderWatchedSnapshots([]);
       });
   </script>
