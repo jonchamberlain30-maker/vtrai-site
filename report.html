@@ -628,7 +628,7 @@
       try {
         const response = await fetch(`${MONITOR_API_BASE}/monitor-queue-health`);
         const payload = await response.json();
-        monitorQueueReady = Boolean(response.ok && payload.ok && payload.ready);
+        monitorQueueReady = Boolean(response.ok && payload.ok && payload.queue_ready);
       } catch {
         monitorQueueReady = false;
       }
