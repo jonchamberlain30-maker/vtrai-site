@@ -171,6 +171,20 @@
       color: #cbe7ff;
       line-height: 1.45;
     }
+    .helper-note {
+      margin-top: 12px;
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 12px;
+      background: rgba(8, 16, 30, 0.72);
+      padding: 12px;
+      color: #d7efff;
+      line-height: 1.45;
+    }
+    .helper-note strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
     .grid {
       margin-top: 16px;
       display: grid;
@@ -551,6 +565,10 @@
         <button id="exportScheduledButton" class="btn" type="button">Export Scheduled Manifest</button>
         <button id="importWatchlistButton" class="btn" type="button">Import Watchlist</button>
         <button id="clearWatchlistButton" class="btn destructive" type="button">Clear Watchlist</button>
+      </div>
+      <div class="helper-note">
+        <strong>Scheduled monitoring handoff</strong>
+        Use <b>Export Watchlist</b> to move your full device watchlist and history, use <b>Export Scheduled Manifest</b> to promote the whole list into background monitoring, and use <b>Copy Manifest Entry</b> on a token card when you only want one token.
       </div>
       <input id="importWatchlistInput" type="file" accept="application/json" style="display:none" />
       <div class="filters">
