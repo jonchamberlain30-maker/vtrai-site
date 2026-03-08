@@ -443,6 +443,7 @@
   <script>
     const TRUST_API_BASE = 'https://api.getvectora.ai';
     const WATCHLIST_KEY = 'vectora_watchlist_v1';
+    const WATCH_HISTORY_LIMIT = 12;
     const watchlistGrid = document.getElementById('watchlistGrid');
     const watchlistState = document.getElementById('watchlistState');
     const refreshAllButton = document.getElementById('refreshAllButton');
@@ -498,6 +499,39 @@
         notes: report.notes || [],
         links: report.links || [],
       };
+    }
+
+    function sameReport(a, b) {
+      if (!a || !b) return false;
+      return (a.address || '') === (b.address || '')
+        && (a.checked_at_utc || '') === (b.checked_at_utc || '')
+        && (a.level || '') === (b.level || '');
+    }
+
+    function getReportHistory(item) {
+      const history = Array.isArray(item.report_history) ? [...item.report_history] : [];
+      if (!history.length && item.previous_report?.address) {
+        history.push(item.previous_report);
+      }
+      if (item.last_report?.address && !sameReport(history[history.length - 1], item.last_report)) {
+        history.push(item.last_report);
+      }
+      return history.slice(-WATCH_HISTORY_LIMIT);
+    }
+
+    function previousSnapshot(item) {
+      const history = getReportHistory(item);
+      if (history.length >= 2) return history[history.length - 2];
+      return item.previous_report || null;
+    }
+
+    function appendSnapshot(item, report) {
+      const history = getReportHistory(item);
+      if (!sameReport(history[history.length - 1], report)) {
+        history.push(report);
+      }
+      item.report_history = history.slice(-WATCH_HISTORY_LIMIT);
+      return item.report_history;
     }
 
     function normalizeLabel(value) {
@@ -558,7 +592,7 @@
 
     function renderDiff(item) {
       const current = item.last_report || {};
-      const previous = item.previous_report || null;
+      const previous = previousSnapshot(item);
       if (!current.address) return '';
       if (!previous || !previous.address) {
         return `
@@ -613,7 +647,7 @@
 
     function diffState(item) {
       const current = item.last_report || {};
-      const previous = item.previous_report || null;
+      const previous = previousSnapshot(item);
       if (!current.address || !previous || !previous.address) {
         return {
           label: 'Baseline only',
@@ -735,6 +769,7 @@
         const summary = report.summary || item.summary || 'No cached trust report yet. Refresh to fetch a fresh report now.';
         const imageUrl = report.image_url || item.image_url || '';
         const changeState = diffState(item);
+        const historyCount = getReportHistory(item).length;
         return `
           <article class="card">
             <div class="card-head">
@@ -761,6 +796,7 @@
               <button class="btn" type="button" data-refresh-index="${index}">Refresh</button>
               <button class="btn destructive" type="button" data-remove-index="${index}">Remove</button>
             </div>
+            <div class="meta-line" style="margin-top: 10px;">Snapshots stored: ${historyCount}</div>
             ${changeState.time ? `<div class="meta-line" style="margin-top: 10px;">Change status updated: ${formatDate(changeState.time)}</div>` : ''}
             <div class="meta-line" style="margin-top: 10px;">Last checked: ${formatDate(item.last_checked_at_utc || report.checked_at_utc)}</div>
             ${item.last_error ? `<div class="state" style="margin-top: 10px; color: var(--warn-strong); border-color: rgba(255, 191, 208, 0.3);">${item.last_error}</div>` : ''}
@@ -780,10 +816,10 @@
         if (!response.ok || !payload.ok || !payload.report) {
           throw new Error(payload.error || 'Trust report unavailable.');
         }
-        if (item.last_report?.address) {
-          item.previous_report = item.last_report;
-        }
-        item.last_report = compactReport(payload.report);
+        const nextReport = compactReport(payload.report);
+        item.previous_report = item.last_report?.address ? item.last_report : previousSnapshot(item);
+        item.last_report = nextReport;
+        appendSnapshot(item, nextReport);
         item.last_checked_at_utc = payload.report.checked_at_utc || new Date().toISOString();
         item.last_error = '';
         items[index] = item;
