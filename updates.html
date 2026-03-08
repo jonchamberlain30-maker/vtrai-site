@@ -108,6 +108,27 @@
       margin-top: 12px;
       display: none;
     }
+    .instruction-box {
+      margin-top: 12px;
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 12px;
+      background: rgba(8, 16, 30, 0.72);
+      padding: 12px;
+      color: #d7efff;
+      line-height: 1.45;
+    }
+    .instruction-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .instruction-box code {
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 2px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: #eaf8ff;
+    }
     .grid {
       margin-top: 16px;
       display: grid;
@@ -389,6 +410,10 @@
             <strong>This token is not scheduled yet.</strong>
             <p>No scheduled background summary is available for this token yet. Use the watchlist handoff tools to add it to scheduled monitoring, or use the report page for the latest ad hoc trust check.</p>
           </div>
+          <div class="instruction-box">
+            <strong>Add this token to scheduled monitoring</strong>
+            Open the watchlist for this token, then use <code>Copy Manifest Entry</code> for one token or <code>Export Scheduled Manifest</code> for a full list and add that entry to <code>watched_tokens.json</code>.
+          </div>
         `;
         return;
       }
@@ -410,6 +435,10 @@
         <div class="snapshot-links">
           <a href="${reportUrl}">Open report</a>
           ${latest.links && latest.links[0] ? `<a href="${latest.links[0].url}" target="_blank" rel="noreferrer">${latest.links[0].label}</a>` : ''}
+        </div>
+        <div class="instruction-box">
+          <strong>Need to schedule another token?</strong>
+          Use the watchlist handoff tools: <code>Copy Manifest Entry</code> for one token or <code>Export Scheduled Manifest</code> for a full list, then add those entries to <code>watched_tokens.json</code>.
         </div>
       `;
     }
