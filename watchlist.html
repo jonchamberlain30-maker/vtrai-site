@@ -434,6 +434,9 @@
       letter-spacing: 0.03em;
       text-transform: uppercase;
     }
+    .scheduled-badge {
+      color: var(--cyan);
+    }
     .change-hit { color: #ffe08f; }
     .change-none { color: #8fbfe7; }
     .change-pending { color: var(--muted); }
@@ -586,6 +589,7 @@
     const watchlistSort = document.getElementById('watchlistSort');
     let currentFilter = 'all';
     let currentSort = 'changed';
+    let scheduledWatchKeys = new Set();
 
     function getWatchlist() {
       try {
@@ -610,6 +614,21 @@
 
     function buildWatchKey(networkId, address) {
       return `${networkId || 'auto'}:${String(address || '').toLowerCase()}`;
+    }
+
+    async function loadScheduledWatchKeys() {
+      try {
+        const response = await fetch('./watched_tokens.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('no-manifest');
+        const payload = await response.json();
+        const items = Array.isArray(payload?.items) ? payload.items : [];
+        scheduledWatchKeys = new Set(items
+          .filter((item) => item && item.address)
+          .map((item) => buildWatchKey(item.network || item.network_id || 'auto', item.address)));
+      } catch {
+        scheduledWatchKeys = new Set();
+      }
+      renderWatchlist();
     }
 
     function shareIconHtml() {
@@ -1108,6 +1127,7 @@
         const trend = trendState(item);
         const decision = decisionState(item);
         const historyCount = getReportHistory(item).length;
+        const scheduled = scheduledWatchKeys.has(buildWatchKey(item.network_id, item.address));
         return `
           <article class="card">
             <div class="card-head">
@@ -1121,6 +1141,7 @@
               <div class="status-stack">
                 <button class="share-btn" type="button" data-share-url="${buildReportUrl(item)}">${shareIconHtml()}<span>Share</span></button>
                 <div class="status-badge ${badgeClass(level)}">${level}</div>
+                ${scheduled ? '<div class="change-badge scheduled-badge">Scheduled</div>' : ''}
                 <div class="change-badge ${decision.className}">${decision.label}</div>
                 <div class="change-badge ${changeState.className}">${changeState.label}</div>
                 <div class="change-badge ${trend.className}">${trend.label}</div>
@@ -1280,6 +1301,7 @@
     });
 
     renderWatchlist();
+    loadScheduledWatchKeys();
   </script>
 </body>
 </html>
