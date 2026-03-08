@@ -202,6 +202,31 @@
       margin-top: 10px;
       color: #d7ecff;
     }
+    .diff-box {
+      margin-top: 12px;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(8, 16, 30, 0.72);
+      padding: 12px;
+    }
+    .diff-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .diff-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #d7efff;
+      line-height: 1.45;
+    }
+    .diff-box li + li {
+      margin-top: 6px;
+    }
+    .diff-box .quiet {
+      color: var(--muted);
+      line-height: 1.45;
+    }
     .status-badge {
       border-radius: 999px;
       padding: 6px 10px;
@@ -360,6 +385,23 @@
       };
     }
 
+    function normalizeLabel(value) {
+      return String(value || '').trim().toLowerCase();
+    }
+
+    function metaMap(report) {
+      return new Map((Array.isArray(report?.meta) ? report.meta : []).map((entry) => [
+        normalizeLabel(entry.label),
+        entry.value || 'Unknown',
+      ]));
+    }
+
+    function reasonSet(report) {
+      return new Set((Array.isArray(report?.reasons) ? report.reasons : []).map((entry) => {
+        return `${normalizeLabel(entry.label)}::${String(entry.text || '').trim()}`;
+      }));
+    }
+
     function buildFallback(text) {
       const cleaned = String(text || 'TK').replace(/[^A-Za-z0-9 ]/g, '').trim();
       const parts = cleaned.split(/\s+/).filter(Boolean);
@@ -399,6 +441,61 @@
       return `<div class="links">${links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')}</div>`;
     }
 
+    function renderDiff(item) {
+      const current = item.last_report || {};
+      const previous = item.previous_report || null;
+      if (!current.address) return '';
+      if (!previous || !previous.address) {
+        return `
+          <div class="diff-box">
+            <strong>What changed since saved</strong>
+            <div class="quiet">No comparison yet. Refresh this token to compare the next report against the saved snapshot.</div>
+          </div>
+        `;
+      }
+
+      const changes = [];
+
+      if ((previous.level || 'unknown') !== (current.level || 'unknown')) {
+        changes.push(`Caution level changed from ${(previous.level || 'unknown').toUpperCase()} to ${(current.level || 'unknown').toUpperCase()}.`);
+      }
+
+      const watchedMeta = ['supply', 'top liquidity', 'top venue', 'open source', 'metadata mutable'];
+      const previousMeta = metaMap(previous);
+      const currentMeta = metaMap(current);
+      watchedMeta.forEach((label) => {
+        const before = previousMeta.get(label);
+        const after = currentMeta.get(label);
+        if (before && after && before !== after) {
+          changes.push(`${label.replace(/\b\w/g, (ch) => ch.toUpperCase())} changed from ${before} to ${after}.`);
+        }
+      });
+
+      const previousReasons = reasonSet(previous);
+      const currentReasons = reasonSet(current);
+      const addedReasons = [...currentReasons].filter((value) => !previousReasons.has(value)).slice(0, 2);
+      addedReasons.forEach((value) => {
+        const [, text] = value.split('::');
+        if (text) changes.push(text);
+      });
+
+      if (!changes.length) {
+        return `
+          <div class="diff-box">
+            <strong>What changed since saved</strong>
+            <div class="quiet">No material trust changes detected since the last saved report.</div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="diff-box">
+          <strong>What changed since saved</strong>
+          <ul>${changes.slice(0, 4).map((entry) => `<li>${entry}</li>`).join('')}</ul>
+        </div>
+      `;
+    }
+
     function renderWatchlist() {
       const items = getWatchlist();
       if (!items.length) {
@@ -433,6 +530,7 @@
             </div>
             <div class="address">${item.address}</div>
             <div class="summary">${summary}</div>
+            ${renderDiff(item)}
             ${renderMeta(item)}
             ${renderReasons(item)}
             ${renderLinks(item)}
@@ -457,6 +555,9 @@
         const payload = await response.json();
         if (!response.ok || !payload.ok || !payload.report) {
           throw new Error(payload.error || 'Trust report unavailable.');
+        }
+        if (item.last_report?.address) {
+          item.previous_report = item.last_report;
         }
         item.last_report = compactReport(payload.report);
         item.last_checked_at_utc = payload.report.checked_at_utc || new Date().toISOString();
