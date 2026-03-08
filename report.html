@@ -255,6 +255,51 @@
       text-transform: uppercase;
       letter-spacing: 0.3px;
     }
+    .report-head-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .share-btn-mark {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+    }
+    .share-btn-mark svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+      fill: currentColor;
+    }
+    .saved-badge {
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid currentColor;
+      background: rgba(255,255,255,0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .saved-on { color: var(--good); }
+    .saved-off { color: var(--muted); }
     .summary {
       color: #d7ecff;
       line-height: 1.5;
@@ -450,6 +495,16 @@
       return map[networkLabel] || buildTokenFallback(networkLabel || 'N');
     }
 
+    function shareIconHtml() {
+      return `
+        <span class="share-btn-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="M18 16a3 3 0 0 0-2.39 1.2l-6.63-3.32a3.1 3.1 0 0 0 0-1.76l6.63-3.32A3 3 0 1 0 15 7a3.1 3.1 0 0 0 .07.64L8.44 10.96a3 3 0 1 0 0 2.08l6.63 3.32A3 3 0 1 0 18 16Z"/>
+          </svg>
+        </span>
+      `;
+    }
+
     function metaValue(report, label) {
       const entry = (report.meta || []).find((item) => String(item.label || '').toLowerCase() === label.toLowerCase());
       return entry ? String(entry.value || '').trim() : '';
@@ -618,6 +673,7 @@
         image_url: imageUrl,
         report,
       };
+      const saved = isWatchedToken(currentWatchToken);
       document.title = `Vectora | ${report.title}`;
       const quickSummary = buildQuickSummary(report);
       const reasonsHtml = (report.reasons || []).length ? `
@@ -656,7 +712,11 @@
               </div>
             </div>
           </div>
-          <div class="level-badge" style="color: ${tone};">${badgeLabel}</div>
+          <div class="report-head-actions">
+            <button class="share-btn" type="button" data-share-report="true">${shareIconHtml()}<span>Share</span></button>
+            <div class="saved-badge ${saved ? 'saved-on' : 'saved-off'}">${saved ? 'Saved on this device' : 'Not saved yet'}</div>
+            <div class="level-badge" style="color: ${tone};">${badgeLabel}</div>
+          </div>
         </div>
         <div class="summary">${report.summary}</div>
         <div class="quick-grid">
@@ -682,10 +742,9 @@
           <h3>Report actions</h3>
           <div class="controls">
             <button class="btn" type="button" data-watch-toggle="true">${isWatchedToken(currentWatchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
-            <button class="btn" type="button" data-copy-report="true">Copy report link</button>
             <a class="btn" href="./watchlist.html">Open watchlist</a>
           </div>
-          <div class="helper" data-watch-status>${isWatchedToken(currentWatchToken) ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
+          <div class="helper" data-watch-status>${saved ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
         </div>
       `);
     }
@@ -717,30 +776,50 @@
     });
     copyLinkButton.addEventListener('click', copyReportLink);
     reportShell.addEventListener('click', async (event) => {
+      const shareButton = event.target.closest('[data-share-report]');
+      if (shareButton) {
+        const original = shareButton.innerHTML;
+        const sharePayload = {
+          title: currentWatchToken?.title || 'Vectora token report',
+          text: currentWatchToken?.summary || 'Token trust report',
+          url: currentReportUrl,
+        };
+        const fallbackCopy = () => navigator.clipboard.writeText(currentReportUrl)
+          .then(() => {
+            shareButton.innerHTML = `${shareIconHtml()}<span>Copied</span>`;
+          })
+          .catch(() => {
+            shareButton.innerHTML = `${shareIconHtml()}<span>Copy failed</span>`;
+          })
+          .finally(() => {
+            setTimeout(() => {
+              shareButton.innerHTML = original;
+            }, 1400);
+          });
+        if (navigator.share) {
+          navigator.share(sharePayload).catch(() => fallbackCopy());
+        } else {
+          fallbackCopy();
+        }
+        return;
+      }
       const watchButton = event.target.closest('[data-watch-toggle]');
       if (watchButton && currentWatchToken) {
         const watching = toggleWatchToken(currentWatchToken);
         watchButton.textContent = watching ? 'Watching on this device' : 'Watch on this device';
         const status = reportShell.querySelector('[data-watch-status]');
+        const savedBadge = reportShell.querySelector('.saved-badge');
         if (status) {
           status.textContent = watching
             ? 'Saved on this browser. Revisit from your watchlist page.'
             : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
         }
-        return;
-      }
-      const copyButton = event.target.closest('[data-copy-report]');
-      if (copyButton) {
-        const original = copyButton.textContent;
-        try {
-          await navigator.clipboard.writeText(currentReportUrl);
-          copyButton.textContent = 'Copied';
-        } catch {
-          copyButton.textContent = 'Copy failed';
+        if (savedBadge) {
+          savedBadge.textContent = watching ? 'Saved on this device' : 'Not saved yet';
+          savedBadge.classList.toggle('saved-on', watching);
+          savedBadge.classList.toggle('saved-off', !watching);
         }
-        setTimeout(() => {
-          copyButton.textContent = original;
-        }, 1400);
+        return;
       }
     });
 

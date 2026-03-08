@@ -669,8 +669,15 @@
       transform: translateY(-1px);
     }
     .share-btn-mark {
-      font-size: 0.86rem;
-      line-height: 1;
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+    }
+    .share-btn-mark svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+      fill: currentColor;
     }
 
     .trust-summary {
@@ -1149,6 +1156,16 @@
       return `./report.html?${params.toString()}`;
     }
 
+    function shareIconHtml() {
+      return `
+        <span class="share-btn-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+            <path d="M18 16a3 3 0 0 0-2.39 1.2l-6.63-3.32a3.1 3.1 0 0 0 0-1.76l6.63-3.32A3 3 0 1 0 15 7a3.1 3.1 0 0 0 .07.64L8.44 10.96a3 3 0 1 0 0 2.08l6.63 3.32A3 3 0 1 0 18 16Z"/>
+          </svg>
+        </span>
+      `;
+    }
+
     function compactReport(report) {
       return {
         network_id: report.network_id,
@@ -1326,7 +1343,7 @@
             </div>
           </div>
           <div class="trust-head-actions">
-            ${watchToken ? `<button class="share-btn" type="button" data-share-report="true"><span class="share-btn-mark">↗</span><span>Share</span></button>` : ''}
+            ${watchToken ? `<button class="share-btn" type="button" data-share-report="true">${shareIconHtml()}<span>Share</span></button>` : ''}
             <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
           </div>
         </div>
@@ -1808,10 +1825,10 @@
         };
         const fallbackCopy = () => navigator.clipboard.writeText(reportUrl)
           .then(() => {
-            shareButton.innerHTML = '<span class="share-btn-mark">↗</span><span>Copied</span>';
+            shareButton.innerHTML = `${shareIconHtml()}<span>Copied</span>`;
           })
           .catch(() => {
-            shareButton.innerHTML = '<span class="share-btn-mark">↗</span><span>Copy failed</span>';
+            shareButton.innerHTML = `${shareIconHtml()}<span>Copy failed</span>`;
           })
           .finally(() => {
             setTimeout(() => {
