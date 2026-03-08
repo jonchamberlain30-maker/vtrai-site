@@ -112,25 +112,29 @@
     }
 
     .nav-links a,
-    .nav-menu summary {
+    .nav-menu-button {
       color: var(--ink);
       text-decoration: none;
       border-bottom: 1px dashed #466487;
       font-size: 0.92rem;
       list-style: none;
       cursor: pointer;
+      background: transparent;
+      font-family: inherit;
+      padding: 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
     }
 
     .nav-links a:hover,
-    .nav-menu summary:hover { color: var(--cyan); }
+    .nav-menu-button:hover { color: var(--cyan); }
 
     .nav-menu {
       position: relative;
     }
 
-    .nav-menu summary::-webkit-details-marker { display: none; }
-
-    .nav-menu[open] .nav-menu-panel {
+    .nav-menu.open .nav-menu-panel {
       display: grid;
     }
 
@@ -709,6 +713,59 @@
       color: var(--muted);
       font-size: 0.84rem;
       line-height: 1.45;
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .trust-help {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-help-button {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(77, 234, 255, 0.28);
+      background: rgba(18, 30, 52, 0.72);
+      color: #dff9ff;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      padding: 0;
+    }
+
+    .trust-help-panel {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(560px, calc(100vw - 48px));
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 14px;
+      background: rgba(8, 14, 29, 0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      padding: 12px 14px;
+      color: var(--muted);
+      text-align: left;
+      z-index: 5;
+    }
+
+    .trust-help.open .trust-help-panel {
+      display: block;
+    }
+
+    .trust-help-label {
+      font-size: 0.82rem;
+      color: #bfdaf0;
     }
 
     .mint-row {
@@ -785,8 +842,8 @@
         <a href="#trust-check">Check</a>
         <a href="./watchlist.html">Watchlist</a>
         <a href="./updates.html">Updates</a>
-        <details class="nav-menu">
-          <summary>Vectora Token</summary>
+        <div class="nav-menu">
+          <button class="nav-menu-button" type="button" data-nav-menu-toggle="true">Vectora Token</button>
           <div class="nav-menu-panel">
             <a href="./proof.html">Proof Pack</a>
             <a href="./whitepaper.html">Whitepaper</a>
@@ -795,7 +852,7 @@
             <a href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" target="_blank" rel="noreferrer">DexScreener Pair</a>
             <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium Route</a>
           </div>
-        </details>
+        </div>
       </div>
     </div>
 
@@ -834,10 +891,17 @@
           <button id="trustButton" class="btn gold" type="button">Check Token</button>
         </div>
         <div id="trustResult" class="trust-result">
-          <strong>Awaiting input.</strong>
           <div class="v">Paste a token address after you find it on X, Telegram, or DexScreener. Vectora is built to shorten the verification step, not replace market screens.</div>
         </div>
-        <div class="trust-note">Supported now: Solana, Ethereum, Base, BNB Chain, Arbitrum, Polygon, and Optimism. Auto detect works for Solana and will sweep the common EVM set when a `0x...` contract is pasted. The long-term job is trust-change monitoring and alerts, not just static checks.</div>
+        <div class="trust-note">
+          <div class="trust-help" id="trustHelp">
+            <span class="trust-help-label">Coverage</span>
+            <button class="trust-help-button" id="trustHelpButton" type="button" aria-expanded="false" aria-controls="trustHelpPanel">?</button>
+            <div class="trust-help-panel" id="trustHelpPanel">
+              Supported now: Solana, Ethereum, Base, BNB Chain, Arbitrum, Polygon, and Optimism. Auto detect works for Solana and will sweep the common EVM set when a `0x...` contract is pasted. The long-term job is trust-change monitoring and alerts, not just static checks.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1032,6 +1096,10 @@
     const trustButton = document.getElementById('trustButton');
     const trustResult = document.getElementById('trustResult');
     const copyButtons = document.querySelectorAll('[data-copy-target]');
+    const navMenu = document.querySelector('.nav-menu');
+    const navMenuButton = document.querySelector('[data-nav-menu-toggle]');
+    const trustHelp = document.getElementById('trustHelp');
+    const trustHelpButton = document.getElementById('trustHelpButton');
     let currentWatchToken = null;
 
     async function copyMint(button) {
@@ -1053,6 +1121,21 @@
     copyButtons.forEach((button) => {
       button.addEventListener('click', () => copyMint(button));
     });
+
+    if (navMenu && navMenuButton) {
+      navMenuButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        navMenu.classList.toggle('open');
+      });
+    }
+
+    if (trustHelp && trustHelpButton) {
+      trustHelpButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const open = trustHelp.classList.toggle('open');
+        trustHelpButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
 
     function renderTrustResult(html) {
       trustResult.innerHTML = html;
@@ -1634,7 +1717,6 @@
 
       if (!raw) {
         renderTrustResult(`
-          <strong>Awaiting input.</strong>
           <div class="v">Paste a token mint or contract address to get a first-pass trust card.</div>
         `);
         return;
@@ -1732,6 +1814,16 @@
         status.textContent = watching
           ? 'Saved on this browser. Revisit from your watchlist page.'
           : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (navMenu && !navMenu.contains(event.target)) {
+        navMenu.classList.remove('open');
+      }
+      if (trustHelp && !trustHelp.contains(event.target)) {
+        trustHelp.classList.remove('open');
+        if (trustHelpButton) trustHelpButton.setAttribute('aria-expanded', 'false');
       }
     });
   </script>
