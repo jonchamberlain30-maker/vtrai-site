@@ -743,6 +743,28 @@
       watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} exported in scheduled-monitoring format.`;
     }
 
+    async function copyScheduledManifestEntry(index, button) {
+      const items = getWatchlist();
+      const item = items[index];
+      if (!item) return;
+      const payload = {
+        network: item.network_id || 'auto',
+        address: item.address,
+        label: item.token_label || item.title || item.address,
+      };
+      const original = button.textContent;
+      try {
+        await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
+        button.textContent = 'Copied';
+        watchlistState.textContent = `Scheduled manifest entry copied for ${payload.label}.`;
+      } catch {
+        button.textContent = 'Copy failed';
+      }
+      setTimeout(() => {
+        button.textContent = original;
+      }, 1400);
+    }
+
     function mergeWatchlists(currentItems, incomingItems) {
       const merged = new Map();
       currentItems.forEach((item) => {
@@ -1160,6 +1182,7 @@
             ${renderLinks(item)}
             <div class="actions">
               <button class="btn" type="button" data-refresh-index="${index}">Refresh</button>
+              <button class="btn" type="button" data-copy-manifest-index="${index}">Copy Manifest Entry</button>
               <button class="btn destructive" type="button" data-remove-index="${index}">Remove</button>
             </div>
             <div class="meta-line" style="margin-top: 10px;">Snapshots stored: ${historyCount}</div>
@@ -1245,6 +1268,12 @@
       const refreshButton = event.target.closest('[data-refresh-index]');
       if (refreshButton) {
         await refreshToken(Number(refreshButton.dataset.refreshIndex));
+        return;
+      }
+
+      const copyManifestButton = event.target.closest('[data-copy-manifest-index]');
+      if (copyManifestButton) {
+        await copyScheduledManifestEntry(Number(copyManifestButton.dataset.copyManifestIndex), copyManifestButton);
         return;
       }
 
