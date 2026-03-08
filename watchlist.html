@@ -630,6 +630,13 @@
       return `./report.html?${params.toString()}`;
     }
 
+    function buildUpdatesUrl(item) {
+      const params = new URLSearchParams();
+      params.set('network', item?.network_id || 'auto');
+      params.set('address', item?.address || '');
+      return `./updates.html?${params.toString()}`;
+    }
+
     function buildWatchKey(networkId, address) {
       return `${networkId || 'auto'}:${String(address || '').toLowerCase()}`;
     }
@@ -1200,6 +1207,7 @@
             ${renderLinks(item)}
             <div class="actions">
               <button class="btn" type="button" data-refresh-index="${index}">Refresh</button>
+              <a class="btn" href="${buildUpdatesUrl(item)}">Open Updates Desk</a>
               <button class="btn" type="button" data-copy-manifest-index="${index}">Copy Manifest Entry</button>
               <button class="btn destructive" type="button" data-remove-index="${index}">Remove</button>
             </div>

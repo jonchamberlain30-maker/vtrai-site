@@ -639,6 +639,13 @@
       };
     }
 
+    function buildUpdatesUrl(network, address) {
+      const params = new URLSearchParams();
+      params.set('network', network || 'auto');
+      params.set('address', address || '');
+      return `./updates.html?${params.toString()}`;
+    }
+
     function isWatchedToken(token) {
       if (!token?.address) return false;
       const watchKey = buildWatchKey(token.network_id || token.networkId, token.address);
@@ -797,6 +804,7 @@
           <h3>Report actions</h3>
           <div class="controls">
             <button class="btn" type="button" data-watch-toggle="true">${isWatchedToken(currentWatchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
+            <a class="btn" href="${buildUpdatesUrl(report.network_id, report.address)}">Open updates desk</a>
             <a class="btn" href="./watchlist.html">Open watchlist</a>
           </div>
           <div class="helper" data-watch-status>${saved ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>

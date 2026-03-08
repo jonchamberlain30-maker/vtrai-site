@@ -88,6 +88,22 @@
       color: var(--good);
       font-size: 0.9rem;
     }
+    .filter-state {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border: 1px solid rgba(77, 234, 255, 0.24);
+      border-radius: 10px;
+      background: rgba(10, 19, 38, 0.82);
+      color: #d7efff;
+      display: none;
+      line-height: 1.45;
+    }
+    .filter-state a {
+      color: #f3fdff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      margin-left: 10px;
+    }
     .grid {
       margin-top: 16px;
       display: grid;
@@ -279,6 +295,7 @@
       <span class="badge">X rollout once ready</span>
     </div>
     <p class="state" id="status">Loading latest updates...</p>
+    <div class="filter-state" id="filterState"></div>
 
     <section class="grid">
       <article class="card">
@@ -325,12 +342,36 @@
   </main>
 
   <script>
+    const OFFICIAL_VECTORA_MINT = 'Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J';
     const statusEl = document.getElementById('status');
+    const filterStateEl = document.getElementById('filterState');
     const latestItemEl = document.getElementById('latestItem');
     const historyEl = document.getElementById('history');
     const trustLatestEl = document.getElementById('trustLatest');
     const trustHistoryEl = document.getElementById('trustHistory');
     const watchedSnapshotsEl = document.getElementById('watchedSnapshots');
+    const params = new URLSearchParams(window.location.search);
+    const filterAddress = String(params.get('address') || '').trim();
+    const filterNetwork = String(params.get('network') || '').trim();
+    const normalizedFilterAddress = filterAddress.toLowerCase();
+    const normalizedFilterNetwork = filterNetwork.toLowerCase();
+    const hasTokenFilter = Boolean(filterAddress);
+
+    function matchesToken(address, network) {
+      if (!hasTokenFilter) return true;
+      if (String(address || '').trim().toLowerCase() !== normalizedFilterAddress) return false;
+      if (!normalizedFilterNetwork || normalizedFilterNetwork === 'auto') return true;
+      return String(network || '').trim().toLowerCase() === normalizedFilterNetwork;
+    }
+
+    function renderFilterState() {
+      if (!hasTokenFilter) return;
+      filterStateEl.style.display = 'block';
+      filterStateEl.innerHTML = `
+        <strong>Filtered to token:</strong> ${filterAddress}${filterNetwork ? ` on ${filterNetwork}` : ''}
+        <a href="./updates.html">Clear filter</a>
+      `;
+    }
 
     function renderEmptyState() {
       return `
@@ -432,6 +473,8 @@
       }).join('');
     }
 
+    renderFilterState();
+
     fetch('./updates_feed.json', { cache: 'no-store' })
       .then((res) => {
         if (!res.ok) throw new Error('no-feed');
@@ -439,6 +482,12 @@
       })
       .then((data) => {
         const items = (data && Array.isArray(data.items)) ? data.items : [];
+        if (hasTokenFilter && normalizedFilterAddress !== OFFICIAL_VECTORA_MINT.toLowerCase()) {
+          statusEl.textContent = 'Updates desk filtered to a non-Vectora token.';
+          latestItemEl.innerHTML = '<div class=\"empty-state\"><strong>No project bulletin feed for this token.</strong><p>Bulletins here are Vectora-wide. Use the scheduled watched token section and token report for token-specific monitoring.</p></div>';
+          historyEl.innerHTML = '<p>No project bulletins for this token.</p>';
+          return;
+        }
         if (!items.length) {
           statusEl.textContent = 'Feed is online. Waiting for the first market-qualified bulletin.';
           latestItemEl.innerHTML = renderEmptyState();
@@ -467,14 +516,17 @@
         return res.json();
       })
       .then((data) => {
-        const items = (data && Array.isArray(data.items)) ? data.items : [];
+        const sourceItems = (data && Array.isArray(data.items)) ? data.items : [];
+        const items = sourceItems.filter((item) => matchesToken(item.address, item.network_id || item.network_label));
         if (!items.length) {
-          trustLatestEl.innerHTML = '<div class=\"empty-state\"><strong>No trust snapshot published yet.</strong><p>Baseline trust snapshots will appear here as the automation starts capturing daily state.</p></div>';
+          trustLatestEl.innerHTML = hasTokenFilter
+            ? '<div class=\"empty-state\"><strong>No trust snapshots match this token yet.</strong><p>Use the report page or scheduled watched-token section to check the latest token-specific monitoring state.</p></div>'
+            : '<div class=\"empty-state\"><strong>No trust snapshot published yet.</strong><p>Baseline trust snapshots will appear here as the automation starts capturing daily state.</p></div>';
           trustHistoryEl.innerHTML = renderSnapshotHistory([]);
           return;
         }
 
-        trustLatestEl.innerHTML = renderSnapshot(data.latest || items[0]);
+        trustLatestEl.innerHTML = renderSnapshot(items[0]);
         trustHistoryEl.innerHTML = renderSnapshotHistory(items.slice(1));
       })
       .catch(() => {
@@ -488,7 +540,8 @@
         return res.json();
       })
       .then((data) => {
-        const items = (data && Array.isArray(data.items)) ? data.items : [];
+        const sourceItems = (data && Array.isArray(data.items)) ? data.items : [];
+        const items = sourceItems.filter((item) => matchesToken(item.address, item.network || item.latest?.network_id));
         watchedSnapshotsEl.innerHTML = renderWatchedSnapshots(items);
       })
       .catch(() => {
