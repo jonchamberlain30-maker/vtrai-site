@@ -314,6 +314,11 @@
     </section>
 
     <section class="card">
+      <h2>Scheduled Watched Tokens</h2>
+      <div id="watchedSnapshots"><p class="loading">Loading watched token snapshots...</p></div>
+    </section>
+
+    <section class="card">
       <h2>Update History</h2>
       <div id="history"><p class="loading">No feed loaded yet.</p></div>
     </section>
@@ -325,6 +330,7 @@
     const historyEl = document.getElementById('history');
     const trustLatestEl = document.getElementById('trustLatest');
     const trustHistoryEl = document.getElementById('trustHistory');
+    const watchedSnapshotsEl = document.getElementById('watchedSnapshots');
 
     function renderEmptyState() {
       return `
@@ -397,6 +403,35 @@
       `).join('');
     }
 
+    function renderWatchedSnapshots(items) {
+      if (!items.length) {
+        return '<div class=\"empty-state\"><strong>No watched tokens are scheduled yet.</strong><p>Add tokens to /watched_tokens.json and the automation will start capturing scheduled trust snapshots for them.</p></div>';
+      }
+      return items.map((item) => {
+        const latest = item.latest || {};
+        const changes = Array.isArray(latest.change_summary) ? latest.change_summary : [];
+        const reportUrl = `./report.html?network=${encodeURIComponent(item.network || latest.network_id || 'auto')}&address=${encodeURIComponent(item.address || latest.address || '')}`;
+        return `
+          <article class=\"item\">
+            <h3>${item.label || latest.title || item.address || 'Watched token'}</h3>
+            <div class=\"meta\">${latest.network_label || item.network || 'Unknown network'} · ${item.address || latest.address || 'Unknown address'} · ${latest.timestamp_utc || latest.checked_at_utc || 'Unknown time'}</div>
+            <div class=\"snapshot-title\">
+              <div>
+                <strong>${latest.title || item.label || 'Trust snapshot'}</strong>
+                <div class=\"meta\">${latest.summary || ''}</div>
+              </div>
+              <span class=\"snapshot-badge ${snapshotBadgeClass(latest.level)}\">${latest.level || item.status || 'unknown'}</span>
+            </div>
+            <ul class=\"snapshot-list\">${(changes.length ? changes : ['No material trust change since the last scheduled check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
+            <div class=\"snapshot-links\">
+              <a href=\"${reportUrl}\">Open report</a>
+              ${latest.links && latest.links[0] ? `<a href=\"${latest.links[0].url}\" target=\"_blank\" rel=\"noreferrer\">${latest.links[0].label}</a>` : ''}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
     fetch('./updates_feed.json', { cache: 'no-store' })
       .then((res) => {
         if (!res.ok) throw new Error('no-feed');
@@ -445,6 +480,19 @@
       .catch(() => {
         trustLatestEl.innerHTML = '<div class=\"empty-state\"><strong>No trust snapshot file yet.</strong><p>The updates desk is live, but the trust snapshot feed has not been published yet.</p></div>';
         trustHistoryEl.innerHTML = renderSnapshotHistory([]);
+      });
+
+    fetch('./watched_token_snapshots.json', { cache: 'no-store' })
+      .then((res) => {
+        if (!res.ok) throw new Error('no-watched');
+        return res.json();
+      })
+      .then((data) => {
+        const items = (data && Array.isArray(data.items)) ? data.items : [];
+        watchedSnapshotsEl.innerHTML = renderWatchedSnapshots(items);
+      })
+      .catch(() => {
+        watchedSnapshotsEl.innerHTML = renderWatchedSnapshots([]);
       });
   </script>
 </body>
