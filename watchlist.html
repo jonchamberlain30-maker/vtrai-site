@@ -261,6 +261,56 @@
       color: var(--muted);
       line-height: 1.45;
     }
+    .history-box {
+      margin-top: 12px;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(8, 16, 30, 0.72);
+      overflow: hidden;
+    }
+    .history-box summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 12px;
+      color: #d7efff;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+    .history-box summary::-webkit-details-marker {
+      display: none;
+    }
+    .history-box summary span {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.84rem;
+    }
+    .history-list {
+      margin: 0;
+      padding: 0 12px 12px;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .history-item {
+      border: 1px solid rgba(93, 124, 170, 0.28);
+      border-radius: 10px;
+      background: rgba(5, 10, 20, 0.48);
+      padding: 10px;
+    }
+    .history-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+      font-size: 0.86rem;
+    }
+    .history-item div {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
     .status-badge {
       border-radius: 999px;
       padding: 6px 10px;
@@ -590,6 +640,31 @@
       return `<div class="links">${links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')}</div>`;
     }
 
+    function renderHistory(item) {
+      const history = getReportHistory(item).slice(-5).reverse();
+      if (!history.length) return '';
+      return `
+        <details class="history-box">
+          <summary>
+            <strong>Snapshot history</strong>
+            <span>${history.length} recent</span>
+          </summary>
+          <ul class="history-list">
+            ${history.map((entry) => {
+              const liquidity = (entry.meta || []).find((meta) => String(meta.label || '').toLowerCase() === 'top liquidity');
+              return `
+                <li class="history-item">
+                  <strong>${(entry.level || 'unknown').toUpperCase()} · ${formatDate(entry.checked_at_utc)}</strong>
+                  <div>${entry.summary || 'No summary stored.'}</div>
+                  <div>${liquidity?.value ? `Top liquidity: ${liquidity.value}` : 'Top liquidity: Unknown'}</div>
+                </li>
+              `;
+            }).join('')}
+          </ul>
+        </details>
+      `;
+    }
+
     function renderDiff(item) {
       const current = item.last_report || {};
       const previous = previousSnapshot(item);
@@ -789,6 +864,7 @@
             <div class="address">${item.address}</div>
             <div class="summary">${summary}</div>
             ${renderDiff(item)}
+            ${renderHistory(item)}
             ${renderMeta(item)}
             ${renderReasons(item)}
             ${renderLinks(item)}
