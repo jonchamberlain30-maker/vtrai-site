@@ -372,6 +372,22 @@
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
+    .decision-note {
+      margin-top: 12px;
+      border: 1px solid currentColor;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      padding: 10px 12px;
+      color: #dceeff;
+      line-height: 1.45;
+    }
+    .decision-note strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
     .change-hit { color: #ffe08f; }
     .change-none { color: #8fbfe7; }
     .change-pending { color: var(--muted); }
@@ -379,6 +395,9 @@
     .trend-down { color: var(--warn); }
     .trend-flat { color: #8fbfe7; }
     .trend-pending { color: var(--muted); }
+    .decision-continue { color: var(--good); }
+    .decision-watch { color: var(--warn-strong); }
+    .decision-ignore { color: var(--warn); }
     .status-good { color: var(--good); }
     .status-warn { color: var(--warn-strong); }
     .status-risk { color: var(--warn); }
@@ -901,6 +920,31 @@
       };
     }
 
+    function decisionState(item) {
+      const level = item?.last_report?.level || '';
+      if (level === 'verified' || level === 'low') {
+        return {
+          label: 'Continue',
+          className: 'decision-continue',
+          text: level === 'verified'
+            ? 'This currently matches the official route. Continue only through the proof links and official channels.'
+            : 'Current checks do not show severe red flags, but route and liquidity still need to be verified before trading.',
+        };
+      }
+      if (level === 'medium') {
+        return {
+          label: 'Watch',
+          className: 'decision-watch',
+          text: 'This needs more caution. Keep it on your watchlist and verify the proof links before considering a trade.',
+        };
+      }
+      return {
+        label: 'Ignore for now',
+        className: 'decision-ignore',
+        text: 'Current checks show enough risk that this token should be avoided unless later evidence materially improves.',
+      };
+    }
+
     function changeRank(item) {
       const state = diffState(item);
       if (state.label === 'Changed') return 0;
@@ -981,6 +1025,7 @@
         const imageUrl = report.image_url || item.image_url || '';
         const changeState = diffState(item);
         const trend = trendState(item);
+        const decision = decisionState(item);
         const historyCount = getReportHistory(item).length;
         return `
           <article class="card">
@@ -995,12 +1040,17 @@
               <div class="status-stack">
                 <button class="share-btn" type="button" data-share-url="${buildReportUrl(item)}">${shareIconHtml()}<span>Share</span></button>
                 <div class="status-badge ${badgeClass(level)}">${level}</div>
+                <div class="change-badge ${decision.className}">${decision.label}</div>
                 <div class="change-badge ${changeState.className}">${changeState.label}</div>
                 <div class="change-badge ${trend.className}">${trend.label}</div>
               </div>
             </div>
             <div class="address">${item.address}</div>
             <div class="summary">${summary}</div>
+            <div class="decision-note ${decision.className}">
+              <strong>Decision: ${decision.label}</strong>
+              ${decision.text}
+            </div>
             ${renderDiff(item)}
             ${renderHistory(item)}
             ${renderMeta(item)}

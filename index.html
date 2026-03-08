@@ -686,6 +686,27 @@
       margin-bottom: 12px;
     }
 
+    .decision-banner {
+      margin-bottom: 12px;
+      border: 1px solid currentColor;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 14px;
+    }
+
+    .decision-banner strong {
+      display: block;
+      font-size: 0.86rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .decision-banner p {
+      margin: 6px 0 0;
+      color: #d7ecff;
+      line-height: 1.45;
+    }
+
     .trust-section {
       margin-top: 12px;
       border-top: 1px solid rgba(70, 100, 135, 0.35);
@@ -1256,6 +1277,35 @@
       return 'High caution';
     }
 
+    function buildDecision(level) {
+      if (level === 'verified') {
+        return {
+          label: 'Continue',
+          tone: 'var(--good)',
+          text: 'This matches the official Vectora route. Continue through the proof links and official channels only.',
+        };
+      }
+      if (level === 'low') {
+        return {
+          label: 'Continue',
+          tone: 'var(--good)',
+          text: 'Current checks do not show severe red flags, but you should still verify route and liquidity before trading.',
+        };
+      }
+      if (level === 'medium') {
+        return {
+          label: 'Watch',
+          tone: '#ffd27f',
+          text: 'This needs more caution. Save it, monitor changes, and verify the proof links before considering a trade.',
+        };
+      }
+      return {
+        label: 'Ignore for now',
+        tone: 'var(--warn)',
+        text: 'Current checks show enough risk that this token should be avoided unless later evidence materially improves.',
+      };
+    }
+
     function buildLinks(networkId, address) {
       const network = NETWORKS[networkId];
       const explorerUrl = network ? `${network.explorer}${encodeURIComponent(address)}` : '#';
@@ -1295,6 +1345,7 @@
         ? links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
         : links;
       const statusLabel = buildStatusLabel(level);
+      const decision = buildDecision(level);
       const badgeLabel = statusLabel.toUpperCase();
       const reasonsHtml = reasons.length ? `
         <div class="trust-section">
@@ -1350,6 +1401,10 @@
           </div>
         </div>
         <div class="trust-summary">${summary}</div>
+        <div class="decision-banner" style="color: ${decision.tone};">
+          <strong>Decision: ${decision.label}</strong>
+          <p>${decision.text}</p>
+        </div>
         <div class="trust-meta">
           ${meta.map((item) => `
             <div>
