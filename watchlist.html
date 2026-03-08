@@ -545,6 +545,7 @@
         <button id="refreshAllButton" class="btn" type="button">Refresh All</button>
         <a class="btn" href="./index.html#trust-check">Check Another Token</a>
         <button id="exportWatchlistButton" class="btn" type="button">Export Watchlist</button>
+        <button id="exportScheduledButton" class="btn" type="button">Export Scheduled Manifest</button>
         <button id="importWatchlistButton" class="btn" type="button">Import Watchlist</button>
         <button id="clearWatchlistButton" class="btn destructive" type="button">Clear Watchlist</button>
       </div>
@@ -577,6 +578,7 @@
     const watchlistState = document.getElementById('watchlistState');
     const refreshAllButton = document.getElementById('refreshAllButton');
     const exportWatchlistButton = document.getElementById('exportWatchlistButton');
+    const exportScheduledButton = document.getElementById('exportScheduledButton');
     const importWatchlistButton = document.getElementById('importWatchlistButton');
     const importWatchlistInput = document.getElementById('importWatchlistInput');
     const clearWatchlistButton = document.getElementById('clearWatchlistButton');
@@ -698,6 +700,28 @@
       link.remove();
       URL.revokeObjectURL(url);
       watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} exported from this device.`;
+    }
+
+    function exportScheduledManifest() {
+      const items = getWatchlist();
+      const payload = {
+        items: items.map((item) => ({
+          network: item.network_id || 'auto',
+          address: item.address,
+          label: item.token_label || item.title || item.address,
+        })),
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const stamp = new Date().toISOString().slice(0, 10);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `vectora-watched-tokens-${stamp}.json`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} exported in scheduled-monitoring format.`;
     }
 
     function mergeWatchlists(currentItems, incomingItems) {
@@ -1215,6 +1239,7 @@
 
     refreshAllButton.addEventListener('click', refreshAll);
     exportWatchlistButton.addEventListener('click', exportWatchlist);
+    exportScheduledButton.addEventListener('click', exportScheduledManifest);
     importWatchlistButton.addEventListener('click', () => {
       importWatchlistInput.click();
     });

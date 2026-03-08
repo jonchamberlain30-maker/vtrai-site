@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-08 20:01:52 UTC",
-  "generated_at_iso": "2026-03-08T20:01:52Z",
+  "generated_at_utc": "2026-03-08 20:40:08 UTC",
+  "generated_at_iso": "2026-03-08T20:40:08Z",
   "count": 2,
   "items": [
     {
@@ -11,8 +11,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-08",
-        "timestamp_utc": "2026-03-08 20:01:52 UTC",
-        "checked_at_utc": "2026-03-08T19:50:10.176Z",
+        "timestamp_utc": "2026-03-08 20:40:08 UTC",
+        "checked_at_utc": "2026-03-08T20:40:09.178Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -84,8 +84,8 @@
       "history": [
         {
           "snapshot_date": "2026-03-08",
-          "timestamp_utc": "2026-03-08 20:01:52 UTC",
-          "checked_at_utc": "2026-03-08T19:50:10.176Z",
+          "timestamp_utc": "2026-03-08 20:40:08 UTC",
+          "checked_at_utc": "2026-03-08T20:40:09.178Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -164,8 +164,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-08",
-        "timestamp_utc": "2026-03-08 20:01:52 UTC",
-        "checked_at_utc": "2026-03-08T20:01:53.224Z",
+        "timestamp_utc": "2026-03-08 20:40:08 UTC",
+        "checked_at_utc": "2026-03-08T20:40:10.118Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -184,11 +184,11 @@
           },
           {
             "label": "Supply",
-            "value": "54,746,739,938.61"
+            "value": "54,737,481,817.45"
           },
           {
             "label": "Top liquidity",
-            "value": "$104,654,533"
+            "value": "$104,637,144"
           },
           {
             "label": "Top venue",
@@ -232,8 +232,8 @@
       "history": [
         {
           "snapshot_date": "2026-03-08",
-          "timestamp_utc": "2026-03-08 20:01:52 UTC",
-          "checked_at_utc": "2026-03-08T20:01:53.224Z",
+          "timestamp_utc": "2026-03-08 20:40:08 UTC",
+          "checked_at_utc": "2026-03-08T20:40:10.118Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -252,11 +252,11 @@
             },
             {
               "label": "Supply",
-              "value": "54,746,739,938.61"
+              "value": "54,737,481,817.45"
             },
             {
               "label": "Top liquidity",
-              "value": "$104,654,533"
+              "value": "$104,637,144"
             },
             {
               "label": "Top venue",
