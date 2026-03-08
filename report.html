@@ -305,6 +305,25 @@
       line-height: 1.5;
       margin-bottom: 12px;
     }
+    .decision-banner {
+      margin-bottom: 12px;
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid currentColor;
+      background: rgba(255,255,255,0.03);
+    }
+    .decision-banner strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+      letter-spacing: 0.2px;
+    }
+    .decision-banner p {
+      margin: 0;
+      color: #d7efff;
+      line-height: 1.45;
+      font-size: 0.92rem;
+    }
     .quick-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -556,6 +575,35 @@
       ];
     }
 
+    function buildDecision(report) {
+      if (report.level === 'verified') {
+        return {
+          label: 'Continue',
+          tone: 'var(--good)',
+          text: 'This matches the official Vectora route. Continue through the proof links and official channels only.',
+        };
+      }
+      if (report.level === 'low') {
+        return {
+          label: 'Continue',
+          tone: 'var(--good)',
+          text: 'No severe red flags were returned by the current checks, but you should still verify the route and liquidity before trading.',
+        };
+      }
+      if (report.level === 'medium') {
+        return {
+          label: 'Watch',
+          tone: 'var(--warn-strong)',
+          text: 'There is enough risk here to slow down. Save it, monitor changes, and verify the proof links before considering any trade.',
+        };
+      }
+      return {
+        label: 'Ignore for now',
+        tone: 'var(--warn)',
+        text: 'Current checks show enough risk that this token should be avoided unless later evidence materially improves the trust profile.',
+      };
+    }
+
     function getWatchlist() {
       try {
         const raw = localStorage.getItem(WATCHLIST_KEY);
@@ -678,6 +726,7 @@
       const saved = isWatchedToken(currentWatchToken);
       document.title = `Vectora | ${report.title}`;
       const quickSummary = buildQuickSummary(report);
+      const decision = buildDecision(report);
       const reasonsHtml = (report.reasons || []).length ? `
         <div class="section">
           <h3>Why this score</h3>
@@ -721,6 +770,10 @@
           </div>
         </div>
         <div class="summary">${report.summary}</div>
+        <div class="decision-banner" style="color: ${decision.tone};">
+          <strong>Decision: ${decision.label}</strong>
+          <p>${decision.text}</p>
+        </div>
         <div class="quick-grid">
           ${quickSummary.map((item) => `
             <div class="quick-box">
