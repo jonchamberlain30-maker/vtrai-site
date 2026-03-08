@@ -479,8 +479,11 @@
       <div class="controls">
         <button id="refreshAllButton" class="btn" type="button">Refresh All</button>
         <a class="btn" href="./index.html#trust-check">Check Another Token</a>
+        <button id="exportWatchlistButton" class="btn" type="button">Export Watchlist</button>
+        <button id="importWatchlistButton" class="btn" type="button">Import Watchlist</button>
         <button id="clearWatchlistButton" class="btn destructive" type="button">Clear Watchlist</button>
       </div>
+      <input id="importWatchlistInput" type="file" accept="application/json" style="display:none" />
       <div class="filters">
         <div class="filter-group" id="watchlistFilters">
           <span class="filters-label">Show</span>
@@ -508,6 +511,9 @@
     const watchlistGrid = document.getElementById('watchlistGrid');
     const watchlistState = document.getElementById('watchlistState');
     const refreshAllButton = document.getElementById('refreshAllButton');
+    const exportWatchlistButton = document.getElementById('exportWatchlistButton');
+    const importWatchlistButton = document.getElementById('importWatchlistButton');
+    const importWatchlistInput = document.getElementById('importWatchlistInput');
     const clearWatchlistButton = document.getElementById('clearWatchlistButton');
     const watchlistFilters = document.getElementById('watchlistFilters');
     const watchlistSort = document.getElementById('watchlistSort');
@@ -533,6 +539,10 @@
       params.set('network', item?.network_id || 'auto');
       params.set('address', item?.address || '');
       return `./report.html?${params.toString()}`;
+    }
+
+    function buildWatchKey(networkId, address) {
+      return `${networkId || 'auto'}:${String(address || '').toLowerCase()}`;
     }
 
     function shareIconHtml() {
@@ -569,6 +579,16 @@
         && (a.level || '') === (b.level || '');
     }
 
+    function mergeHistory(existing, incoming) {
+      const merged = [...(Array.isArray(existing) ? existing : [])];
+      (Array.isArray(incoming) ? incoming : []).forEach((entry) => {
+        if (!sameReport(merged[merged.length - 1], entry)) {
+          merged.push(entry);
+        }
+      });
+      return merged.slice(-WATCH_HISTORY_LIMIT);
+    }
+
     function getReportHistory(item) {
       const history = Array.isArray(item.report_history) ? [...item.report_history] : [];
       if (!history.length && item.previous_report?.address) {
@@ -593,6 +613,70 @@
       }
       item.report_history = history.slice(-WATCH_HISTORY_LIMIT);
       return item.report_history;
+    }
+
+    function exportWatchlist() {
+      const items = getWatchlist();
+      const payload = {
+        version: 1,
+        exported_at_utc: new Date().toISOString(),
+        items,
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const stamp = payload.exported_at_utc.slice(0, 10);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `vectora-watchlist-${stamp}.json`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} exported from this device.`;
+    }
+
+    function mergeWatchlists(currentItems, incomingItems) {
+      const merged = new Map();
+      currentItems.forEach((item) => {
+        merged.set(item.watch_key || buildWatchKey(item.network_id, item.address), item);
+      });
+      incomingItems.forEach((item) => {
+        const key = item.watch_key || buildWatchKey(item.network_id, item.address);
+        const existing = merged.get(key);
+        if (!existing) {
+          merged.set(key, {
+            ...item,
+            watch_key: key,
+            report_history: getReportHistory(item),
+          });
+          return;
+        }
+        const combined = {
+          ...existing,
+          ...item,
+          watch_key: existing.watch_key || item.watch_key || key,
+          report_history: mergeHistory(existing.report_history || getReportHistory(existing), item.report_history || getReportHistory(item)),
+        };
+        if (item.last_report && !sameReport(combined.report_history[combined.report_history.length - 1], item.last_report)) {
+          combined.report_history = mergeHistory(combined.report_history, [item.last_report]);
+        }
+        merged.set(combined.watch_key, combined);
+      });
+      return [...merged.values()].slice(0, 50);
+    }
+
+    async function importWatchlistFile(file) {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      const incomingItems = Array.isArray(parsed) ? parsed : parsed.items;
+      if (!Array.isArray(incomingItems)) {
+        throw new Error('Import file does not contain a valid watchlist.');
+      }
+      const currentItems = getWatchlist();
+      const merged = mergeWatchlists(currentItems, incomingItems);
+      saveWatchlist(merged);
+      renderWatchlist();
+      watchlistState.textContent = `Imported ${incomingItems.length} token${incomingItems.length === 1 ? '' : 's'}. Watchlist merged on this device.`;
     }
 
     function normalizeLabel(value) {
@@ -1023,6 +1107,21 @@
     });
 
     refreshAllButton.addEventListener('click', refreshAll);
+    exportWatchlistButton.addEventListener('click', exportWatchlist);
+    importWatchlistButton.addEventListener('click', () => {
+      importWatchlistInput.click();
+    });
+    importWatchlistInput.addEventListener('change', async () => {
+      const file = importWatchlistInput.files?.[0];
+      if (!file) return;
+      try {
+        await importWatchlistFile(file);
+      } catch (error) {
+        watchlistState.textContent = error.message || 'Import failed.';
+      } finally {
+        importWatchlistInput.value = '';
+      }
+    });
     clearWatchlistButton.addEventListener('click', () => {
       localStorage.removeItem(WATCHLIST_KEY);
       renderWatchlist();
