@@ -287,6 +287,13 @@
       font-weight: 500;
       font-size: 0.84rem;
     }
+    .history-summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
     .history-list {
       margin: 0;
       padding: 0 12px 12px;
@@ -368,6 +375,10 @@
     .change-hit { color: #ffe08f; }
     .change-none { color: #8fbfe7; }
     .change-pending { color: var(--muted); }
+    .trend-up { color: var(--good); }
+    .trend-down { color: var(--warn); }
+    .trend-flat { color: #8fbfe7; }
+    .trend-pending { color: var(--muted); }
     .status-good { color: var(--good); }
     .status-warn { color: var(--warn-strong); }
     .status-risk { color: var(--warn); }
@@ -608,6 +619,14 @@
       return cleaned.slice(0, 2).toUpperCase() || 'TK';
     }
 
+    function levelRank(level) {
+      if (level === 'verified') return 4;
+      if (level === 'low') return 3;
+      if (level === 'medium') return 2;
+      if (level === 'high') return 1;
+      return 0;
+    }
+
     function badgeClass(level) {
       if (level === 'verified' || level === 'low') return 'status-good';
       if (level === 'medium') return 'status-warn';
@@ -643,11 +662,15 @@
     function renderHistory(item) {
       const history = getReportHistory(item).slice(-5).reverse();
       if (!history.length) return '';
+      const trend = trendState(item);
       return `
         <details class="history-box">
           <summary>
             <strong>Snapshot history</strong>
-            <span>${history.length} recent</span>
+            <span class="history-summary">
+              <span class="change-badge ${trend.className}">${trend.label}</span>
+              <span>${history.length} recent</span>
+            </span>
           </summary>
           <ul class="history-list">
             ${history.map((entry) => {
@@ -765,6 +788,35 @@
       };
     }
 
+    function trendState(item) {
+      const history = getReportHistory(item);
+      if (history.length < 2) {
+        return {
+          label: 'Trend pending',
+          className: 'trend-pending',
+        };
+      }
+      const first = history[0];
+      const last = history[history.length - 1];
+      const delta = levelRank(last.level) - levelRank(first.level);
+      if (delta > 0) {
+        return {
+          label: 'Trend up',
+          className: 'trend-up',
+        };
+      }
+      if (delta < 0) {
+        return {
+          label: 'Trend down',
+          className: 'trend-down',
+        };
+      }
+      return {
+        label: 'Trend flat',
+        className: 'trend-flat',
+      };
+    }
+
     function changeRank(item) {
       const state = diffState(item);
       if (state.label === 'Changed') return 0;
@@ -844,6 +896,7 @@
         const summary = report.summary || item.summary || 'No cached trust report yet. Refresh to fetch a fresh report now.';
         const imageUrl = report.image_url || item.image_url || '';
         const changeState = diffState(item);
+        const trend = trendState(item);
         const historyCount = getReportHistory(item).length;
         return `
           <article class="card">
@@ -859,6 +912,7 @@
                 <button class="share-btn" type="button" data-share-url="${buildReportUrl(item)}">${shareIconHtml()}<span>Share</span></button>
                 <div class="status-badge ${badgeClass(level)}">${level}</div>
                 <div class="change-badge ${changeState.className}">${changeState.label}</div>
+                <div class="change-badge ${trend.className}">${trend.label}</div>
               </div>
             </div>
             <div class="address">${item.address}</div>

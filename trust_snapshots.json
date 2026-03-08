@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-08 16:42:41 UTC",
-  "generated_at_iso": "2026-03-08T16:42:41Z",
+  "generated_at_utc": "2026-03-08 16:46:12 UTC",
+  "generated_at_iso": "2026-03-08T16:46:12Z",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
@@ -8,8 +8,8 @@
   },
   "latest": {
     "snapshot_date": "2026-03-08",
-    "timestamp_utc": "2026-03-08 16:42:41 UTC",
-    "checked_at_utc": "2026-03-08T16:29:41.569Z",
+    "timestamp_utc": "2026-03-08 16:46:12 UTC",
+    "checked_at_utc": "2026-03-08T16:46:12.848Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -40,7 +40,7 @@
       },
       {
         "label": "Metadata mutable",
-        "value": "Yes"
+        "value": "No"
       }
     ],
     "reasons": [
@@ -58,7 +58,7 @@
       }
     ],
     "notes": [
-      "Metadata mutability: mutable."
+      "Metadata mutability: locked."
     ],
     "links": [
       {
@@ -75,14 +75,14 @@
       }
     ],
     "change_summary": [
-      "No material trust change since the last snapshot."
+      "Metadata mutable changed from Yes to No."
     ]
   },
   "items": [
     {
       "snapshot_date": "2026-03-08",
-      "timestamp_utc": "2026-03-08 16:42:41 UTC",
-      "checked_at_utc": "2026-03-08T16:29:41.569Z",
+      "timestamp_utc": "2026-03-08 16:46:12 UTC",
+      "checked_at_utc": "2026-03-08T16:46:12.848Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -113,7 +113,7 @@
         },
         {
           "label": "Metadata mutable",
-          "value": "Yes"
+          "value": "No"
         }
       ],
       "reasons": [
@@ -131,7 +131,7 @@
         }
       ],
       "notes": [
-        "Metadata mutability: mutable."
+        "Metadata mutability: locked."
       ],
       "links": [
         {
@@ -148,7 +148,7 @@
         }
       ],
       "change_summary": [
-        "No material trust change since the last snapshot."
+        "Metadata mutable changed from Yes to No."
       ]
     },
     {
