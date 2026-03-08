@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vectora | Device Watchlist</title>
+  <style>
+    :root {
+      --bg-1: #050912;
+      --bg-2: #0b1630;
+      --bg-3: #101d3f;
+      --ink: #e8f8ff;
+      --muted: #9ab1c8;
+      --line: #243753;
+      --cyan: #4deaff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+      --warn-strong: #ffd58e;
+      --card: rgba(9, 16, 32, 0.74);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(920px 560px at 10% -10%, rgba(77,234,255,0.2), transparent 55%),
+        radial-gradient(820px 640px at 100% 110%, rgba(157,124,255,0.16), transparent 55%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
+    .nav, .hero, .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+    }
+    .nav {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+    .brand img {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+    }
+    .tag { color: var(--cyan); }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.92rem;
+    }
+    .hero {
+      margin-top: 14px;
+      padding: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.1rem;
+    }
+    .sub {
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 10px 0 0;
+      max-width: 860px;
+    }
+    .badges {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+    .controls {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 11px;
+      font-size: 0.9rem;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn.alt {
+      color: var(--ink);
+      background: rgba(35, 53, 84, 0.68);
+      border: 1px solid var(--line);
+    }
+    .state {
+      margin-top: 12px;
+      border: 1px dashed rgba(77, 234, 255, 0.28);
+      border-radius: 12px;
+      background: rgba(10, 19, 38, 0.78);
+      padding: 12px;
+      color: #cbe7ff;
+      line-height: 1.45;
+    }
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      padding: 16px;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .token-head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-width: 0;
+    }
+    .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(77, 234, 255, 0.18), transparent 60%),
+        rgba(13, 22, 41, 0.96);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .logo-fallback {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #bdefff;
+    }
+    .token-title {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+    .meta-line, .address, .summary {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .address {
+      margin-top: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.82rem;
+      word-break: break-all;
+    }
+    .summary {
+      margin-top: 10px;
+      color: #d7ecff;
+    }
+    .status-badge {
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      border: 1px solid currentColor;
+      background: rgba(255,255,255,0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+    .status-good { color: var(--good); }
+    .status-warn { color: var(--warn-strong); }
+    .status-risk { color: var(--warn); }
+    .pill-grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .pill {
+      border: 1px solid rgba(93, 124, 170, 0.3);
+      border-radius: 10px;
+      background: rgba(5, 10, 20, 0.55);
+      padding: 9px 10px;
+      font-size: 0.84rem;
+      color: #d7efff;
+    }
+    .pill b {
+      display: block;
+      color: #8fbfe7;
+      font-size: 0.72rem;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .list {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #dceeff;
+      line-height: 1.45;
+    }
+    .links {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .links a {
+      color: #06131b;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+    }
+    .actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .empty-state {
+      border: 1px dashed rgba(77, 234, 255, 0.28);
+      border-radius: 12px;
+      background: rgba(10, 19, 38, 0.78);
+      padding: 16px;
+      color: var(--muted);
+      line-height: 1.5;
+      grid-column: 1 / -1;
+    }
+    .empty-state strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .pill-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.78rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <img src="./assets/vtrai-logo.svg" alt="VTRAI logo" />
+        <span>Vectora <span class="tag">$VTRAI</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./updates.html">Updates</a>
+        <a href="./proof.html">Proof</a>
+        <a href="./whitepaper.html">Whitepaper</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Device Watchlist</h1>
+      <p class="sub">Save tokens from the trust checker without creating an account. This page refreshes reports on demand from your browser and keeps the watchlist only on this device.</p>
+      <div class="badges">
+        <span class="badge">No login</span>
+        <span class="badge">This browser only</span>
+        <span class="badge">Refresh on demand</span>
+        <span class="badge">Email + Telegram later</span>
+      </div>
+      <div class="controls">
+        <button id="refreshAllButton" class="btn" type="button">Refresh All</button>
+        <button id="clearWatchlistButton" class="btn alt" type="button">Clear Watchlist</button>
+        <a class="btn alt" href="./index.html#trust-check">Check Another Token</a>
+      </div>
+      <div id="watchlistState" class="state">Loading saved watchlist...</div>
+    </section>
+
+    <section id="watchlistGrid" class="grid"></section>
+  </main>
+
+  <script>
+    const TRUST_API_BASE = 'https://api.getvectora.ai';
+    const WATCHLIST_KEY = 'vectora_watchlist_v1';
+    const watchlistGrid = document.getElementById('watchlistGrid');
+    const watchlistState = document.getElementById('watchlistState');
+    const refreshAllButton = document.getElementById('refreshAllButton');
+    const clearWatchlistButton = document.getElementById('clearWatchlistButton');
+
+    function getWatchlist() {
+      try {
+        const raw = localStorage.getItem(WATCHLIST_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveWatchlist(items) {
+      localStorage.setItem(WATCHLIST_KEY, JSON.stringify(items));
+    }
+
+    function compactReport(report) {
+      return {
+        network_id: report.network_id,
+        network_label: report.network_label,
+        address: report.address,
+        level: report.level,
+        title: report.title,
+        summary: report.summary,
+        image_url: report.image_url || '',
+        checked_at_utc: report.checked_at_utc || '',
+        meta: report.meta || [],
+        reasons: report.reasons || [],
+        notes: report.notes || [],
+        links: report.links || [],
+      };
+    }
+
+    function buildFallback(text) {
+      const cleaned = String(text || 'TK').replace(/[^A-Za-z0-9 ]/g, '').trim();
+      const parts = cleaned.split(/\s+/).filter(Boolean);
+      if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+      return cleaned.slice(0, 2).toUpperCase() || 'TK';
+    }
+
+    function badgeClass(level) {
+      if (level === 'verified' || level === 'low') return 'status-good';
+      if (level === 'medium') return 'status-warn';
+      return 'status-risk';
+    }
+
+    function formatDate(value) {
+      if (!value) return 'Not checked yet';
+      return value.replace('T', ' ').replace('Z', ' UTC');
+    }
+
+    function renderMeta(item) {
+      const report = item.last_report || {};
+      const meta = Array.isArray(report.meta) ? report.meta.slice(0, 4) : [];
+      if (!meta.length) return '';
+      return `<div class="pill-grid">${meta.map((entry) => `<div class="pill"><b>${entry.label || ''}</b>${entry.value || 'Unknown'}</div>`).join('')}</div>`;
+    }
+
+    function renderReasons(item) {
+      const report = item.last_report || {};
+      const reasons = Array.isArray(report.reasons) ? report.reasons.slice(0, 3) : [];
+      if (!reasons.length) return '';
+      return `<ul class="list">${reasons.map((entry) => `<li><b>${entry.label || 'Reason'}:</b> ${entry.text || ''}</li>`).join('')}</ul>`;
+    }
+
+    function renderLinks(item) {
+      const report = item.last_report || {};
+      const links = Array.isArray(report.links) ? report.links.slice(0, 4) : [];
+      if (!links.length) return '';
+      return `<div class="links">${links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')}</div>`;
+    }
+
+    function renderWatchlist() {
+      const items = getWatchlist();
+      if (!items.length) {
+        watchlistState.textContent = 'No tokens saved on this device yet.';
+        watchlistGrid.innerHTML = `
+          <div class="empty-state">
+            <strong>No watched tokens yet.</strong>
+            Save a token from the trust checker first. This watchlist is private to this browser and can be refreshed on demand without Telegram or email.
+          </div>
+        `;
+        return;
+      }
+
+      watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} saved on this device. Refresh on demand to pull the latest trust report.`;
+      watchlistGrid.innerHTML = items.map((item, index) => {
+        const report = item.last_report || {};
+        const level = report.level || 'unknown';
+        const title = report.title || item.title || item.token_label || 'Watched token';
+        const summary = report.summary || item.summary || 'No cached trust report yet. Refresh to fetch a fresh report now.';
+        const imageUrl = report.image_url || item.image_url || '';
+        return `
+          <article class="card">
+            <div class="card-head">
+              <div class="token-head">
+                <div class="logo">${imageUrl ? `<img src="${imageUrl}" alt="${title} logo" loading="lazy" referrerpolicy="no-referrer" />` : `<div class="logo-fallback">${buildFallback(item.token_label || title)}</div>`}</div>
+                <div>
+                  <h2 class="token-title">${title}</h2>
+                  <div class="meta-line">${item.network_label || report.network_label || 'Unknown network'} · saved ${formatDate(item.saved_at_utc)}</div>
+                </div>
+              </div>
+              <div class="status-badge ${badgeClass(level)}">${level}</div>
+            </div>
+            <div class="address">${item.address}</div>
+            <div class="summary">${summary}</div>
+            ${renderMeta(item)}
+            ${renderReasons(item)}
+            ${renderLinks(item)}
+            <div class="actions">
+              <button class="btn" type="button" data-refresh-index="${index}">Refresh</button>
+              <button class="btn alt" type="button" data-remove-index="${index}">Remove</button>
+            </div>
+            <div class="meta-line" style="margin-top: 10px;">Last checked: ${formatDate(item.last_checked_at_utc || report.checked_at_utc)}</div>
+            ${item.last_error ? `<div class="state" style="margin-top: 10px; color: var(--warn-strong); border-color: rgba(255, 191, 208, 0.3);">${item.last_error}</div>` : ''}
+          </article>
+        `;
+      }).join('');
+    }
+
+    async function refreshToken(index) {
+      const items = getWatchlist();
+      const item = items[index];
+      if (!item) return;
+      watchlistState.textContent = `Refreshing ${item.token_label || item.address}...`;
+      try {
+        const response = await fetch(`${TRUST_API_BASE}/check?network=${encodeURIComponent(item.network_id || 'auto')}&address=${encodeURIComponent(item.address)}`);
+        const payload = await response.json();
+        if (!response.ok || !payload.ok || !payload.report) {
+          throw new Error(payload.error || 'Trust report unavailable.');
+        }
+        item.last_report = compactReport(payload.report);
+        item.last_checked_at_utc = payload.report.checked_at_utc || new Date().toISOString();
+        item.last_error = '';
+        items[index] = item;
+        saveWatchlist(items);
+        renderWatchlist();
+      } catch (error) {
+        item.last_error = error.message || 'Refresh failed.';
+        items[index] = item;
+        saveWatchlist(items);
+        renderWatchlist();
+      }
+    }
+
+    async function refreshAll() {
+      const items = getWatchlist();
+      if (!items.length) {
+        renderWatchlist();
+        return;
+      }
+      watchlistState.textContent = `Refreshing ${items.length} watched token${items.length === 1 ? '' : 's'}...`;
+      for (let index = 0; index < items.length; index += 1) {
+        // Intentionally sequential to avoid needlessly spiking the public API.
+        await refreshToken(index);
+      }
+      renderWatchlist();
+    }
+
+    watchlistGrid.addEventListener('click', async (event) => {
+      const refreshButton = event.target.closest('[data-refresh-index]');
+      if (refreshButton) {
+        await refreshToken(Number(refreshButton.dataset.refreshIndex));
+        return;
+      }
+
+      const removeButton = event.target.closest('[data-remove-index]');
+      if (removeButton) {
+        const index = Number(removeButton.dataset.removeIndex);
+        const items = getWatchlist();
+        items.splice(index, 1);
+        saveWatchlist(items);
+        renderWatchlist();
+      }
+    });
+
+    refreshAllButton.addEventListener('click', refreshAll);
+    clearWatchlistButton.addEventListener('click', () => {
+      localStorage.removeItem(WATCHLIST_KEY);
+      renderWatchlist();
+    });
+
+    renderWatchlist();
+  </script>
+</body>
+</html>

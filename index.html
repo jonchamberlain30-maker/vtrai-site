@@ -690,6 +690,32 @@
       color: var(--cyan);
     }
 
+    .trust-watch-row {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .trust-watch-btn {
+      min-width: 170px;
+    }
+
+    .watchlist-link {
+      color: #bdefff;
+      font-size: 0.82rem;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .watch-status {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
     @media (max-width: 930px) {
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
@@ -714,6 +740,7 @@
         <a href="./whitepaper.html">Whitepaper</a>
         <a href="./liquidity-covenant.html">Liquidity Covenant</a>
         <a href="./updates.html">Updates</a>
+        <a href="./watchlist.html">Watchlist</a>
         <a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Solscan</a>
         <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium</a>
         <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
@@ -1059,6 +1086,7 @@
     const RAYDIUM_BASE = 'https://raydium.io/swap/?inputMint=sol&outputMint=';
     const DEX_SEARCH_BASE = 'https://dexscreener.com/search?q=';
     const TRUST_API_BASE = 'https://api.getvectora.ai';
+    const WATCHLIST_KEY = 'vectora_watchlist_v1';
     const NETWORKS = {
       solana: {
         label: 'Solana',
@@ -1113,6 +1141,7 @@
     const trustButton = document.getElementById('trustButton');
     const trustResult = document.getElementById('trustResult');
     const copyButtons = document.querySelectorAll('[data-copy-target]');
+    let currentWatchToken = null;
 
     async function copyMint(button) {
       const target = document.getElementById(button.dataset.copyTarget);
@@ -1136,6 +1165,73 @@
 
     function renderTrustResult(html) {
       trustResult.innerHTML = html;
+    }
+
+    function getWatchlist() {
+      try {
+        const raw = localStorage.getItem(WATCHLIST_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveWatchlist(items) {
+      localStorage.setItem(WATCHLIST_KEY, JSON.stringify(items));
+    }
+
+    function buildWatchKey(networkId, address) {
+      return `${networkId || 'auto'}:${String(address || '').toLowerCase()}`;
+    }
+
+    function compactReport(report) {
+      return {
+        network_id: report.network_id,
+        network_label: report.network_label,
+        address: report.address,
+        level: report.level,
+        title: report.title,
+        summary: report.summary,
+        image_url: report.image_url || '',
+        checked_at_utc: report.checked_at_utc || '',
+        meta: report.meta || [],
+        reasons: report.reasons || [],
+        notes: report.notes || [],
+        links: report.links || [],
+      };
+    }
+
+    function isWatchedToken(token) {
+      if (!token?.address) return false;
+      const watchKey = buildWatchKey(token.network_id || token.networkId, token.address);
+      return getWatchlist().some((item) => item.watch_key === watchKey);
+    }
+
+    function toggleWatchToken(token) {
+      if (!token?.address) return false;
+      const watchKey = buildWatchKey(token.network_id || token.networkId, token.address);
+      const items = getWatchlist();
+      const existingIndex = items.findIndex((item) => item.watch_key === watchKey);
+      if (existingIndex >= 0) {
+        items.splice(existingIndex, 1);
+        saveWatchlist(items);
+        return false;
+      }
+      items.unshift({
+        watch_key: watchKey,
+        network_id: token.network_id || token.networkId,
+        network_label: token.network_label || token.networkLabel || 'Unknown',
+        address: token.address,
+        token_label: token.token_label || token.tokenLabel || 'Unknown token',
+        title: token.title || 'Trust report',
+        summary: token.summary || '',
+        image_url: token.image_url || token.imageUrl || '',
+        saved_at_utc: new Date().toISOString(),
+        last_report: token.report ? compactReport(token.report) : null,
+      });
+      saveWatchlist(items.slice(0, 50));
+      return true;
     }
 
     function normalizeInput(raw) {
@@ -1211,7 +1307,7 @@
       return map[networkLabel] || buildTokenFallback(networkLabel || 'N');
     }
 
-    function renderCard({ title, tone, summary, meta, bullets, links, reasons = [], imageUrl = '', level = 'low', networkLabel = '' }) {
+    function renderCard({ title, tone, summary, meta, bullets, links, reasons = [], imageUrl = '', level = 'low', networkLabel = '', watchToken = null }) {
       const linkHtml = Array.isArray(links)
         ? links.map((link, index) => `<a class="${index === 0 ? '' : 'alt-link'}" href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
         : links;
@@ -1234,6 +1330,14 @@
         </div>
       ` : '';
       const linksSectionHtml = linkHtml ? `<div class="trust-section"><h3>Proof links</h3><div class="trust-links">${linkHtml}</div></div>` : '';
+      currentWatchToken = watchToken;
+      const watchHtml = watchToken ? `
+        <div class="trust-watch-row">
+          <button class="copy-btn trust-watch-btn" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
+          <a class="watchlist-link" href="./watchlist.html">Open watchlist</a>
+        </div>
+        <div class="watch-status" data-watch-status>${isWatchedToken(watchToken) ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
+      ` : '';
       const logoHtml = imageUrl
         ? `<div class="trust-logo"><img src="${imageUrl}" alt="${title} token logo" loading="lazy" referrerpolicy="no-referrer" /></div>`
         : `<div class="trust-logo"><div class="trust-logo-fallback">${buildTokenFallback(title)}</div></div>`;
@@ -1270,10 +1374,12 @@
         ${reasonsHtml}
         ${checksHtml}
         ${linksSectionHtml}
+        ${watchHtml}
       `);
     }
 
     function renderApiReport(report) {
+      const tokenMeta = (report.meta || []).find((item) => item.label === 'Token');
       renderCard({
         title: report.title,
         tone: buildStatusTone(report.level),
@@ -1285,6 +1391,16 @@
         imageUrl: report.image_url || (report.official_vectora_mint === report.address ? OFFICIAL_IMAGE : ''),
         level: report.level || 'low',
         networkLabel: report.network_label || '',
+        watchToken: {
+          network_id: report.network_id,
+          network_label: report.network_label,
+          address: report.address,
+          token_label: tokenMeta?.value || report.title,
+          title: report.title,
+          summary: report.summary,
+          image_url: report.image_url || (report.official_vectora_mint === report.address ? OFFICIAL_IMAGE : ''),
+          report,
+        },
       });
     }
 
@@ -1393,10 +1509,14 @@
         level = 'medium';
       }
 
-      renderCard({
+      const report = {
+        network_id: chainId,
+        network_label: NETWORKS[chainId].label,
+        address,
+        level,
         title: `${buildStatusLabel(level)} on ${NETWORKS[chainId].label}`,
-        tone: buildStatusTone(level),
         summary: `This is a first-pass trust card for a third-party token on ${NETWORKS[chainId].label}. It is not a guarantee of safety; it summarizes the main visible contract and trading risks.`,
+        image_url: '',
         meta: [
           { label: 'Network', value: NETWORKS[chainId].label },
           { label: 'Token', value: `${data.token_name || 'Unknown'}${data.token_symbol ? ` (${data.token_symbol})` : ''}` },
@@ -1406,6 +1526,19 @@
           { label: 'Open source', value: data.is_open_source === '1' ? 'Yes' : 'No' },
         ],
         reasons: reasons.length ? reasons : [{ label: 'Why this score', text: 'No severe contract control or trading restriction flags were returned by the current checks.' }],
+        notes: bullets,
+        links: [
+          { label: 'Open explorer', url: `${NETWORKS[chainId].explorer}${encodeURIComponent(address)}` },
+          { label: 'Search on DexScreener', url: `${DEX_SEARCH_BASE}${encodeURIComponent(address)}` },
+          ...(topPair?.url ? [{ label: 'Open top pair', url: topPair.url }] : []),
+        ],
+      };
+      renderCard({
+        title: report.title,
+        tone: buildStatusTone(level),
+        summary: report.summary,
+        meta: report.meta,
+        reasons: report.reasons,
         bullets,
         links: `
           ${buildLinks(chainId, address)}
@@ -1413,6 +1546,16 @@
         `,
         level,
         networkLabel: NETWORKS[chainId].label,
+        watchToken: {
+          network_id: report.network_id,
+          network_label: report.network_label,
+          address: report.address,
+          token_label: report.meta.find((item) => item.label === 'Token')?.value || report.title,
+          title: report.title,
+          summary: report.summary,
+          image_url: '',
+          report,
+        },
       });
     }
 
@@ -1428,10 +1571,14 @@
       const imageUrl = await fetchMetadataImage(data.metadata?.uri);
 
       if (address === OFFICIAL_MINT) {
-        renderCard({
+        const report = {
+          network_id: 'solana',
+          network_label: 'Solana',
+          address,
+          level: 'verified',
           title: 'Verified official Vectora mint',
-          tone: buildStatusTone('verified'),
           summary: 'This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.',
+          image_url: imageUrl || OFFICIAL_IMAGE,
           meta: [
             { label: 'Network', value: 'Solana' },
             { label: 'Token', value: `${data.metadata?.name || 'Vectora'} (${data.metadata?.symbol || 'VTRAI'})` },
@@ -1445,10 +1592,24 @@
             { label: 'Mint control', text: `Mint authority is ${mintable ? 'still active' : 'revoked'}.` },
             { label: 'Freeze control', text: `Freeze authority is ${freezable ? 'still active' : 'revoked'}.` },
           ],
-          bullets: [
+          notes: [
             `Metadata mutability: ${metadataMutable ? 'mutable' : 'locked'}.`,
           ],
-          imageUrl,
+          links: [
+            { label: 'Open Solscan', url: `${SOLSCAN_BASE}${OFFICIAL_MINT}` },
+            { label: 'Open DexScreener pair', url: OFFICIAL_PAIR },
+            { label: 'Open Raydium route', url: `${RAYDIUM_BASE}${OFFICIAL_MINT}` },
+            ...(topPair?.url ? [{ label: 'Open top pair', url: topPair.url }] : []),
+          ],
+        };
+        renderCard({
+          title: report.title,
+          tone: buildStatusTone('verified'),
+          summary: report.summary,
+          meta: report.meta,
+          reasons: report.reasons,
+          bullets: report.notes,
+          imageUrl: report.image_url,
           links: `
             <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Solscan</a>
             <a href="${OFFICIAL_PAIR}" target="_blank" rel="noreferrer">Open DexScreener pair</a>
@@ -1457,6 +1618,16 @@
           `,
           level: 'verified',
           networkLabel: 'Solana',
+          watchToken: {
+            network_id: report.network_id,
+            network_label: report.network_label,
+            address: report.address,
+            token_label: report.meta.find((item) => item.label === 'Token')?.value || report.title,
+            title: report.title,
+            summary: report.summary,
+            image_url: report.image_url,
+            report,
+          },
         });
         return;
       }
@@ -1500,10 +1671,14 @@
         level = 'medium';
       }
 
-      renderCard({
+      const report = {
+        network_id: 'solana',
+        network_label: 'Solana',
+        address,
+        level,
         title: `${buildStatusLabel(level)} on Solana`,
-        tone: buildStatusTone(level),
         summary: 'This is a first-pass trust card for a Solana token. It focuses on mint control, freeze control, metadata mutability, and visible pool presence.',
+        image_url: imageUrl,
         meta: [
           { label: 'Network', value: 'Solana' },
           { label: 'Token', value: `${data.metadata?.name || 'Unknown'}${data.metadata?.symbol ? ` (${data.metadata.symbol})` : ''}` },
@@ -1513,6 +1688,20 @@
           { label: 'Metadata mutable', value: metadataMutable ? 'Yes' : 'No' },
         ],
         reasons: reasons.length ? reasons : [{ label: 'Why this score', text: 'No major Solana control flags were returned by the current checks.' }],
+        notes: bullets,
+        links: [
+          { label: 'Open explorer', url: `${SOLSCAN_BASE}${encodeURIComponent(address)}` },
+          { label: 'Search on DexScreener', url: `${DEX_SEARCH_BASE}${encodeURIComponent(address)}` },
+          { label: 'Open Raydium route', url: `${RAYDIUM_BASE}${encodeURIComponent(address)}` },
+          ...(topPair?.url ? [{ label: 'Open top pair', url: topPair.url }] : []),
+        ],
+      };
+      renderCard({
+        title: report.title,
+        tone: buildStatusTone(level),
+        summary: report.summary,
+        meta: report.meta,
+        reasons: report.reasons,
         bullets,
         imageUrl,
         links: `
@@ -1521,6 +1710,16 @@
         `,
         level,
         networkLabel: 'Solana',
+        watchToken: {
+          network_id: report.network_id,
+          network_label: report.network_label,
+          address: report.address,
+          token_label: report.meta.find((item) => item.label === 'Token')?.value || report.title,
+          title: report.title,
+          summary: report.summary,
+          image_url: report.image_url,
+          report,
+        },
       });
     }
 
@@ -1631,6 +1830,18 @@
     trustButton.addEventListener('click', checkToken);
     trustInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') checkToken();
+    });
+    trustResult.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-watch-toggle]');
+      if (!button || !currentWatchToken) return;
+      const watching = toggleWatchToken(currentWatchToken);
+      button.textContent = watching ? 'Watching on this device' : 'Watch on this device';
+      const status = trustResult.querySelector('[data-watch-status]');
+      if (status) {
+        status.textContent = watching
+          ? 'Saved on this browser. Revisit from your watchlist page.'
+          : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
+      }
     });
   </script>
 </body>
