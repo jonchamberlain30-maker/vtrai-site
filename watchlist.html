@@ -112,6 +112,12 @@
       flex-wrap: wrap;
       align-items: center;
     }
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     .filters-label {
       color: var(--muted);
       font-size: 0.82rem;
@@ -388,12 +394,19 @@
         <a class="btn" href="./index.html#trust-check">Check Another Token</a>
         <button id="clearWatchlistButton" class="btn destructive" type="button">Clear Watchlist</button>
       </div>
-      <div class="filters" id="watchlistFilters">
-        <span class="filters-label">Show</span>
-        <button class="filter-chip active" type="button" data-filter="all">All <span data-filter-count="all">0</span></button>
-        <button class="filter-chip" type="button" data-filter="changed">Changed <span data-filter-count="changed">0</span></button>
-        <button class="filter-chip" type="button" data-filter="baseline">Baseline only <span data-filter-count="baseline">0</span></button>
-        <button class="filter-chip" type="button" data-filter="stable">No change <span data-filter-count="stable">0</span></button>
+      <div class="filters">
+        <div class="filter-group" id="watchlistFilters">
+          <span class="filters-label">Show</span>
+          <button class="filter-chip active" type="button" data-filter="all">All <span data-filter-count="all">0</span></button>
+          <button class="filter-chip" type="button" data-filter="changed">Changed <span data-filter-count="changed">0</span></button>
+          <button class="filter-chip" type="button" data-filter="baseline">Baseline only <span data-filter-count="baseline">0</span></button>
+          <button class="filter-chip" type="button" data-filter="stable">No change <span data-filter-count="stable">0</span></button>
+        </div>
+        <div class="filter-group" id="watchlistSort">
+          <span class="filters-label">Sort</span>
+          <button class="filter-chip active" type="button" data-sort="changed">Changed first</button>
+          <button class="filter-chip" type="button" data-sort="newest">Newest first</button>
+        </div>
       </div>
       <div id="watchlistState" class="state">Loading saved watchlist...</div>
     </section>
@@ -409,7 +422,9 @@
     const refreshAllButton = document.getElementById('refreshAllButton');
     const clearWatchlistButton = document.getElementById('clearWatchlistButton');
     const watchlistFilters = document.getElementById('watchlistFilters');
+    const watchlistSort = document.getElementById('watchlistSort');
     let currentFilter = 'all';
+    let currentSort = 'changed';
 
     function getWatchlist() {
       try {
@@ -650,10 +665,12 @@
 
       watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} saved on this device. Refresh on demand to pull the latest trust report.`;
       const sortedItems = items.map((item, index) => ({ item, index })).sort((a, b) => {
-        const rankDiff = changeRank(a.item) - changeRank(b.item);
-        if (rankDiff !== 0) return rankDiff;
         const aTime = Date.parse(a.item.last_checked_at_utc || a.item.last_report?.checked_at_utc || a.item.saved_at_utc || '') || 0;
         const bTime = Date.parse(b.item.last_checked_at_utc || b.item.last_report?.checked_at_utc || b.item.saved_at_utc || '') || 0;
+        if (currentSort === 'changed') {
+          const rankDiff = changeRank(a.item) - changeRank(b.item);
+          if (rankDiff !== 0) return rankDiff;
+        }
         return bTime - aTime;
       });
       const filteredItems = sortedItems.filter(({ item }) => passesFilter(item));
@@ -779,6 +796,16 @@
       currentFilter = button.dataset.filter || 'all';
       watchlistFilters.querySelectorAll('[data-filter]').forEach((chip) => {
         chip.classList.toggle('active', chip.dataset.filter === currentFilter);
+      });
+      renderWatchlist();
+    });
+
+    watchlistSort.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-sort]');
+      if (!button) return;
+      currentSort = button.dataset.sort || 'changed';
+      watchlistSort.querySelectorAll('[data-sort]').forEach((chip) => {
+        chip.classList.toggle('active', chip.dataset.sort === currentSort);
       });
       renderWatchlist();
     });
