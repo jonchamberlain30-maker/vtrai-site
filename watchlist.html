@@ -561,6 +561,13 @@
       };
     }
 
+    function changeRank(item) {
+      const state = diffState(item);
+      if (state.label === 'Changed') return 0;
+      if (state.label === 'Baseline only') return 1;
+      return 2;
+    }
+
     function renderWatchlist() {
       const items = getWatchlist();
       if (!items.length) {
@@ -575,7 +582,14 @@
       }
 
       watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} saved on this device. Refresh on demand to pull the latest trust report.`;
-      watchlistGrid.innerHTML = items.map((item, index) => {
+      const sortedItems = items.map((item, index) => ({ item, index })).sort((a, b) => {
+        const rankDiff = changeRank(a.item) - changeRank(b.item);
+        if (rankDiff !== 0) return rankDiff;
+        const aTime = Date.parse(a.item.last_checked_at_utc || a.item.last_report?.checked_at_utc || a.item.saved_at_utc || '') || 0;
+        const bTime = Date.parse(b.item.last_checked_at_utc || b.item.last_report?.checked_at_utc || b.item.saved_at_utc || '') || 0;
+        return bTime - aTime;
+      });
+      watchlistGrid.innerHTML = sortedItems.map(({ item, index }) => {
         const report = item.last_report || {};
         const level = report.level || 'unknown';
         const title = report.title || item.title || item.token_label || 'Watched token';
