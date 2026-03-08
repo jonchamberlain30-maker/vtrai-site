@@ -279,6 +279,25 @@
       gap: 8px;
       flex-shrink: 0;
     }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .share-btn-mark {
+      font-size: 0.86rem;
+      line-height: 1;
+    }
     .change-badge {
       border-radius: 999px;
       padding: 5px 9px;
@@ -438,6 +457,13 @@
 
     function saveWatchlist(items) {
       localStorage.setItem(WATCHLIST_KEY, JSON.stringify(items));
+    }
+
+    function buildReportUrl(item) {
+      const params = new URLSearchParams();
+      params.set('network', item?.network_id || 'auto');
+      params.set('address', item?.address || '');
+      return `./report.html?${params.toString()}`;
     }
 
     function compactReport(report) {
@@ -703,6 +729,7 @@
                 </div>
               </div>
               <div class="status-stack">
+                <button class="share-btn" type="button" data-share-url="${buildReportUrl(item)}"><span class="share-btn-mark">↗</span><span>Share</span></button>
                 <div class="status-badge ${badgeClass(level)}">${level}</div>
                 <div class="change-badge ${changeState.className}">${changeState.label}</div>
               </div>
@@ -768,6 +795,34 @@
     }
 
     watchlistGrid.addEventListener('click', async (event) => {
+      const shareButton = event.target.closest('[data-share-url]');
+      if (shareButton) {
+        const url = new URL(shareButton.dataset.shareUrl, window.location.href).href;
+        const original = shareButton.innerHTML;
+        const card = shareButton.closest('.card');
+        const title = card?.querySelector('.token-title')?.textContent?.trim() || 'Vectora token report';
+        const sharePayload = { title, text: 'Token trust report', url };
+        const fallbackCopy = () => navigator.clipboard.writeText(url)
+          .then(() => {
+            shareButton.innerHTML = '<span class="share-btn-mark">↗</span><span>Copied</span>';
+          })
+          .catch(() => {
+            shareButton.innerHTML = '<span class="share-btn-mark">↗</span><span>Copy failed</span>';
+          })
+          .finally(() => {
+            setTimeout(() => {
+              shareButton.innerHTML = original;
+            }, 1400);
+          });
+        if (navigator.share) {
+          navigator.share(sharePayload)
+            .catch(() => fallbackCopy());
+        } else {
+          fallbackCopy();
+        }
+        return;
+      }
+
       const refreshButton = event.target.closest('[data-refresh-index]');
       if (refreshButton) {
         await refreshToken(Number(refreshButton.dataset.refreshIndex));

@@ -643,6 +643,35 @@
       text-transform: uppercase;
       letter-spacing: 0.3px;
     }
+    .trust-head-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .share-btn:hover {
+      transform: translateY(-1px);
+    }
+    .share-btn-mark {
+      font-size: 0.86rem;
+      line-height: 1;
+    }
 
     .trust-summary {
       color: #d7ecff;
@@ -1270,7 +1299,6 @@
         <div class="trust-watch-row">
           <button class="copy-btn trust-watch-btn" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
           <a class="watchlist-link" href="${buildReportUrl(watchToken)}">Open report page</a>
-          <button class="copy-btn" type="button" data-copy-report-url="true">Copy report link</button>
           <a class="watchlist-link" href="./watchlist.html">Open watchlist</a>
         </div>
         <div class="watch-status" data-watch-status>${isWatchedToken(watchToken) ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
@@ -1297,7 +1325,10 @@
               </div>
             </div>
           </div>
-          <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
+          <div class="trust-head-actions">
+            ${watchToken ? `<button class="share-btn" type="button" data-share-report="true"><span class="share-btn-mark">↗</span><span>Share</span></button>` : ''}
+            <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
+          </div>
         </div>
         <div class="trust-summary">${summary}</div>
         <div class="trust-meta">
@@ -1766,21 +1797,33 @@
       if (event.key === 'Enter') checkToken();
     });
     trustResult.addEventListener('click', (event) => {
-      const copyReportButton = event.target.closest('[data-copy-report-url]');
-      if (copyReportButton && currentWatchToken) {
-        const original = copyReportButton.textContent;
-        navigator.clipboard.writeText(new URL(buildReportUrl(currentWatchToken), window.location.href).href)
+      const shareButton = event.target.closest('[data-share-report]');
+      if (shareButton && currentWatchToken) {
+        const reportUrl = new URL(buildReportUrl(currentWatchToken), window.location.href).href;
+        const original = shareButton.innerHTML;
+        const sharePayload = {
+          title: currentWatchToken.title || 'Vectora token report',
+          text: currentWatchToken.summary || 'Token trust report',
+          url: reportUrl,
+        };
+        const fallbackCopy = () => navigator.clipboard.writeText(reportUrl)
           .then(() => {
-            copyReportButton.textContent = 'Copied';
+            shareButton.innerHTML = '<span class="share-btn-mark">↗</span><span>Copied</span>';
           })
           .catch(() => {
-            copyReportButton.textContent = 'Copy failed';
+            shareButton.innerHTML = '<span class="share-btn-mark">↗</span><span>Copy failed</span>';
           })
           .finally(() => {
             setTimeout(() => {
-              copyReportButton.textContent = original;
+              shareButton.innerHTML = original;
             }, 1400);
           });
+        if (navigator.share) {
+          navigator.share(sharePayload)
+            .catch(() => fallbackCopy());
+        } else {
+          fallbackCopy();
+        }
         return;
       }
       const button = event.target.closest('[data-watch-toggle]');
