@@ -105,6 +105,34 @@
       gap: 10px;
       flex-wrap: wrap;
     }
+    .filters {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filters-label {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-right: 4px;
+    }
+    .filter-chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .filter-chip.active {
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      color: #031019;
+      border-color: transparent;
+      font-weight: 700;
+    }
     .btn {
       display: inline-block;
       text-decoration: none;
@@ -360,6 +388,13 @@
         <a class="btn" href="./index.html#trust-check">Check Another Token</a>
         <button id="clearWatchlistButton" class="btn destructive" type="button">Clear Watchlist</button>
       </div>
+      <div class="filters" id="watchlistFilters">
+        <span class="filters-label">Show</span>
+        <button class="filter-chip active" type="button" data-filter="all">All</button>
+        <button class="filter-chip" type="button" data-filter="changed">Changed</button>
+        <button class="filter-chip" type="button" data-filter="baseline">Baseline only</button>
+        <button class="filter-chip" type="button" data-filter="stable">No change</button>
+      </div>
       <div id="watchlistState" class="state">Loading saved watchlist...</div>
     </section>
 
@@ -373,6 +408,8 @@
     const watchlistState = document.getElementById('watchlistState');
     const refreshAllButton = document.getElementById('refreshAllButton');
     const clearWatchlistButton = document.getElementById('clearWatchlistButton');
+    const watchlistFilters = document.getElementById('watchlistFilters');
+    let currentFilter = 'all';
 
     function getWatchlist() {
       try {
@@ -568,6 +605,14 @@
       return 2;
     }
 
+    function passesFilter(item) {
+      const label = diffState(item).label;
+      if (currentFilter === 'changed') return label === 'Changed';
+      if (currentFilter === 'baseline') return label === 'Baseline only';
+      if (currentFilter === 'stable') return label === 'No change';
+      return true;
+    }
+
     function renderWatchlist() {
       const items = getWatchlist();
       if (!items.length) {
@@ -589,7 +634,19 @@
         const bTime = Date.parse(b.item.last_checked_at_utc || b.item.last_report?.checked_at_utc || b.item.saved_at_utc || '') || 0;
         return bTime - aTime;
       });
-      watchlistGrid.innerHTML = sortedItems.map(({ item, index }) => {
+      const filteredItems = sortedItems.filter(({ item }) => passesFilter(item));
+      if (!filteredItems.length) {
+        watchlistGrid.innerHTML = `
+          <div class="empty-state">
+            <strong>No tokens match this filter.</strong>
+            Switch filters or refresh your saved tokens to pull a newer trust report.
+          </div>
+        `;
+        watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} saved on this device. Filter: ${currentFilter === 'all' ? 'All' : currentFilter}.`;
+        return;
+      }
+      watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} saved on this device. Showing ${filteredItems.length}.`;
+      watchlistGrid.innerHTML = filteredItems.map(({ item, index }) => {
         const report = item.last_report || {};
         const level = report.level || 'unknown';
         const title = report.title || item.title || item.token_label || 'Watched token';
@@ -691,6 +748,16 @@
     refreshAllButton.addEventListener('click', refreshAll);
     clearWatchlistButton.addEventListener('click', () => {
       localStorage.removeItem(WATCHLIST_KEY);
+      renderWatchlist();
+    });
+
+    watchlistFilters.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-filter]');
+      if (!button) return;
+      currentFilter = button.dataset.filter || 'all';
+      watchlistFilters.querySelectorAll('[data-filter]').forEach((chip) => {
+        chip.classList.toggle('active', chip.dataset.filter === currentFilter);
+      });
       renderWatchlist();
     });
 
