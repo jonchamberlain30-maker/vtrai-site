@@ -238,6 +238,26 @@
       letter-spacing: 0.03em;
       flex-shrink: 0;
     }
+    .status-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .change-badge {
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid currentColor;
+      background: rgba(255,255,255,0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .change-hit { color: #ffe08f; }
+    .change-none { color: #8fbfe7; }
+    .change-pending { color: var(--muted); }
     .status-good { color: var(--good); }
     .status-warn { color: var(--warn-strong); }
     .status-risk { color: var(--warn); }
@@ -496,6 +516,51 @@
       `;
     }
 
+    function diffState(item) {
+      const current = item.last_report || {};
+      const previous = item.previous_report || null;
+      if (!current.address || !previous || !previous.address) {
+        return {
+          label: 'Baseline only',
+          className: 'change-pending',
+          time: '',
+        };
+      }
+
+      const changes = [];
+      if ((previous.level || 'unknown') !== (current.level || 'unknown')) {
+        changes.push('level');
+      }
+
+      const watchedMeta = ['supply', 'top liquidity', 'top venue', 'open source', 'metadata mutable'];
+      const previousMeta = metaMap(previous);
+      const currentMeta = metaMap(current);
+      watchedMeta.forEach((label) => {
+        const before = previousMeta.get(label);
+        const after = currentMeta.get(label);
+        if (before && after && before !== after) changes.push(label);
+      });
+
+      const previousReasons = reasonSet(previous);
+      const currentReasons = reasonSet(current);
+      const addedReasons = [...currentReasons].filter((value) => !previousReasons.has(value));
+      if (addedReasons.length) changes.push('reason');
+
+      if (changes.length) {
+        return {
+          label: 'Changed',
+          className: 'change-hit',
+          time: current.checked_at_utc || item.last_checked_at_utc || '',
+        };
+      }
+
+      return {
+        label: 'No change',
+        className: 'change-none',
+        time: current.checked_at_utc || item.last_checked_at_utc || '',
+      };
+    }
+
     function renderWatchlist() {
       const items = getWatchlist();
       if (!items.length) {
@@ -516,6 +581,7 @@
         const title = report.title || item.title || item.token_label || 'Watched token';
         const summary = report.summary || item.summary || 'No cached trust report yet. Refresh to fetch a fresh report now.';
         const imageUrl = report.image_url || item.image_url || '';
+        const changeState = diffState(item);
         return `
           <article class="card">
             <div class="card-head">
@@ -526,7 +592,10 @@
                   <div class="meta-line">${item.network_label || report.network_label || 'Unknown network'} · saved ${formatDate(item.saved_at_utc)}</div>
                 </div>
               </div>
-              <div class="status-badge ${badgeClass(level)}">${level}</div>
+              <div class="status-stack">
+                <div class="status-badge ${badgeClass(level)}">${level}</div>
+                <div class="change-badge ${changeState.className}">${changeState.label}</div>
+              </div>
             </div>
             <div class="address">${item.address}</div>
             <div class="summary">${summary}</div>
@@ -538,6 +607,7 @@
               <button class="btn" type="button" data-refresh-index="${index}">Refresh</button>
               <button class="btn destructive" type="button" data-remove-index="${index}">Remove</button>
             </div>
+            ${changeState.time ? `<div class="meta-line" style="margin-top: 10px;">Change status updated: ${formatDate(changeState.time)}</div>` : ''}
             <div class="meta-line" style="margin-top: 10px;">Last checked: ${formatDate(item.last_checked_at_utc || report.checked_at_utc)}</div>
             ${item.last_error ? `<div class="state" style="margin-top: 10px; color: var(--warn-strong); border-color: rgba(255, 191, 208, 0.3);">${item.last_error}</div>` : ''}
           </article>
