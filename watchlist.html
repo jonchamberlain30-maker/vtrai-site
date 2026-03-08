@@ -390,10 +390,10 @@
       </div>
       <div class="filters" id="watchlistFilters">
         <span class="filters-label">Show</span>
-        <button class="filter-chip active" type="button" data-filter="all">All</button>
-        <button class="filter-chip" type="button" data-filter="changed">Changed</button>
-        <button class="filter-chip" type="button" data-filter="baseline">Baseline only</button>
-        <button class="filter-chip" type="button" data-filter="stable">No change</button>
+        <button class="filter-chip active" type="button" data-filter="all">All <span data-filter-count="all">0</span></button>
+        <button class="filter-chip" type="button" data-filter="changed">Changed <span data-filter-count="changed">0</span></button>
+        <button class="filter-chip" type="button" data-filter="baseline">Baseline only <span data-filter-count="baseline">0</span></button>
+        <button class="filter-chip" type="button" data-filter="stable">No change <span data-filter-count="stable">0</span></button>
       </div>
       <div id="watchlistState" class="state">Loading saved watchlist...</div>
     </section>
@@ -613,8 +613,30 @@
       return true;
     }
 
+    function updateFilterCounts(items) {
+      const counts = {
+        all: items.length,
+        changed: 0,
+        baseline: 0,
+        stable: 0,
+      };
+
+      items.forEach((item) => {
+        const label = diffState(item).label;
+        if (label === 'Changed') counts.changed += 1;
+        else if (label === 'Baseline only') counts.baseline += 1;
+        else if (label === 'No change') counts.stable += 1;
+      });
+
+      Object.entries(counts).forEach(([key, value]) => {
+        const target = watchlistFilters.querySelector(`[data-filter-count="${key}"]`);
+        if (target) target.textContent = String(value);
+      });
+    }
+
     function renderWatchlist() {
       const items = getWatchlist();
+      updateFilterCounts(items);
       if (!items.length) {
         watchlistState.textContent = 'No tokens saved on this device yet.';
         watchlistGrid.innerHTML = `
