@@ -1113,6 +1113,13 @@
       return `${networkId || 'auto'}:${String(address || '').toLowerCase()}`;
     }
 
+    function buildReportUrl(token) {
+      const params = new URLSearchParams();
+      params.set('network', token?.network_id || token?.networkId || 'auto');
+      params.set('address', token?.address || '');
+      return `./report.html?${params.toString()}`;
+    }
+
     function compactReport(report) {
       return {
         network_id: report.network_id,
@@ -1262,6 +1269,8 @@
       const watchHtml = watchToken ? `
         <div class="trust-watch-row">
           <button class="copy-btn trust-watch-btn" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
+          <a class="watchlist-link" href="${buildReportUrl(watchToken)}">Open report page</a>
+          <button class="copy-btn" type="button" data-copy-report-url="true">Copy report link</button>
           <a class="watchlist-link" href="./watchlist.html">Open watchlist</a>
         </div>
         <div class="watch-status" data-watch-status>${isWatchedToken(watchToken) ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
@@ -1757,6 +1766,23 @@
       if (event.key === 'Enter') checkToken();
     });
     trustResult.addEventListener('click', (event) => {
+      const copyReportButton = event.target.closest('[data-copy-report-url]');
+      if (copyReportButton && currentWatchToken) {
+        const original = copyReportButton.textContent;
+        navigator.clipboard.writeText(new URL(buildReportUrl(currentWatchToken), window.location.href).href)
+          .then(() => {
+            copyReportButton.textContent = 'Copied';
+          })
+          .catch(() => {
+            copyReportButton.textContent = 'Copy failed';
+          })
+          .finally(() => {
+            setTimeout(() => {
+              copyReportButton.textContent = original;
+            }, 1400);
+          });
+        return;
+      }
       const button = event.target.closest('[data-watch-toggle]');
       if (!button || !currentWatchToken) return;
       const watching = toggleWatchToken(currentWatchToken);

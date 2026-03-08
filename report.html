@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <title>Vectora | Token Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #050912;
+      --bg-2: #0b1630;
+      --bg-3: #101d3f;
+      --ink: #e8f8ff;
+      --muted: #9ab1c8;
+      --line: #243753;
+      --cyan: #4deaff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+      --warn-strong: #ffd58e;
+      --gold-1: #f7d46a;
+      --gold-2: #f0b53a;
+      --card: rgba(9, 16, 32, 0.78);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(920px 560px at 10% -10%, rgba(77,234,255,0.2), transparent 55%),
+        radial-gradient(820px 640px at 100% 110%, rgba(157,124,255,0.16), transparent 55%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
+    .nav, .hero, .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+    }
+    .nav {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+    .brand img {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+    }
+    .tag { color: var(--cyan); }
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.92rem;
+    }
+    .hero {
+      margin-top: 14px;
+      padding: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.1rem;
+    }
+    .sub {
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 10px 0 0;
+      max-width: 880px;
+    }
+    .badges {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      font-size: 0.8rem;
+    }
+    .report-form {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+    .input, .select {
+      width: 100%;
+      border: 1px solid rgba(247, 212, 106, 0.82);
+      border-radius: 11px;
+      background: rgba(14, 24, 43, 0.82);
+      color: var(--ink);
+      padding: 12px 14px;
+      font: inherit;
+      box-shadow: inset 0 0 0 1px rgba(247, 212, 106, 0.18);
+    }
+    .input::placeholder {
+      color: rgba(247, 212, 106, 0.9);
+    }
+    .input:focus, .select:focus {
+      outline: none;
+      border-color: rgba(247, 212, 106, 0.98);
+      box-shadow: inset 0 0 0 1px rgba(247, 212, 106, 0.24), 0 0 0 3px rgba(247, 212, 106, 0.14);
+    }
+    .controls {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 11px;
+      font-size: 0.9rem;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn.gold {
+      color: #1a1202;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0) 46%),
+        linear-gradient(90deg, var(--gold-1), var(--gold-2));
+      box-shadow: 0 0 0 1px rgba(255, 214, 111, 0.2), 0 10px 24px rgba(240, 181, 58, 0.18);
+    }
+    .state, .report-shell {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.28);
+      border-radius: 16px;
+      background: rgba(10, 19, 38, 0.78);
+      padding: 16px;
+    }
+    .state { color: #cbe7ff; line-height: 1.5; }
+    .report-shell { display: none; }
+    .report-shell.ready { display: block; }
+    .report-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .report-head-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .report-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(77, 234, 255, 0.18), transparent 60%),
+        rgba(13, 22, 41, 0.96);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .report-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .logo-fallback {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #bdefff;
+    }
+    .report-title {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.25;
+    }
+    .report-submeta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      border: 1px solid rgba(70, 100, 135, 0.48);
+      background: rgba(18, 30, 52, 0.64);
+      font-size: 0.76rem;
+      color: #d7ecff;
+      letter-spacing: 0.2px;
+    }
+    .chip-mark {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+    }
+    .chip-mark.status {
+      width: 10px;
+      height: 10px;
+      font-size: 0;
+      background: currentColor;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+    }
+    .level-badge {
+      flex-shrink: 0;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid currentColor;
+      background: rgba(255, 255, 255, 0.03);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .summary {
+      color: #d7ecff;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .meta-grid div {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(16, 28, 48, 0.64);
+    }
+    .meta-grid span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+    .section {
+      margin-top: 12px;
+      border-top: 1px solid rgba(70, 100, 135, 0.35);
+      padding-top: 12px;
+    }
+    .section h3 {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #9cc5e7;
+    }
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: #dceeff;
+      line-height: 1.45;
+    }
+    .list li + li { margin-top: 6px; }
+    .links {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .links a {
+      color: #06131b;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+    }
+    .helper {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px) {
+      .report-form { grid-template-columns: 1fr; }
+      .meta-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.78rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <img src="./assets/vtrai-logo.svg" alt="VTRAI logo" />
+        <span>Vectora <span class="tag">$VTRAI</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./watchlist.html">Watchlist</a>
+        <a href="./updates.html">Updates</a>
+        <a href="./proof.html">Proof</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Shareable Token Report</h1>
+      <p class="sub">Open a token-specific report URL that fetches the latest trust card directly from the public API and can be passed around in chats, posts, or DMs.</p>
+      <div class="badges">
+        <span class="badge">Shareable URL</span>
+        <span class="badge">Live API report</span>
+        <span class="badge">Works with watchlist</span>
+      </div>
+      <div class="report-form">
+        <select id="networkSelect" class="select">
+          <option value="auto">Auto detect</option>
+          <option value="solana">Solana</option>
+          <option value="1">Ethereum</option>
+          <option value="8453">Base</option>
+          <option value="56">BNB Chain</option>
+          <option value="42161">Arbitrum</option>
+          <option value="137">Polygon</option>
+          <option value="10">Optimism</option>
+        </select>
+        <input id="reportInput" class="input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
+        <button id="openReportButton" class="btn gold" type="button">Open Report</button>
+      </div>
+      <div class="controls">
+        <button id="copyLinkButton" class="btn" type="button">Copy Report Link</button>
+        <a class="btn" href="./index.html#trust-check">Back to Checker</a>
+        <a class="btn" href="./watchlist.html">Open Watchlist</a>
+      </div>
+      <div class="helper">Use this page when you want a token check that can be reopened or shared directly without re-entering the address.</div>
+    </section>
+
+    <section id="reportState" class="state">Paste a token address above or open this page with `?network=...&address=...`.</section>
+    <section id="reportShell" class="report-shell"></section>
+  </main>
+
+  <script>
+    const TRUST_API_BASE = 'https://api.getvectora.ai';
+    const WATCHLIST_KEY = 'vectora_watchlist_v1';
+    const OFFICIAL_IMAGE = 'https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva';
+    const networkSelect = document.getElementById('networkSelect');
+    const reportInput = document.getElementById('reportInput');
+    const openReportButton = document.getElementById('openReportButton');
+    const copyLinkButton = document.getElementById('copyLinkButton');
+    const reportState = document.getElementById('reportState');
+    const reportShell = document.getElementById('reportShell');
+    let currentWatchToken = null;
+    let currentReportUrl = window.location.href;
+
+    function normalizeInput(raw) {
+      return String(raw || '').trim();
+    }
+
+    function buildTokenFallback(title) {
+      const cleaned = (title || 'TK').replace(/[^A-Za-z0-9 ]/g, '').trim();
+      const parts = cleaned.split(/\s+/).filter(Boolean);
+      if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+      return cleaned.slice(0, 2).toUpperCase() || 'TK';
+    }
+
+    function buildStatusTone(level) {
+      if (level === 'verified' || level === 'low') return 'var(--good)';
+      if (level === 'medium') return '#ffd27f';
+      return 'var(--warn)';
+    }
+
+    function buildStatusLabel(level) {
+      if (level === 'verified') return 'Verified official token';
+      if (level === 'low') return 'Low caution';
+      if (level === 'medium') return 'Medium caution';
+      return 'High caution';
+    }
+
+    function buildNetworkMark(networkLabel) {
+      const map = {
+        'Solana': 'S',
+        'Ethereum': 'E',
+        'Base': 'B',
+        'BNB Chain': 'BN',
+        'Arbitrum': 'A',
+        'Polygon': 'P',
+        'Optimism': 'OP',
+        'Auto detect': 'A',
+      };
+      return map[networkLabel] || buildTokenFallback(networkLabel || 'N');
+    }
+
+    function getWatchlist() {
+      try {
+        const raw = localStorage.getItem(WATCHLIST_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveWatchlist(items) {
+      localStorage.setItem(WATCHLIST_KEY, JSON.stringify(items));
+    }
+
+    function buildWatchKey(networkId, address) {
+      return `${networkId || 'auto'}:${String(address || '').toLowerCase()}`;
+    }
+
+    function compactReport(report) {
+      return {
+        network_id: report.network_id,
+        network_label: report.network_label,
+        address: report.address,
+        level: report.level,
+        title: report.title,
+        summary: report.summary,
+        image_url: report.image_url || '',
+        checked_at_utc: report.checked_at_utc || '',
+        meta: report.meta || [],
+        reasons: report.reasons || [],
+        notes: report.notes || [],
+        links: report.links || [],
+      };
+    }
+
+    function isWatchedToken(token) {
+      if (!token?.address) return false;
+      const watchKey = buildWatchKey(token.network_id || token.networkId, token.address);
+      return getWatchlist().some((item) => item.watch_key === watchKey);
+    }
+
+    function toggleWatchToken(token) {
+      if (!token?.address) return false;
+      const watchKey = buildWatchKey(token.network_id || token.networkId, token.address);
+      const items = getWatchlist();
+      const existingIndex = items.findIndex((item) => item.watch_key === watchKey);
+      if (existingIndex >= 0) {
+        items.splice(existingIndex, 1);
+        saveWatchlist(items);
+        return false;
+      }
+      items.unshift({
+        watch_key: watchKey,
+        network_id: token.network_id || token.networkId,
+        network_label: token.network_label || token.networkLabel || 'Unknown',
+        address: token.address,
+        token_label: token.token_label || token.tokenLabel || 'Unknown token',
+        title: token.title || 'Trust report',
+        summary: token.summary || '',
+        image_url: token.image_url || token.imageUrl || '',
+        saved_at_utc: new Date().toISOString(),
+        last_report: token.report ? compactReport(token.report) : null,
+      });
+      saveWatchlist(items.slice(0, 50));
+      return true;
+    }
+
+    function setReportState(message) {
+      reportState.textContent = message;
+      reportState.style.display = 'block';
+      reportShell.classList.remove('ready');
+      reportShell.innerHTML = '';
+    }
+
+    function setReportHtml(html) {
+      reportState.style.display = 'none';
+      reportShell.classList.add('ready');
+      reportShell.innerHTML = html;
+    }
+
+    function updateUrl(network, address) {
+      const params = new URLSearchParams();
+      params.set('network', network || 'auto');
+      params.set('address', address);
+      const nextUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.replaceState({}, '', nextUrl);
+      currentReportUrl = window.location.href;
+    }
+
+    async function copyReportLink() {
+      const original = copyLinkButton.textContent;
+      try {
+        await navigator.clipboard.writeText(currentReportUrl);
+        copyLinkButton.textContent = 'Copied';
+      } catch {
+        copyLinkButton.textContent = 'Copy failed';
+      }
+      setTimeout(() => {
+        copyLinkButton.textContent = original;
+      }, 1400);
+    }
+
+    function renderReport(report) {
+      const tone = buildStatusTone(report.level);
+      const statusLabel = buildStatusLabel(report.level);
+      const badgeLabel = statusLabel.toUpperCase();
+      const imageUrl = report.image_url || (report.official_vectora_mint === report.address ? OFFICIAL_IMAGE : '');
+      const tokenMeta = (report.meta || []).find((item) => item.label === 'Token');
+      currentWatchToken = {
+        network_id: report.network_id,
+        network_label: report.network_label,
+        address: report.address,
+        token_label: tokenMeta?.value || report.title,
+        title: report.title,
+        summary: report.summary,
+        image_url: imageUrl,
+        report,
+      };
+      document.title = `Vectora | ${report.title}`;
+      const reasonsHtml = (report.reasons || []).length ? `
+        <div class="section">
+          <h3>Why this score</h3>
+          <ul class="list">${report.reasons.map((item) => `<li><strong>${item.label}:</strong> ${item.text}</li>`).join('')}</ul>
+        </div>
+      ` : '';
+      const checksHtml = (report.notes || []).length ? `
+        <div class="section">
+          <h3>Checks observed</h3>
+          <ul class="list">${report.notes.map((item) => `<li>${item}</li>`).join('')}</ul>
+        </div>
+      ` : '';
+      const linksHtml = (report.links || []).length ? `
+        <div class="section">
+          <h3>Proof links</h3>
+          <div class="links">${report.links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')}</div>
+        </div>
+      ` : '';
+      setReportHtml(`
+        <div class="report-head">
+          <div class="report-head-main">
+            <div class="report-logo">${imageUrl ? `<img src="${imageUrl}" alt="${report.title} token logo" loading="lazy" referrerpolicy="no-referrer" />` : `<div class="logo-fallback">${buildTokenFallback(report.title)}</div>`}</div>
+            <div>
+              <div class="report-title" style="color: ${tone};">${report.title}</div>
+              <div class="report-submeta">
+                <div class="chip">
+                  <span class="chip-mark">${buildNetworkMark(report.network_label || 'Unknown')}</span>
+                  <span>${report.network_label || 'Unknown'}</span>
+                </div>
+                <div class="chip" style="color: ${tone};">
+                  <span class="chip-mark status"></span>
+                  <span>${statusLabel}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="level-badge" style="color: ${tone};">${badgeLabel}</div>
+        </div>
+        <div class="summary">${report.summary}</div>
+        <div class="meta-grid">
+          ${(report.meta || []).map((item) => `
+            <div>
+              <span>${item.label}</span>
+              <strong>${item.value}</strong>
+            </div>
+          `).join('')}
+        </div>
+        ${reasonsHtml}
+        ${checksHtml}
+        ${linksHtml}
+        <div class="section">
+          <h3>Report actions</h3>
+          <div class="controls">
+            <button class="btn" type="button" data-watch-toggle="true">${isWatchedToken(currentWatchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
+            <button class="btn" type="button" data-copy-report="true">Copy report link</button>
+            <a class="btn" href="./watchlist.html">Open watchlist</a>
+          </div>
+          <div class="helper" data-watch-status>${isWatchedToken(currentWatchToken) ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
+        </div>
+      `);
+    }
+
+    async function openReport() {
+      const address = normalizeInput(reportInput.value);
+      const network = networkSelect.value || 'auto';
+      if (!address) {
+        setReportState('Paste a token address to open a shareable report.');
+        return;
+      }
+      updateUrl(network, address);
+      setReportState('Fetching trust report...');
+      try {
+        const response = await fetch(`${TRUST_API_BASE}/check?network=${encodeURIComponent(network)}&address=${encodeURIComponent(address)}`);
+        const payload = await response.json();
+        if (!response.ok || !payload.ok || !payload.report) {
+          throw new Error(payload.error || 'Trust report unavailable.');
+        }
+        renderReport(payload.report);
+      } catch (error) {
+        setReportState(error.message || 'Trust report unavailable.');
+      }
+    }
+
+    openReportButton.addEventListener('click', openReport);
+    reportInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') openReport();
+    });
+    copyLinkButton.addEventListener('click', copyReportLink);
+    reportShell.addEventListener('click', async (event) => {
+      const watchButton = event.target.closest('[data-watch-toggle]');
+      if (watchButton && currentWatchToken) {
+        const watching = toggleWatchToken(currentWatchToken);
+        watchButton.textContent = watching ? 'Watching on this device' : 'Watch on this device';
+        const status = reportShell.querySelector('[data-watch-status]');
+        if (status) {
+          status.textContent = watching
+            ? 'Saved on this browser. Revisit from your watchlist page.'
+            : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
+        }
+        return;
+      }
+      const copyButton = event.target.closest('[data-copy-report]');
+      if (copyButton) {
+        const original = copyButton.textContent;
+        try {
+          await navigator.clipboard.writeText(currentReportUrl);
+          copyButton.textContent = 'Copied';
+        } catch {
+          copyButton.textContent = 'Copy failed';
+        }
+        setTimeout(() => {
+          copyButton.textContent = original;
+        }, 1400);
+      }
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const addressParam = normalizeInput(params.get('address') || '');
+    const networkParam = params.get('network') || 'auto';
+    if (networkParam) networkSelect.value = networkParam;
+    if (addressParam) {
+      reportInput.value = addressParam;
+      currentReportUrl = window.location.href;
+      openReport();
+    }
+  </script>
+</body>
+</html>
