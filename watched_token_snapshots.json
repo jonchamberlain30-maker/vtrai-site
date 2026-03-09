@@ -1,8 +1,294 @@
 {
-  "generated_at_utc": "2026-03-09 09:10:32 UTC",
-  "generated_at_iso": "2026-03-09T09:10:32Z",
-  "count": 2,
+  "generated_at_utc": "2026-03-09 18:07:24 UTC",
+  "generated_at_iso": "2026-03-09T18:07:24Z",
+  "count": 3,
   "items": [
+    {
+      "watch_key": "8453:0xc0634090f2fe6c6d75e61be2b949464abb498973",
+      "label": "Keeta (KTA)",
+      "network": "8453",
+      "address": "0xc0634090f2fe6c6d75e61be2b949464abb498973",
+      "status": "ok",
+      "latest": {
+        "snapshot_date": "2026-03-09",
+        "timestamp_utc": "2026-03-09 18:07:24 UTC",
+        "checked_at_utc": "2026-03-09T18:07:26.717Z",
+        "network_id": "8453",
+        "network_label": "Base",
+        "address": "0xc0634090f2fe6c6d75e61be2b949464abb498973",
+        "level": "low",
+        "title": "Low caution on Base",
+        "summary": "First-pass trust card for a token on Base. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
+        "image_url": "https://cdn.dexscreener.com/cms/images/027833a5d09fd7a440b78779c87d3f1dae37545ba800fcab5ec3b83dddf1faae?width=800&height=800&quality=90",
+        "meta": [
+          {
+            "label": "Network",
+            "value": "Base"
+          },
+          {
+            "label": "Token",
+            "value": "Keeta (KTA)"
+          },
+          {
+            "label": "Supply",
+            "value": "1,000,000,000"
+          },
+          {
+            "label": "Top liquidity",
+            "value": "$6,615,026"
+          },
+          {
+            "label": "Top venue",
+            "value": "aerodrome / 0xd9eDC7"
+          },
+          {
+            "label": "Open source",
+            "value": "Yes"
+          }
+        ],
+        "reasons": [
+          {
+            "label": "Why this score",
+            "text": "No severe contract control or trading restriction flags were returned by the current checks."
+          }
+        ],
+        "notes": [
+          "Tax profile: buy 0% / sell 0% / transfer 0%.",
+          "Contract is reported as open source.",
+          "No active owner address was reported.",
+          "DEX liquidity observed across 18 venue(s)."
+        ],
+        "links": [
+          {
+            "label": "Open explorer",
+            "url": "https://basescan.org/token/0xc0634090f2fe6c6d75e61be2b949464abb498973"
+          },
+          {
+            "label": "Search on DexScreener",
+            "url": "https://dexscreener.com/search?q=0xc0634090f2fe6c6d75e61be2b949464abb498973"
+          },
+          {
+            "label": "Open top pair",
+            "url": "https://dexscreener.com/base/0xd9edc75a3a797ec92ca370f19051babebfb2edee"
+          }
+        ],
+        "change_summary": [
+          "Baseline snapshot captured."
+        ]
+      },
+      "history": [
+        {
+          "snapshot_date": "2026-03-09",
+          "timestamp_utc": "2026-03-09 18:07:24 UTC",
+          "checked_at_utc": "2026-03-09T18:07:26.717Z",
+          "network_id": "8453",
+          "network_label": "Base",
+          "address": "0xc0634090f2fe6c6d75e61be2b949464abb498973",
+          "level": "low",
+          "title": "Low caution on Base",
+          "summary": "First-pass trust card for a token on Base. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
+          "image_url": "https://cdn.dexscreener.com/cms/images/027833a5d09fd7a440b78779c87d3f1dae37545ba800fcab5ec3b83dddf1faae?width=800&height=800&quality=90",
+          "meta": [
+            {
+              "label": "Network",
+              "value": "Base"
+            },
+            {
+              "label": "Token",
+              "value": "Keeta (KTA)"
+            },
+            {
+              "label": "Supply",
+              "value": "1,000,000,000"
+            },
+            {
+              "label": "Top liquidity",
+              "value": "$6,615,026"
+            },
+            {
+              "label": "Top venue",
+              "value": "aerodrome / 0xd9eDC7"
+            },
+            {
+              "label": "Open source",
+              "value": "Yes"
+            }
+          ],
+          "reasons": [
+            {
+              "label": "Why this score",
+              "text": "No severe contract control or trading restriction flags were returned by the current checks."
+            }
+          ],
+          "notes": [
+            "Tax profile: buy 0% / sell 0% / transfer 0%.",
+            "Contract is reported as open source.",
+            "No active owner address was reported.",
+            "DEX liquidity observed across 18 venue(s)."
+          ],
+          "links": [
+            {
+              "label": "Open explorer",
+              "url": "https://basescan.org/token/0xc0634090f2fe6c6d75e61be2b949464abb498973"
+            },
+            {
+              "label": "Search on DexScreener",
+              "url": "https://dexscreener.com/search?q=0xc0634090f2fe6c6d75e61be2b949464abb498973"
+            },
+            {
+              "label": "Open top pair",
+              "url": "https://dexscreener.com/base/0xd9edc75a3a797ec92ca370f19051babebfb2edee"
+            }
+          ],
+          "change_summary": [
+            "Baseline snapshot captured."
+          ]
+        }
+      ]
+    },
+    {
+      "watch_key": "1:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "label": "USD Coin (USDC)",
+      "network": "1",
+      "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "status": "ok",
+      "latest": {
+        "snapshot_date": "2026-03-09",
+        "timestamp_utc": "2026-03-09 18:07:24 UTC",
+        "checked_at_utc": "2026-03-09T18:07:28.051Z",
+        "network_id": "1",
+        "network_label": "Ethereum",
+        "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "level": "low",
+        "title": "Low caution on Ethereum",
+        "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
+        "image_url": null,
+        "meta": [
+          {
+            "label": "Network",
+            "value": "Ethereum"
+          },
+          {
+            "label": "Token",
+            "value": "USD Coin (USDC)"
+          },
+          {
+            "label": "Supply",
+            "value": "55,075,107,506.99"
+          },
+          {
+            "label": "Top liquidity",
+            "value": "$109,638,287"
+          },
+          {
+            "label": "Top venue",
+            "value": "curve / 0xbEbc44"
+          },
+          {
+            "label": "Open source",
+            "value": "Yes"
+          }
+        ],
+        "reasons": [
+          {
+            "label": "Upgrade risk",
+            "text": "Proxy or upgrade pattern was detected."
+          }
+        ],
+        "notes": [
+          "Tax profile: buy 0% / sell 0% / transfer 0%.",
+          "Contract is reported as open source.",
+          "No active owner address was reported.",
+          "DEX liquidity observed across 128 venue(s)."
+        ],
+        "links": [
+          {
+            "label": "Open explorer",
+            "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          {
+            "label": "Search on DexScreener",
+            "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          {
+            "label": "Open top pair",
+            "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
+          }
+        ],
+        "change_summary": [
+          "Supply changed from 54,804,518,851.84 to 55,075,107,506.99."
+        ]
+      },
+      "history": [
+        {
+          "snapshot_date": "2026-03-09",
+          "timestamp_utc": "2026-03-09 18:07:24 UTC",
+          "checked_at_utc": "2026-03-09T18:07:28.051Z",
+          "network_id": "1",
+          "network_label": "Ethereum",
+          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "level": "low",
+          "title": "Low caution on Ethereum",
+          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
+          "image_url": null,
+          "meta": [
+            {
+              "label": "Network",
+              "value": "Ethereum"
+            },
+            {
+              "label": "Token",
+              "value": "USD Coin (USDC)"
+            },
+            {
+              "label": "Supply",
+              "value": "55,075,107,506.99"
+            },
+            {
+              "label": "Top liquidity",
+              "value": "$109,638,287"
+            },
+            {
+              "label": "Top venue",
+              "value": "curve / 0xbEbc44"
+            },
+            {
+              "label": "Open source",
+              "value": "Yes"
+            }
+          ],
+          "reasons": [
+            {
+              "label": "Upgrade risk",
+              "text": "Proxy or upgrade pattern was detected."
+            }
+          ],
+          "notes": [
+            "Tax profile: buy 0% / sell 0% / transfer 0%.",
+            "Contract is reported as open source.",
+            "No active owner address was reported.",
+            "DEX liquidity observed across 128 venue(s)."
+          ],
+          "links": [
+            {
+              "label": "Open explorer",
+              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            },
+            {
+              "label": "Search on DexScreener",
+              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            },
+            {
+              "label": "Open top pair",
+              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
+            }
+          ],
+          "change_summary": [
+            "Supply changed from 54,804,518,851.84 to 55,075,107,506.99."
+          ]
+        }
+      ]
+    },
     {
       "watch_key": "solana:ly4h6n9v4g2n7ibzm4zdmxsftpyl4l4kbxzjegf6x2j",
       "label": "Vectora (VTRAI)",
@@ -11,8 +297,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-09",
-        "timestamp_utc": "2026-03-09 09:10:32 UTC",
-        "checked_at_utc": "2026-03-09T09:02:02.245Z",
+        "timestamp_utc": "2026-03-09 18:07:24 UTC",
+        "checked_at_utc": "2026-03-09T18:07:25.892Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -78,14 +364,14 @@
           }
         ],
         "change_summary": [
-          "Baseline snapshot captured."
+          "No material trust change since the last snapshot."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-09",
-          "timestamp_utc": "2026-03-09 09:10:32 UTC",
-          "checked_at_utc": "2026-03-09T09:02:02.245Z",
+          "timestamp_utc": "2026-03-09 18:07:24 UTC",
+          "checked_at_utc": "2026-03-09T18:07:25.892Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -151,150 +437,7 @@
             }
           ],
           "change_summary": [
-            "Baseline snapshot captured."
-          ]
-        }
-      ]
-    },
-    {
-      "watch_key": "1:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "label": "USD Coin (USDC)",
-      "network": "1",
-      "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "status": "ok",
-      "latest": {
-        "snapshot_date": "2026-03-09",
-        "timestamp_utc": "2026-03-09 09:10:32 UTC",
-        "checked_at_utc": "2026-03-09T09:02:03.686Z",
-        "network_id": "1",
-        "network_label": "Ethereum",
-        "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-        "level": "low",
-        "title": "Low caution on Ethereum",
-        "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-        "image_url": null,
-        "meta": [
-          {
-            "label": "Network",
-            "value": "Ethereum"
-          },
-          {
-            "label": "Token",
-            "value": "USD Coin (USDC)"
-          },
-          {
-            "label": "Supply",
-            "value": "54,804,518,851.84"
-          },
-          {
-            "label": "Top liquidity",
-            "value": "$109,678,556"
-          },
-          {
-            "label": "Top venue",
-            "value": "curve / 0xbEbc44"
-          },
-          {
-            "label": "Open source",
-            "value": "Yes"
-          }
-        ],
-        "reasons": [
-          {
-            "label": "Upgrade risk",
-            "text": "Proxy or upgrade pattern was detected."
-          }
-        ],
-        "notes": [
-          "Tax profile: buy 0% / sell 0% / transfer 0%.",
-          "Contract is reported as open source.",
-          "No active owner address was reported.",
-          "DEX liquidity observed across 127 venue(s)."
-        ],
-        "links": [
-          {
-            "label": "Open explorer",
-            "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-          },
-          {
-            "label": "Search on DexScreener",
-            "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-          },
-          {
-            "label": "Open top pair",
-            "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
-          }
-        ],
-        "change_summary": [
-          "Baseline snapshot captured."
-        ]
-      },
-      "history": [
-        {
-          "snapshot_date": "2026-03-09",
-          "timestamp_utc": "2026-03-09 09:10:32 UTC",
-          "checked_at_utc": "2026-03-09T09:02:03.686Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "54,804,518,851.84"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$109,678,556"
-            },
-            {
-              "label": "Top venue",
-              "value": "curve / 0xbEbc44"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 127 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          ],
-          "change_summary": [
-            "Baseline snapshot captured."
+            "No material trust change since the last snapshot."
           ]
         }
       ]
