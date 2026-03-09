@@ -1,21 +1,14 @@
 {
-  "generated_at_utc": "2026-03-09 21:24:13 UTC",
-  "generated_at_iso": "2026-03-09T21:24:13Z",
   "items": [
     {
       "network": "solana",
-      "address": "EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump",
-      "label": "Realis Worlds (REALIS)"
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "label": "Vectora (VTRAI)"
     },
     {
       "network": "1",
       "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "label": "USD Coin (USDC)"
-    },
-    {
-      "network": "solana",
-      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-      "label": "Vectora (VTRAI)"
     }
   ]
 }

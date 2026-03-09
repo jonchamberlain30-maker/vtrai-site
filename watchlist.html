@@ -396,29 +396,35 @@
       gap: 8px;
       flex-shrink: 0;
     }
-    .share-btn {
+    .card-tools {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+    }
+    .share-btn {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border: 0;
       color: #031019;
       background: linear-gradient(90deg, var(--cyan), #86e8ff);
       border-radius: 999px;
-      padding: 7px 11px;
-      font-family: inherit;
-      font-size: 0.78rem;
-      font-weight: 700;
       cursor: pointer;
-      white-space: nowrap;
+      padding: 0;
+      flex-shrink: 0;
     }
     .share-btn-mark {
-      width: 14px;
-      height: 14px;
-      display: inline-block;
+      width: 15px;
+      height: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .share-btn-mark svg {
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
       display: block;
       fill: currentColor;
     }
@@ -701,7 +707,7 @@
     function refreshIconHtml() {
       return `
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-          <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7a5 5 0 1 1-4.9 6H5.08A7 7 0 1 0 17.65 6.35Z"></path>
+          <path d="M12 5a7 7 0 0 1 6.16 3.67l1.09-1.09v4.17h-4.17l1.43-1.43A5 5 0 1 0 17 14h2a7 7 0 1 1-7-9Z"></path>
         </svg>
       `;
     }
@@ -1277,8 +1283,10 @@
                 </div>
               </div>
               <div class="status-stack">
-                <button class="icon-btn" type="button" data-refresh-key="${watchKey}" aria-label="Refresh token report" title="Refresh token report">${refreshIconHtml()}</button>
-                <button class="share-btn" type="button" data-share-url="${buildReportUrl(item)}">${shareIconHtml()}<span>Share</span></button>
+                <div class="card-tools">
+                  <button class="icon-btn" type="button" data-refresh-key="${watchKey}" aria-label="Refresh token report" title="Refresh token report">${refreshIconHtml()}</button>
+                  <button class="share-btn" type="button" data-share-url="${buildReportUrl(item)}" aria-label="Share token report" title="Share token report">${shareIconHtml()}</button>
+                </div>
                 <div class="status-badge ${badgeClass(level)}">${level}</div>
                 ${scheduled ? '<div class="change-badge scheduled-badge">Scheduled</div>' : ''}
                 <div class="change-badge ${decision.className}">${decision.label}</div>

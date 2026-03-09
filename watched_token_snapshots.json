@@ -1,302 +1,8 @@
 {
-  "generated_at_utc": "2026-03-09 21:24:13 UTC",
-  "generated_at_iso": "2026-03-09T21:24:13Z",
-  "count": 3,
+  "generated_at_utc": "2026-03-09 21:34:21 UTC",
+  "generated_at_iso": "2026-03-09T21:34:21Z",
+  "count": 2,
   "items": [
-    {
-      "watch_key": "solana:ebgajp7srpuun8erdta1msojrntweuhysdp3p1trpump",
-      "label": "Realis Worlds (REALIS)",
-      "network": "solana",
-      "address": "EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump",
-      "status": "ok",
-      "latest": {
-        "snapshot_date": "2026-03-09",
-        "timestamp_utc": "2026-03-09 21:24:13 UTC",
-        "checked_at_utc": "2026-03-09T21:24:15.705Z",
-        "network_id": "solana",
-        "network_label": "Solana",
-        "address": "EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump",
-        "level": "low",
-        "title": "Low caution on Solana",
-        "summary": "First-pass trust card for a Solana token. It focuses on mint control, freeze control, metadata mutability, and visible pool presence.",
-        "image_url": "https://ipfs.io/ipfs/QmdzQTQ3cC5jS8xCh1ttXDLzeNHjzqnBB24ojADVb7mn9q",
-        "meta": [
-          {
-            "label": "Network",
-            "value": "Solana"
-          },
-          {
-            "label": "Token",
-            "value": "Realis Worlds (REALIS)"
-          },
-          {
-            "label": "Supply",
-            "value": "998,911,987.49"
-          },
-          {
-            "label": "Top liquidity",
-            "value": "$31,326"
-          },
-          {
-            "label": "Top venue",
-            "value": "raydium / 2BGZSt9c"
-          },
-          {
-            "label": "Metadata mutable",
-            "value": "No"
-          }
-        ],
-        "reasons": [
-          {
-            "label": "Why this score",
-            "text": "No major Solana control flags were returned by the current checks."
-          }
-        ],
-        "notes": [
-          "Mint authority: revoked.",
-          "Freeze authority: revoked.",
-          "Metadata mutability: locked.",
-          "DEX pools found: 4."
-        ],
-        "links": [
-          {
-            "label": "Open explorer",
-            "url": "https://solscan.io/token/EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump"
-          },
-          {
-            "label": "Search on DexScreener",
-            "url": "https://dexscreener.com/search?q=EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump"
-          },
-          {
-            "label": "Open Raydium route",
-            "url": "https://raydium.io/swap/?inputMint=sol&outputMint=EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump"
-          },
-          {
-            "label": "Open top pair",
-            "url": "https://dexscreener.com/solana/2bgzst9cgnrejipwyfy1avxoxrbtur7j5ayihbgra7cp"
-          }
-        ],
-        "change_summary": [
-          "Baseline snapshot captured."
-        ]
-      },
-      "history": [
-        {
-          "snapshot_date": "2026-03-09",
-          "timestamp_utc": "2026-03-09 21:24:13 UTC",
-          "checked_at_utc": "2026-03-09T21:24:15.705Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump",
-          "level": "low",
-          "title": "Low caution on Solana",
-          "summary": "First-pass trust card for a Solana token. It focuses on mint control, freeze control, metadata mutability, and visible pool presence.",
-          "image_url": "https://ipfs.io/ipfs/QmdzQTQ3cC5jS8xCh1ttXDLzeNHjzqnBB24ojADVb7mn9q",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Realis Worlds (REALIS)"
-            },
-            {
-              "label": "Supply",
-              "value": "998,911,987.49"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$31,326"
-            },
-            {
-              "label": "Top venue",
-              "value": "raydium / 2BGZSt9c"
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "No"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Why this score",
-              "text": "No major Solana control flags were returned by the current checks."
-            }
-          ],
-          "notes": [
-            "Mint authority: revoked.",
-            "Freeze authority: revoked.",
-            "Metadata mutability: locked.",
-            "DEX pools found: 4."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://solscan.io/token/EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=EBGaJP7srpUUN8eRdta1MsojrNtweuHYsdP3P1TRpump"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/solana/2bgzst9cgnrejipwyfy1avxoxrbtur7j5ayihbgra7cp"
-            }
-          ],
-          "change_summary": [
-            "Baseline snapshot captured."
-          ]
-        }
-      ]
-    },
-    {
-      "watch_key": "1:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "label": "USD Coin (USDC)",
-      "network": "1",
-      "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "status": "ok",
-      "latest": {
-        "snapshot_date": "2026-03-09",
-        "timestamp_utc": "2026-03-09 21:24:13 UTC",
-        "checked_at_utc": "2026-03-09T21:24:16.981Z",
-        "network_id": "1",
-        "network_label": "Ethereum",
-        "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-        "level": "low",
-        "title": "Low caution on Ethereum",
-        "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-        "image_url": null,
-        "meta": [
-          {
-            "label": "Network",
-            "value": "Ethereum"
-          },
-          {
-            "label": "Token",
-            "value": "USD Coin (USDC)"
-          },
-          {
-            "label": "Supply",
-            "value": "55,398,259,528.33"
-          },
-          {
-            "label": "Top liquidity",
-            "value": "$109,610,374"
-          },
-          {
-            "label": "Top venue",
-            "value": "curve / 0xbEbc44"
-          },
-          {
-            "label": "Open source",
-            "value": "Yes"
-          }
-        ],
-        "reasons": [
-          {
-            "label": "Upgrade risk",
-            "text": "Proxy or upgrade pattern was detected."
-          }
-        ],
-        "notes": [
-          "Tax profile: buy 0% / sell 0% / transfer 0%.",
-          "Contract is reported as open source.",
-          "No active owner address was reported.",
-          "DEX liquidity observed across 128 venue(s)."
-        ],
-        "links": [
-          {
-            "label": "Open explorer",
-            "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-          },
-          {
-            "label": "Search on DexScreener",
-            "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-          },
-          {
-            "label": "Open top pair",
-            "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
-          }
-        ],
-        "change_summary": [
-          "Baseline snapshot captured."
-        ]
-      },
-      "history": [
-        {
-          "snapshot_date": "2026-03-09",
-          "timestamp_utc": "2026-03-09 21:24:13 UTC",
-          "checked_at_utc": "2026-03-09T21:24:16.981Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "55,398,259,528.33"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$109,610,374"
-            },
-            {
-              "label": "Top venue",
-              "value": "curve / 0xbEbc44"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 128 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          ],
-          "change_summary": [
-            "Baseline snapshot captured."
-          ]
-        }
-      ]
-    },
     {
       "watch_key": "solana:ly4h6n9v4g2n7ibzm4zdmxsftpyl4l4kbxzjegf6x2j",
       "label": "Vectora (VTRAI)",
@@ -305,7 +11,7 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-09",
-        "timestamp_utc": "2026-03-09 21:24:13 UTC",
+        "timestamp_utc": "2026-03-09 21:34:21 UTC",
         "checked_at_utc": "2026-03-09T21:24:15.009Z",
         "network_id": "solana",
         "network_label": "Solana",
@@ -378,7 +84,7 @@
       "history": [
         {
           "snapshot_date": "2026-03-09",
-          "timestamp_utc": "2026-03-09 21:24:13 UTC",
+          "timestamp_utc": "2026-03-09 21:34:21 UTC",
           "checked_at_utc": "2026-03-09T21:24:15.009Z",
           "network_id": "solana",
           "network_label": "Solana",
@@ -442,6 +148,149 @@
             {
               "label": "Open Raydium route",
               "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+            }
+          ],
+          "change_summary": [
+            "Baseline snapshot captured."
+          ]
+        }
+      ]
+    },
+    {
+      "watch_key": "1:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "label": "USD Coin (USDC)",
+      "network": "1",
+      "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "status": "ok",
+      "latest": {
+        "snapshot_date": "2026-03-09",
+        "timestamp_utc": "2026-03-09 21:34:21 UTC",
+        "checked_at_utc": "2026-03-09T21:24:16.981Z",
+        "network_id": "1",
+        "network_label": "Ethereum",
+        "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "level": "low",
+        "title": "Low caution on Ethereum",
+        "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
+        "image_url": null,
+        "meta": [
+          {
+            "label": "Network",
+            "value": "Ethereum"
+          },
+          {
+            "label": "Token",
+            "value": "USD Coin (USDC)"
+          },
+          {
+            "label": "Supply",
+            "value": "55,398,259,528.33"
+          },
+          {
+            "label": "Top liquidity",
+            "value": "$109,610,374"
+          },
+          {
+            "label": "Top venue",
+            "value": "curve / 0xbEbc44"
+          },
+          {
+            "label": "Open source",
+            "value": "Yes"
+          }
+        ],
+        "reasons": [
+          {
+            "label": "Upgrade risk",
+            "text": "Proxy or upgrade pattern was detected."
+          }
+        ],
+        "notes": [
+          "Tax profile: buy 0% / sell 0% / transfer 0%.",
+          "Contract is reported as open source.",
+          "No active owner address was reported.",
+          "DEX liquidity observed across 128 venue(s)."
+        ],
+        "links": [
+          {
+            "label": "Open explorer",
+            "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          {
+            "label": "Search on DexScreener",
+            "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          {
+            "label": "Open top pair",
+            "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
+          }
+        ],
+        "change_summary": [
+          "Baseline snapshot captured."
+        ]
+      },
+      "history": [
+        {
+          "snapshot_date": "2026-03-09",
+          "timestamp_utc": "2026-03-09 21:34:21 UTC",
+          "checked_at_utc": "2026-03-09T21:24:16.981Z",
+          "network_id": "1",
+          "network_label": "Ethereum",
+          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "level": "low",
+          "title": "Low caution on Ethereum",
+          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
+          "image_url": null,
+          "meta": [
+            {
+              "label": "Network",
+              "value": "Ethereum"
+            },
+            {
+              "label": "Token",
+              "value": "USD Coin (USDC)"
+            },
+            {
+              "label": "Supply",
+              "value": "55,398,259,528.33"
+            },
+            {
+              "label": "Top liquidity",
+              "value": "$109,610,374"
+            },
+            {
+              "label": "Top venue",
+              "value": "curve / 0xbEbc44"
+            },
+            {
+              "label": "Open source",
+              "value": "Yes"
+            }
+          ],
+          "reasons": [
+            {
+              "label": "Upgrade risk",
+              "text": "Proxy or upgrade pattern was detected."
+            }
+          ],
+          "notes": [
+            "Tax profile: buy 0% / sell 0% / transfer 0%.",
+            "Contract is reported as open source.",
+            "No active owner address was reported.",
+            "DEX liquidity observed across 128 venue(s)."
+          ],
+          "links": [
+            {
+              "label": "Open explorer",
+              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            },
+            {
+              "label": "Search on DexScreener",
+              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            },
+            {
+              "label": "Open top pair",
+              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
             }
           ],
           "change_summary": [
