@@ -828,15 +828,26 @@
         if (!response.ok || !payload.ok) {
           throw new Error(payload.error || 'Scheduling request failed.');
         }
+        scheduledWatchKeys.add(watchKey);
+        item.scheduled_requested = true;
+        const items = getWatchlist();
+        const index = items.findIndex((entry) => (entry.watch_key || buildWatchKey(entry.network_id, entry.address)) === watchKey);
+        if (index >= 0) {
+          items[index] = { ...items[index], scheduled_requested: true };
+          saveWatchlist(items);
+        }
+        renderWatchlist();
         watchlistState.textContent = payload.status === 'already_scheduled'
           ? `${item.token_label || item.address} is already in scheduled monitoring.`
           : `Scheduled monitoring requested for ${item.token_label || item.address}.`;
       } catch (error) {
         watchlistState.textContent = error.message || 'Scheduling request failed.';
-      } finally {
         setTimeout(() => {
           button.textContent = original;
           button.disabled = false;
+        }, 800);
+      } finally {
+        setTimeout(() => {
           loadScheduledWatchKeys();
         }, 800);
       }
@@ -1226,7 +1237,7 @@
         const trend = trendState(item);
         const decision = decisionState(item);
         const historyCount = getReportHistory(item).length;
-        const scheduled = scheduledWatchKeys.has(buildWatchKey(item.network_id, item.address));
+        const scheduled = item.scheduled_requested || scheduledWatchKeys.has(buildWatchKey(item.network_id, item.address));
         return `
           <article class="card">
             <div class="card-head">
@@ -1260,7 +1271,7 @@
             <div class="actions">
               <button class="btn" type="button" data-refresh-key="${watchKey}">Refresh</button>
               <a class="btn" href="${buildUpdatesUrl(item)}">Open Updates Desk</a>
-              ${monitorQueueReady ? `<button class="btn" type="button" data-request-monitoring-key="${watchKey}">Request scheduled monitoring</button>` : ''}
+              ${monitorQueueReady ? `<button class="btn" type="button" data-request-monitoring-key="${watchKey}" ${scheduled ? 'disabled' : ''}>${scheduled ? 'Scheduled' : 'Request scheduled monitoring'}</button>` : ''}
               <button class="btn" type="button" data-copy-manifest-key="${watchKey}">Copy Manifest Entry</button>
               <button class="btn destructive" type="button" data-remove-key="${watchKey}">Remove</button>
             </div>

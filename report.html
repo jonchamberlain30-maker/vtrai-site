@@ -654,16 +654,17 @@
         if (!response.ok || !payload.ok) {
           throw new Error(payload.error || 'Scheduling request failed.');
         }
-        button.textContent = payload.status === 'already_scheduled' ? 'Already scheduled' : 'Requested';
+        button.textContent = 'Scheduled';
+        button.disabled = true;
         if (statusEl) {
           statusEl.textContent = payload.status === 'already_scheduled'
             ? 'This token is already in scheduled monitoring.'
             : 'Scheduled monitoring requested. The shared monitor will pick it up after the next automation run.';
         }
+        if (currentWatchToken) currentWatchToken.scheduled_requested = true;
       } catch (error) {
         button.textContent = 'Request failed';
         if (statusEl) statusEl.textContent = error.message || 'Scheduling request failed.';
-      } finally {
         setTimeout(() => {
           button.textContent = original;
           button.disabled = false;
@@ -853,7 +854,7 @@
           <h3>Report actions</h3>
           <div class="controls">
             <button class="btn" type="button" data-watch-toggle="true">${isWatchedToken(currentWatchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
-            ${monitorQueueReady ? '<button class="btn" type="button" data-request-monitoring="true">Request scheduled monitoring</button>' : ''}
+            ${monitorQueueReady ? `<button class="btn" type="button" data-request-monitoring="true" ${currentWatchToken?.scheduled_requested ? 'disabled' : ''}>${currentWatchToken?.scheduled_requested ? 'Scheduled' : 'Request scheduled monitoring'}</button>` : ''}
             <a class="btn" href="${buildUpdatesUrl(report.network_id, report.address)}">Open updates desk</a>
             <a class="btn" href="./watchlist.html">Open watchlist</a>
           </div>

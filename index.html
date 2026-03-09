@@ -1193,6 +1193,7 @@
     async function requestScheduledMonitoring(token, button, statusEl) {
       if (!token?.address || !token?.network_id) return;
       const original = button.textContent;
+      const watchKey = buildWatchKey(token.network_id, token.address);
       button.textContent = 'Submitting...';
       button.disabled = true;
       try {
@@ -1210,16 +1211,19 @@
         if (!response.ok || !payload.ok) {
           throw new Error(payload.error || 'Scheduling request failed.');
         }
-        button.textContent = payload.status === 'already_scheduled' ? 'Already scheduled' : 'Requested';
+        button.textContent = 'Scheduled';
+        button.disabled = true;
         if (statusEl) {
           statusEl.textContent = payload.status === 'already_scheduled'
             ? 'This token is already in scheduled monitoring.'
             : 'Scheduled monitoring requested. The shared monitor will pick it up after the next automation run.';
         }
+        if (currentWatchToken && buildWatchKey(currentWatchToken.network_id, currentWatchToken.address) === watchKey) {
+          currentWatchToken.scheduled_requested = true;
+        }
       } catch (error) {
         button.textContent = 'Request failed';
         if (statusEl) statusEl.textContent = error.message || 'Scheduling request failed.';
-      } finally {
         setTimeout(() => {
           button.textContent = original;
           button.disabled = false;
@@ -1417,7 +1421,7 @@
       const watchHtml = watchToken ? `
         <div class="trust-watch-row">
           <button class="copy-btn trust-watch-btn" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
-          ${monitorQueueReady ? '<button class="copy-btn trust-watch-btn" type="button" data-request-monitoring="true">Request scheduled monitoring</button>' : ''}
+          ${monitorQueueReady ? `<button class="copy-btn trust-watch-btn" type="button" data-request-monitoring="true" ${watchToken.scheduled_requested ? 'disabled' : ''}>${watchToken.scheduled_requested ? 'Scheduled' : 'Request scheduled monitoring'}</button>` : ''}
           <a class="watchlist-link" href="${buildReportUrl(watchToken)}">Open report page</a>
           <a class="watchlist-link" href="./watchlist.html">Open watchlist</a>
         </div>
