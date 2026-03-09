@@ -780,9 +780,14 @@
       watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} exported in scheduled-monitoring format.`;
     }
 
-    async function copyScheduledManifestEntry(index, button) {
+    function getWatchlistItemByKey(watchKey) {
+      if (!watchKey) return null;
       const items = getWatchlist();
-      const item = items[index];
+      return items.find((item) => (item.watch_key || buildWatchKey(item.network_id, item.address)) === watchKey) || null;
+    }
+
+    async function copyScheduledManifestEntry(watchKey, button) {
+      const item = getWatchlistItemByKey(watchKey);
       if (!item) return;
       const payload = {
         network: item.network_id || 'auto',
@@ -802,9 +807,8 @@
       }, 1400);
     }
 
-    async function requestScheduledMonitoring(index, button) {
-      const items = getWatchlist();
-      const item = items[index];
+    async function requestScheduledMonitoring(watchKey, button) {
+      const item = getWatchlistItemByKey(watchKey);
       if (!item) return;
       const original = button.textContent;
       button.textContent = 'Submitting...';
@@ -1191,7 +1195,7 @@
       }
 
       watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} saved on this device. Refresh on demand to pull the latest trust report.`;
-      const sortedItems = items.map((item, index) => ({ item, index })).sort((a, b) => {
+      const sortedItems = items.map((item) => ({ item, watchKey: item.watch_key || buildWatchKey(item.network_id, item.address) })).sort((a, b) => {
         const aTime = Date.parse(a.item.last_checked_at_utc || a.item.last_report?.checked_at_utc || a.item.saved_at_utc || '') || 0;
         const bTime = Date.parse(b.item.last_checked_at_utc || b.item.last_report?.checked_at_utc || b.item.saved_at_utc || '') || 0;
         if (currentSort === 'changed') {
@@ -1212,7 +1216,7 @@
         return;
       }
       watchlistState.textContent = `${items.length} token${items.length === 1 ? '' : 's'} saved on this device. Showing ${filteredItems.length}.`;
-      watchlistGrid.innerHTML = filteredItems.map(({ item, index }) => {
+      watchlistGrid.innerHTML = filteredItems.map(({ item, watchKey }) => {
         const report = item.last_report || {};
         const level = report.level || 'unknown';
         const title = report.title || item.title || item.token_label || 'Watched token';
@@ -1254,11 +1258,11 @@
             ${renderReasons(item)}
             ${renderLinks(item)}
             <div class="actions">
-              <button class="btn" type="button" data-refresh-index="${index}">Refresh</button>
+              <button class="btn" type="button" data-refresh-key="${watchKey}">Refresh</button>
               <a class="btn" href="${buildUpdatesUrl(item)}">Open Updates Desk</a>
-              ${monitorQueueReady ? `<button class="btn" type="button" data-request-monitoring-index="${index}">Request scheduled monitoring</button>` : ''}
-              <button class="btn" type="button" data-copy-manifest-index="${index}">Copy Manifest Entry</button>
-              <button class="btn destructive" type="button" data-remove-index="${index}">Remove</button>
+              ${monitorQueueReady ? `<button class="btn" type="button" data-request-monitoring-key="${watchKey}">Request scheduled monitoring</button>` : ''}
+              <button class="btn" type="button" data-copy-manifest-key="${watchKey}">Copy Manifest Entry</button>
+              <button class="btn destructive" type="button" data-remove-key="${watchKey}">Remove</button>
             </div>
             <div class="meta-line" style="margin-top: 10px;">Snapshots stored: ${historyCount}</div>
             ${changeState.time ? `<div class="meta-line" style="margin-top: 10px;">Change status updated: ${formatDate(changeState.time)}</div>` : ''}
@@ -1269,9 +1273,10 @@
       }).join('');
     }
 
-    async function refreshToken(index) {
+    async function refreshToken(watchKey) {
       const items = getWatchlist();
-      const item = items[index];
+      const index = items.findIndex((item) => (item.watch_key || buildWatchKey(item.network_id, item.address)) === watchKey);
+      const item = index >= 0 ? items[index] : null;
       if (!item) return;
       watchlistState.textContent = `Refreshing ${item.token_label || item.address}...`;
       try {
@@ -1306,7 +1311,8 @@
       watchlistState.textContent = `Refreshing ${items.length} watched token${items.length === 1 ? '' : 's'}...`;
       for (let index = 0; index < items.length; index += 1) {
         // Intentionally sequential to avoid needlessly spiking the public API.
-        await refreshToken(index);
+        const item = items[index];
+        await refreshToken(item.watch_key || buildWatchKey(item.network_id, item.address));
       }
       renderWatchlist();
     }
@@ -1340,28 +1346,29 @@
         return;
       }
 
-      const refreshButton = event.target.closest('[data-refresh-index]');
+      const refreshButton = event.target.closest('[data-refresh-key]');
       if (refreshButton) {
-        await refreshToken(Number(refreshButton.dataset.refreshIndex));
+        await refreshToken(refreshButton.dataset.refreshKey);
         return;
       }
 
-      const copyManifestButton = event.target.closest('[data-copy-manifest-index]');
+      const copyManifestButton = event.target.closest('[data-copy-manifest-key]');
       if (copyManifestButton) {
-        await copyScheduledManifestEntry(Number(copyManifestButton.dataset.copyManifestIndex), copyManifestButton);
+        await copyScheduledManifestEntry(copyManifestButton.dataset.copyManifestKey, copyManifestButton);
         return;
       }
 
-      const requestMonitoringButton = event.target.closest('[data-request-monitoring-index]');
+      const requestMonitoringButton = event.target.closest('[data-request-monitoring-key]');
       if (requestMonitoringButton) {
-        await requestScheduledMonitoring(Number(requestMonitoringButton.dataset.requestMonitoringIndex), requestMonitoringButton);
+        await requestScheduledMonitoring(requestMonitoringButton.dataset.requestMonitoringKey, requestMonitoringButton);
         return;
       }
 
-      const removeButton = event.target.closest('[data-remove-index]');
+      const removeButton = event.target.closest('[data-remove-key]');
       if (removeButton) {
-        const index = Number(removeButton.dataset.removeIndex);
         const items = getWatchlist();
+        const index = items.findIndex((item) => (item.watch_key || buildWatchKey(item.network_id, item.address)) === removeButton.dataset.removeKey);
+        if (index < 0) return;
         items.splice(index, 1);
         saveWatchlist(items);
         renderWatchlist();
