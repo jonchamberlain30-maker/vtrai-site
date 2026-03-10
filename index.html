@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="VGwsr6WslzYIC7IC5MMwNFu19gLNROlnyDVxLLW8OTI" />
+  <meta name="description" content="Check token trust across major chains, save watchlists on-device, and move selected tokens into scheduled monitoring." />
+  <meta name="theme-color" content="#050912" />
+  <link rel="canonical" href="https://getvectora.ai/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Vectora | Token Trust Checks And Watchlists" />
+  <meta property="og:description" content="Check token trust across major chains, save watchlists on-device, and move selected tokens into scheduled monitoring." />
+  <meta property="og:url" content="https://getvectora.ai/" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <meta property="og:image:alt" content="Vectora token trust checks and watchlists" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vectora | Token Trust Checks And Watchlists" />
+  <meta name="twitter:description" content="Check token trust across major chains, save watchlists on-device, and move selected tokens into scheduled monitoring." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -11,7 +25,56 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
-  <title>Vectora | VTRAI</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Vectora",
+      "url": "https://getvectora.ai/",
+      "description": "Token trust checks, watchlists, and scheduled monitoring across major retail chains."
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Vectora do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vectora checks token trust across major chains, shows proof links, and lets users save watched tokens for later review."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Vectora replace DexScreener?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. DexScreener is for discovery and market screens; Vectora is for route verification, trust checks, and monitoring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Vectora watchlist work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The watchlist stores checked tokens on the current browser, refreshes their trust reports on demand, and keeps a local change history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does scheduled monitoring work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Users can request scheduled monitoring for a token, after which Vectora can ingest it into shared background monitoring and publish later trust snapshots on the updates desk."
+          }
+        }
+      ]
+    }
+  </script>
+  <title>Vectora | Token Trust Checks And Watchlists</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -1009,6 +1072,36 @@
     </section>
 
     <div class="section-head">
+      <h2>Common Questions</h2>
+      <p>These are the practical questions a new visitor usually needs answered before they decide whether Vectora is worth revisiting.</p>
+    </div>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="k">What does Vectora actually do?</div>
+        <p class="list">It checks token trust across major retail chains, shows the main proof links, and gives users a cleaner decision point before they spend more time researching.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">Does it replace DexScreener?</div>
+        <p class="list">No. DexScreener is still where most discovery and chart checking happens. Vectora is the next step: route verification, trust checks, watchlists, and monitoring.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">What does the watchlist do?</div>
+        <p class="list">The watchlist saves tokens on this browser, refreshes trust reports on demand, and keeps a local change history so the user can see whether a token is drifting.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">What is scheduled monitoring?</div>
+        <p class="list">Scheduled monitoring moves selected tokens into shared background checks so new trust snapshots can appear on the updates desk even when the user is not manually refreshing them.</p>
+      </article>
+    </section>
+
+    <section class="cta-strip reveal">
+      <a class="btn" href="./verify-token.html">Read Token Verification Guide</a>
+      <a class="btn" href="./proof.html">Open Proof Pack</a>
+      <a class="btn" href="./updates.html">Read Updates</a>
+    </section>
+
+    <div class="section-head">
       <h2>Roadmap</h2>
       <p>This roadmap stays inside the current budget: Cloudflare Worker, Telegram bot, shareable pages, and background automation before any expensive infrastructure.</p>
     </div>
@@ -1065,6 +1158,18 @@
     const WATCHLIST_KEY = 'vectora_watchlist_v1';
     const WATCH_HISTORY_LIMIT = 12;
     let monitorQueueReady = false;
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+    function classifyAddressInput(value) {
+      const raw = String(value || '').trim();
+      if (!raw) return 'unknown';
+      if (raw.startsWith('0x')) return 'evm';
+      if (/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(raw)) return 'solana';
+      return 'unknown';
+    }
     const NETWORKS = {
       solana: {
         label: 'Solana',
@@ -1221,9 +1326,18 @@
         if (currentWatchToken && buildWatchKey(currentWatchToken.network_id, currentWatchToken.address) === watchKey) {
           currentWatchToken.scheduled_requested = true;
         }
+        trackEvent('scheduled_monitor_request', {
+          page: 'home',
+          network: token.network_id,
+          status: payload.status || 'requested',
+        });
       } catch (error) {
         button.textContent = 'Request failed';
         if (statusEl) statusEl.textContent = error.message || 'Scheduling request failed.';
+        trackEvent('scheduled_monitor_request_failed', {
+          page: 'home',
+          network: token.network_id,
+        });
         setTimeout(() => {
           button.textContent = original;
           button.disabled = false;
@@ -1418,6 +1532,12 @@
       ` : '';
       const linksSectionHtml = linkHtml ? `<div class="trust-section"><h3>Proof links</h3><div class="trust-links">${linkHtml}</div></div>` : '';
       currentWatchToken = watchToken;
+      trackEvent('token_report_rendered', {
+        page: 'home',
+        network: watchToken?.network_id || networkLabel || 'unknown',
+        level,
+        decision: buildDecision(level).label.toLowerCase().replace(/\s+/g, '_'),
+      });
       const watchHtml = watchToken ? `
         <div class="trust-watch-row">
           <button class="copy-btn trust-watch-btn" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
@@ -1846,6 +1966,11 @@
         <strong>Checking token...</strong>
         <div class="v">Fetching contract and token security data.</div>
       `);
+      trackEvent('token_check_submitted', {
+        page: 'home',
+        network: selectedNetwork,
+        address_type: classifyAddressInput(raw),
+      });
 
       try {
         try {
@@ -1909,6 +2034,11 @@
         if (!data) throw new Error(`No token data returned for ${NETWORKS[selectedNetwork].label}.`);
         await analyzeEvmToken(selectedNetwork, raw, data);
       } catch (error) {
+        trackEvent('token_check_failed', {
+          page: 'home',
+          network: selectedNetwork,
+          address_type: classifyAddressInput(raw),
+        });
         renderTrustResult(`
           <strong style="color: var(--warn);">Check unavailable</strong>
           <div class="v">${error.message}</div>
@@ -1952,6 +2082,10 @@
         } else {
           fallbackCopy();
         }
+        trackEvent('report_share_clicked', {
+          page: 'home',
+          network: currentWatchToken.network_id || 'unknown',
+        });
         return;
       }
       const button = event.target.closest('[data-watch-toggle]');
@@ -1964,6 +2098,10 @@
             ? 'Saved on this browser. Revisit from your watchlist page.'
             : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
         }
+        trackEvent(watching ? 'watchlist_add' : 'watchlist_remove', {
+          page: 'home',
+          network: currentWatchToken.network_id || 'unknown',
+        });
         return;
       }
 
@@ -1979,6 +2117,13 @@
       if (trustHelp && !trustHelp.contains(event.target)) {
         trustHelp.classList.remove('open');
         if (trustHelpButton) trustHelpButton.setAttribute('aria-expanded', 'false');
+      }
+      const link = event.target.closest('a[href]');
+      if (link) {
+        trackEvent('link_click', {
+          page: 'home',
+          destination: link.getAttribute('href') || '',
+        });
       }
     });
 

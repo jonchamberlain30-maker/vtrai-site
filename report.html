@@ -3,6 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Open a shareable Vectora token trust report with key risks, proof links, and a next-action summary." />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="theme-color" content="#050912" />
+  <link rel="canonical" href="https://getvectora.ai/report.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Vectora | Shareable Token Report" />
+  <meta property="og:description" content="Open a shareable token trust report with key risks, proof links, and a next-action summary." />
+  <meta property="og:url" content="https://getvectora.ai/report.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <meta property="og:image:alt" content="Vectora shareable token report" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vectora | Shareable Token Report" />
+  <meta name="twitter:description" content="Open a shareable token trust report with key risks, proof links, and a next-action summary." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -10,7 +25,7 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
-  <title>Vectora | Token Report</title>
+  <title>Vectora | Shareable Token Report</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -478,6 +493,11 @@
     const reportShell = document.getElementById('reportShell');
     let currentWatchToken = null;
     let currentReportUrl = window.location.href;
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
 
     function normalizeInput(raw) {
       return String(raw || '').trim();
@@ -662,9 +682,18 @@
             : 'Scheduled monitoring requested. The shared monitor will pick it up after the next automation run.';
         }
         if (currentWatchToken) currentWatchToken.scheduled_requested = true;
+        trackEvent('scheduled_monitor_request', {
+          page: 'report',
+          network: token.network_id,
+          status: payload.status || 'requested',
+        });
       } catch (error) {
         button.textContent = 'Request failed';
         if (statusEl) statusEl.textContent = error.message || 'Scheduling request failed.';
+        trackEvent('scheduled_monitor_request_failed', {
+          page: 'report',
+          network: token.network_id,
+        });
         setTimeout(() => {
           button.textContent = original;
           button.disabled = false;
@@ -765,6 +794,11 @@
     }
 
     function renderReport(report) {
+      trackEvent('token_report_rendered', {
+        page: 'report',
+        network: report.network_id || 'unknown',
+        level: report.level || 'unknown',
+      });
       const tone = buildStatusTone(report.level);
       const statusLabel = buildStatusLabel(report.level);
       const badgeLabel = statusLabel.toUpperCase();
@@ -872,6 +906,10 @@
       }
       updateUrl(network, address);
       setReportState('Fetching trust report...');
+      trackEvent('report_lookup_submitted', {
+        page: 'report',
+        network,
+      });
       try {
         const response = await fetch(`${TRUST_API_BASE}/check?network=${encodeURIComponent(network)}&address=${encodeURIComponent(address)}`);
         const payload = await response.json();
@@ -880,6 +918,10 @@
         }
         renderReport(payload.report);
       } catch (error) {
+        trackEvent('report_lookup_failed', {
+          page: 'report',
+          network,
+        });
         setReportState(error.message || 'Trust report unavailable.');
       }
     }
@@ -888,7 +930,10 @@
     reportInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') openReport();
     });
-    copyLinkButton.addEventListener('click', copyReportLink);
+    copyLinkButton.addEventListener('click', () => {
+      trackEvent('report_link_copied', { page: 'report' });
+      copyReportLink();
+    });
     reportShell.addEventListener('click', async (event) => {
       const shareButton = event.target.closest('[data-share-report]');
       if (shareButton) {
@@ -915,6 +960,10 @@
         } else {
           fallbackCopy();
         }
+        trackEvent('report_share_clicked', {
+          page: 'report',
+          network: currentWatchToken?.network_id || 'unknown',
+        });
         return;
       }
       const watchButton = event.target.closest('[data-watch-toggle]');
@@ -933,6 +982,10 @@
           savedBadge.classList.toggle('saved-on', watching);
           savedBadge.classList.toggle('saved-off', !watching);
         }
+        trackEvent(watching ? 'watchlist_add' : 'watchlist_remove', {
+          page: 'report',
+          network: currentWatchToken.network_id || 'unknown',
+        });
         return;
       }
 
@@ -942,6 +995,14 @@
         await requestScheduledMonitoring(currentWatchToken, requestButton, status);
         return;
       }
+    });
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href]');
+      if (!link) return;
+      trackEvent('link_click', {
+        page: 'report',
+        destination: link.getAttribute('href') || '',
+      });
     });
 
     const params = new URLSearchParams(window.location.search);

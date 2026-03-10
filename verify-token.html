@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how to verify a token contract, avoid fake token links, and monitor tokens safely before trading." />
+  <meta name="theme-color" content="#060b15" />
+  <link rel="canonical" href="https://getvectora.ai/verify-token.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="How To Verify A Token Contract | Vectora" />
+  <meta property="og:description" content="A practical guide to verifying token contracts, rejecting fake links, and monitoring trust changes before trading." />
+  <meta property="og:url" content="https://getvectora.ai/verify-token.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <meta property="og:image:alt" content="How to verify a token contract with Vectora" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How To Verify A Token Contract | Vectora" />
+  <meta name="twitter:description" content="A practical guide to verifying token contracts, rejecting fake links, and monitoring trust changes before trading." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to verify a token contract",
+      "description": "A practical process for checking whether a token contract is legitimate before trading.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Start from the contract",
+          "text": "Find the token contract or mint first. Do not begin from a random social reply or direct message."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Check the route",
+          "text": "Compare the contract against the project website, official social channels, and explorer links."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Inspect trust signals",
+          "text": "Check owner, mint, freeze, proxy, tax, and liquidity context before taking the token seriously."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Save the token if it still matters",
+          "text": "If the token still deserves attention, add it to a watchlist and monitor trust changes over time."
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the fastest way to verify a token contract?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start from the contract address, compare it against the official site and social links, then inspect trust signals and proof links before trading."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I trust a token link from X or Telegram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Treat social links as discovery only. Verify the route against the official site, explorer, and market links before acting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I add a token to a watchlist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add a token to a watchlist after the first trust check if it still deserves attention but not immediate action."
+          }
+        }
+      ]
+    }
+  </script>
+  <title>How To Verify A Token Contract | Vectora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+      --warn: #ffbfd0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .hero, .card {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      padding: 20px;
+    }
+    .hero h1 { margin: 0; font-size: 2rem; }
+    .hero p, p, li { color: var(--muted); line-height: 1.55; font-size: 0.95rem; }
+    h2 { margin: 0 0 10px; font-size: 1.08rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      font-size: 0.82rem;
+    }
+    .cta {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      font-weight: 700;
+      padding: 10px 15px;
+      border-radius: 11px;
+      font-size: 0.92rem;
+    }
+    .warn {
+      margin-top: 12px;
+      border: 1px solid #4c2a37;
+      border-radius: 12px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+    ul, ol { margin: 0; padding-left: 18px; }
+    .footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>Vectora Verification Guide</strong>
+      <div>
+        <a href="./index.html">Back to Site</a>
+        <a href="./watchlist.html">Watchlist</a>
+        <a href="./updates.html">Updates</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>How To Verify A Token Contract Before You Trade</h1>
+      <p>Most losses here do not come from charts. They come from bad routes: fake contracts, cloned socials, wrong pairs, or tokens that never deserved five more minutes of attention. This page is the short process.</p>
+      <div class="chips">
+        <span class="chip">Check the route first</span>
+        <span class="chip">Reject clones quickly</span>
+        <span class="chip">Use watchlists for later review</span>
+        <span class="chip">Monitor trust changes over time</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="./index.html#trust-check">Open Trust Check</a>
+        <a class="btn" href="./watchlist.html">Open Watchlist</a>
+        <a class="btn" href="./updates.html">Open Updates Desk</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>The Fast Verification Flow</h2>
+        <ol>
+          <li>Start from the token address or mint, not from a random social link.</li>
+          <li>Check whether the official website, explorer links, and market route all point to the same contract.</li>
+          <li>Inspect control and trading risks: owner privileges, mint or freeze powers, proxy patterns, taxes, and liquidity context.</li>
+          <li>If it still deserves attention, save it to a watchlist instead of trading from memory later.</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>What Usually Goes Wrong</h2>
+        <ul>
+          <li>Users trust a reply or DM instead of the project website.</li>
+          <li>They look at the chart before they verify the contract.</li>
+          <li>They check one signal only and miss a bigger route mismatch.</li>
+          <li>They revisit a token later but have no record of what changed.</li>
+        </ul>
+        <div class="warn">Discovery is not verification. Treat X, Telegram, and market screens as inputs, not proof.</div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>What To Compare Before Trading</h2>
+        <ul>
+          <li>Project website and official social links.</li>
+          <li>Explorer page for the exact contract or mint.</li>
+          <li>Market route on DexScreener or the relevant DEX.</li>
+          <li>Control signals such as owner, mint, freeze, or proxy privileges.</li>
+          <li>Liquidity context and whether the route looks established or thin.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Where Vectora Fits</h2>
+        <p>Vectora is not trying to replace DexScreener. It is for the next step: verify the route, read the trust signals in plain English, save the token, and monitor whether the trust profile changes later.</p>
+        <div class="cta">
+          <a class="btn" href="./report.html?network=1&address=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48">Open Example Report</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>When To Ignore A Token Immediately</h2>
+        <ul>
+          <li>The website and socials do not match the contract being shared.</li>
+          <li>The route depends on trust-me messaging instead of public proof links.</li>
+          <li>Control or trading restrictions stay too powerful without a clear reason.</li>
+          <li>The liquidity route is weak enough that verification is still ambiguous.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>When To Watch Instead</h2>
+        <ul>
+          <li>The route looks consistent but you are not ready to act.</li>
+          <li>You want to check whether trust signals worsen over time.</li>
+          <li>You want a shareable report URL before discussing the token with others.</li>
+          <li>You want the token promoted into scheduled monitoring later.</li>
+        </ul>
+      </article>
+    </section>
+
+    <p class="footer">Vectora publishes verification data, not guarantees. Always confirm the exact contract before trading.</p>
+  </main>
+</body>
+</html>

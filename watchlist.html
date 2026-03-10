@@ -3,6 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Save watched tokens on this device, refresh trust reports on demand, and compare trust changes over time." />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="theme-color" content="#050912" />
+  <link rel="canonical" href="https://getvectora.ai/watchlist.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Vectora | Device Watchlist" />
+  <meta property="og:description" content="Save watched tokens on this device, refresh trust reports on demand, and compare trust changes over time." />
+  <meta property="og:url" content="https://getvectora.ai/watchlist.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <meta property="og:image:alt" content="Vectora device watchlist" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vectora | Device Watchlist" />
+  <meta name="twitter:description" content="Save watched tokens on this device, refresh trust reports on demand, and compare trust changes over time." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
   <title>Vectora | Device Watchlist</title>
   <style>
     :root {
@@ -636,6 +658,11 @@
     let currentSort = 'changed';
     let scheduledWatchKeys = new Set();
     let monitorQueueReady = false;
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
 
     function getWatchlist() {
       try {
@@ -874,8 +901,17 @@
         watchlistState.textContent = payload.status === 'already_scheduled'
           ? `${item.token_label || item.address} is already in scheduled monitoring.`
           : `Scheduled monitoring requested for ${item.token_label || item.address}.`;
+        trackEvent('scheduled_monitor_request', {
+          page: 'watchlist',
+          network: item.network_id || 'unknown',
+          status: payload.status || 'requested',
+        });
       } catch (error) {
         watchlistState.textContent = error.message || 'Scheduling request failed.';
+        trackEvent('scheduled_monitor_request_failed', {
+          page: 'watchlist',
+          network: item.network_id || 'unknown',
+        });
         setTimeout(() => {
           button.textContent = original;
           button.disabled = false;
@@ -1341,11 +1377,20 @@
         items[index] = item;
         saveWatchlist(items);
         renderWatchlist();
+        trackEvent('watchlist_token_refreshed', {
+          page: 'watchlist',
+          network: item.network_id || 'unknown',
+          level: nextReport.level || 'unknown',
+        });
       } catch (error) {
         item.last_error = error.message || 'Refresh failed.';
         items[index] = item;
         saveWatchlist(items);
         renderWatchlist();
+        trackEvent('watchlist_token_refresh_failed', {
+          page: 'watchlist',
+          network: item.network_id || 'unknown',
+        });
       }
     }
 
@@ -1355,6 +1400,10 @@
         renderWatchlist();
         return;
       }
+      trackEvent('watchlist_refresh_all_clicked', {
+        page: 'watchlist',
+        count: items.length,
+      });
       watchlistState.textContent = `Refreshing ${items.length} watched token${items.length === 1 ? '' : 's'}...`;
       for (let index = 0; index < items.length; index += 1) {
         // Intentionally sequential to avoid needlessly spiking the public API.
@@ -1390,6 +1439,10 @@
         } else {
           fallbackCopy();
         }
+        trackEvent('report_share_clicked', {
+          page: 'watchlist',
+          destination: shareButton.dataset.shareUrl || '',
+        });
         return;
       }
 
@@ -1416,6 +1469,7 @@
         const items = getWatchlist();
         const index = items.findIndex((item) => (item.watch_key || buildWatchKey(item.network_id, item.address)) === removeButton.dataset.removeKey);
         if (index < 0) return;
+        trackEvent('watchlist_remove', { page: 'watchlist' });
         items.splice(index, 1);
         saveWatchlist(items);
         renderWatchlist();
@@ -1423,9 +1477,16 @@
     });
 
     refreshAllButton.addEventListener('click', refreshAll);
-    exportWatchlistButton.addEventListener('click', exportWatchlist);
-    exportScheduledButton.addEventListener('click', exportScheduledManifest);
+    exportWatchlistButton.addEventListener('click', () => {
+      trackEvent('watchlist_export', { page: 'watchlist', format: 'full' });
+      exportWatchlist();
+    });
+    exportScheduledButton.addEventListener('click', () => {
+      trackEvent('watchlist_export', { page: 'watchlist', format: 'scheduled_manifest' });
+      exportScheduledManifest();
+    });
     importWatchlistButton.addEventListener('click', () => {
+      trackEvent('watchlist_import_clicked', { page: 'watchlist' });
       importWatchlistInput.click();
     });
     importWatchlistInput.addEventListener('change', async () => {
@@ -1440,6 +1501,7 @@
       }
     });
     clearWatchlistButton.addEventListener('click', () => {
+      trackEvent('watchlist_cleared', { page: 'watchlist' });
       localStorage.removeItem(WATCHLIST_KEY);
       renderWatchlist();
     });
@@ -1448,6 +1510,10 @@
       const button = event.target.closest('[data-filter]');
       if (!button) return;
       currentFilter = button.dataset.filter || 'all';
+      trackEvent('watchlist_filter_changed', {
+        page: 'watchlist',
+        filter: currentFilter,
+      });
       watchlistFilters.querySelectorAll('[data-filter]').forEach((chip) => {
         chip.classList.toggle('active', chip.dataset.filter === currentFilter);
       });
@@ -1458,6 +1524,10 @@
       const button = event.target.closest('[data-sort]');
       if (!button) return;
       currentSort = button.dataset.sort || 'changed';
+      trackEvent('watchlist_sort_changed', {
+        page: 'watchlist',
+        sort: currentSort,
+      });
       watchlistSort.querySelectorAll('[data-sort]').forEach((chip) => {
         chip.classList.toggle('active', chip.dataset.sort === currentSort);
       });
@@ -1467,6 +1537,14 @@
     renderWatchlist();
     Promise.all([loadScheduledWatchKeys(), loadMonitorQueueHealth()]).finally(() => {
       renderWatchlist();
+    });
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href]');
+      if (!link) return;
+      trackEvent('link_click', {
+        page: 'watchlist',
+        destination: link.getAttribute('href') || '',
+      });
     });
   </script>
 </body>

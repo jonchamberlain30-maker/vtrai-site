@@ -1,0 +1,25 @@
+# Vectora
+
+Vectora is a crypto trust-monitoring site focused on token checks, saved watchlists, shareable reports, and scheduled trust snapshots.
+
+## Public pages
+
+- Home: https://getvectora.ai/
+- Verification guide: https://getvectora.ai/verify-token.html
+- Proof pack: https://getvectora.ai/proof.html
+- Updates desk: https://getvectora.ai/updates.html
+- Whitepaper: https://getvectora.ai/whitepaper.html
+- Liquidity covenant: https://getvectora.ai/liquidity-covenant.html
+
+## Product scope
+
+- Multi-chain token trust checks across major retail chains
+- Shareable token report pages
+- Device watchlists with local history and diff views
+- Scheduled monitored-token snapshots published on the updates desk
+
+## Important constraints
+
+- Vectora publishes data, not guarantees
+- Watchlist pages are device-local and not intended as public landing pages
+- Scheduled monitoring is shared-site monitoring, not personal alerting yet
