@@ -1,17 +1,21 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="70" y1="36" x2="1136" y2="594" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#07101F"/>
-      <stop offset="0.6" stop-color="#081427"/>
-      <stop offset="1" stop-color="#04070F"/>
+    <linearGradient id="bg" x1="54" y1="12" x2="1148" y2="624" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050912"/>
+      <stop offset="0.55" stop-color="#0B1630"/>
+      <stop offset="1" stop-color="#101D3F"/>
     </linearGradient>
-    <radialGradient id="orbA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(190 126) rotate(12) scale(560 280)">
-      <stop stop-color="#39E8FF" stop-opacity="0.28"/>
+    <radialGradient id="orbA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(116 -36) rotate(8) scale(650 330)">
+      <stop stop-color="#4DEAFF" stop-opacity="0.34"/>
       <stop offset="1" stop-color="#39E8FF" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="orbB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1020 510) rotate(8) scale(560 320)">
-      <stop stop-color="#8B72FF" stop-opacity="0.24"/>
+    <radialGradient id="orbB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1150 690) rotate(8) scale(620 350)">
+      <stop stop-color="#9D7CFF" stop-opacity="0.3"/>
       <stop offset="1" stop-color="#8B72FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbC" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(606 292) rotate(12) scale(430 210)">
+      <stop stop-color="#143A5A" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#143A5A" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="grid" x1="120" y1="118" x2="1080" y2="518" gradientUnits="userSpaceOnUse">
       <stop stop-color="#48ECFF"/>
@@ -26,6 +30,7 @@
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#orbA)"/>
   <rect width="1200" height="630" fill="url(#orbB)"/>
+  <rect width="1200" height="630" fill="url(#orbC)"/>
 
   <g opacity="0.18">
     <path d="M60 110H1140" stroke="url(#grid)" stroke-width="1"/>
