@@ -1,0 +1,58 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="36" x2="1136" y2="594" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07101F"/>
+      <stop offset="0.6" stop-color="#081427"/>
+      <stop offset="1" stop-color="#04070F"/>
+    </linearGradient>
+    <radialGradient id="orbA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(190 126) rotate(12) scale(560 280)">
+      <stop stop-color="#39E8FF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#39E8FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1020 510) rotate(8) scale(560 320)">
+      <stop stop-color="#8B72FF" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#8B72FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grid" x1="120" y1="118" x2="1080" y2="518" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48ECFF"/>
+      <stop offset="1" stop-color="#9C7BFF"/>
+    </linearGradient>
+    <linearGradient id="word" x1="330" y1="126" x2="872" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3FEFF"/>
+      <stop offset="1" stop-color="#A8E5FF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#orbA)"/>
+  <rect width="1200" height="630" fill="url(#orbB)"/>
+
+  <g opacity="0.18">
+    <path d="M60 110H1140" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M60 220H1140" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M60 330H1140" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M60 440H1140" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M60 550H1140" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M155 46V584" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M295 46V584" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M435 46V584" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M575 46V584" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M715 46V584" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M855 46V584" stroke="url(#grid)" stroke-width="1"/>
+    <path d="M995 46V584" stroke="url(#grid)" stroke-width="1"/>
+  </g>
+
+  <g opacity="0.88" text-anchor="middle">
+    <text x="600" y="210" fill="url(#word)" font-family="Space Grotesk, Arial, sans-serif" font-size="114" font-weight="700" letter-spacing="3">VTRAI</text>
+    <text x="600" y="272" fill="#7ADFFF" font-family="Space Grotesk, Arial, sans-serif" font-size="25" font-weight="500" letter-spacing="6">VECTORA TRUST LAYER</text>
+    <text x="600" y="420" fill="#C3D4EA" font-family="Space Grotesk, Arial, sans-serif" font-size="31" font-weight="500">Proof before momentum.</text>
+    <text x="600" y="468" fill="#C3D4EA" font-family="Space Grotesk, Arial, sans-serif" font-size="31" font-weight="500">Verification before action.</text>
+  </g>
+
+  <g opacity="0.72">
+    <circle cx="162" cy="100" r="4" fill="#81EFFF"/>
+    <circle cx="242" cy="78" r="5" fill="#9583FF"/>
+    <circle cx="1034" cy="492" r="5" fill="#75EAFF"/>
+    <circle cx="922" cy="152" r="4" fill="#A07FFF"/>
+  </g>
+</svg>

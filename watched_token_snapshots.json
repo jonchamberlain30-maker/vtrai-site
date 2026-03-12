@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-12 08:33:15 UTC",
-  "generated_at_iso": "2026-03-12T08:33:15Z",
+  "generated_at_utc": "2026-03-12 09:17:47 UTC",
+  "generated_at_iso": "2026-03-12T09:17:47Z",
   "count": 2,
   "items": [
     {
@@ -11,8 +11,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-12",
-        "timestamp_utc": "2026-03-12 08:33:15 UTC",
-        "checked_at_utc": "2026-03-12T08:33:17.575Z",
+        "timestamp_utc": "2026-03-12 09:17:47 UTC",
+        "checked_at_utc": "2026-03-12T09:17:49.134Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -84,8 +84,8 @@
       "history": [
         {
           "snapshot_date": "2026-03-12",
-          "timestamp_utc": "2026-03-12 08:33:15 UTC",
-          "checked_at_utc": "2026-03-12T08:33:17.575Z",
+          "timestamp_utc": "2026-03-12 09:17:47 UTC",
+          "checked_at_utc": "2026-03-12T09:17:49.134Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -308,8 +308,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-12",
-        "timestamp_utc": "2026-03-12 08:33:15 UTC",
-        "checked_at_utc": "2026-03-12T08:33:18.460Z",
+        "timestamp_utc": "2026-03-12 09:17:47 UTC",
+        "checked_at_utc": "2026-03-12T09:17:50.234Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -332,11 +332,11 @@
           },
           {
             "label": "Top liquidity",
-            "value": "$103,932,161"
+            "value": "$26,218,508"
           },
           {
             "label": "Top venue",
-            "value": "curve / 0xbEbc44"
+            "value": "uniswap / 0x3416cF"
           },
           {
             "label": "Open source",
@@ -366,18 +366,19 @@
           },
           {
             "label": "Open top pair",
-            "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
+            "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
           }
         ],
         "change_summary": [
-          "Supply changed from 55,645,273,068.32 to 55,593,795,818.78."
+          "Top venue changed from curve / 0xbEbc44 to uniswap / 0x3416cF.",
+          "Top liquidity moved from $103,932,161 to $26,218,508."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-12",
-          "timestamp_utc": "2026-03-12 08:33:15 UTC",
-          "checked_at_utc": "2026-03-12T08:33:18.460Z",
+          "timestamp_utc": "2026-03-12 09:17:47 UTC",
+          "checked_at_utc": "2026-03-12T09:17:50.234Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -400,11 +401,11 @@
             },
             {
               "label": "Top liquidity",
-              "value": "$103,932,161"
+              "value": "$26,218,508"
             },
             {
               "label": "Top venue",
-              "value": "curve / 0xbEbc44"
+              "value": "uniswap / 0x3416cF"
             },
             {
               "label": "Open source",
@@ -434,11 +435,12 @@
             },
             {
               "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
+              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
             }
           ],
           "change_summary": [
-            "Supply changed from 55,645,273,068.32 to 55,593,795,818.78."
+            "Top venue changed from curve / 0xbEbc44 to uniswap / 0x3416cF.",
+            "Top liquidity moved from $103,932,161 to $26,218,508."
           ]
         },
         {
