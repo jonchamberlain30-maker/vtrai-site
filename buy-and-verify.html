@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
+  <meta name="theme-color" content="#050912" />
+  <link rel="canonical" href="https://getvectora.ai/buy-and-verify.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Vectora | Buy And Verify" />
+  <meta property="og:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
+  <meta property="og:url" content="https://getvectora.ai/buy-and-verify.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <meta property="og:image:alt" content="Vectora buy and verify page" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vectora | Buy And Verify" />
+  <meta name="twitter:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <title>Vectora | Buy And Verify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #050912;
+      --bg-2: #0b1630;
+      --bg-3: #101d3f;
+      --ink: #e8f8ff;
+      --muted: #9ab1c8;
+      --line: #243753;
+      --cyan: #4deaff;
+      --vio: #9d7cff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+      --card: rgba(9, 16, 32, 0.74);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(920px 560px at 10% -10%, rgba(77,234,255,0.20), transparent 55%),
+        radial-gradient(820px 640px at 100% 110%, rgba(157,124,255,0.16), transparent 55%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+      min-height: 100vh;
+    }
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(to right, rgba(93,124,170,0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(93,124,170,0.18) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, #000 35%, transparent 90%);
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 14px;
+      background: rgba(8, 14, 29, 0.78);
+      gap: 10px;
+      flex-wrap: wrap;
+      backdrop-filter: blur(6px);
+    }
+    .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .hero, .card {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      padding: 22px;
+      backdrop-filter: blur(7px);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+      align-items: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.35rem;
+      line-height: 1.04;
+      letter-spacing: 0.2px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+    p, li {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .sub {
+      margin-top: 10px;
+      max-width: 680px;
+    }
+    .hero-cta, .links, .mini-cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .btn, .copy-btn {
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 120ms ease, border-color 120ms ease;
+    }
+    .btn:hover, .copy-btn:hover { transform: translateY(-1px); }
+    .btn.primary, .copy-btn {
+      color: #031019;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 22%, rgba(255, 255, 255, 0) 46%),
+        linear-gradient(90deg, var(--cyan), #86e8ff);
+      border: 0;
+    }
+    .btn.secondary {
+      color: var(--ink);
+      background: rgba(16, 28, 52, 0.7);
+    }
+    .stat-card {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 16px;
+      background: rgba(8, 15, 30, 0.72);
+      padding: 18px;
+    }
+    .kicker {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+    .metric {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .proof-block {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(8, 15, 30, 0.72);
+      margin-top: 12px;
+    }
+    .mint-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    code {
+      display: inline-block;
+      background: rgba(35, 50, 76, 0.82);
+      border-radius: 7px;
+      padding: 4px 8px;
+      color: #dff9ff;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      font-size: 0.82rem;
+    }
+    .warn {
+      margin-top: 12px;
+      border: 1px solid #4c2a37;
+      border-radius: 12px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+    .steps {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .steps li + li { margin-top: 8px; }
+    .footer {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <main class="wrap">
+    <div class="top">
+      <strong>Vectora Buy And Verify</strong>
+      <div>
+        <a href="./index.html">Home</a>
+        <a href="./proof.html">Proof Pack</a>
+        <a href="./updates.html">Updates</a>
+        <a href="./verify-token.html">Verification Guide</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <div class="kicker">Verify First</div>
+        <h1>Use One Page To Verify The Mint, Open The Real Route, And Avoid Bad Links.</h1>
+        <p class="sub">If someone finds Vectora on X or Telegram, this should be the next click. Copy the canonical mint, cross-check the proof pack, and use the official Raydium route only after the contract matches.</p>
+        <div class="chips">
+          <span class="chip">Official mint repeated</span>
+          <span class="chip">Raydium route only</span>
+          <span class="chip">Telegram cross-check</span>
+          <span class="chip">No private-sale DMs</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn primary tracked-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_raydium" target="_blank" rel="noreferrer">Open Official Raydium Route</a>
+          <a class="btn secondary tracked-link" href="./proof.html" data-label="hero_proof">Open Proof Pack</a>
+          <a class="btn secondary tracked-link" href="https://t.me/vectorasignal" data-label="hero_telegram" target="_blank" rel="noreferrer">Join Telegram</a>
+        </div>
+      </div>
+      <aside class="stat-card">
+        <div class="kicker">Live Market Snapshot</div>
+        <p class="metric">$1,175</p>
+        <p>Current visible Raydium liquidity from the latest public update.</p>
+        <div class="mini-cta">
+          <a class="btn secondary tracked-link" href="./updates.html" data-label="snapshot_updates">Read Update Desk</a>
+          <a class="btn secondary tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="snapshot_solscan" target="_blank" rel="noreferrer">Open Solscan</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>1. Confirm The Canonical Mint</h2>
+        <p>Only this Solana mint is valid for Vectora. Anything else should be treated as fake.</p>
+        <div class="proof-block mint-row">
+          <code id="buyVerifyMintCode">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
+          <button class="copy-btn" type="button" data-copy-target="buyVerifyMintCode">Copy mint</button>
+        </div>
+      </article>
+      <article class="card">
+        <h2>2. Cross-Check Before Acting</h2>
+        <ol class="steps">
+          <li>Compare the mint on this page with the proof pack and the pinned X post.</li>
+          <li>Check Solscan and confirm the same contract is shown there.</li>
+          <li>Use the Raydium route from this page only, not from replies or DMs.</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>3. Start Small If You Act</h2>
+        <ol class="steps">
+          <li>Do a tiny test swap first.</li>
+          <li>Confirm the output token address in your wallet before approving.</li>
+          <li>Re-open the proof page if anything looks inconsistent.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Fast Route</h2>
+        <div class="links">
+          <a class="tracked-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="route_raydium" target="_blank" rel="noreferrer">Official Raydium Route</a>
+          <a class="tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="route_solscan" target="_blank" rel="noreferrer">Solscan</a>
+          <a class="tracked-link" href="https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu" data-label="route_dexscreener" target="_blank" rel="noreferrer">DexScreener Pair</a>
+        </div>
+        <p>These are the only links that should matter for first-pass verification.</p>
+      </article>
+      <article class="card">
+        <h2>Official Channels</h2>
+        <div class="links">
+          <a class="tracked-link" href="./proof.html" data-label="channels_proof">Proof Pack</a>
+          <a class="tracked-link" href="./updates.html" data-label="channels_updates">Updates</a>
+          <a class="tracked-link" href="https://t.me/vectorasignal" data-label="channels_telegram" target="_blank" rel="noreferrer">Telegram</a>
+          <a class="tracked-link" href="./liquidity-covenant.html" data-label="channels_covenant">Liquidity Covenant</a>
+        </div>
+        <p>If a launch claim or trade route is not repeated across these surfaces, treat it as untrusted.</p>
+      </article>
+      <article class="card">
+        <h2>Red Flags</h2>
+        <ul class="steps">
+          <li>Alternative mint or “migration” claims.</li>
+          <li>Private-sale DMs or wallet-support messages.</li>
+          <li>Requests for seed phrases, remote access, or manual validation.</li>
+        </ul>
+        <div class="warn">Fastest way to lose money: acting from a screenshot or DM instead of this page.</div>
+      </article>
+    </section>
+
+    <p class="footer">Vectora publishes proof and route checks, not guarantees. Verify the mint before every trade.</p>
+  </main>
+  <script>
+    const PAGE_NAME = 'buy_and_verify';
+
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+
+    function getAttribution() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        source: params.get('utm_source') || params.get('source') || 'direct',
+        medium: params.get('utm_medium') || 'site',
+        campaign: params.get('utm_campaign') || 'none'
+      };
+    }
+
+    const attribution = getAttribution();
+    trackEvent('buy_verify_page_view', {
+      page_name: PAGE_NAME,
+      traffic_source: attribution.source,
+      traffic_medium: attribution.medium,
+      traffic_campaign: attribution.campaign
+    });
+
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        trackEvent('buy_verify_link_click', {
+          page_name: PAGE_NAME,
+          link_label: link.dataset.label || 'unknown',
+          traffic_source: attribution.source,
+          traffic_medium: attribution.medium,
+          traffic_campaign: attribution.campaign
+        });
+      });
+    });
+
+    document.querySelectorAll('[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target) return;
+        const text = target.textContent.trim();
+        const original = button.textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = 'Copied';
+          trackEvent('buy_verify_mint_copied', {
+            page_name: PAGE_NAME,
+            traffic_source: attribution.source
+          });
+        } catch {
+          button.textContent = 'Copy failed';
+        }
+        window.setTimeout(() => {
+          button.textContent = original;
+        }, 1800);
+      });
+    });
+  </script>
+</body>
+</html>
