@@ -1,6 +1,22 @@
 {
-  "generated_at_utc": "2026-03-12 20:49:23 UTC",
+  "generated_at_utc": "2026-03-13 08:39:36 UTC",
   "items": [
+    {
+      "timestamp_utc": "2026-03-13 08:39:36 UTC",
+      "mystery_line": "Signal layer is active. Details unfold on-chain.",
+      "snapshot": {
+        "pair": "VTRAI/USDC",
+        "price_usd": 1.0003206221053993,
+        "volume_24h": 0,
+        "liquidity_usd": 1175.06
+      },
+      "proof": {
+        "pair": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+        "website": "https://getvectora.ai",
+        "telegram": "https://t.me/vectorasignal"
+      },
+      "text": "Daily signal check: Vectora ($VTRAI)\n\nSignal layer is active. Details unfold on-chain.\n\nLive snapshot:\n- Price: $1.00\n- 24h Volume: $0.00\n- Liquidity: $1,175.06\n- Pair: VTRAI/USDC\n- Source: RAYDIUM\n\nOfficial mint:\nLy4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n\nProof links:\n- Market: https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n- Website: https://getvectora.ai\n- Telegram: https://t.me/vectorasignal\n\nSecurity:\n- This is the only official mint.\n- No return promises. No private-key requests.\n"
+    },
     {
       "timestamp_utc": "2026-03-12 20:49:23 UTC",
       "mystery_line": "Pattern integrity > noise. Watch the chain.",
@@ -162,5 +178,5 @@
       "text": "Daily signal check: Vectora ($VTRAI)\n\nNot all systems announce themselves loudly.\n\nLive snapshot:\n- Price: $1.00\n- 24h Volume: $0.00\n- Liquidity: $100.03\n- Pair: VTRAI/USDC\n- Source: RAYDIUM\n\nOfficial mint:\nLy4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n\nProof links:\n- Market: https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n- Website: https://getvectora.ai\n- Telegram: https://t.me/vectorasignal\n\nSecurity:\n- This is the only official mint.\n- No return promises. No private-key requests.\n"
     }
   ],
-  "generated_at_iso": "2026-03-12T20:49:23Z"
+  "generated_at_iso": "2026-03-13T08:39:36Z"
 }
