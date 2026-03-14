@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-14 08:40:18 UTC",
-  "generated_at_iso": "2026-03-14T08:40:18Z",
+  "generated_at_utc": "2026-03-14 09:20:36 UTC",
+  "generated_at_iso": "2026-03-14T09:20:36Z",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
@@ -8,8 +8,8 @@
   },
   "latest": {
     "snapshot_date": "2026-03-14",
-    "timestamp_utc": "2026-03-14 08:40:18 UTC",
-    "checked_at_utc": "2026-03-14T08:40:20.233Z",
+    "timestamp_utc": "2026-03-14 09:20:36 UTC",
+    "checked_at_utc": "2026-03-14T09:20:38.262Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -40,7 +40,7 @@
       },
       {
         "label": "Metadata mutable",
-        "value": "No"
+        "value": "Yes"
       }
     ],
     "reasons": [
@@ -58,7 +58,7 @@
       }
     ],
     "notes": [
-      "Metadata mutability: locked."
+      "Metadata mutability: mutable."
     ],
     "links": [
       {
@@ -75,14 +75,14 @@
       }
     ],
     "change_summary": [
-      "Metadata mutable changed from Yes to No."
+      "Metadata mutable changed from No to Yes."
     ]
   },
   "items": [
     {
       "snapshot_date": "2026-03-14",
-      "timestamp_utc": "2026-03-14 08:40:18 UTC",
-      "checked_at_utc": "2026-03-14T08:40:20.233Z",
+      "timestamp_utc": "2026-03-14 09:20:36 UTC",
+      "checked_at_utc": "2026-03-14T09:20:38.262Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -113,7 +113,7 @@
         },
         {
           "label": "Metadata mutable",
-          "value": "No"
+          "value": "Yes"
         }
       ],
       "reasons": [
@@ -131,7 +131,7 @@
         }
       ],
       "notes": [
-        "Metadata mutability: locked."
+        "Metadata mutability: mutable."
       ],
       "links": [
         {
@@ -148,7 +148,7 @@
         }
       ],
       "change_summary": [
-        "Metadata mutable changed from Yes to No."
+        "Metadata mutable changed from No to Yes."
       ]
     },
     {

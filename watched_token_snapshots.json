@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-14 08:40:18 UTC",
-  "generated_at_iso": "2026-03-14T08:40:18Z",
+  "generated_at_utc": "2026-03-14 09:20:36 UTC",
+  "generated_at_iso": "2026-03-14T09:20:36Z",
   "count": 2,
   "items": [
     {
@@ -11,8 +11,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-14",
-        "timestamp_utc": "2026-03-14 08:40:18 UTC",
-        "checked_at_utc": "2026-03-14T08:40:20.233Z",
+        "timestamp_utc": "2026-03-14 09:20:36 UTC",
+        "checked_at_utc": "2026-03-14T09:20:38.262Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -43,7 +43,7 @@
           },
           {
             "label": "Metadata mutable",
-            "value": "No"
+            "value": "Yes"
           }
         ],
         "reasons": [
@@ -61,7 +61,7 @@
           }
         ],
         "notes": [
-          "Metadata mutability: locked."
+          "Metadata mutability: mutable."
         ],
         "links": [
           {
@@ -78,14 +78,14 @@
           }
         ],
         "change_summary": [
-          "Metadata mutable changed from Yes to No."
+          "Metadata mutable changed from No to Yes."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-14",
-          "timestamp_utc": "2026-03-14 08:40:18 UTC",
-          "checked_at_utc": "2026-03-14T08:40:20.233Z",
+          "timestamp_utc": "2026-03-14 09:20:36 UTC",
+          "checked_at_utc": "2026-03-14T09:20:38.262Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -116,7 +116,7 @@
             },
             {
               "label": "Metadata mutable",
-              "value": "No"
+              "value": "Yes"
             }
           ],
           "reasons": [
@@ -134,7 +134,7 @@
             }
           ],
           "notes": [
-            "Metadata mutability: locked."
+            "Metadata mutability: mutable."
           ],
           "links": [
             {
@@ -151,7 +151,7 @@
             }
           ],
           "change_summary": [
-            "Metadata mutable changed from Yes to No."
+            "Metadata mutable changed from No to Yes."
           ]
         },
         {
@@ -452,8 +452,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-14",
-        "timestamp_utc": "2026-03-14 08:40:18 UTC",
-        "checked_at_utc": "2026-03-14T08:40:22.011Z",
+        "timestamp_utc": "2026-03-14 09:20:36 UTC",
+        "checked_at_utc": "2026-03-14T09:20:39.816Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -472,11 +472,11 @@
           },
           {
             "label": "Supply",
-            "value": "56,026,555,423.22"
+            "value": "56,016,459,776.84"
           },
           {
             "label": "Top liquidity",
-            "value": "$95,985,092"
+            "value": "$95,984,884"
           },
           {
             "label": "Top venue",
@@ -514,16 +514,14 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 55,720,263,712.2 to 56,026,555,423.22.",
-          "Top venue changed from uniswap / 0x3416cF to curve / 0xbEbc44.",
-          "Top liquidity moved from $25,948,951 to $95,985,092."
+          "Supply changed from 56,026,555,423.22 to 56,016,459,776.84."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-14",
-          "timestamp_utc": "2026-03-14 08:40:18 UTC",
-          "checked_at_utc": "2026-03-14T08:40:22.011Z",
+          "timestamp_utc": "2026-03-14 09:20:36 UTC",
+          "checked_at_utc": "2026-03-14T09:20:39.816Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -542,11 +540,11 @@
             },
             {
               "label": "Supply",
-              "value": "56,026,555,423.22"
+              "value": "56,016,459,776.84"
             },
             {
               "label": "Top liquidity",
-              "value": "$95,985,092"
+              "value": "$95,984,884"
             },
             {
               "label": "Top venue",
@@ -584,9 +582,7 @@
             }
           ],
           "change_summary": [
-            "Supply changed from 55,720,263,712.2 to 56,026,555,423.22.",
-            "Top venue changed from uniswap / 0x3416cF to curve / 0xbEbc44.",
-            "Top liquidity moved from $25,948,951 to $95,985,092."
+            "Supply changed from 56,026,555,423.22 to 56,016,459,776.84."
           ]
         },
         {
