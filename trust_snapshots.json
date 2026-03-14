@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-14 09:20:36 UTC",
-  "generated_at_iso": "2026-03-14T09:20:36Z",
+  "generated_at_utc": "2026-03-14 09:42:37 UTC",
+  "generated_at_iso": "2026-03-14T09:42:37Z",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
@@ -8,8 +8,8 @@
   },
   "latest": {
     "snapshot_date": "2026-03-14",
-    "timestamp_utc": "2026-03-14 09:20:36 UTC",
-    "checked_at_utc": "2026-03-14T09:20:38.262Z",
+    "timestamp_utc": "2026-03-14 09:42:37 UTC",
+    "checked_at_utc": "2026-03-14T09:42:38.272Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -75,14 +75,14 @@
       }
     ],
     "change_summary": [
-      "Metadata mutable changed from No to Yes."
+      "No material trust change since the last snapshot."
     ]
   },
   "items": [
     {
       "snapshot_date": "2026-03-14",
-      "timestamp_utc": "2026-03-14 09:20:36 UTC",
-      "checked_at_utc": "2026-03-14T09:20:38.262Z",
+      "timestamp_utc": "2026-03-14 09:42:37 UTC",
+      "checked_at_utc": "2026-03-14T09:42:38.272Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -148,7 +148,7 @@
         }
       ],
       "change_summary": [
-        "Metadata mutable changed from No to Yes."
+        "No material trust change since the last snapshot."
       ]
     },
     {
