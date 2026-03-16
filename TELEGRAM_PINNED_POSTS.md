@@ -9,7 +9,7 @@ Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J
 Official links:
 - Website: https://getvectora.ai
 - Telegram: https://t.me/vectorasignal
-- DexScreener: https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu
+- Market route: https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J
 - Solscan: https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J
 - Raydium: https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J
 
