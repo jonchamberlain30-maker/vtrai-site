@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Read the Vectora wallet control policy covering allocation roles, non-selling rules, and control upgrades." />
+  <meta name="theme-color" content="#060b15" />
+  <link rel="canonical" href="https://getvectora.ai/wallet-control-policy.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Vectora | Wallet Control Policy" />
+  <meta property="og:description" content="Read the Vectora wallet control policy covering allocation roles, non-selling rules, and control upgrades." />
+  <meta property="og:url" content="https://getvectora.ai/wallet-control-policy.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social-v3.jpg" />
+  <meta property="og:image:alt" content="Vectora wallet control policy" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vectora | Wallet Control Policy" />
+  <meta name="twitter:description" content="Read the Vectora wallet control policy covering allocation roles, non-selling rules, and control upgrades." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social-v3.jpg" />
+  <title>Vectora | Wallet Control Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+      --good: #4ae3b5;
+      --amber: #ffd27f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top a { color: var(--cyan); text-decoration: none; }
+    .paper {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      padding: 20px;
+    }
+    h1 { margin: 0; font-size: 2rem; }
+    h2 { margin-top: 20px; font-size: 1.1rem; }
+    p, li { color: var(--muted); line-height: 1.5; font-size: 0.94rem; }
+    ul { margin: 0; padding-left: 18px; }
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(255,210,127,0.55);
+      color: var(--amber);
+      background: rgba(84, 61, 24, 0.45);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .ok { color: var(--good); }
+    code {
+      background: rgba(35, 50, 76, 0.82);
+      border-radius: 7px;
+      padding: 2px 6px;
+      color: #dff9ff;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>Vectora Wallet Control Policy v1.0</strong>
+      <div>
+        <a href="./index.html">Back to Site</a> |
+        <a href="./whitepaper.html">Whitepaper</a> |
+        <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+      </div>
+    </div>
+
+    <article class="paper">
+      <h1>Wallet Control Policy <span class="badge">Bootstrap Mode</span></h1>
+      <p>This policy explains what the W1-W6 wallets mean in practice. They are role-separated internal allocations designed for accounting clarity, operational safety, and future hardening. They are not presented as independent third-party holders.</p>
+
+      <h2>1. Role Map</h2>
+      <ul>
+        <li><strong>W1_LP_Launch:</strong> LP and launch operations only.</li>
+        <li><strong>W2_Community_Rewards:</strong> non-selling reserve for future community distribution.</li>
+        <li><strong>W3_Ecosystem_Grants:</strong> non-selling reserve for future grants and partnerships.</li>
+        <li><strong>W4_Treasury_Multisig:</strong> treasury reserve intended for multisig control.</li>
+        <li><strong>W5_Team_Vesting:</strong> team allocation intended for time-based release rather than discretionary selling.</li>
+        <li><strong>W6_Ops_MM:</strong> operational / market-support inventory under disclosed rules.</li>
+      </ul>
+
+      <h2>2. Market-Facing Rule</h2>
+      <ul>
+        <li class="ok">Only W1_LP_Launch is intended to be market-facing in normal operation.</li>
+        <li>W2, W3, W4, and W5 do not sell into LP during bootstrap mode.</li>
+        <li>W6_Ops_MM may act only for narrow operational reasons and only with post-action disclosure.</li>
+      </ul>
+
+      <h2>3. What Wallet Separation Means</h2>
+      <ul>
+        <li>Wallet separation improves accounting and public disclosure.</li>
+        <li>Wallet separation does not by itself make the project decentralized.</li>
+        <li>Public materials should describe these wallets as function-separated internal allocations.</li>
+      </ul>
+
+      <h2>4. LP Capital Rule</h2>
+      <ul>
+        <li>LP top-ups are treated as at-risk market-making capital.</li>
+        <li>LP is not represented as protected savings or risk-free treasury storage.</li>
+        <li>LP increases should come from explicit decisions rather than ad-hoc transfers from allocation wallets.</li>
+      </ul>
+
+      <h2>5. Next Control Upgrades</h2>
+      <ul>
+        <li>First hardening target: W4_Treasury_Multisig into active multisig enforcement.</li>
+        <li>Second hardening target: W5_Team_Vesting into enforceable vesting or locked custody.</li>
+        <li>After hardening, publish periodic movement summaries for W2-W6 against stated purpose.</li>
+      </ul>
+
+      <h2>6. W4 Treasury Hardening Standard</h2>
+      <ul>
+        <li>W4 is not considered hardened while one signer can move funds alone.</li>
+        <li>Minimum target: 2-of-3 control. Preferred target: 3-of-5 control.</li>
+        <li>A low-value test transaction should be executed and recorded before W4 is treated as active treasury control.</li>
+      </ul>
+
+      <h2>7. W6 Ops/MM Rule</h2>
+      <ul>
+        <li>W6 exists for narrow operational support, not hidden treasury selling.</li>
+        <li>Allowed actions include LP maintenance, inventory balancing, test trades, and small stability actions.</li>
+        <li>Disallowed actions include narrative pumps, undisclosed exits, and large one-shot sells into thin LP.</li>
+        <li>Bootstrap default limits: max single action 1.0% of W6 balance; max rolling 24h activity 5.0%.</li>
+      </ul>
+
+      <h2>8. Official Mint</h2>
+      <p>Only trust the official mint: <code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>.</p>
+
+      <h2>9. Disclaimer</h2>
+      <p>This is an operational control policy, not financial advice or a guarantee of future behavior by the market.</p>
+    </article>
+  </main>
+</body>
+</html>

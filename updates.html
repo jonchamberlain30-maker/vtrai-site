@@ -357,11 +357,11 @@
       </article>
       <article class="card">
         <h2>Release Plan</h2>
-        <p>We post the same official message content here and then mirror to Telegram/X when both social channels are fully live. This keeps community access consistent and verifiable.</p>
+        <p>We publish the official message content here first and use this page as the canonical public update desk. This keeps community access consistent and verifiable.</p>
         <div class="links">
           <a href="./whitepaper.html">Whitepaper</a>
           <a href="./liquidity-covenant.html">Liquidity Covenant</a>
-          <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
+          <a href="./buy-and-verify.html">Buy &amp; Verify</a>
         </div>
         <p class="warn">If a post is not on one of the official channels above, treat it as unverified.</p>
       </article>
@@ -485,7 +485,6 @@
       const proofPairs = [];
       if (links.pair) proofPairs.push(`Pair: ${links.pair}`);
       if (links.website) proofPairs.push(`<a href=\"${links.website}\" target=\"_blank\" rel=\"noreferrer\">Website</a>`);
-      if (links.telegram) proofPairs.push(`<a href=\"${links.telegram}\" target=\"_blank\" rel=\"noreferrer\">Telegram</a>`);
       if (links.x) proofPairs.push(`<a href=\"${links.x}\" target=\"_blank\" rel=\"noreferrer\">X</a>`);
 
       return `\\n        <article class=\"item\">\\n          <h3>${item.timestamp_utc}</h3>\\n          <div class=\"meta\">Pair: ${snapshot.pair || 'Vectora'} · Price: ${snapshot.price_usd || 'n/a'} · Volume: ${snapshot.volume_24h || 'n/a'} · Liquidity: ${snapshot.liquidity_usd || 'n/a'}</div>\\n          <pre class=\"post\">${item.text || ''}</pre>\\n          <div class=\"links\">${proofPairs.join(' ')}</div>\\n        </article>\\n      `;
