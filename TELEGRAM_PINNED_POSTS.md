@@ -1,8 +1,6 @@
-# Telegram Notes
+# Public Channel Notes
 
-Telegram is currently paused for Vectora.
-
-Use these public surfaces instead:
+Use these public surfaces:
 - Website: https://getvectora.ai
 - Buy and verify: https://getvectora.ai/buy-and-verify.html
 - Proof pack: https://getvectora.ai/proof.html
