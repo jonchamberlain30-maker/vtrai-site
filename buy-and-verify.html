@@ -11,12 +11,12 @@
   <meta property="og:title" content="Vectora | Buy And Verify" />
   <meta property="og:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
   <meta property="og:url" content="https://getvectora.ai/buy-and-verify.html" />
-  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social-v3.jpg" />
   <meta property="og:image:alt" content="Vectora buy and verify page" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora | Buy And Verify" />
   <meta name="twitter:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
-  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social-v3.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -358,30 +358,15 @@
       traffic_campaign: attribution.campaign
     });
 
-    const leadLabels = new Set(['hero_raydium', 'route_raydium']);
-
     document.querySelectorAll('.tracked-link').forEach((link) => {
       link.addEventListener('click', () => {
-        const label = link.dataset.label || 'unknown';
         trackEvent('buy_verify_link_click', {
           page_name: PAGE_NAME,
-          link_label: label,
+          link_label: link.dataset.label || 'unknown',
           traffic_source: attribution.source,
           traffic_medium: attribution.medium,
           traffic_campaign: attribution.campaign
         });
-        if (leadLabels.has(label)) {
-          trackEvent('generate_lead', {
-            method: 'official_route',
-            value: 1,
-            currency: 'USD',
-            page_name: PAGE_NAME,
-            link_label: label,
-            traffic_source: attribution.source,
-            traffic_medium: attribution.medium,
-            traffic_campaign: attribution.campaign
-          });
-        }
       });
     });
 
