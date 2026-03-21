@@ -226,8 +226,8 @@
         <h1>A Short Public Look At The Upcoming AI Trust Workflow</h1>
         <p>This page is a temporary public preview of where Vectora is going next: beyond static links and into a cleaner AI-assisted verification workflow. No signup. No waitlist. Just one short public look while the structure is still being tested in the open.</p>
         <div class="hero-cta">
-          <a class="btn primary" href="./buy-and-verify.html">Open Buy &amp; Verify</a>
-          <a class="btn secondary" href="./proof.html">Open Proof Pack</a>
+          <a class="btn primary tracked-link" href="./buy-and-verify.html" data-label="hero_buy_verify">Open Buy &amp; Verify</a>
+          <a class="btn secondary tracked-link" href="./proof.html" data-label="hero_proof">Open Proof Pack</a>
         </div>
       </div>
       <div class="stat-card">
@@ -295,10 +295,68 @@
         <li>Cross-check proof before acting.</li>
       </ul>
       <div class="hero-cta">
-        <a class="btn primary" href="./buy-and-verify.html">Open Current Path</a>
-        <a class="btn secondary" href="./verify-token.html">Read The Verification Guide</a>
+        <a class="btn primary tracked-link" href="./buy-and-verify.html" data-label="current_path">Open Current Path</a>
+        <a class="btn secondary tracked-link" href="./verify-token.html" data-label="verify_guide">Read The Verification Guide</a>
       </div>
     </section>
   </main>
+  <script>
+    const PAGE_NAME = 'open_preview';
+    const PROMOTION_ID = 'open_preview_2026_03';
+
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+
+    function getAttribution() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        source: params.get('utm_source') || params.get('source') || 'direct',
+        medium: params.get('utm_medium') || 'site',
+        campaign: params.get('utm_campaign') || 'none'
+      };
+    }
+
+    const attribution = getAttribution();
+
+    trackEvent('open_preview_page_view', {
+      page_name: PAGE_NAME,
+      traffic_source: attribution.source,
+      traffic_medium: attribution.medium,
+      traffic_campaign: attribution.campaign
+    });
+
+    trackEvent('view_promotion', {
+      promotion_id: PROMOTION_ID,
+      promotion_name: 'Vectora Open Preview',
+      creative_name: 'limited_time_public_preview',
+      traffic_source: attribution.source,
+      traffic_medium: attribution.medium,
+      traffic_campaign: attribution.campaign
+    });
+
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        const label = link.dataset.label || 'unknown';
+        trackEvent('open_preview_link_click', {
+          page_name: PAGE_NAME,
+          link_label: label,
+          traffic_source: attribution.source,
+          traffic_medium: attribution.medium,
+          traffic_campaign: attribution.campaign
+        });
+        trackEvent('select_promotion', {
+          promotion_id: PROMOTION_ID,
+          promotion_name: 'Vectora Open Preview',
+          creative_name: label,
+          traffic_source: attribution.source,
+          traffic_medium: attribution.medium,
+          traffic_campaign: attribution.campaign
+        });
+      });
+    });
+  </script>
 </body>
 </html>
