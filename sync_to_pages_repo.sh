@@ -9,12 +9,8 @@ if [[ ! -d "$PAGES_WORKDIR/.git" ]]; then
   exit 1
 fi
 
-python3 "$SRC_DIR/generate_sitemap.py"
-
 rsync -av --delete \
   --exclude 'logs/' \
-  --exclude '__pycache__/' \
-  --exclude '*.pyc' \
   --exclude '.DS_Store' \
   --exclude '.git/' \
   "$SRC_DIR/" "$PAGES_WORKDIR/"
