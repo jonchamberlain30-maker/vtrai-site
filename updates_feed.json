@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-03-24 21:04:02 UTC",
+  "generated_at_utc": "2026-03-24 21:07:16 UTC",
   "items": [
     {
-      "timestamp_utc": "2026-03-24 21:04:02 UTC",
+      "timestamp_utc": "2026-03-24 21:07:16 UTC",
       "mystery_line": "The map is public. The model is not.",
       "snapshot": {
         "pair": "VTRAI/USDC",
@@ -62,5 +62,5 @@
       "text": "Daily signal check: Vectora ($VTRAI)\n\nPattern integrity > noise. Watch the chain.\n\nLive snapshot:\n- Price: $1.00\n- 24h Volume: $0.00\n- Liquidity: $1,175.06\n- Pair: VTRAI/USDC\n- Source: RAYDIUM\n\nOfficial mint:\nLy4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n\nProof links:\n- Market: https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J\n- Website: https://getvectora.ai\n\nSecurity:\n- This is the only official mint.\n- No return promises. No private-key requests.\n"
     }
   ],
-  "generated_at_iso": "2026-03-24T21:04:02Z"
+  "generated_at_iso": "2026-03-24T21:07:16Z"
 }
