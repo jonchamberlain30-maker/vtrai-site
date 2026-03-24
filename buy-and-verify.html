@@ -4,19 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/buy-and-verify.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-profile-512-v4.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Vectora | Buy And Verify" />
   <meta property="og:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
   <meta property="og:url" content="https://getvectora.ai/buy-and-verify.html" />
-  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social-v3.jpg" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
   <meta property="og:image:alt" content="Vectora buy and verify page" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora | Buy And Verify" />
   <meta name="twitter:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
-  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social-v3.jpg" />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -239,6 +241,7 @@
       <strong>Vectora Buy And Verify</strong>
       <div>
         <a href="./index.html">Home</a>
+        <a href="./guides.html">Guides</a>
         <a href="./proof.html">Proof Pack</a>
         <a href="./updates.html">Updates</a>
         <a href="./verify-token.html">Verification Guide</a>
@@ -313,6 +316,7 @@
       <article class="card">
         <h2>Official Channels</h2>
         <div class="links">
+          <a class="tracked-link" href="./guides.html" data-label="channels_guides">Guides Hub</a>
           <a class="tracked-link" href="./proof.html" data-label="channels_proof">Proof Pack</a>
           <a class="tracked-link" href="./updates.html" data-label="channels_updates">Updates</a>
           <a class="tracked-link" href="./liquidity-covenant.html" data-label="channels_covenant">Liquidity Covenant</a>
@@ -327,6 +331,26 @@
           <li>Requests for seed phrases, remote access, or manual validation.</li>
         </ul>
         <div class="warn">Fastest way to lose money: acting from a screenshot or DM instead of this page.</div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Need The Broader Process?</h2>
+        <p>If you found the token on DexScreener or need to understand Solana control risk before you trade, start with the guides below before you come back to the route page.</p>
+        <div class="links">
+          <a class="tracked-link" href="./solana-token-checker.html" data-label="guides_solana_checker">Solana Token Checker</a>
+          <a class="tracked-link" href="./dexscreener-token-checker.html" data-label="guides_dexscreener_checker">DexScreener Verification</a>
+          <a class="tracked-link" href="./mint-authority-freeze-authority.html" data-label="guides_authority">Mint vs Freeze Authority</a>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Best Sequence</h2>
+        <ol class="steps">
+          <li>Read the specific guide if you started from a pair page or a control-risk question.</li>
+          <li>Return here to confirm the official mint and route.</li>
+          <li>Use the proof pack and updates desk before any bigger position.</li>
+        </ol>
       </article>
     </section>
 
@@ -358,15 +382,30 @@
       traffic_campaign: attribution.campaign
     });
 
+    const leadLabels = new Set(['hero_raydium', 'route_raydium']);
+
     document.querySelectorAll('.tracked-link').forEach((link) => {
       link.addEventListener('click', () => {
+        const label = link.dataset.label || 'unknown';
         trackEvent('buy_verify_link_click', {
           page_name: PAGE_NAME,
-          link_label: link.dataset.label || 'unknown',
+          link_label: label,
           traffic_source: attribution.source,
           traffic_medium: attribution.medium,
           traffic_campaign: attribution.campaign
         });
+        if (leadLabels.has(label)) {
+          trackEvent('generate_lead', {
+            method: 'official_route',
+            value: 1,
+            currency: 'USD',
+            page_name: PAGE_NAME,
+            link_label: label,
+            traffic_source: attribution.source,
+            traffic_medium: attribution.medium,
+            traffic_campaign: attribution.campaign
+          });
+        }
       });
     });
 

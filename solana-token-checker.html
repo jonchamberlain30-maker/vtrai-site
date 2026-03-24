@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how to check a Solana token before you buy: verify the mint, compare DexScreener and explorer links, and interpret control risk in plain English." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#060b15" />
+  <link rel="canonical" href="https://getvectora.ai/solana-token-checker.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-profile-512-v4.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Solana Token Checker: How To Verify A Token Before You Buy | Vectora" />
+  <meta property="og:description" content="A practical Solana token checker workflow: verify the mint, compare the route, inspect control risk, and decide whether to ignore, watch, or investigate more." />
+  <meta property="og:url" content="https://getvectora.ai/solana-token-checker.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
+  <meta property="og:image:alt" content="Solana token checker guide by Vectora" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solana Token Checker: How To Verify A Token Before You Buy | Vectora" />
+  <meta name="twitter:description" content="A practical Solana token checker workflow: verify the mint, compare the route, inspect control risk, and decide whether to ignore, watch, or investigate more." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Solana Token Checker: How To Verify A Token Before You Buy",
+      "description": "A practical workflow for checking a Solana token route, mint, explorer links, and control risk before trading.",
+      "author": {
+        "@type": "Organization",
+        "name": "Vectora"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vectora"
+      },
+      "datePublished": "2026-03-23",
+      "dateModified": "2026-03-23",
+      "mainEntityOfPage": "https://getvectora.ai/solana-token-checker.html"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://getvectora.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://getvectora.ai/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Solana Token Checker",
+          "item": "https://getvectora.ai/solana-token-checker.html"
+        }
+      ]
+    }
+  </script>
+  <title>Solana Token Checker: How To Verify A Token Before You Buy | Vectora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+      --warn: #ffbfd0;
+      --good: #4ae3b5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .hero, .card {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      padding: 20px;
+    }
+    .hero h1 { margin: 0; font-size: 2rem; }
+    .hero p, p, li { color: var(--muted); line-height: 1.58; font-size: 0.95rem; }
+    h2 { margin: 0 0 10px; font-size: 1.08rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      font-size: 0.82rem;
+    }
+    .cta {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      font-weight: 700;
+      padding: 10px 15px;
+      border-radius: 11px;
+      font-size: 0.92rem;
+    }
+    .btn.secondary {
+      color: var(--ink);
+      background: rgba(16, 28, 52, 0.7);
+      border: 1px solid rgba(77, 234, 255, 0.2);
+    }
+    .warn {
+      margin-top: 12px;
+      border: 1px solid #4c2a37;
+      border-radius: 12px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+    ul, ol { margin: 0; padding-left: 18px; }
+    .proof {
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 12px;
+      background: rgba(8, 15, 30, 0.68);
+      padding: 14px;
+      margin-top: 12px;
+    }
+    .ok { color: var(--good); }
+    .footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>Solana Token Checker Guide</strong>
+      <div>
+        <a href="./index.html">Home</a>
+        <a href="./guides.html">Guides</a>
+        <a href="./verify-token.html">Verification Guide</a>
+        <a href="./proof.html">Proof Pack</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>How To Check A Solana Token Before You Buy</h1>
+      <p>The fastest way to lose money on Solana is to trust a ticker, screenshot, or reply before you verify the actual mint. A useful Solana token checker workflow does not start from hype. It starts from the address, the route, and the control risk.</p>
+      <div class="chips">
+        <span class="chip">Verify the mint first</span>
+        <span class="chip">Compare explorer and pair links</span>
+        <span class="chip">Read control risk in plain English</span>
+        <span class="chip">Watch instead of rushing</span>
+      </div>
+      <div class="cta">
+        <a class="btn tracked-link" href="./index.html#trust-check" data-label="solana_checker_trust_check">Open Trust Check</a>
+        <a class="btn secondary tracked-link" href="./watchlist.html" data-label="solana_checker_watchlist">Open Watchlist</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>The Five Checks That Matter</h2>
+        <ol>
+          <li>Start from the mint, not the ticker or logo.</li>
+          <li>Compare the same mint across the website, explorer, and market route.</li>
+          <li>Check whether mint authority or freeze authority is still active.</li>
+          <li>Look at liquidity context and whether the pair is actually established.</li>
+          <li>Decide whether to ignore, watch, or investigate more before any trade.</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>What A Good Checker Should Show</h2>
+        <ul>
+          <li>The exact mint address in plain view.</li>
+          <li>Crawlable links to explorers and live market routes.</li>
+          <li>Control signals such as mint, freeze, owner, or proxy risk.</li>
+          <li>A summary that helps you decide whether the route is worth more time.</li>
+        </ul>
+        <div class="warn">If a page hides the mint or makes you trust branding before the address, it is not helping you verify anything.</div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>What To Compare On Solana</h2>
+        <ul>
+          <li>Project website and official social links.</li>
+          <li>Solscan for the exact mint being shared.</li>
+          <li>DexScreener or DEX pair for the same output token.</li>
+          <li>Whether the same mint is repeated on the proof page and buy route.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>When To Walk Away</h2>
+        <ul>
+          <li>The website and pair link point to different mints.</li>
+          <li>The route is posted only in replies, DMs, or screenshots.</li>
+          <li>Control privileges remain active without a clear explanation.</li>
+          <li>The chart looks interesting but the route still feels ambiguous.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Where Vectora Fits</h2>
+      <p>Vectora is useful after discovery has already happened somewhere else. Paste the Solana mint into the trust check, read the route summary, then open the proof links only if the token still deserves more attention.</p>
+      <div class="proof">
+        <strong class="ok">Best use case:</strong>
+        <p>Find a token on X or DexScreener, verify it on Vectora, and save it to a watchlist if you want to revisit it later without relying on memory.</p>
+      </div>
+      <div class="cta">
+        <a class="btn tracked-link" href="./index.html#trust-check" data-label="solana_checker_open_tool">Check A Solana Token</a>
+        <a class="btn secondary tracked-link" href="./dexscreener-token-checker.html" data-label="solana_checker_related_dexscreener">Read DexScreener Guide</a>
+        <a class="btn secondary tracked-link" href="./mint-authority-freeze-authority.html" data-label="solana_checker_related_authority">Read Authority Guide</a>
+      </div>
+    </section>
+
+    <p class="footer">Vectora publishes route checks and verification context, not guarantees. Always confirm the exact mint before trading.</p>
+  </main>
+  <script>
+    const PAGE_NAME = 'solana_token_checker';
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+    trackEvent('guide_page_view', { page_name: PAGE_NAME });
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        trackEvent('guide_cta_click', {
+          page_name: PAGE_NAME,
+          link_label: link.dataset.label || 'unknown'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

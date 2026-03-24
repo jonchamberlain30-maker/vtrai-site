@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-24 08:30:06 UTC",
-  "generated_at_iso": "2026-03-24T08:30:06Z",
+  "generated_at_utc": "2026-03-24 21:04:02 UTC",
+  "generated_at_iso": "2026-03-24T21:04:02Z",
   "count": 2,
   "items": [
     {
@@ -11,14 +11,14 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-24",
-        "timestamp_utc": "2026-03-24 08:30:06 UTC",
-        "checked_at_utc": "2026-03-24T08:30:15.179Z",
+        "timestamp_utc": "2026-03-24 21:04:02 UTC",
+        "checked_at_utc": "2026-03-24T21:04:10.996Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
         "level": "verified",
         "title": "Verified official token",
-        "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+        "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
         "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
         "meta": [
           {
@@ -84,14 +84,14 @@
       "history": [
         {
           "snapshot_date": "2026-03-24",
-          "timestamp_utc": "2026-03-24 08:30:06 UTC",
-          "checked_at_utc": "2026-03-24T08:30:15.179Z",
+          "timestamp_utc": "2026-03-24 21:04:02 UTC",
+          "checked_at_utc": "2026-03-24T21:04:10.996Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
           "level": "verified",
           "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
           "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
           "meta": [
             {
@@ -156,374 +156,14 @@
         },
         {
           "snapshot_date": "2026-03-23",
-          "timestamp_utc": "2026-03-23 08:35:07 UTC",
-          "checked_at_utc": "2026-03-23T08:35:14.768Z",
+          "timestamp_utc": "2026-03-23 19:41:57 UTC",
+          "checked_at_utc": "2026-03-23T19:41:59.456Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
           "level": "verified",
           "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-22",
-          "timestamp_utc": "2026-03-22 08:30:01 UTC",
-          "checked_at_utc": "2026-03-22T08:30:09.888Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-21",
-          "timestamp_utc": "2026-03-21 08:41:52 UTC",
-          "checked_at_utc": "2026-03-21T08:41:54.490Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-20",
-          "timestamp_utc": "2026-03-20 08:30:50 UTC",
-          "checked_at_utc": "2026-03-20T08:30:52.513Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-19",
-          "timestamp_utc": "2026-03-19 08:30:05 UTC",
-          "checked_at_utc": "2026-03-19T08:30:11.875Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-18",
-          "timestamp_utc": "2026-03-18 08:43:59 UTC",
-          "checked_at_utc": "2026-03-18T08:44:00.986Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
           "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
           "meta": [
             {
@@ -588,8 +228,8 @@
         },
         {
           "snapshot_date": "2026-03-17",
-          "timestamp_utc": "2026-03-17 08:30:06 UTC",
-          "checked_at_utc": "2026-03-17T08:30:14.054Z",
+          "timestamp_utc": "2026-03-17 20:41:46 UTC",
+          "checked_at_utc": "2026-03-17T20:41:48.142Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -660,8 +300,8 @@
         },
         {
           "snapshot_date": "2026-03-16",
-          "timestamp_utc": "2026-03-16 08:35:47 UTC",
-          "checked_at_utc": "2026-03-16T08:35:49.479Z",
+          "timestamp_utc": "2026-03-16 09:16:47 UTC",
+          "checked_at_utc": "2026-03-16T09:16:48.565Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -727,367 +367,7 @@
             }
           ],
           "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-15",
-          "timestamp_utc": "2026-03-15 08:39:45 UTC",
-          "checked_at_utc": "2026-03-15T08:39:47.150Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-14",
-          "timestamp_utc": "2026-03-14 09:59:45 UTC",
-          "checked_at_utc": "2026-03-14T09:59:47.024Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-13",
-          "timestamp_utc": "2026-03-13 08:39:36 UTC",
-          "checked_at_utc": "2026-03-13T08:39:38.624Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-12",
-          "timestamp_utc": "2026-03-12 20:49:23 UTC",
-          "checked_at_utc": "2026-03-12T20:49:25.359Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-11",
-          "timestamp_utc": "2026-03-11 10:59:03 UTC",
-          "checked_at_utc": "2026-03-11T10:59:04.320Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
-          "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
+            "Baseline snapshot captured."
           ]
         }
       ]
@@ -1100,8 +380,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-24",
-        "timestamp_utc": "2026-03-24 08:30:06 UTC",
-        "checked_at_utc": "2026-03-24T08:30:15.945Z",
+        "timestamp_utc": "2026-03-24 21:04:02 UTC",
+        "checked_at_utc": "2026-03-24T21:04:12.011Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1120,15 +400,15 @@
           },
           {
             "label": "Supply",
-            "value": "55,530,784,174.76"
+            "value": "55,471,089,021.25"
           },
           {
             "label": "Top liquidity",
-            "value": "$26,343,186"
+            "value": "$124,339,549"
           },
           {
             "label": "Top venue",
-            "value": "uniswap / 0x3416cF"
+            "value": "curve / 0xbEbc44"
           },
           {
             "label": "Open source",
@@ -1145,7 +425,7 @@
           "Tax profile: buy 0% / sell 0% / transfer 0%.",
           "Contract is reported as open source.",
           "No active owner address was reported.",
-          "DEX liquidity observed across 135 venue(s)."
+          "DEX liquidity observed across 137 venue(s)."
         ],
         "links": [
           {
@@ -1158,18 +438,20 @@
           },
           {
             "label": "Open top pair",
-            "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
+            "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
           }
         ],
         "change_summary": [
-          "Supply changed from 55,739,859,269.07 to 55,530,784,174.76."
+          "Supply changed from 55,602,033,118.95 to 55,471,089,021.25.",
+          "Top venue changed from uniswap / 0x3416cF to curve / 0xbEbc44.",
+          "Top liquidity moved from $26,341,602 to $124,339,549."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-24",
-          "timestamp_utc": "2026-03-24 08:30:06 UTC",
-          "checked_at_utc": "2026-03-24T08:30:15.945Z",
+          "timestamp_utc": "2026-03-24 21:04:02 UTC",
+          "checked_at_utc": "2026-03-24T21:04:12.011Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1188,15 +470,15 @@
             },
             {
               "label": "Supply",
-              "value": "55,530,784,174.76"
+              "value": "55,471,089,021.25"
             },
             {
               "label": "Top liquidity",
-              "value": "$26,343,186"
+              "value": "$124,339,549"
             },
             {
               "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
+              "value": "curve / 0xbEbc44"
             },
             {
               "label": "Open source",
@@ -1213,7 +495,7 @@
             "Tax profile: buy 0% / sell 0% / transfer 0%.",
             "Contract is reported as open source.",
             "No active owner address was reported.",
-            "DEX liquidity observed across 135 venue(s)."
+            "DEX liquidity observed across 137 venue(s)."
           ],
           "links": [
             {
@@ -1226,17 +508,19 @@
             },
             {
               "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
+              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
             }
           ],
           "change_summary": [
-            "Supply changed from 55,739,859,269.07 to 55,530,784,174.76."
+            "Supply changed from 55,602,033,118.95 to 55,471,089,021.25.",
+            "Top venue changed from uniswap / 0x3416cF to curve / 0xbEbc44.",
+            "Top liquidity moved from $26,341,602 to $124,339,549."
           ]
         },
         {
           "snapshot_date": "2026-03-23",
-          "timestamp_utc": "2026-03-23 08:35:07 UTC",
-          "checked_at_utc": "2026-03-23T08:35:15.797Z",
+          "timestamp_utc": "2026-03-23 19:41:57 UTC",
+          "checked_at_utc": "2026-03-23T19:42:00.434Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1255,11 +539,11 @@
             },
             {
               "label": "Supply",
-              "value": "55,739,859,269.07"
+              "value": "55,602,033,118.95"
             },
             {
               "label": "Top liquidity",
-              "value": "$26,334,845"
+              "value": "$26,341,602"
             },
             {
               "label": "Top venue",
@@ -1297,354 +581,13 @@
             }
           ],
           "change_summary": [
-            "Supply changed from 55,863,314,326.36 to 55,739,859,269.07."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-22",
-          "timestamp_utc": "2026-03-22 08:30:01 UTC",
-          "checked_at_utc": "2026-03-22T08:30:11.259Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "55,863,314,326.36"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$29,118,272"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 134 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 55,906,508,955.81 to 55,863,314,326.36.",
-            "Top venue changed from uniswap / 0x8aa4e1 to uniswap / 0x3416cF.",
-            "Top liquidity moved from $20,266,278 to $29,118,272."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-21",
-          "timestamp_utc": "2026-03-21 08:41:52 UTC",
-          "checked_at_utc": "2026-03-21T08:41:55.506Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "55,906,508,955.81"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$20,266,278"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x8aa4e1"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 134 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x8aa4e11cbdf30eedc92100f4c8a31ff748e201d44712cc8c90d189edaa8e4e47"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 56,206,927,539.18 to 55,906,508,955.81.",
-            "Top venue changed from uniswap / 0x3416cF to uniswap / 0x8aa4e1.",
-            "Top liquidity moved from $28,983,900 to $20,266,278."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-20",
-          "timestamp_utc": "2026-03-20 08:30:50 UTC",
-          "checked_at_utc": "2026-03-20T08:30:53.693Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "56,206,927,539.18"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$28,983,900"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 133 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 56,362,156,964.44 to 56,206,927,539.18."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-19",
-          "timestamp_utc": "2026-03-19 08:30:05 UTC",
-          "checked_at_utc": "2026-03-19T08:30:12.878Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "56,362,156,964.44"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$28,959,939"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 132 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 56,215,970,481.19 to 56,362,156,964.44.",
-            "Top venue changed from curve / 0xbEbc44 to uniswap / 0x3416cF.",
-            "Top liquidity moved from $99,244,637 to $28,959,939."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-18",
-          "timestamp_utc": "2026-03-18 08:43:59 UTC",
-          "checked_at_utc": "2026-03-18T08:44:01.990Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "56,215,970,481.19"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$99,244,637"
-            },
-            {
-              "label": "Top venue",
-              "value": "curve / 0xbEbc44"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 131 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 56,308,083,779.58 to 56,215,970,481.19."
+            "Supply changed from 55,752,958,558.69 to 55,602,033,118.95."
           ]
         },
         {
           "snapshot_date": "2026-03-17",
-          "timestamp_utc": "2026-03-17 08:30:06 UTC",
-          "checked_at_utc": "2026-03-17T08:30:15.035Z",
+          "timestamp_utc": "2026-03-17 20:41:46 UTC",
+          "checked_at_utc": "2026-03-17T20:41:49.266Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1663,15 +606,15 @@
             },
             {
               "label": "Supply",
-              "value": "56,308,083,779.58"
+              "value": "56,247,915,565.12"
             },
             {
               "label": "Top liquidity",
-              "value": "$99,834,653"
+              "value": "$28,660,734"
             },
             {
               "label": "Top venue",
-              "value": "curve / 0xbEbc44"
+              "value": "uniswap / 0x3416cF"
             },
             {
               "label": "Open source",
@@ -1701,19 +644,17 @@
             },
             {
               "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
+              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
             }
           ],
           "change_summary": [
-            "Supply changed from 55,949,548,685.48 to 56,308,083,779.58.",
-            "Top venue changed from uniswap / 0x3416cF to curve / 0xbEbc44.",
-            "Top liquidity moved from $27,317,128 to $99,834,653."
+            "Supply changed from 55,949,548,685.48 to 56,247,915,565.12."
           ]
         },
         {
           "snapshot_date": "2026-03-16",
-          "timestamp_utc": "2026-03-16 08:35:47 UTC",
-          "checked_at_utc": "2026-03-16T08:35:50.754Z",
+          "timestamp_utc": "2026-03-16 09:16:47 UTC",
+          "checked_at_utc": "2026-03-16T09:16:49.872Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1736,7 +677,7 @@
             },
             {
               "label": "Top liquidity",
-              "value": "$27,317,128"
+              "value": "$27,310,009"
             },
             {
               "label": "Top venue",
@@ -1774,345 +715,7 @@
             }
           ],
           "change_summary": [
-            "Supply changed from 55,976,318,935.48 to 55,949,548,685.48."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-15",
-          "timestamp_utc": "2026-03-15 08:39:45 UTC",
-          "checked_at_utc": "2026-03-15T08:39:48.530Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "55,976,318,935.48"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$26,176,103"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 130 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 56,016,459,776.84 to 55,976,318,935.48.",
-            "Top venue changed from curve / 0xbEbc44 to uniswap / 0x3416cF.",
-            "Top liquidity moved from $95,984,778 to $26,176,103."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-14",
-          "timestamp_utc": "2026-03-14 09:59:45 UTC",
-          "checked_at_utc": "2026-03-14T09:59:48.755Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "56,016,459,776.84"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$95,984,778"
-            },
-            {
-              "label": "Top venue",
-              "value": "curve / 0xbEbc44"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 130 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          ],
-          "change_summary": [
-            "Top venue changed from Unknown /  to curve / 0xbEbc44.",
-            "Top liquidity became visible at $95,984,778."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-13",
-          "timestamp_utc": "2026-03-13 08:39:36 UTC",
-          "checked_at_utc": "2026-03-13T08:39:39.799Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "55,720,263,712.2"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$25,948,951"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 129 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 55,548,766,355.27 to 55,720,263,712.2."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-12",
-          "timestamp_utc": "2026-03-12 20:49:23 UTC",
-          "checked_at_utc": "2026-03-12T20:49:26.995Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "55,548,766,355.27"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$25,866,310"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 129 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 55,671,836,472.12 to 55,548,766,355.27."
-          ]
-        },
-        {
-          "snapshot_date": "2026-03-11",
-          "timestamp_utc": "2026-03-11 10:59:03 UTC",
-          "checked_at_utc": "2026-03-11T10:59:05.328Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "55,645,273,068.32"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$104,183,687"
-            },
-            {
-              "label": "Top venue",
-              "value": "curve / 0xbEbc44"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "DEX liquidity observed across 128 venue(s)."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 55,657,373,938.88 to 55,645,273,068.32."
+            "Baseline snapshot captured."
           ]
         }
       ]

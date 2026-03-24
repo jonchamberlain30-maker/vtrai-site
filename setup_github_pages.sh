@@ -19,6 +19,8 @@ fi
 mkdir -p "$PAGES_WORKDIR"
 rsync -av --delete \
   --exclude 'logs/' \
+  --exclude '__pycache__/' \
+  --exclude '*.pyc' \
   --exclude '.DS_Store' \
   --exclude '.git/' \
   "$SRC_DIR/" "$PAGES_WORKDIR/"
