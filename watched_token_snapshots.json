@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-25 11:17:55 UTC",
-  "generated_at_iso": "2026-03-25T11:17:55Z",
+  "generated_at_utc": "2026-03-25 17:49:24 UTC",
+  "generated_at_iso": "2026-03-25T17:49:24Z",
   "count": 2,
   "items": [
     {
@@ -11,8 +11,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-25",
-        "timestamp_utc": "2026-03-25 11:17:55 UTC",
-        "checked_at_utc": "2026-03-25T11:17:57.379Z",
+        "timestamp_utc": "2026-03-25 17:49:24 UTC",
+        "checked_at_utc": "2026-03-25T17:49:26.503Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -84,8 +84,8 @@
       "history": [
         {
           "snapshot_date": "2026-03-25",
-          "timestamp_utc": "2026-03-25 11:17:55 UTC",
-          "checked_at_utc": "2026-03-25T11:17:57.379Z",
+          "timestamp_utc": "2026-03-25 17:49:24 UTC",
+          "checked_at_utc": "2026-03-25T17:49:26.503Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -214,8 +214,8 @@
               "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
             },
             {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+              "label": "Open GeckoTerminal pool",
+              "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
             },
             {
               "label": "Open Raydium route",
@@ -286,8 +286,8 @@
               "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
             },
             {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+              "label": "Open GeckoTerminal pool",
+              "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
             },
             {
               "label": "Open Raydium route",
@@ -358,8 +358,8 @@
               "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
             },
             {
-              "label": "Open DexScreener pair",
-              "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+              "label": "Open GeckoTerminal pool",
+              "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
             },
             {
               "label": "Open Raydium route",
@@ -380,8 +380,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-25",
-        "timestamp_utc": "2026-03-25 11:17:55 UTC",
-        "checked_at_utc": "2026-03-25T11:17:57.939Z",
+        "timestamp_utc": "2026-03-25 17:49:24 UTC",
+        "checked_at_utc": "2026-03-25T17:49:27.489Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -400,15 +400,15 @@
           },
           {
             "label": "Supply",
-            "value": "55,478,340,257.29"
+            "value": "55,453,482,819.32"
           },
           {
             "label": "Top liquidity",
-            "value": "Unknown"
+            "value": "$123,113,220"
           },
           {
             "label": "Top venue",
-            "value": "Unknown / "
+            "value": "curve / 0xbEbc44"
           },
           {
             "label": "Open source",
@@ -425,7 +425,7 @@
           "Tax profile: buy 0% / sell 0% / transfer 0%.",
           "Contract is reported as open source.",
           "No active owner address was reported.",
-          "DEX liquidity observed across 138 venue(s)."
+          "DEX liquidity observed across 140 venue(s)."
         ],
         "links": [
           {
@@ -435,18 +435,23 @@
           {
             "label": "Search on DexScreener",
             "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+          },
+          {
+            "label": "Open top pair",
+            "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
           }
         ],
         "change_summary": [
-          "Top venue changed from curve / 0xbEbc44 to Unknown / .",
-          "Top liquidity is no longer visible in the current snapshot."
+          "Supply changed from 55,478,340,257.29 to 55,453,482,819.32.",
+          "Top venue changed from Unknown /  to curve / 0xbEbc44.",
+          "Top liquidity became visible at $123,113,220."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-25",
-          "timestamp_utc": "2026-03-25 11:17:55 UTC",
-          "checked_at_utc": "2026-03-25T11:17:57.939Z",
+          "timestamp_utc": "2026-03-25 17:49:24 UTC",
+          "checked_at_utc": "2026-03-25T17:49:27.489Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -465,15 +470,15 @@
             },
             {
               "label": "Supply",
-              "value": "55,478,340,257.29"
+              "value": "55,453,482,819.32"
             },
             {
               "label": "Top liquidity",
-              "value": "Unknown"
+              "value": "$123,113,220"
             },
             {
               "label": "Top venue",
-              "value": "Unknown / "
+              "value": "curve / 0xbEbc44"
             },
             {
               "label": "Open source",
@@ -490,7 +495,7 @@
             "Tax profile: buy 0% / sell 0% / transfer 0%.",
             "Contract is reported as open source.",
             "No active owner address was reported.",
-            "DEX liquidity observed across 138 venue(s)."
+            "DEX liquidity observed across 140 venue(s)."
           ],
           "links": [
             {
@@ -500,11 +505,16 @@
             {
               "label": "Search on DexScreener",
               "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            },
+            {
+              "label": "Open top pair",
+              "url": "https://dexscreener.com/ethereum/0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7-0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48-0xdac17f958d2ee523a2206206994597c13d831ec7"
             }
           ],
           "change_summary": [
-            "Top venue changed from curve / 0xbEbc44 to Unknown / .",
-            "Top liquidity is no longer visible in the current snapshot."
+            "Supply changed from 55,478,340,257.29 to 55,453,482,819.32.",
+            "Top venue changed from Unknown /  to curve / 0xbEbc44.",
+            "Top liquidity became visible at $123,113,220."
           ]
         },
         {

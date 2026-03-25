@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-25 11:17:55 UTC",
-  "generated_at_iso": "2026-03-25T11:17:55Z",
+  "generated_at_utc": "2026-03-25 17:49:24 UTC",
+  "generated_at_iso": "2026-03-25T17:49:24Z",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
@@ -8,8 +8,8 @@
   },
   "latest": {
     "snapshot_date": "2026-03-25",
-    "timestamp_utc": "2026-03-25 11:17:55 UTC",
-    "checked_at_utc": "2026-03-25T11:17:56.815Z",
+    "timestamp_utc": "2026-03-25 17:49:24 UTC",
+    "checked_at_utc": "2026-03-25T17:49:26.503Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -81,8 +81,8 @@
   "items": [
     {
       "snapshot_date": "2026-03-25",
-      "timestamp_utc": "2026-03-25 11:17:55 UTC",
-      "checked_at_utc": "2026-03-25T11:17:56.815Z",
+      "timestamp_utc": "2026-03-25 17:49:24 UTC",
+      "checked_at_utc": "2026-03-25T17:49:26.503Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -211,8 +211,8 @@
           "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
         },
         {
-          "label": "Open DexScreener pair",
-          "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+          "label": "Open GeckoTerminal pool",
+          "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
         },
         {
           "label": "Open Raydium route",
@@ -283,8 +283,8 @@
           "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
         },
         {
-          "label": "Open DexScreener pair",
-          "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+          "label": "Open GeckoTerminal pool",
+          "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
         },
         {
           "label": "Open Raydium route",
@@ -355,8 +355,8 @@
           "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
         },
         {
-          "label": "Open DexScreener pair",
-          "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+          "label": "Open GeckoTerminal pool",
+          "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
         },
         {
           "label": "Open Raydium route",
@@ -427,8 +427,8 @@
           "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
         },
         {
-          "label": "Open DexScreener pair",
-          "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+          "label": "Open GeckoTerminal pool",
+          "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
         },
         {
           "label": "Open Raydium route",
@@ -499,8 +499,8 @@
           "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
         },
         {
-          "label": "Open DexScreener pair",
-          "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+          "label": "Open GeckoTerminal pool",
+          "url": "https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU"
         },
         {
           "label": "Open Raydium route",
