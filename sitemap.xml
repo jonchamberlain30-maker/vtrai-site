@@ -49,6 +49,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://getvectora.ai/token-info.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
     <loc>https://getvectora.ai/verify-token.html</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>

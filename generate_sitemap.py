@@ -20,6 +20,7 @@ ORDER = [
     "mint-authority-freeze-authority.html",
     "open-preview.html",
     "proof.html",
+    "token-info.html",
     "verify-token.html",
     "updates.html",
     "whitepaper.html",
@@ -35,6 +36,7 @@ CHANGEFREQ = {
     "dexscreener-token-checker.html": "weekly",
     "mint-authority-freeze-authority.html": "weekly",
     "open-preview.html": "daily",
+    "token-info.html": "weekly",
     "updates.html": "daily",
 }
 
@@ -47,6 +49,7 @@ PRIORITY = {
     "mint-authority-freeze-authority.html": "0.86",
     "open-preview.html": "0.92",
     "proof.html": "0.9",
+    "token-info.html": "0.88",
     "verify-token.html": "0.9",
     "updates.html": "0.9",
     "whitepaper.html": "0.8",
