@@ -145,6 +145,32 @@
       margin-bottom: 6px;
       color: var(--ink);
     }
+    .review-card {
+      margin-top: 14px;
+      border: 1px solid rgba(74, 227, 181, 0.3);
+      border-radius: 14px;
+      background: rgba(11, 40, 39, 0.48);
+      padding: 14px;
+      line-height: 1.5;
+    }
+    .review-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+    .review-card p {
+      margin: 0 0 10px;
+      color: #d6f7ef;
+    }
+    .review-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #dff7ff;
+    }
+    .review-card a {
+      color: #f3fdff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     .instruction-box code {
       background: rgba(255,255,255,0.06);
       border-radius: 6px;
@@ -328,7 +354,7 @@
     <header class="brand">
       <div>
         <h1>Official Vectora Update Desk</h1>
-        <p class="sub">Primary source for launch notices, proof snapshots, and trust updates while X is still under setup.</p>
+        <p class="sub">Primary source for listing-review milestones, trust snapshots, and official Vectora updates.</p>
       </div>
       <div>
         <a href="./index.html">Back to Homepage</a>
@@ -340,13 +366,26 @@
 
     <div class="badges">
       <span class="badge">Proof-first comms</span>
-      <span class="badge">No live videos</span>
       <span class="badge">Website-first release</span>
-      <span class="badge">X rollout once ready</span>
+      <span class="badge">GeckoTerminal submitted</span>
+      <span class="badge">CoinGecko submitted</span>
     </div>
     <p class="state" id="status">Loading latest updates...</p>
     <div class="filter-state" id="filterState"></div>
     <section class="card token-summary" id="tokenSummary"></section>
+    <section class="review-card">
+      <h2>Current Review Status</h2>
+      <p>Vectora is now pushing the public review trail directly. The current verified state is below.</p>
+      <ul>
+        <li>GeckoTerminal token info request submitted on 2026-03-25.</li>
+        <li>CoinGecko listing request submitted on 2026-03-25.</li>
+        <li>CoinGecko public request ID: <code>CL2503260032</code>.</li>
+        <li>Official verification thread: <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">open on X</a>.</li>
+        <li>Canonical references: <a href="./token-info.html">Token Info</a>, <a href="./proof.html">Proof Pack</a>, <a href="./whitepaper.html">Whitepaper</a>.</li>
+        <li>Next review step: Jupiter token verification.</li>
+      </ul>
+      <p>Submission does not imply approval. Treat only the official mint and links on getvectora.ai as trusted.</p>
+    </section>
 
     <section class="grid">
       <article class="card">
