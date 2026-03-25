@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Understand mint authority and freeze authority on Solana, what revocation means, and how to interpret those signals before buying a token." />
+  <meta name="description" content="What mint authority and freeze authority mean on Solana, what revocation means, and how to interpret those control signals before buying a token." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/mint-authority-freeze-authority.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-profile-512-v4.png" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Mint Authority vs Freeze Authority On Solana | Vectora" />
-  <meta property="og:description" content="Learn what mint authority and freeze authority mean on Solana, why revocation matters, and what to do when those powers remain active." />
+  <meta property="og:title" content="What Mint Authority And Freeze Authority Mean On Solana | Vectora" />
+  <meta property="og:description" content="Learn what mint authority and freeze authority mean on Solana, why revocation matters, and what to do when those control powers remain active." />
   <meta property="og:url" content="https://getvectora.ai/mint-authority-freeze-authority.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
   <meta property="og:image:alt" content="Mint authority and freeze authority guide by Vectora" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mint Authority vs Freeze Authority On Solana | Vectora" />
-  <meta name="twitter:description" content="Learn what mint authority and freeze authority mean on Solana, why revocation matters, and what to do when those powers remain active." />
+  <meta name="twitter:title" content="What Mint Authority And Freeze Authority Mean On Solana | Vectora" />
+  <meta name="twitter:description" content="Learn what mint authority and freeze authority mean on Solana, why revocation matters, and what to do when those control powers remain active." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-social-v4.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -30,8 +30,8 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Mint Authority vs Freeze Authority On Solana",
-      "description": "A practical explanation of Solana mint authority and freeze authority, what revocation means, and how traders can interpret those signals.",
+      "headline": "What Mint Authority And Freeze Authority Mean On Solana",
+      "description": "A practical explanation of Solana mint authority and freeze authority, what revocation means, and how traders can interpret those control signals.",
       "author": {
         "@type": "Organization",
         "name": "Vectora"
@@ -41,7 +41,7 @@
         "name": "Vectora"
       },
       "datePublished": "2026-03-23",
-      "dateModified": "2026-03-23",
+      "dateModified": "2026-03-25",
       "mainEntityOfPage": "https://getvectora.ai/mint-authority-freeze-authority.html"
     }
   </script>
@@ -71,7 +71,47 @@
       ]
     }
   </script>
-  <title>Mint Authority vs Freeze Authority On Solana | Vectora</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is mint authority on Solana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mint authority is the permission that allows new token supply to be created. If it remains active, total supply can still potentially change later."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is freeze authority on Solana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Freeze authority is the permission that allows token accounts to be frozen. If it remains active, token mobility can still be controlled through that authority."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is revoked mint authority or freeze authority better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Revoked authority is usually cleaner because it removes obvious control levers, but it is still only one part of a wider verification decision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does active authority mean a token is a scam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not automatically. Active authority means more questions are needed. If the project does not explain it clearly, that should count as a trust cost."
+          }
+        }
+      ]
+    }
+  </script>
+  <title>What Mint Authority And Freeze Authority Mean On Solana | Vectora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -208,8 +248,8 @@
     </div>
 
     <section class="hero">
-      <h1>Mint Authority vs Freeze Authority On Solana</h1>
-      <p>These two signals are easy to repeat and easy to misunderstand. Mint authority controls whether more supply can be created. Freeze authority controls whether token accounts can be frozen. Neither signal should be read in isolation, but both matter because they shape how much control still sits above holders.</p>
+      <h1>What Mint Authority And Freeze Authority Mean On Solana</h1>
+      <p>These two signals are easy to repeat and easy to misunderstand. Mint authority controls whether more supply can be created. Freeze authority controls whether token accounts can be frozen. Neither signal should be read in isolation, but both matter because they shape how much control still sits above holders before anyone buys a token.</p>
       <div class="chips">
         <span class="chip">Mint authority = supply control</span>
         <span class="chip">Freeze authority = account control</span>
@@ -285,6 +325,30 @@
           <a class="btn secondary tracked-link" href="./proof.html" data-label="authority_guide_proof">Open Proof Pack</a>
         </div>
       </article>
+    </section>
+
+    <section class="card">
+      <h2>Authority Guide FAQ</h2>
+      <div class="proof">
+        <strong>What is mint authority on Solana?</strong>
+        <p>Mint authority is the permission that allows new token supply to be created. If it remains active, total supply can still potentially change later.</p>
+      </div>
+      <div class="proof">
+        <strong>What is freeze authority on Solana?</strong>
+        <p>Freeze authority is the permission that allows token accounts to be frozen. If it remains active, token mobility can still be controlled through that authority.</p>
+      </div>
+      <div class="proof">
+        <strong>Is revoked mint authority or freeze authority better?</strong>
+        <p>Usually yes. Revoked authority removes obvious control levers, but it still does not settle the full verification question on its own.</p>
+      </div>
+      <div class="proof">
+        <strong>Does active authority mean the token is a scam?</strong>
+        <p>Not automatically. It means more questions are needed. If the project does not explain why authority remains active, treat that as a trust cost.</p>
+      </div>
+      <div class="cta">
+        <a class="btn secondary tracked-link" href="./solana-token-checker.html" data-label="authority_guide_faq_solana">See Solana Token Checks</a>
+        <a class="btn secondary tracked-link" href="./dexscreener-token-checker.html" data-label="authority_guide_faq_dexscreener">See DexScreener Checks</a>
+      </div>
     </section>
 
     <p class="footer">Vectora publishes verification context, not guarantees. Always confirm the exact contract before trading.</p>
