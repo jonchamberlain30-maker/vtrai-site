@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-26 19:12:57 UTC",
-  "generated_at_iso": "2026-03-26T19:12:57Z",
+  "generated_at_utc": "2026-03-26 19:27:18 UTC",
+  "generated_at_iso": "2026-03-26T19:27:18Z",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
@@ -8,15 +8,15 @@
   },
   "latest": {
     "snapshot_date": "2026-03-26",
-    "timestamp_utc": "2026-03-26 19:12:57 UTC",
-    "checked_at_utc": "2026-03-26T19:12:58.967Z",
+    "timestamp_utc": "2026-03-26 19:27:18 UTC",
+    "checked_at_utc": "2026-03-26T19:27:19.216Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
     "level": "verified",
     "title": "Verified official token",
     "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
-    "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
+    "image_url": "https://getvectora.ai/assets/vtrai-profile-512-v4.png",
     "meta": [
       {
         "label": "Network",
@@ -81,15 +81,15 @@
   "items": [
     {
       "snapshot_date": "2026-03-26",
-      "timestamp_utc": "2026-03-26 19:12:57 UTC",
-      "checked_at_utc": "2026-03-26T19:12:58.967Z",
+      "timestamp_utc": "2026-03-26 19:27:18 UTC",
+      "checked_at_utc": "2026-03-26T19:27:19.216Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
       "level": "verified",
       "title": "Verified official token",
       "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
-      "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
+      "image_url": "https://getvectora.ai/assets/vtrai-profile-512-v4.png",
       "meta": [
         {
           "label": "Network",
