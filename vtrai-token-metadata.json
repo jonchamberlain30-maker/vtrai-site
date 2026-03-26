@@ -2,7 +2,7 @@
   "name": "Vectora",
   "symbol": "VTRAI",
   "description": "Vectora (VTRAI) is a Solana-native AI token focused on transparent, automated operational reporting and adaptive signal infrastructure.",
-  "image": "https://getvectora.ai/assets/vtrai-token-2026-03-26.png",
+  "image": "https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png",
   "external_url": "https://getvectora.ai/token-info.html",
   "attributes": [
     {
@@ -25,7 +25,7 @@
   "properties": {
     "files": [
       {
-        "uri": "https://getvectora.ai/assets/vtrai-token-2026-03-26.png",
+        "uri": "https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png",
         "type": "image/png"
       }
     ],

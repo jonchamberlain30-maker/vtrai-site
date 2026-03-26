@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-26 20:26:23 UTC",
-  "generated_at_iso": "2026-03-26T20:26:23Z",
+  "generated_at_utc": "2026-03-26 20:42:14 UTC",
+  "generated_at_iso": "2026-03-26T20:42:14Z",
   "count": 2,
   "items": [
     {
@@ -11,8 +11,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-26",
-        "timestamp_utc": "2026-03-26 20:26:23 UTC",
-        "checked_at_utc": "2026-03-26T20:26:25.498Z",
+        "timestamp_utc": "2026-03-26 20:42:14 UTC",
+        "checked_at_utc": "2026-03-26T20:42:15.004Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -84,8 +84,8 @@
       "history": [
         {
           "snapshot_date": "2026-03-26",
-          "timestamp_utc": "2026-03-26 20:26:23 UTC",
-          "checked_at_utc": "2026-03-26T20:26:25.498Z",
+          "timestamp_utc": "2026-03-26 20:42:14 UTC",
+          "checked_at_utc": "2026-03-26T20:42:15.004Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -452,8 +452,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-26",
-        "timestamp_utc": "2026-03-26 20:26:23 UTC",
-        "checked_at_utc": "2026-03-26T20:26:26.522Z",
+        "timestamp_utc": "2026-03-26 20:42:14 UTC",
+        "checked_at_utc": "2026-03-26T20:42:15.980Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -476,7 +476,7 @@
           },
           {
             "label": "Top liquidity",
-            "value": "$127,150,305"
+            "value": "$127,155,019"
           },
           {
             "label": "Top venue",
@@ -514,16 +514,14 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 55,265,658,630.41 to 55,192,290,039.28.",
-          "Top venue changed from uniswap / 0x3416cF to curve / 0xbEbc44.",
-          "Top liquidity moved from $26,897,733 to $127,150,305."
+          "No material trust change since the last snapshot."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-26",
-          "timestamp_utc": "2026-03-26 20:26:23 UTC",
-          "checked_at_utc": "2026-03-26T20:26:26.522Z",
+          "timestamp_utc": "2026-03-26 20:42:14 UTC",
+          "checked_at_utc": "2026-03-26T20:42:15.980Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -546,7 +544,7 @@
             },
             {
               "label": "Top liquidity",
-              "value": "$127,150,305"
+              "value": "$127,155,019"
             },
             {
               "label": "Top venue",
@@ -584,9 +582,7 @@
             }
           ],
           "change_summary": [
-            "Supply changed from 55,265,658,630.41 to 55,192,290,039.28.",
-            "Top venue changed from uniswap / 0x3416cF to curve / 0xbEbc44.",
-            "Top liquidity moved from $26,897,733 to $127,150,305."
+            "No material trust change since the last snapshot."
           ]
         },
         {
