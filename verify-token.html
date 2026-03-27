@@ -157,20 +157,6 @@
       position: relative;
       z-index: 1;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -36px;
-      right: -28px;
-      width: 204px;
-      height: 204px;
-      background: center / contain no-repeat var(--token-mark);
-      opacity: 0.13;
-      mix-blend-mode: screen;
-      filter: drop-shadow(0 0 30px rgba(77, 234, 255, 0.22));
-      transform: rotate(8deg);
-      pointer-events: none;
-    }
     .hero::after {
       content: "";
       position: absolute;
@@ -178,7 +164,7 @@
       bottom: -72px;
       width: 164px;
       height: 164px;
-      background: radial-gradient(circle, rgba(77, 234, 255, 0.16), rgba(157, 124, 255, 0.06) 60%, transparent 76%);
+      background: radial-gradient(circle, rgba(77, 234, 255, 0.12), rgba(157, 124, 255, 0.04) 60%, transparent 76%);
       pointer-events: none;
     }
     .card::before {
