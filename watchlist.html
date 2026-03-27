@@ -39,6 +39,7 @@
       --warn: #ffbfd0;
       --warn-strong: #ffd58e;
       --card: rgba(9, 16, 32, 0.74);
+      --token-mark: url("./assets/vtrai-token-2026-03-26-padded.png");
     }
     * { box-sizing: border-box; }
     body {
@@ -96,6 +97,61 @@
     .hero {
       margin-top: 14px;
       padding: 22px;
+    }
+    .hero,
+    .card,
+    .helper-note,
+    .state {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero > *,
+    .card > *,
+    .helper-note > *,
+    .state > * {
+      position: relative;
+      z-index: 1;
+    }
+    .hero::before,
+    .state::before {
+      content: "";
+      position: absolute;
+      top: -32px;
+      right: -26px;
+      width: 176px;
+      height: 176px;
+      background: center / contain no-repeat var(--token-mark);
+      opacity: 0.12;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 24px rgba(77, 234, 255, 0.2));
+      transform: rotate(8deg);
+      pointer-events: none;
+    }
+    .hero::after,
+    .state::after {
+      content: "";
+      position: absolute;
+      right: 54px;
+      bottom: -66px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(77, 234, 255, 0.16), rgba(157, 124, 255, 0.06) 60%, transparent 76%);
+      pointer-events: none;
+    }
+    .card::before,
+    .helper-note::before {
+      content: "";
+      position: absolute;
+      right: -14px;
+      bottom: -16px;
+      width: 96px;
+      height: 96px;
+      background: center / contain no-repeat var(--token-mark);
+      opacity: 0.08;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 18px rgba(77, 234, 255, 0.16));
+      pointer-events: none;
     }
     h1 {
       margin: 0;

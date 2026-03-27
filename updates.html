@@ -40,6 +40,7 @@
       --warn: #ffbfd0;
       --card: rgba(9, 16, 32, 0.7);
       --warn-strong: #ffd9a7;
+      --token-mark: url("./assets/vtrai-token-2026-03-26-padded.png");
     }
     * { box-sizing: border-box; }
     body {
@@ -68,6 +69,27 @@
       border-radius: 12px;
       padding: 10px 14px;
       background: rgba(8, 14, 29, 0.78);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .brand > * {
+      position: relative;
+      z-index: 1;
+    }
+    .brand::before {
+      content: "";
+      position: absolute;
+      top: -28px;
+      right: -24px;
+      width: 174px;
+      height: 174px;
+      background: center / contain no-repeat var(--token-mark);
+      opacity: 0.12;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 24px rgba(77, 234, 255, 0.2));
+      transform: rotate(8deg);
+      pointer-events: none;
     }
     .brand a {
       color: var(--ink);
@@ -75,6 +97,19 @@
       border-bottom: 1px dashed #466487;
       font-size: 0.93rem;
       margin-left: 10px;
+    }
+    h1 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h1::before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background: center / contain no-repeat var(--token-mark);
+      filter: drop-shadow(0 0 18px rgba(77, 234, 255, 0.24));
+      flex-shrink: 0;
     }
     h1 {
       margin: 0;
@@ -139,6 +174,48 @@
       padding: 12px;
       color: #d7efff;
       line-height: 1.45;
+    }
+    .review-card,
+    .card,
+    .instruction-box,
+    .item {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .review-card > *,
+    .card > *,
+    .instruction-box > *,
+    .item > * {
+      position: relative;
+      z-index: 1;
+    }
+    .review-card::before,
+    .card::before {
+      content: "";
+      position: absolute;
+      right: -16px;
+      bottom: -18px;
+      width: 108px;
+      height: 108px;
+      background: center / contain no-repeat var(--token-mark);
+      opacity: 0.08;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 18px rgba(77, 234, 255, 0.16));
+      pointer-events: none;
+    }
+    .instruction-box::before,
+    .item::before {
+      content: "";
+      position: absolute;
+      right: -10px;
+      bottom: -12px;
+      width: 88px;
+      height: 88px;
+      background: center / contain no-repeat var(--token-mark);
+      opacity: 0.07;
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
     .instruction-box strong {
       display: block;
