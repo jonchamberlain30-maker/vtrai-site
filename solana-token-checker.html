@@ -223,6 +223,43 @@
       font-size: 0.84rem;
       text-align: center;
     }
+    .gecko-strip {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      border-radius: 12px;
+      background: rgba(8, 15, 30, 0.72);
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .gecko-strip-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .gecko-strip-brand img {
+      height: 22px;
+      width: auto;
+      display: block;
+    }
+    .gecko-strip-brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .gecko-strip-link {
+      text-decoration: none;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
     @media (max-width: 860px) {
       .grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 1.7rem; }
@@ -336,6 +373,14 @@
         <a class="btn secondary tracked-link" href="./dexscreener-token-checker.html" data-label="solana_checker_faq_dexscreener">See DexScreener Checks</a>
         <a class="btn secondary tracked-link" href="./mint-authority-freeze-authority.html" data-label="solana_checker_faq_authority">See Authority Guide</a>
       </div>
+    </section>
+
+    <section class="gecko-strip" aria-label="GeckoTerminal listing reference">
+      <div class="gecko-strip-brand">
+        <img src="./assets/geckoterminal-logo-dark.svg" alt="GeckoTerminal logo" loading="lazy" decoding="async" />
+        <p>Official pool listed on GeckoTerminal.</p>
+      </div>
+      <a class="gecko-strip-link tracked-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" data-label="solana_checker_gecko_badge" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
     </section>
 
     <p class="footer">Vectora publishes route checks and verification context, not guarantees. Always confirm the exact mint before trading.</p>
