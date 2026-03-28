@@ -13,12 +13,12 @@
   <meta property="og:title" content="Token Verification Guides For Solana Traders | Vectora" />
   <meta property="og:description" content="Learn how to check token contracts, compare DexScreener routes, and understand Solana mint and freeze authority before you buy." />
   <meta property="og:url" content="https://getvectora.ai/guides.html" />
-  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-header-social-2026-03-26.jpg" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-26.png" />
   <meta property="og:image:alt" content="Vectora token verification guides hub" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Token Verification Guides For Solana Traders | Vectora" />
   <meta name="twitter:description" content="Learn how to check token contracts, compare DexScreener routes, and understand Solana mint and freeze authority before you buy." />
-  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-header-social-2026-03-26.jpg" />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-26.png" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -259,6 +259,49 @@
       font-size: 0.88rem;
       text-align: center;
     }
+    .gecko-badge {
+      margin-top: 16px;
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 14px;
+      background: rgba(8, 15, 30, 0.72);
+      padding: 11px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .gecko-badge-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 260px;
+      flex: 1;
+    }
+    .gecko-badge-left img {
+      height: 20px;
+      width: auto;
+      display: block;
+      opacity: 0.95;
+    }
+    .gecko-badge-left p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+    .gecko-badge-link {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 10px;
+      padding: 8px 11px;
+      background: rgba(18, 30, 52, 0.72);
+      color: #e8fbff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+    .gecko-badge-link:hover { border-color: var(--cyan); }
     @media (max-width: 920px) {
       .hero, .grid, .choose-grid { grid-template-columns: 1fr; }
       h1 { font-size: 2rem; }
@@ -351,6 +394,14 @@
           <a class="tracked-link" href="./mint-authority-freeze-authority.html" data-label="hub_start_authority">Start here</a>
         </div>
       </div>
+    </section>
+
+    <section class="gecko-badge" aria-label="GeckoTerminal listing reference">
+      <div class="gecko-badge-left">
+        <img src="./assets/geckoterminal-logo-dark.svg" alt="GeckoTerminal logo" loading="lazy" decoding="async" />
+        <p>Vectora is listed on GeckoTerminal. Use the pool page when verifying external market references.</p>
+      </div>
+      <a class="gecko-badge-link tracked-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" data-label="hub_geckoterminal_pool" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
     </section>
 
     <p class="footer">Vectora publishes verification and route context, not guarantees. Always confirm the exact contract before trading.</p>
