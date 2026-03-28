@@ -59,9 +59,17 @@ PRIORITY = {
 
 CANONICAL_RE = re.compile(r'<link\s+rel="canonical"\s+href="([^"]+)"', re.IGNORECASE)
 ROBOTS_RE = re.compile(r'<meta\s+name="robots"\s+content="([^"]+)"', re.IGNORECASE)
+STAGING_NAME_RE = re.compile(r".*-live-\d{8}\.html$", re.IGNORECASE)
+
+
+def is_excluded(path: Path) -> bool:
+    # Keep temporary cache-bust / staging pages out of sitemap permanently.
+    return bool(STAGING_NAME_RE.match(path.name))
 
 
 def parse_entry(path: Path) -> dict | None:
+    if is_excluded(path):
+        return None
     text = path.read_text(encoding="utf-8")
     robots_match = ROBOTS_RE.search(text)
     robots = (robots_match.group(1).strip().lower() if robots_match else "")
