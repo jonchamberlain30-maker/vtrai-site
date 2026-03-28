@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-28 13:58:46 UTC",
-  "generated_at_iso": "2026-03-28T13:58:46Z",
+  "generated_at_utc": "2026-03-28 14:01:59 UTC",
+  "generated_at_iso": "2026-03-28T14:01:59Z",
   "count": 2,
   "items": [
     {
@@ -11,7 +11,7 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-28",
-        "timestamp_utc": "2026-03-28 13:58:46 UTC",
+        "timestamp_utc": "2026-03-28 14:01:59 UTC",
         "checked_at_utc": "2026-03-28T13:58:47.515Z",
         "network_id": "solana",
         "network_label": "Solana",
@@ -84,7 +84,7 @@
       "history": [
         {
           "snapshot_date": "2026-03-28",
-          "timestamp_utc": "2026-03-28 13:58:46 UTC",
+          "timestamp_utc": "2026-03-28 14:01:59 UTC",
           "checked_at_utc": "2026-03-28T13:58:47.515Z",
           "network_id": "solana",
           "network_label": "Solana",
@@ -596,7 +596,7 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-28",
-        "timestamp_utc": "2026-03-28 13:58:46 UTC",
+        "timestamp_utc": "2026-03-28 14:01:59 UTC",
         "checked_at_utc": "2026-03-28T13:58:48.651Z",
         "network_id": "1",
         "network_label": "Ethereum",
@@ -658,15 +658,13 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 55,230,552,608.13 to 55,047,928,821.24.",
-          "Top venue changed from curve / 0xbEbc44 to uniswap / 0x8aa4e1.",
-          "Top liquidity moved from $127,493,130 to $20,269,740."
+          "No material trust change since the last snapshot."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-28",
-          "timestamp_utc": "2026-03-28 13:58:46 UTC",
+          "timestamp_utc": "2026-03-28 14:01:59 UTC",
           "checked_at_utc": "2026-03-28T13:58:48.651Z",
           "network_id": "1",
           "network_label": "Ethereum",
@@ -728,9 +726,7 @@
             }
           ],
           "change_summary": [
-            "Supply changed from 55,230,552,608.13 to 55,047,928,821.24.",
-            "Top venue changed from curve / 0xbEbc44 to uniswap / 0x8aa4e1.",
-            "Top liquidity moved from $127,493,130 to $20,269,740."
+            "No material trust change since the last snapshot."
           ]
         },
         {
