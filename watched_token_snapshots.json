@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-29 09:48:17 UTC",
-  "generated_at_iso": "2026-03-29T09:48:17Z",
+  "generated_at_utc": "2026-03-29 09:52:28 UTC",
+  "generated_at_iso": "2026-03-29T09:52:28Z",
   "count": 2,
   "items": [
     {
@@ -11,7 +11,7 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-29",
-        "timestamp_utc": "2026-03-29 09:48:17 UTC",
+        "timestamp_utc": "2026-03-29 09:52:28 UTC",
         "checked_at_utc": "2026-03-29T09:48:18.428Z",
         "network_id": "solana",
         "network_label": "Solana",
@@ -84,7 +84,7 @@
       "history": [
         {
           "snapshot_date": "2026-03-29",
-          "timestamp_utc": "2026-03-29 09:48:17 UTC",
+          "timestamp_utc": "2026-03-29 09:52:28 UTC",
           "checked_at_utc": "2026-03-29T09:48:18.428Z",
           "network_id": "solana",
           "network_label": "Solana",
@@ -668,7 +668,7 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-03-29",
-        "timestamp_utc": "2026-03-29 09:48:17 UTC",
+        "timestamp_utc": "2026-03-29 09:52:28 UTC",
         "checked_at_utc": "2026-03-29T09:48:19.670Z",
         "network_id": "1",
         "network_label": "Ethereum",
@@ -730,13 +730,13 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 55,058,464,648.82 to 55,053,513,437.72."
+          "No material trust change since the last snapshot."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-03-29",
-          "timestamp_utc": "2026-03-29 09:48:17 UTC",
+          "timestamp_utc": "2026-03-29 09:52:28 UTC",
           "checked_at_utc": "2026-03-29T09:48:19.670Z",
           "network_id": "1",
           "network_label": "Ethereum",
@@ -798,7 +798,7 @@
             }
           ],
           "change_summary": [
-            "Supply changed from 55,058,464,648.82 to 55,053,513,437.72."
+            "No material trust change since the last snapshot."
           ]
         },
         {
