@@ -13,6 +13,7 @@ SITE_ORIGIN = "https://getvectora.ai"
 
 ORDER = [
     "index.html",
+    "about.html",
     "guides.html",
     "buy-and-verify.html",
     "solana-token-checker.html",
@@ -30,6 +31,7 @@ ORDER = [
 
 CHANGEFREQ = {
     "index.html": "daily",
+    "about.html": "weekly",
     "guides.html": "weekly",
     "buy-and-verify.html": "daily",
     "solana-token-checker.html": "weekly",
@@ -42,6 +44,7 @@ CHANGEFREQ = {
 
 PRIORITY = {
     "index.html": "1.0",
+    "about.html": "0.82",
     "guides.html": "0.9",
     "buy-and-verify.html": "0.95",
     "solana-token-checker.html": "0.9",
