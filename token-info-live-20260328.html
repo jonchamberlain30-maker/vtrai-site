@@ -45,7 +45,7 @@
     :root {
       --bg: #060b15;
       --ink: #e8f8ff;
-      --muted: #9db3c8;
+      --muted: #b2c4d8;
       --line: #253756;
       --card: rgba(10, 17, 33, 0.78);
       --cyan: #4deaff;
@@ -75,6 +75,22 @@
       flex-wrap: wrap;
     }
     .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .card a:not(.gecko-badge-link),
+    .hero a:not(.copy-btn),
+    .notice a,
+    .footer a {
+      color: #92f3ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(146, 243, 255, 0.38);
+    }
+    .card a:not(.gecko-badge-link):hover,
+    .hero a:not(.copy-btn):hover,
+    .notice a:hover,
+    .footer a:hover {
+      color: #d8fbff;
+      text-decoration-color: rgba(216, 251, 255, 0.68);
+    }
     .top strong {
       display: flex;
       align-items: center;
@@ -213,10 +229,6 @@
     .notice ul {
       margin: 0;
       padding-left: 18px;
-    }
-    .notice a {
-      color: var(--cyan);
-      text-decoration: none;
     }
     .mint-row {
       display: flex;

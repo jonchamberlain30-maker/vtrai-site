@@ -45,7 +45,7 @@
     :root {
       --bg: #060b15;
       --ink: #e8f8ff;
-      --muted: #9db3c8;
+      --muted: #b2c4d8;
       --line: #253756;
       --card: rgba(10, 17, 33, 0.78);
       --cyan: #4deaff;
@@ -75,6 +75,22 @@
       flex-wrap: wrap;
     }
     .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .card a:not(.gecko-badge-link),
+    .hero a:not(.copy-btn),
+    .notice a,
+    .footer a {
+      color: #92f3ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(146, 243, 255, 0.38);
+    }
+    .card a:not(.gecko-badge-link):hover,
+    .hero a:not(.copy-btn):hover,
+    .notice a:hover,
+    .footer a:hover {
+      color: #d8fbff;
+      text-decoration-color: rgba(216, 251, 255, 0.68);
+    }
     .top strong {
       display: flex;
       align-items: center;
@@ -214,10 +230,6 @@
       margin: 0;
       padding-left: 18px;
     }
-    .notice a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
     .mint-row {
       display: flex;
       gap: 10px;
@@ -308,6 +320,7 @@
       <strong>Vectora Official Token Info</strong>
       <div>
         <a href="./index.html">Back to Site</a>
+        <a href="./about.html">About</a>
         <a href="./proof.html">Proof Pack</a>
         <a href="./buy-and-verify.html">Buy &amp; Verify</a>
         <a href="./whitepaper.html">Whitepaper</a>
@@ -369,6 +382,7 @@
           <a href="./whitepaper.html">Whitepaper</a>
           <a href="./updates.html">Updates</a>
           <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+          <a href="./about.html">About &amp; Affiliation</a>
         </div>
       </article>
     </section>
@@ -410,6 +424,7 @@
           <li>X: <a href="https://x.com/VectoraAI" target="_blank" rel="noreferrer">https://x.com/VectoraAI</a></li>
           <li>Verification post: <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">https://x.com/VectoraAI/status/2036879047502745842</a></li>
           <li>Telegram: <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">https://t.me/vectorasignal</a></li>
+          <li>About / affiliation: <a href="https://getvectora.ai/about.html" target="_blank" rel="noreferrer">https://getvectora.ai/about.html</a></li>
           <li>Proof Pack: <a href="https://getvectora.ai/proof.html" target="_blank" rel="noreferrer">https://getvectora.ai/proof.html</a></li>
           <li>Metadata JSON: <a href="https://getvectora.ai/vtrai-token-metadata.json" target="_blank" rel="noreferrer">https://getvectora.ai/vtrai-token-metadata.json</a></li>
           <li>Logo: <a href="https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png" target="_blank" rel="noreferrer">https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png</a></li>
