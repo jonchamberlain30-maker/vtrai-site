@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Solana mint authority explained: learn what mint authority means, what mint revoked means, when active mint authority is risky, and how to verify a token before you buy." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#060b15" />
+  <link rel="canonical" href="https://getvectora.ai/solana-mint-authority.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Solana Mint Authority Explained: What Mint Revoked Means | Vectora" />
+  <meta property="og:description" content="Learn what Solana mint authority means, what mint revoked means, and how to check that control signal before you buy a token." />
+  <meta property="og:url" content="https://getvectora.ai/solana-mint-authority.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28.png" />
+  <meta property="og:image:alt" content="Solana mint authority guide by Vectora" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solana Mint Authority Explained: What Mint Revoked Means | Vectora" />
+  <meta name="twitter:description" content="Learn what Solana mint authority means, what mint revoked means, and how to check that control signal before you buy a token." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Solana Mint Authority Explained: What Mint Revoked Means",
+      "description": "A practical explanation of Solana mint authority, what mint revoked means, when active authority is still a risk, and how to check it before buying a token.",
+      "author": {
+        "@type": "Organization",
+        "name": "Vectora"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vectora"
+      },
+      "datePublished": "2026-04-17",
+      "dateModified": "2026-04-17",
+      "mainEntityOfPage": "https://getvectora.ai/solana-mint-authority.html"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://getvectora.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://getvectora.ai/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Solana Mint Authority Explained",
+          "item": "https://getvectora.ai/solana-mint-authority.html"
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is mint authority on Solana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mint authority is the permission that can create new token supply. If it remains active, more supply can still potentially be minted through that authority."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does mint revoked mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mint revoked means the mint authority has been removed or disabled, so that authority can no longer create new supply."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is revoked mint authority good?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually yes, because it removes one obvious supply-control lever, but it is still only one part of a wider token verification decision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does active mint authority mean a token is fake?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not automatically. Active mint authority means more questions are needed. If the project cannot explain why it remains active, that should count as a trust cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check mint authority on Solana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start from the official mint, open the token on an explorer or a trust checker, locate the mint authority field, and then compare that finding against the project website or proof page."
+          }
+        }
+      ]
+    }
+  </script>
+  <title>Solana Mint Authority Explained: What Mint Revoked Means | Vectora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.8);
+      --cyan: #4deaff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+      --vio: #9d7cff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .hero, .card {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      padding: 22px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .hero h1 { margin: 0; font-size: 2.15rem; line-height: 1.06; }
+    .hero p, p, li, td, th { color: var(--muted); line-height: 1.62; font-size: 0.96rem; }
+    h2 { margin: 0 0 10px; font-size: 1.08rem; }
+    h3 { margin: 0 0 8px; font-size: 0.98rem; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 999px;
+      padding: 6px 11px;
+      margin-bottom: 12px;
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .summary-box {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 16px;
+      background:
+        linear-gradient(160deg, rgba(77, 234, 255, 0.12), rgba(157, 124, 255, 0.08)),
+        rgba(9, 16, 32, 0.82);
+      padding: 18px;
+    }
+    .summary-box p { margin: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(18, 30, 52, 0.72);
+      font-size: 0.82rem;
+      color: var(--ink);
+    }
+    .cta {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      font-weight: 700;
+      padding: 10px 15px;
+      border-radius: 11px;
+      font-size: 0.92rem;
+    }
+    .btn.secondary {
+      color: var(--ink);
+      background: rgba(16, 28, 52, 0.7);
+      border: 1px solid rgba(77, 234, 255, 0.2);
+    }
+    .eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+    .key-line {
+      margin-top: 12px;
+      border-left: 3px solid var(--cyan);
+      padding-left: 12px;
+    }
+    .warn {
+      margin-top: 12px;
+      border: 1px solid #4c2a37;
+      border-radius: 12px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 10px;
+      font-size: 0.88rem;
+    }
+    .ok { color: var(--good); }
+    ul, ol { margin: 0; padding-left: 18px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    th, td {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+      background: rgba(8, 15, 30, 0.55);
+    }
+    th { color: var(--ink); }
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+    .faq-item {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 14px;
+      background: rgba(8, 15, 30, 0.55);
+      padding: 14px;
+    }
+    .link-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .link-stack a {
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(77, 234, 255, 0.45);
+    }
+    .footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+    @media (max-width: 860px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.82rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="top">
+      <strong>Solana Mint Authority Guide</strong>
+      <div>
+        <a href="./index.html">Home</a>
+        <a href="./guides.html">Guides</a>
+        <a href="./solana-token-checker.html">Solana Checker</a>
+        <a href="./mint-authority-freeze-authority.html">Authority Guide</a>
+        <a href="./proof.html">Proof Pack</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <div class="badge">Search-Led Solana Guide</div>
+        <h1>Solana Mint Authority Explained: What It Means Before You Buy</h1>
+        <p>Solana mint authority is the permission that can create more token supply. If mint authority is revoked, that supply lever is gone. If mint authority is still active, the project can still mint through that authority and you should understand why before you buy.</p>
+        <div class="chips">
+          <span class="chip">Mint authority = supply control</span>
+          <span class="chip">Mint revoked = supply lever removed</span>
+          <span class="chip">Active authority = more questions needed</span>
+          <span class="chip">Still not enough on its own</span>
+        </div>
+        <div class="cta">
+          <a class="btn tracked-link" href="./index.html#trust-check" data-label="mint_authority_open_trust_check">Open Trust Check</a>
+          <a class="btn secondary tracked-link" href="./solana-token-checker.html" data-label="mint_authority_open_solana_guide">Read Solana Token Guide</a>
+        </div>
+      </div>
+      <aside class="summary-box">
+        <div class="eyebrow">Quick Answer</div>
+        <p>If you searched <strong>what is mint authority on Solana</strong>, the short answer is simple: it controls whether new supply can still be minted. Revoked mint authority is usually cleaner because the project cannot use that authority to expand supply later. Active mint authority does not automatically mean a scam, but it does mean the burden of explanation is higher.</p>
+        <div class="key-line">
+          <p><strong>Best habit:</strong> check mint authority only after you have confirmed the official mint from the project website or another canonical source. The wrong contract with good-looking settings is still the wrong contract.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card">
+      <h2>What Solana Mint Authority Actually Means</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>What it means</th>
+            <th>What you should do next</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ok">Revoked</span></td>
+            <td>The mint authority has been removed, so that authority cannot create more supply.</td>
+            <td>Still verify the route, freeze authority, liquidity path, and official source trail.</td>
+          </tr>
+          <tr>
+            <td>Active</td>
+            <td>The project still holds or routes through a supply-control permission.</td>
+            <td>Find the explanation. If there is no clear reason or proof trail, treat that as added risk.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>What Mint Revoked Means</h2>
+        <p><strong>Mint revoked meaning</strong> is narrower than many people think. It does not mean the token is automatically safe. It means the obvious supply-control switch has been removed. That is useful, but it is only one signal.</p>
+        <ul>
+          <li>It is usually better than active mint authority because one major control lever is gone.</li>
+          <li>It does not settle questions about the official route, token identity, wallets, or liquidity quality.</li>
+          <li>It should be read together with freeze authority and the project's public proof trail.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>When Active Mint Authority Is Still A Problem</h2>
+        <ul>
+          <li>The project never explains why it is still active.</li>
+          <li>The explanation exists only in chat or a repost, not on a canonical page.</li>
+          <li>The mint shown on social does not match the mint on the website and explorer.</li>
+          <li>Users are asked to trust urgency before they can verify control settings.</li>
+        </ul>
+        <div class="warn">The most expensive mistake is not misunderstanding mint authority. It is checking the wrong token and feeling safe anyway.</div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>2-Minute Solana Mint Authority Check</h2>
+        <ol>
+          <li>Start from the official mint on the project website or another canonical source.</li>
+          <li>Open the same mint in an explorer or in the Vectora trust check.</li>
+          <li>Locate the mint authority field and note whether it is active or revoked.</li>
+          <li>If it is active, look for a clear public explanation on the website or proof page.</li>
+          <li>Then check freeze authority, route consistency, and liquidity references before acting.</li>
+        </ol>
+      </article>
+      <article class="card">
+        <h2>Where Vectora Fits</h2>
+        <p>Vectora helps by keeping the practical order straight. First confirm the token identity. Then read the control signals. Then open the proof links only if the route still makes sense. That is lighter and safer than bouncing between reposts, explorers, and pair pages with no clear source-of-truth.</p>
+        <div class="cta">
+          <a class="btn tracked-link" href="./index.html#trust-check" data-label="mint_authority_check_token">Check A Token</a>
+          <a class="btn secondary tracked-link" href="./proof.html" data-label="mint_authority_open_proof_pack">Open Proof Pack</a>
+        </div>
+        <div class="link-stack">
+          <a class="tracked-link" href="./mint-authority-freeze-authority.html" data-label="mint_authority_related_broad_guide">Read the broader mint vs freeze guide</a>
+          <a class="tracked-link" href="./guides.html" data-label="mint_authority_related_guides_hub">Browse the guides hub</a>
+          <a class="tracked-link" href="./verify-token.html" data-label="mint_authority_related_verify_workflow">See the full verification workflow</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Common Mistakes</h2>
+      <div class="grid">
+        <div>
+          <h3>Mistake 1: checking authority before identity</h3>
+          <p>Users often inspect authority flags on a token they never properly sourced. That is backwards. Always confirm the official mint first.</p>
+        </div>
+        <div>
+          <h3>Mistake 2: treating revoked as a full green light</h3>
+          <p>Revoked mint authority removes one risk, but it does not validate the route, the project, or the liquidity setup.</p>
+        </div>
+        <div>
+          <h3>Mistake 3: accepting social proof as technical proof</h3>
+          <p>A reposted contract address is not a canonical source. If the website and explorer do not line up, stop there.</p>
+        </div>
+        <div>
+          <h3>Mistake 4: ignoring the next check</h3>
+          <p>After mint authority, the next question is usually freeze authority. After that, check the route and official links.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Solana Mint Authority FAQ</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <strong>What is mint authority on Solana?</strong>
+          <p>Mint authority is the permission that can create new token supply. If it remains active, new supply can still potentially be minted through that authority.</p>
+        </div>
+        <div class="faq-item">
+          <strong>What does mint revoked mean?</strong>
+          <p>Mint revoked means the mint authority has been removed or disabled, so that authority can no longer create more supply.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Is revoked mint authority good?</strong>
+          <p>Usually yes, because it removes one obvious supply-control lever. It is still only one part of a wider verification process.</p>
+        </div>
+        <div class="faq-item">
+          <strong>Does active mint authority mean a token is fake?</strong>
+          <p>No. It means more explanation is needed. If there is no clear public reason, count that as a trust cost before you buy.</p>
+        </div>
+        <div class="faq-item">
+          <strong>How do I check mint authority on Solana?</strong>
+          <p>Take the official mint, open it in an explorer or trust checker, locate the mint authority field, and compare that result with the project's official proof page.</p>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="btn secondary tracked-link" href="./solana-token-checker.html" data-label="mint_authority_faq_solana_guide">See Solana Token Checks</a>
+        <a class="btn secondary tracked-link" href="./mint-authority-freeze-authority.html" data-label="mint_authority_faq_authority_guide">See Freeze Authority Too</a>
+      </div>
+    </section>
+
+    <p class="footer">Vectora publishes verification context, not guarantees. Always confirm the exact mint before trading.</p>
+  </main>
+  <script>
+    const PAGE_NAME = 'solana_mint_authority';
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+    trackEvent('guide_page_view', { page_name: PAGE_NAME });
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        trackEvent('guide_cta_click', {
+          page_name: PAGE_NAME,
+          link_label: link.dataset.label || 'unknown'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

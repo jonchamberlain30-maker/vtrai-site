@@ -13,9 +13,11 @@ SITE_ORIGIN = "https://getvectora.ai"
 
 ORDER = [
     "index.html",
+    "about.html",
     "guides.html",
     "buy-and-verify.html",
     "solana-token-checker.html",
+    "solana-mint-authority.html",
     "dexscreener-token-checker.html",
     "mint-authority-freeze-authority.html",
     "open-preview.html",
@@ -30,9 +32,11 @@ ORDER = [
 
 CHANGEFREQ = {
     "index.html": "daily",
+    "about.html": "weekly",
     "guides.html": "weekly",
     "buy-and-verify.html": "daily",
     "solana-token-checker.html": "weekly",
+    "solana-mint-authority.html": "weekly",
     "dexscreener-token-checker.html": "weekly",
     "mint-authority-freeze-authority.html": "weekly",
     "open-preview.html": "daily",
@@ -42,9 +46,11 @@ CHANGEFREQ = {
 
 PRIORITY = {
     "index.html": "1.0",
+    "about.html": "0.82",
     "guides.html": "0.9",
     "buy-and-verify.html": "0.95",
     "solana-token-checker.html": "0.9",
+    "solana-mint-authority.html": "0.89",
     "dexscreener-token-checker.html": "0.88",
     "mint-authority-freeze-authority.html": "0.86",
     "open-preview.html": "0.92",

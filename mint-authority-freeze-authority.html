@@ -149,6 +149,11 @@
       flex-wrap: wrap;
     }
     .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .card a:not(.btn), .hero a:not(.btn), .footer a {
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(77, 234, 255, 0.42);
+    }
     .hero, .card {
       margin-top: 12px;
       border: 1px solid var(--line);
@@ -295,6 +300,7 @@
       </div>
       <div class="cta">
         <a class="btn tracked-link" href="./index.html#trust-check" data-label="authority_guide_trust_check">Open Trust Check</a>
+        <a class="btn secondary tracked-link" href="./solana-mint-authority.html" data-label="authority_guide_exact_mint">Read Mint Authority Guide</a>
         <a class="btn secondary tracked-link" href="./solana-token-checker.html" data-label="authority_guide_related_solana">Read Solana Guide</a>
       </div>
     </section>
@@ -357,6 +363,7 @@
       <article class="card">
         <h2>Where Vectora Helps</h2>
         <p>Vectora is useful because it pulls control risk back into the main decision path. Instead of making users open five tabs to decode authorities, it pushes them toward one first-pass trust check and then into proof links only if the route still makes sense.</p>
+        <p>If you only need the supply-control side first, start with the focused <a class="tracked-link" href="./solana-mint-authority.html" data-label="authority_guide_inline_mint">Solana mint authority guide</a> and then come back here for the wider control picture.</p>
         <div class="cta">
           <a class="btn tracked-link" href="./index.html#trust-check" data-label="authority_guide_open_tool">Check A Token</a>
           <a class="btn secondary tracked-link" href="./proof.html" data-label="authority_guide_proof">Open Proof Pack</a>
