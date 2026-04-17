@@ -134,6 +134,7 @@
       --good: #4ae3b5;
       --warn: #ffbfd0;
       --vio: #9d7cff;
+      --token-mark: url("./assets/vtrai-token-2026-03-26-padded.png");
     }
     * { box-sizing: border-box; }
     body {
@@ -150,6 +151,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 60;
+      overflow: visible;
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 10px 14px;
@@ -157,7 +161,80 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-    .top a { color: var(--cyan); text-decoration: none; margin-left: 10px; }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top-actions > a { color: var(--cyan); text-decoration: none; }
+    .site-menu { position: static; }
+    .site-menu summary {
+      list-style: none;
+      cursor: pointer;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 10px;
+      padding: 8px 12px;
+      background: rgba(18, 30, 52, 0.72);
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 700;
+      user-select: none;
+    }
+    .site-menu summary::-webkit-details-marker { display: none; }
+    .site-menu summary::after { content: "+"; margin-left: 8px; color: var(--cyan); }
+    .site-menu[open] summary::after { content: "−"; }
+    .menu-panel {
+      position: absolute;
+      left: 14px;
+      top: calc(100% + 10px);
+      width: min(360px, calc(100vw - 64px));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(8, 14, 29, 0.98);
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
+      z-index: 80;
+    }
+    .menu-group {
+      border: 1px solid rgba(77, 234, 255, 0.14);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(12, 21, 40, 0.78);
+    }
+    .menu-group-title {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--cyan);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .site-menu .menu-group a {
+      display: block;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 5px 0;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+    .site-menu .menu-group a:hover { color: var(--cyan); }
+    .top strong {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .top strong::before {
+      content: "";
+      width: 28px;
+      height: 28px;
+      background: center / contain no-repeat var(--token-mark);
+      filter: drop-shadow(0 0 18px rgba(77, 234, 255, 0.24));
+      flex-shrink: 0;
+    }
     .hero, .card {
       margin-top: 12px;
       border: 1px solid var(--line);
@@ -304,6 +381,11 @@
       text-align: center;
     }
     @media (max-width: 860px) {
+      .top { align-items: flex-start; }
+      .top-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
       .hero, .grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 1.82rem; }
     }
@@ -313,12 +395,35 @@
   <main class="wrap">
     <div class="top">
       <strong>Solana Mint Authority Guide</strong>
-      <div>
+      <div class="top-actions">
         <a href="./index.html">Home</a>
-        <a href="./guides.html">Guides</a>
-        <a href="./solana-token-checker.html">Solana Checker</a>
-        <a href="./mint-authority-freeze-authority.html">Authority Guide</a>
-        <a href="./proof.html">Proof Pack</a>
+        <details class="site-menu">
+          <summary>Menu</summary>
+          <div class="menu-panel">
+            <div class="menu-group">
+              <span class="menu-group-title">Product</span>
+              <a href="./index.html#trust-check">Open Trust Check</a>
+              <a href="./open-preview.html">Open Preview</a>
+              <a href="./buy-and-verify.html">Buy &amp; Verify</a>
+              <a href="./watchlist.html">Watchlist</a>
+            </div>
+            <div class="menu-group">
+              <span class="menu-group-title">Guides</span>
+              <a href="./guides.html">Guides Hub</a>
+              <a href="./verify-token.html">Verification Guide</a>
+              <a href="./solana-token-checker.html">Solana Token Checker</a>
+              <a href="./mint-authority-freeze-authority.html">Authority Guide</a>
+            </div>
+            <div class="menu-group">
+              <span class="menu-group-title">Project</span>
+              <a href="./proof.html">Proof Pack</a>
+              <a href="./token-info.html">Token Info</a>
+              <a href="./updates.html">Updates</a>
+              <a href="./about.html">About &amp; Affiliation</a>
+              <a href="./whitepaper.html">Whitepaper</a>
+            </div>
+          </div>
+        </details>
       </div>
     </div>
 
