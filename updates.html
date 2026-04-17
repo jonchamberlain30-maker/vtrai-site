@@ -90,7 +90,10 @@
       border-bottom: 1px dashed #466487;
       font-size: 0.93rem;
     }
-    .site-menu { position: relative; }
+    .site-menu {
+      position: relative;
+      order: -1;
+    }
     .site-menu summary {
       list-style: none;
       cursor: pointer;
@@ -550,7 +553,7 @@
       <div class="brand-actions">
         <a href="./index.html">Home</a>
         <details class="site-menu">
-          <summary>Menu</summary>
+          <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
               <span class="menu-group-title">Product</span>

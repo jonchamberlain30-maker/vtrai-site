@@ -176,9 +176,10 @@
     .nav-actions {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
+      order: -1;
       gap: 10px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav-links {
@@ -197,7 +198,10 @@
 
     .nav-links a:hover { color: var(--cyan); }
 
-    .site-menu { position: relative; }
+    .site-menu {
+      position: relative;
+      order: -1;
+    }
     .site-menu summary {
       list-style: none;
       cursor: pointer;
@@ -1143,7 +1147,7 @@
       }
       .nav-actions {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
       }
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
@@ -1170,7 +1174,7 @@
           <a href="./updates.html">Updates</a>
         </div>
         <details class="site-menu">
-          <summary>Menu</summary>
+          <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
               <span class="menu-group-title">Product</span>

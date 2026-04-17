@@ -164,11 +164,16 @@
     .top-actions {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
+      order: -1;
       gap: 10px;
       flex-wrap: wrap;
     }
     .top-actions > a { color: var(--cyan); text-decoration: none; }
-    .site-menu { position: relative; }
+    .site-menu {
+      position: relative;
+      order: -1;
+    }
     .site-menu summary {
       list-style: none;
       cursor: pointer;
@@ -402,7 +407,7 @@
       .top { align-items: flex-start; }
       .top-actions {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
       }
       .hero, .grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 1.82rem; }
@@ -416,7 +421,7 @@
       <div class="top-actions">
         <a href="./index.html">Home</a>
         <details class="site-menu">
-          <summary>Menu</summary>
+          <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
               <span class="menu-group-title">Product</span>
