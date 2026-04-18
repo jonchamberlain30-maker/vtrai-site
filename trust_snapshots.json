@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-04-17 07:30:07 UTC",
-  "generated_at_iso": "2026-04-17T07:30:07Z",
+  "generated_at_utc": "2026-04-18 07:30:06 UTC",
+  "generated_at_iso": "2026-04-18T07:30:06Z",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
   },
   "latest": {
-    "snapshot_date": "2026-04-17",
-    "timestamp_utc": "2026-04-17 07:30:07 UTC",
-    "checked_at_utc": "2026-04-17T07:30:19Z",
+    "snapshot_date": "2026-04-18",
+    "timestamp_utc": "2026-04-18 07:30:06 UTC",
+    "checked_at_utc": "2026-04-18T07:30:10.383Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -28,15 +28,15 @@
       },
       {
         "label": "Supply",
-        "value": "1,000,000,000.00"
+        "value": "1,000,000,000"
       },
       {
         "label": "Top liquidity",
-        "value": "$1,175"
+        "value": "Unknown"
       },
       {
         "label": "Top venue",
-        "value": "raydium / 88fdj5Zg"
+        "value": "Unknown / "
       },
       {
         "label": "Metadata mutable",
@@ -66,25 +66,95 @@
         "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
       },
       {
-        "label": "Open market route",
-        "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        "label": "Open DexScreener pair",
+        "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
       },
       {
         "label": "Open Raydium route",
         "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-      },
-      {
-        "label": "Open top pair",
-        "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
       }
     ],
     "change_summary": [
-      "Supply changed from 1,000,000,000 to 1,000,000,000.00.",
-      "Top venue changed from Unknown /  to raydium / 88fdj5Zg.",
-      "Top liquidity became visible at $1,175."
+      "Supply changed from 1,000,000,000.00 to 1,000,000,000.",
+      "Top venue changed from raydium / 88fdj5Zg to Unknown / .",
+      "Top liquidity is no longer visible in the current snapshot."
     ]
   },
   "items": [
+    {
+      "snapshot_date": "2026-04-18",
+      "timestamp_utc": "2026-04-18 07:30:06 UTC",
+      "checked_at_utc": "2026-04-18T07:30:10.383Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open DexScreener pair",
+          "url": "https://dexscreener.com/solana/88fdj5zgizwddyjrkbtpihwbmmuzwy6qoz3v3xl3glhu"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "Supply changed from 1,000,000,000.00 to 1,000,000,000.",
+        "Top venue changed from raydium / 88fdj5Zg to Unknown / .",
+        "Top liquidity is no longer visible in the current snapshot."
+      ]
+    },
     {
       "snapshot_date": "2026-04-17",
       "timestamp_utc": "2026-04-17 07:30:07 UTC",
