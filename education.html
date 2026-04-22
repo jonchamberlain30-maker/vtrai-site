@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Educational token-safety basics from Vectora Learn: how to read public token information more carefully, understand control signals, and avoid weak source paths." />
+  <meta name="robots" content="noindex,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#07101d" />
+  <link rel="canonical" href="https://getvectora.ai/education.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora Learn" />
+  <meta property="og:title" content="Token Safety Basics | Vectora Learn" />
+  <meta property="og:description" content="A plain-English educational page on source checks, control signals, and public proof trails." />
+  <meta property="og:url" content="https://getvectora.ai/education.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Token Safety Basics | Vectora Learn" />
+  <meta name="twitter:description" content="A plain-English educational page on source checks, control signals, and public proof trails." />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Token Safety Basics",
+      "description": "Educational token-safety basics from Vectora Learn.",
+      "url": "https://getvectora.ai/education.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vectora"
+      }
+    }
+  </script>
+  <title>Token Safety Basics | Vectora Learn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #07101d;
+      --bg-2: #0d1830;
+      --bg-3: #14244a;
+      --ink: #eff8ff;
+      --muted: #a8bbd0;
+      --line: #274062;
+      --cyan: #5be9ff;
+      --vio: #9f86ff;
+      --card: rgba(9, 18, 36, 0.8);
+      --soft: rgba(12, 23, 45, 0.72);
+      --good: #6ce8c4;
+      --token-mark: url("./assets/vtrai-token-2026-03-26-padded.png");
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 8% -8%, rgba(91, 233, 255, 0.18), transparent 55%),
+        radial-gradient(860px 620px at 100% 108%, rgba(159, 134, 255, 0.14), transparent 60%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2) 56%, var(--bg-3));
+      min-height: 100vh;
+    }
+    .grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(to right, rgba(101, 130, 173, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(101, 130, 173, 0.18) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, #000 28%, transparent 86%);
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 18px 56px;
+    }
+    .topbar,
+    .hero,
+    .section,
+    .card,
+    .resource,
+    .disclaimer {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      backdrop-filter: blur(8px);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand::before {
+      content: "";
+      width: 28px;
+      height: 28px;
+      background: center / contain no-repeat var(--token-mark);
+      filter: drop-shadow(0 0 14px rgba(91, 233, 255, 0.26));
+      flex-shrink: 0;
+    }
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.73rem;
+      font-weight: 700;
+    }
+    .top-note {
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: right;
+      max-width: 420px;
+    }
+    .hero {
+      margin-top: 14px;
+      padding: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      top: -60px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(91, 233, 255, 0.16), transparent 68%);
+      pointer-events: none;
+    }
+    h1 {
+      margin: 10px 0 12px;
+      max-width: 760px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+    .lead {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.62;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .badge {
+      border: 1px solid rgba(91, 233, 255, 0.22);
+      background: rgba(18, 33, 60, 0.74);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      color: var(--ink);
+    }
+    .section {
+      margin-top: 14px;
+      padding: 22px;
+    }
+    .section h2,
+    .resource h2,
+    .disclaimer h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .section p,
+    .resource p,
+    .disclaimer p,
+    .section li {
+      color: var(--muted);
+      line-height: 1.62;
+    }
+    .section ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .card {
+      padding: 18px;
+      background: var(--soft);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      right: -26px;
+      bottom: -34px;
+      width: 116px;
+      height: 116px;
+      background: radial-gradient(circle, rgba(91, 233, 255, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .resource {
+      margin-top: 14px;
+      padding: 22px;
+      display: grid;
+      gap: 10px;
+    }
+    .resource a {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(91, 233, 255, 0.34);
+      padding-bottom: 1px;
+    }
+    .resource a:hover { color: #d5fbff; }
+    .disclaimer {
+      margin-top: 14px;
+      padding: 18px 22px;
+      background: rgba(13, 20, 36, 0.88);
+    }
+    .disclaimer strong { color: var(--good); }
+    @media (max-width: 760px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .top-note {
+        text-align: left;
+        max-width: none;
+      }
+      .hero,
+      .section,
+      .resource,
+      .disclaimer {
+        padding: 20px;
+      }
+      .checks {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" aria-hidden="true"></div>
+  <main class="wrap">
+    <section class="topbar" aria-label="Education header">
+      <div>
+        <div class="eyebrow">Vectora Learn</div>
+        <div class="brand">Educational Page</div>
+      </div>
+      <div class="top-note">Informational only. No wallet connection, no token action, and no product CTA on this page.</div>
+    </section>
+
+    <section class="hero">
+      <div class="eyebrow">Token Safety Basics</div>
+      <h1>Five public checks that make token pages easier to read.</h1>
+      <p class="lead">This page is for learning how to read public token information more carefully. It focuses on source discipline, control signals, route context, and change visibility. It is not an invitation to act, trade, or connect a wallet.</p>
+      <div class="badge-row" aria-label="Page labels">
+        <span class="badge">Educational only</span>
+        <span class="badge">No token purchase links</span>
+        <span class="badge">No financial advice</span>
+        <span class="badge">Public-information reading guide</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What this page helps with</h2>
+      <p>People often move too quickly from a post or screenshot into assumption. The first goal is slower reading, not faster action. The five checks below help separate visible public proof from missing context.</p>
+      <div class="checks">
+        <article class="card">
+          <strong>1. One official source</strong>
+          <p>Look for one public page that clearly states the contract or mint reference. If the key identifier only appears in reposts, replies, or cropped images, the source path is already weak.</p>
+        </article>
+        <article class="card">
+          <strong>2. Exact address consistency</strong>
+          <p>An identifier should match everywhere it appears. Even one changed character or inconsistent version is a reason to stop and re-check the source rather than assume a typo is harmless.</p>
+        </article>
+        <article class="card">
+          <strong>3. Route context</strong>
+          <p>Public links should explain where a project expects users to look. Confusing or mismatched route references create avoidable ambiguity, even when the visible branding looks polished.</p>
+        </article>
+        <article class="card">
+          <strong>4. Control signals</strong>
+          <p>Controls such as mint authority, freeze authority, or upgrade assumptions should be explained in plain language. A control can be active for legitimate reasons, but it should never be unexplained.</p>
+        </article>
+        <article class="card">
+          <strong>5. Update trail</strong>
+          <p>Good projects leave visible history behind them. If something changes tomorrow, there should be a clear public place to verify what changed, when it changed, and why it changed.</p>
+        </article>
+        <article class="card">
+          <strong>What this page avoids</strong>
+          <p>No price targets, no trading prompts, no token recommendation, and no pressure framing. The purpose here is simply to make public information easier to interpret responsibly.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>A simple two-minute reading checklist</h2>
+      <ul>
+        <li>Can you identify one official page that acts as the source of truth?</li>
+        <li>Does the same contract or mint reference appear consistently everywhere it is mentioned?</li>
+        <li>Is the route context clear, stable, and publicly explained?</li>
+        <li>Are control signals described in plain English rather than implied?</li>
+        <li>If the project changed something tomorrow, would you know where to verify it?</li>
+      </ul>
+    </section>
+
+    <section class="resource">
+      <h2>Continue with the full checklist</h2>
+      <p>The next page expands each of the five checks and shows the common gaps that weak projects tend to leave behind.</p>
+      <a href="/education-public-proof-checklist.html">Open the public proof checklist</a>
+    </section>
+
+    <section class="disclaimer">
+      <h2>Important note</h2>
+      <p><strong>Informational use only.</strong> This page is designed to explain public-information reading habits. It does not recommend any specific asset, product, or action. Nothing here is investment, legal, or tax advice.</p>
+    </section>
+  </main>
+</body>
+</html>
