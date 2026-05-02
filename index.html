@@ -8,18 +8,18 @@
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/" />
-  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Solana Token Checker, Mint Authority And Freeze Authority Guide | Vectora" />
   <meta property="og:description" content="Use Vectora to verify token contracts, understand Solana mint authority and freeze authority, and compare official routes before you buy." />
   <meta property="og:url" content="https://getvectora.ai/" />
-  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28.png" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora token trust checks and watchlists" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Solana Token Checker, Mint Authority And Freeze Authority Guide | Vectora" />
   <meta name="twitter:description" content="Use Vectora to verify token contracts, understand Solana mint authority and freeze authority, and compare official routes before you buy." />
-  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28.png" />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -93,7 +93,7 @@
       --good: #4ae3b5;
       --warn: #ffbfd0;
       --card: rgba(9, 16, 32, 0.7);
-      --token-mark: url("./assets/vtrai-token-2026-03-26-padded.png");
+      --token-mark: url("./assets/vtrai-token-mark-128.png");
     }
 
     * { box-sizing: border-box; }
@@ -294,6 +294,7 @@
 
     .hero,
     .preview-banner,
+    .lab-banner,
     .checker,
     .status-board,
     .card,
@@ -305,6 +306,7 @@
 
     .hero > *,
     .preview-banner > *,
+    .lab-banner > *,
     .checker > *,
     .status-board > *,
     .card > *,
@@ -315,6 +317,7 @@
 
     .hero::after,
     .preview-banner::after,
+    .lab-banner::after,
     .checker::after,
     .status-board::after {
       content: "";
@@ -359,6 +362,34 @@
       text-decoration: none;
       font-weight: 700;
       border-bottom: 1px dashed rgba(255,255,255,0.35);
+    }
+
+    .lab-banner {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.24);
+      border-radius: 16px;
+      background: linear-gradient(90deg, rgba(11, 48, 63, 0.42), rgba(25, 19, 69, 0.34));
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .lab-banner strong { color: var(--cyan); }
+    .lab-banner p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .lab-banner a {
+      color: #031019;
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      white-space: nowrap;
     }
 
     .section-head {
@@ -1155,6 +1186,7 @@
       .status-row { grid-template-columns: 1fr; }
       .trust-form { grid-template-columns: 1fr; }
       .trust-meta { grid-template-columns: 1fr; }
+      .lab-banner { grid-template-columns: 1fr; }
       h1 { font-size: 2.12rem; }
     }
   </style>
@@ -1164,7 +1196,7 @@
   <main class="wrap">
     <div class="nav">
       <div class="brand">
-        <img src="./assets/vtrai-token-2026-03-26-padded.png" alt="VTRAI logo" />
+        <img src="./assets/vtrai-token-mark-128.png" alt="VTRAI logo" />
         <span>Vectora <span class="tag">$VTRAI</span></span>
       </div>
       <div class="nav-actions">
@@ -1192,6 +1224,7 @@
             <div class="menu-group">
               <span class="menu-group-title">Project</span>
               <a href="./about.html">About &amp; Affiliation</a>
+              <a href="./lab.html">Lab / Build Log</a>
               <a href="./token-info.html">Token Info</a>
               <a href="./proof.html">Proof Pack</a>
               <a href="./whitepaper.html">Whitepaper</a>
@@ -1213,7 +1246,7 @@
         </div>
       </div>
       <div class="hero-banner">
-        <img src="./assets/vtrai-header-2026-03-26.png" alt="Vectora header banner" />
+        <img src="./assets/vtrai-header-2026-03-26-fast.jpg" alt="Vectora header banner" />
       </div>
     </section>
 
@@ -1223,6 +1256,14 @@
         Follow the live trust workflow, compare the official route, and see the product path that current X posts are sending people into.
       </div>
       <a href="./open-preview.html">Open Preview</a>
+    </section>
+
+    <section class="lab-banner">
+      <div>
+        <strong>A more ambitious Vectora lane is now being mapped.</strong>
+        <p>Six-month build window opened. We are not naming it yet; the public trail will document what we are learning as we test whether this can hopefully revolutionise a small but important part of verification.</p>
+      </div>
+      <a href="./lab.html">Open Lab</a>
     </section>
 
     <section id="trust-check" class="checker reveal">
