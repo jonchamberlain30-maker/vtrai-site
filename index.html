@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="VGwsr6WslzYIC7IC5MMwNFu19gLNROlnyDVxLLW8OTI" />
-  <meta name="description" content="Solana token checker for traders: verify token contracts, understand mint authority and freeze authority, and compare official routes before you buy." />
+  <meta name="description" content="Vectora helps token visitors check source paths, official routes, control signals, proof pages, and watchlist updates before trusting a token." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Solana Token Checker, Mint Authority And Freeze Authority Guide | Vectora" />
-  <meta property="og:description" content="Use Vectora to verify token contracts, understand Solana mint authority and freeze authority, and compare official routes before you buy." />
+  <meta property="og:title" content="Vectora | Token Checks, Proof, and Safety Guides" />
+  <meta property="og:description" content="Check source paths, routes, control signals, proof pages, and watchlist updates before trusting a token." />
   <meta property="og:url" content="https://getvectora.ai/" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora token trust checks and watchlists" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Solana Token Checker, Mint Authority And Freeze Authority Guide | Vectora" />
-  <meta name="twitter:description" content="Use Vectora to verify token contracts, understand Solana mint authority and freeze authority, and compare official routes before you buy." />
+  <meta name="twitter:title" content="Vectora | Token Checks, Proof, and Safety Guides" />
+  <meta name="twitter:description" content="Check source paths, routes, control signals, proof pages, and watchlist updates before trusting a token." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -33,50 +33,10 @@
       "@type": "WebSite",
       "name": "Vectora",
       "url": "https://getvectora.ai/",
-      "description": "Solana token verification, mint authority and freeze authority guides, trust checks, and proof links for traders."
+      "description": "Token source checks, official route verification, public proof pages, safety guides, and watchlist updates."
     }
   </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does Vectora do?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Vectora checks token trust across major chains, shows proof links, and lets users save watched tokens for later review."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Vectora replace DexScreener?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. DexScreener is for discovery and market screens; Vectora is for route verification, trust checks, and monitoring."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does the Vectora watchlist work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The watchlist stores checked tokens on the current browser, refreshes their trust reports on demand, and keeps a local change history."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does scheduled monitoring work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Users can request scheduled monitoring for a token, after which Vectora can ingest it into shared background monitoring and publish later trust snapshots on the updates desk."
-          }
-        }
-      ]
-    }
-  </script>
-  <title>Solana Token Checker, Mint Authority And Freeze Authority Guide | Vectora</title>
+  <title>Vectora | Token Checks, Proof, and Safety Guides</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -536,6 +496,87 @@
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 12px;
+    }
+
+    .category-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 100%;
+    }
+
+    .category-card::before {
+      opacity: 0.045;
+    }
+
+    .category-label {
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .category-card h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .category-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    .category-card .cta {
+      margin-top: auto;
+    }
+
+    .simple-panel {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(10, 18, 36, 0.82);
+      padding: 16px;
+    }
+
+    .simple-panel h2 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .simple-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      color: var(--muted);
+      line-height: 1.48;
+    }
+
+    .simple-list li {
+      border-top: 1px solid rgba(70, 100, 135, 0.32);
+      padding-top: 9px;
+    }
+
+    .simple-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .simple-list strong {
+      color: #dff9ff;
     }
 
     .card {
@@ -1173,21 +1214,58 @@
     }
 
     @media (max-width: 930px) {
+      body {
+        overflow-x: hidden;
+      }
+      .wrap {
+        width: 100%;
+        padding-inline: 18px;
+      }
       .nav {
         align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .brand {
+        width: 100%;
       }
       .nav-actions {
         width: 100%;
         justify-content: flex-start;
       }
+      .nav-links {
+        row-gap: 8px;
+      }
       .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .launch-grid { grid-template-columns: 1fr; }
       .status-row { grid-template-columns: 1fr; }
       .trust-form { grid-template-columns: 1fr; }
       .trust-meta { grid-template-columns: 1fr; }
       .lab-banner { grid-template-columns: 1fr; }
-      h1 { font-size: 2.12rem; }
+      h1 {
+        font-size: 2.12rem;
+        letter-spacing: 0;
+        overflow-wrap: break-word;
+      }
+      .sub,
+      .simple-list,
+      .category-card p {
+        overflow-wrap: anywhere;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 18px;
+      }
+      .nav-actions {
+        align-items: flex-start;
+      }
+      .category-grid { grid-template-columns: 1fr; }
+      .hero-banner { min-height: 170px; }
+      .cta .btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -1202,32 +1280,31 @@
       <div class="nav-actions">
         <div class="nav-links">
           <a href="#trust-check">Check</a>
-          <a href="./guides.html">Guides</a>
-          <a href="./updates.html">Updates</a>
+          <a href="#learn">Learn</a>
+          <a href="./proof.html">Proof</a>
         </div>
         <details class="site-menu">
           <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
-              <span class="menu-group-title">Product</span>
+              <span class="menu-group-title">Check</span>
+              <a href="#trust-check">Token Check</a>
               <a href="./open-preview.html">Open Preview</a>
-              <a href="./buy-and-verify.html">Buy &amp; Verify</a>
               <a href="./watchlist.html">Watchlist</a>
             </div>
             <div class="menu-group">
               <span class="menu-group-title">Learn</span>
+              <a href="./education.html">Token Safety Basics</a>
               <a href="./guides.html">Guides Hub</a>
-              <a href="./verify-token.html">Verification Guide</a>
               <a href="./solana-token-checker.html">Solana Token Checker</a>
-              <a href="./solana-mint-authority.html">Mint Authority Guide</a>
+              <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Project</span>
-              <a href="./about.html">About &amp; Affiliation</a>
-              <a href="./lab.html">Lab / Build Log</a>
-              <a href="./token-info.html">Token Info</a>
+              <span class="menu-group-title">Proof</span>
               <a href="./proof.html">Proof Pack</a>
-              <a href="./whitepaper.html">Whitepaper</a>
+              <a href="./token-info.html">Token Info</a>
+              <a href="./updates.html">Updates</a>
+              <a href="./about.html">About</a>
             </div>
           </div>
         </details>
@@ -1236,34 +1313,23 @@
 
     <section class="hero">
       <div>
-        <h1>Solana Token Checker And Contract Verification For DexScreener Traders</h1>
-        <p class="sub">Most traders already discover tokens on X and DexScreener. Vectora is built for the next step: verify the contract, compare the official route, understand mint authority or freeze authority in plain English, and decide whether a token deserves more attention.</p>
+        <h1>Check the source, route, and control signals before you trust a token.</h1>
+        <p class="sub">Vectora gives token pages a clearer first read: paste an address, review the visible risks, then use the proof and guide pages only when you need more context.</p>
         <div class="quick-metrics">
-          <span class="metric">Multi-chain trust checks</span>
-          <span class="metric">On-demand token reports</span>
-          <span class="metric">Device watchlist live</span>
-          <span class="metric">Snapshot feed live</span>
+          <span class="metric">Token check</span>
+          <span class="metric">Safety guides</span>
+          <span class="metric">Public proof</span>
+          <span class="metric">Watchlist</span>
+        </div>
+        <div class="cta">
+          <a class="btn gold" href="#trust-check">Check a token</a>
+          <a class="btn" href="./education.html">Read safety basics</a>
+          <a class="btn" href="./proof.html">Open proof pack</a>
         </div>
       </div>
       <div class="hero-banner">
         <img src="./assets/vtrai-header-2026-03-26-fast.jpg" alt="Vectora header banner" />
       </div>
-    </section>
-
-    <section class="preview-banner">
-      <div>
-        <strong>Open the public product preview.</strong>
-        Follow the live trust workflow, compare the official route, and see the product path that current X posts are sending people into.
-      </div>
-      <a href="./open-preview.html">Open Preview</a>
-    </section>
-
-    <section class="lab-banner">
-      <div>
-        <strong>A more ambitious Vectora lane is now being mapped.</strong>
-        <p>Six-month build window opened. We are not naming it yet; the public trail will document what we are learning as we test whether this can hopefully revolutionise a small but important part of verification.</p>
-      </div>
-      <a href="./lab.html">Open Lab</a>
     </section>
 
     <section id="trust-check" class="checker reveal">
@@ -1297,192 +1363,56 @@
       </div>
     </section>
 
-    <div class="section-head">
-      <h2>How Traders Use Vectora</h2>
-      <p>Discovery usually happens on social feeds and DEX screens. Vectora is built for the next five minutes: verify the route, reject clones, and decide whether to keep researching.</p>
+    <div class="section-head" id="learn">
+      <h2>Choose what you need</h2>
+      <p>Most visitors only need one path. The homepage now groups the useful pages by intent instead of asking people to decode every feature at once.</p>
     </div>
 
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Fast Verification Flow</div>
-        <ol class="list">
-          <li>Find a token on X or DexScreener.</li>
-          <li>Paste the address into Vectora and read the trust card first.</li>
-          <li>Open the linked proof pages only if the route and risks still make sense.</li>
-          <li>Ignore, watch, or investigate further instead of trading blindly.</li>
-        </ol>
+    <section class="category-grid">
+      <article class="card category-card reveal">
+        <div class="category-label">Check</div>
+        <h3>Run a first-pass token read.</h3>
+        <p>Use the live check when you already have a mint or contract and want the source, route, and visible risk signals in one place.</p>
         <div class="cta">
-          <a class="btn" href="./buy-and-verify.html">Buy &amp; Verify</a>
-          <a class="btn" href="./watchlist.html">Open Watchlist</a>
-          <a class="btn" href="./updates.html">Open Update Desk</a>
+          <a class="btn" href="#trust-check">Check a token</a>
         </div>
       </article>
-      <article class="card reveal">
-        <div class="k">What Becomes Easier</div>
-        <ul class="list">
-          <li>Official-route verification instead of trusting a random post or reply.</li>
-          <li>Faster clone and fake-link rejection before you waste time on charts.</li>
-          <li>One proof path instead of opening five tabs to compare the same token.</li>
-          <li>A cleaner decision point: ignore, watch, or continue due diligence.</li>
-        </ul>
-        <div class="warn">Vectora is a first-pass filter, not a promise of safety. Final decisions still need on-chain confirmation.</div>
-      </article>
-    </section>
-
-    <div class="section-head">
-      <h2>Popular Guides</h2>
-      <p>These pages answer the practical questions traders ask before they trust a contract, click a pair, or keep a token on the shortlist.</p>
-    </div>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Solana Token Checker</div>
-        <p class="list">Use this when you already have a mint address and need a practical workflow for route checks, explorer checks, and control-risk reads.</p>
+      <article class="card category-card reveal">
+        <div class="category-label">Learn</div>
+        <h3>Understand the checks first.</h3>
+        <p>Start with plain-English safety basics, then use the guide hub for Solana, DexScreener, mint authority, and verification workflows.</p>
         <div class="cta">
-          <a class="btn" href="./solana-token-checker.html">Read Solana Guide</a>
+          <a class="btn" href="./education.html">Safety basics</a>
+          <a class="btn" href="./guides.html">Guide hub</a>
         </div>
       </article>
-      <article class="card reveal">
-        <div class="k">DexScreener Verification</div>
-        <p class="list">Use this when discovery started on DexScreener and you want to avoid buying the wrong pair or trusting a cloned route.</p>
+      <article class="card category-card reveal">
+        <div class="category-label">Proof</div>
+        <h3>Verify Vectora itself.</h3>
+        <p>Use the proof pack and token info page for official references, public links, tracker pages, and the current project trail.</p>
         <div class="cta">
-          <a class="btn" href="./dexscreener-token-checker.html">Read DexScreener Guide</a>
+          <a class="btn" href="./proof.html">Proof pack</a>
+          <a class="btn" href="./token-info.html">Token info</a>
         </div>
       </article>
-      <article class="card reveal">
-        <div class="k">Solana Mint Authority Explained</div>
-        <p class="list">Use this when you want a direct answer to what mint authority means on Solana, what mint revoked means, and how to verify that signal before you buy.</p>
+      <article class="card category-card reveal">
+        <div class="category-label">Watch</div>
+        <h3>Keep a short list without an account.</h3>
+        <p>Save tokens on this browser, revisit trust reports, and use the updates page to see the public trail as it changes.</p>
         <div class="cta">
-          <a class="btn" href="./solana-mint-authority.html">Read Mint Authority Guide</a>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="k">Guides Hub</div>
-        <p class="list">Use the hub if you want the shortest path to the right guide based on whether you started from a pair, a mint, or a risk question.</p>
-        <div class="cta">
-          <a class="btn" href="./guides.html">Open Guides Hub</a>
+          <a class="btn" href="./watchlist.html">Watchlist</a>
+          <a class="btn" href="./updates.html">Updates</a>
         </div>
       </article>
     </section>
 
-    <div class="section-head">
-      <h2>Main Utility</h2>
-      <p>The core product path is simple: check a token, save it if it matters, and return for refreshed trust data without creating an account.</p>
-    </div>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Device Watchlist</div>
-        <ul class="list">
-          <li>Save any checked token on this browser.</li>
-          <li>Refresh trust reports on demand.</li>
-          <li>Use it as a private shortlist before any alert layer exists.</li>
-        </ul>
-        <div class="cta">
-          <a class="btn" href="./watchlist.html">Open Watchlist</a>
-          <a class="btn" href="./updates.html">Open Update Desk</a>
-        </div>
-      </article>
-      <article class="card reveal">
-        <div class="k">What To Expect Next</div>
-        <ul class="list">
-          <li>Trust snapshots and diffs for watched tokens.</li>
-          <li>Private alert delivery later by email or another owned channel.</li>
-          <li>Shareable trust-report links for tokens you want to revisit.</li>
-        </ul>
-      </article>
-    </section>
-
-    <div class="section-head">
-      <h2>Why Vectora Exists</h2>
-      <p>Discovery is already served by social channels and market screens. Vectora is focused on the decision gap between finding a token and acting on it.</p>
-    </div>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">Discovery Layer (Already Solved Elsewhere)</div>
-        <ul class="list">
-          <li>X and DexScreener are where most traders first hear about a token.</li>
-          <li>Charts, price, liquidity, and pair discovery already live there.</li>
-          <li>Vectora is not trying to replace the tools that are already good at market discovery.</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <div class="k">Decision Layer (The Gap Vectora Fills)</div>
-        <ul class="list">
-          <li>Use the trust check first to confirm the route and read the main risks.</li>
-          <li>Then compare against Solscan, DexScreener, and official channels.</li>
-          <li>Then either reject the token quickly or continue research with fewer blind spots.</li>
-        </ul>
-      </article>
-    </section>
-
-    <div class="section-head">
-      <h2>Common Questions</h2>
-      <p>These are the practical questions a new visitor usually needs answered before they decide whether Vectora is worth revisiting.</p>
-    </div>
-
-    <section class="grid">
-      <article class="card reveal">
-        <div class="k">What does Vectora actually do?</div>
-        <p class="list">It checks token trust across major retail chains, shows the main proof links, and gives users a cleaner decision point before they spend more time researching.</p>
-      </article>
-      <article class="card reveal">
-        <div class="k">Does it replace DexScreener?</div>
-        <p class="list">No. DexScreener is still where most discovery and chart checking happens. Vectora is the next step: route verification, trust checks, watchlists, and monitoring.</p>
-      </article>
-      <article class="card reveal">
-        <div class="k">What does the watchlist do?</div>
-        <p class="list">The watchlist saves tokens on this browser, refreshes trust reports on demand, and keeps a local change history so the user can see whether a token is drifting.</p>
-      </article>
-      <article class="card reveal">
-        <div class="k">What is scheduled monitoring?</div>
-        <p class="list">Scheduled monitoring moves selected tokens into shared background checks so new trust snapshots can appear on the updates desk even when the user is not manually refreshing them.</p>
-      </article>
-    </section>
-
-    <div class="section-head">
-      <h2>Roadmap</h2>
-      <p>This roadmap stays inside the current budget: Cloudflare Worker, shareable pages, and background automation before any expensive infrastructure.</p>
-    </div>
-
-    <section class="status-board reveal">
-      <h2>Current Milestone Status</h2>
-      <div class="status-row">
-        <article class="status-item">
-          <strong>Now</strong>
-          M0: Official Route Verifier
-          <br />Live first-pass checks for Vectora and supported third-party tokens.
-          <span class="chip now">ACTIVE</span>
-        </article>
-        <article class="status-item">
-          <strong>Next</strong>
-          M1: Trust Diff Snapshots
-          <br />Daily state capture that shows what changed in plain English.
-          <span class="chip next">TARGET: 30-DAY MVP</span>
-        </article>
-        <article class="status-item">
-          <strong>After</strong>
-          M2: Watchlist + Alerts
-          <br />Private alerts when a watched token gets riskier or official routes change.
-          <span class="chip later">TARGET: 60-90 DAYS</span>
-        </article>
-        <article class="status-item">
-          <strong>Forward View</strong>
-          M3: Shareable Reports + Browser Assist
-          <br />Public report URLs and lightweight tooling inside existing discovery flows.
-          <span class="chip later">AFTER TRACTION</span>
-        </article>
-      </div>
-      <div class="state amber">Execution mode: low-cost workflow tool first. No custom indexer or heavy infrastructure until repeat usage proves it is necessary.</div>
-    </section>
-
-    <section class="cta-strip reveal">
-      <a class="btn" href="#trust-check">Check Token</a>
-      <a class="btn" href="./guides.html">Open Guides Hub</a>
-      <a class="btn" href="./watchlist.html">Open Watchlist</a>
-      <a class="btn" href="./updates.html">Read Updates</a>
-      <a class="btn" href="./about.html">About &amp; Affiliation</a>
+    <section class="simple-panel reveal">
+      <h2>How Vectora fits into the research flow</h2>
+      <ul class="simple-list">
+        <li><strong>Discovery stays elsewhere.</strong> X, DexScreener, and market screens are still where most people find tokens.</li>
+        <li><strong>Vectora is the pause step.</strong> It helps you check whether the source, route, and control signals are clear enough to keep researching.</li>
+        <li><strong>A report is not a verdict.</strong> It is a structured first pass, designed to make weak proof paths easier to notice.</li>
+      </ul>
     </section>
 
     <section class="gecko-badge" aria-label="GeckoTerminal listing reference">
