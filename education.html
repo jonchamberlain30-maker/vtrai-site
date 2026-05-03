@@ -25,6 +25,33 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const incoming = new URLSearchParams(window.location.search);
+      const carried = new URLSearchParams();
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
+        const value = incoming.get(key);
+        if (value) carried.set(key, value);
+      });
+      const carriedQuery = carried.toString();
+
+      document.querySelectorAll("[data-track='education_checklist_click']").forEach((link) => {
+        if (carriedQuery) {
+          const nextUrl = new URL(link.getAttribute("href"), window.location.origin);
+          carried.forEach((value, key) => nextUrl.searchParams.set(key, value));
+          link.setAttribute("href", `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+        }
+        link.addEventListener("click", () => {
+          if (typeof gtag === "function") {
+            gtag("event", "education_checklist_click", {
+              event_category: "education",
+              event_label: link.getAttribute("data-position") || "unknown"
+            });
+          }
+        });
+      });
+    });
+  </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -162,6 +189,45 @@
       font-size: 1.08rem;
       line-height: 1.62;
     }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .action-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+    .action-link:hover {
+      transform: translateY(-1px);
+    }
+    .action-link.primary {
+      color: #05121d;
+      background: linear-gradient(135deg, var(--cyan), var(--good));
+      border: 1px solid rgba(213, 251, 255, 0.7);
+      box-shadow: 0 12px 34px rgba(91, 233, 255, 0.18);
+    }
+    .action-link.secondary {
+      color: var(--ink);
+      border: 1px solid rgba(91, 233, 255, 0.24);
+      background: rgba(18, 33, 60, 0.74);
+    }
+    .hero-note {
+      max-width: 520px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
     .badge-row {
       display: flex;
       flex-wrap: wrap;
@@ -179,6 +245,9 @@
     .section {
       margin-top: 14px;
       padding: 22px;
+    }
+    .section-anchor {
+      scroll-margin-top: 18px;
     }
     .section h2,
     .resource h2,
@@ -248,6 +317,16 @@
       padding-bottom: 1px;
     }
     .resource a:hover { color: #d5fbff; }
+    .resource-action {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 2px;
+    }
+    .resource-action a {
+      border-bottom: 0;
+    }
     .disclaimer {
       margin-top: 14px;
       padding: 18px 22px;
@@ -255,6 +334,13 @@
     }
     .disclaimer strong { color: var(--good); }
     @media (max-width: 760px) {
+      body {
+        overflow-x: hidden;
+      }
+      .wrap {
+        width: 100%;
+        padding: 18px;
+      }
       .topbar {
         align-items: flex-start;
         flex-direction: column;
@@ -262,12 +348,41 @@
       .top-note {
         text-align: left;
         max-width: none;
+        overflow-wrap: anywhere;
+      }
+      h1 {
+        font-size: 2rem;
+        line-height: 1.08;
+        letter-spacing: 0;
+        overflow-wrap: break-word;
+      }
+      .lead,
+      .hero-note,
+      .section p,
+      .resource p,
+      .disclaimer p,
+      .section li {
+        overflow-wrap: anywhere;
       }
       .hero,
       .section,
       .resource,
       .disclaimer {
         padding: 20px;
+      }
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+      .action-link {
+        width: 100%;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+      .badge {
+        max-width: 100%;
+        overflow-wrap: anywhere;
       }
       .checks {
         grid-template-columns: 1fr;
@@ -290,6 +405,11 @@
       <div class="eyebrow">Token Safety Basics</div>
       <h1>Token Safety Basics: 5 public checks that make token pages easier to read.</h1>
       <p class="lead">This page is for learning how to read public token information more carefully. It focuses on source discipline, control signals, route context, and change visibility. It is not an invitation to act, trade, or connect a wallet.</p>
+      <div class="hero-actions" aria-label="Education actions">
+        <a class="action-link primary" href="/education-public-proof-checklist.html" data-track="education_checklist_click" data-position="hero">Open the two-minute checklist</a>
+        <a class="action-link secondary" href="#five-checks">Read the five checks first</a>
+      </div>
+      <p class="hero-note">The checklist is still educational only: no wallet connection, no trading prompt, and no token purchase path.</p>
       <div class="badge-row" aria-label="Page labels">
         <span class="badge">Educational only</span>
         <span class="badge">No token purchase links</span>
@@ -298,7 +418,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-anchor" id="five-checks">
       <h2>What this page helps with</h2>
       <p>People often move too quickly from a post or screenshot into assumption. The first goal is slower reading, not faster action. The five checks below help separate visible public proof from missing context.</p>
       <div class="checks">
@@ -343,7 +463,9 @@
     <section class="resource">
       <h2>Continue with the full checklist</h2>
       <p>The next page expands each of the five checks and shows the common gaps that weak projects tend to leave behind.</p>
-      <a href="/education-public-proof-checklist.html">Open the public proof checklist</a>
+      <div class="resource-action">
+        <a class="action-link primary" href="/education-public-proof-checklist.html" data-track="education_checklist_click" data-position="footer">Open the public proof checklist</a>
+      </div>
     </section>
 
     <section class="disclaimer">
