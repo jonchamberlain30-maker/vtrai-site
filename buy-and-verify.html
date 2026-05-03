@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
+  <meta name="description" content="Verify the official Vectora mint, open the official Raydium path, and use the public proof links before acting." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/buy-and-verify.html" />
@@ -11,13 +11,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Vectora | Buy And Verify" />
-  <meta property="og:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
+  <meta property="og:description" content="Verify the official Vectora mint, open the official Raydium path, and use the public proof links before acting." />
   <meta property="og:url" content="https://getvectora.ai/buy-and-verify.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora buy and verify page" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora | Buy And Verify" />
-  <meta name="twitter:description" content="Verify the official Vectora mint, use the real Raydium route, and follow the safe-buy steps before acting." />
+  <meta name="twitter:description" content="Verify the official Vectora mint, open the official Raydium path, and use the public proof links before acting." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -197,60 +197,35 @@
     .hero, .card {
       margin-top: 14px;
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 16px;
       background: var(--card);
       padding: 22px;
       backdrop-filter: blur(7px);
     }
     .hero,
-    .stat-card,
+    .buy-panel,
     .card,
-    .proof-block {
+    .trust-strip {
       position: relative;
       overflow: hidden;
       isolation: isolate;
     }
     .hero > *,
-    .stat-card > *,
+    .buy-panel > *,
     .card > *,
-    .proof-block > * {
+    .trust-strip > * {
       position: relative;
       z-index: 1;
     }
-    .hero::after,
-    .stat-card::after {
-      content: "";
-      position: absolute;
-      right: 56px;
-      bottom: -76px;
-      width: 170px;
-      height: 170px;
-      background: radial-gradient(circle, rgba(77, 234, 255, 0.12), rgba(157, 124, 255, 0.04) 58%, transparent 76%);
-      pointer-events: none;
-    }
-    .card::before,
-    .proof-block::before {
-      content: "";
-      position: absolute;
-      right: -16px;
-      bottom: -18px;
-      width: 102px;
-      height: 102px;
-      background: center / contain no-repeat var(--token-mark);
-      opacity: 0.08;
-      mix-blend-mode: screen;
-      filter: drop-shadow(0 0 18px rgba(77, 234, 255, 0.16));
-      pointer-events: none;
-    }
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 16px;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.66fr);
+      gap: 18px;
       align-items: center;
     }
     h1 {
       margin: 0;
-      font-size: 2.35rem;
+      font-size: 2.48rem;
       line-height: 1.04;
       letter-spacing: 0.2px;
     }
@@ -265,13 +240,27 @@
     }
     .sub {
       margin-top: 10px;
-      max-width: 680px;
+      max-width: 620px;
     }
-    .hero-cta, .links, .mini-cta {
+    .links {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 14px;
+    }
+    .links a {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: rgba(18, 30, 52, 0.66);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+    .links a:hover {
+      border-color: rgba(77, 234, 255, 0.45);
+      color: var(--cyan);
     }
     .btn, .copy-btn {
       border: 1px solid rgba(77, 234, 255, 0.2);
@@ -296,11 +285,24 @@
       color: var(--ink);
       background: rgba(16, 28, 52, 0.7);
     }
-    .stat-card {
+    .buy-panel {
       border: 1px solid rgba(77, 234, 255, 0.18);
-      border-radius: 16px;
+      border-radius: 14px;
       background: rgba(8, 15, 30, 0.72);
       padding: 18px;
+    }
+    .buy-panel h2 {
+      margin: 0 0 12px;
+      font-size: 1.08rem;
+    }
+    .primary-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .primary-actions .btn {
+      width: 100%;
+      text-align: center;
     }
     .kicker {
       color: var(--cyan);
@@ -309,29 +311,11 @@
       font-size: 0.78rem;
       margin-bottom: 8px;
     }
-    .metric {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0;
-    }
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
       margin-top: 14px;
-    }
-    .proof-block {
-      border: 1px solid rgba(77, 234, 255, 0.18);
-      border-radius: 14px;
-      padding: 14px;
-      background: rgba(8, 15, 30, 0.72);
-      margin-top: 12px;
-    }
-    .mint-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
     }
     code {
       display: inline-block;
@@ -341,6 +325,21 @@
       color: #dff9ff;
       word-break: break-all;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .mint-panel {
+      display: grid;
+      gap: 10px;
+    }
+    .mint-panel code {
+      width: 100%;
+      padding: 10px;
+      line-height: 1.45;
+      font-size: 0.9rem;
+    }
+    .fine-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
     }
     .chips {
       display: flex;
@@ -354,6 +353,39 @@
       padding: 6px 10px;
       background: rgba(18, 30, 52, 0.72);
       font-size: 0.82rem;
+    }
+    .trust-strip {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .trust-item {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 12px;
+      background: rgba(8, 15, 30, 0.62);
+      padding: 14px;
+    }
+    .trust-item span {
+      display: inline-flex;
+      width: 25px;
+      height: 25px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(77, 234, 255, 0.14);
+      color: var(--cyan);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .trust-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .trust-item p {
+      margin: 0;
+      font-size: 0.88rem;
     }
     .warn {
       margin-top: 12px;
@@ -425,7 +457,8 @@
         justify-content: flex-start;
       }
       .hero { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
+      .grid,
+      .trust-strip { grid-template-columns: 1fr; }
       h1 { font-size: 1.95rem; }
     }
   </style>
@@ -470,107 +503,76 @@
 
     <section class="hero">
       <div>
-        <div class="kicker">Verify First</div>
-        <h1>Use One Page To Verify The Mint, Open The Real Route, And Avoid Bad Links.</h1>
-        <p class="sub">If someone finds Vectora on X or a market screen, this should be the next click. Copy the canonical mint, cross-check the proof pack, and use the official Raydium route only after the contract matches.</p>
+        <div class="kicker">Official $VTRAI Path</div>
+        <h1>Verify the mint. Then open the official Raydium page.</h1>
+        <p class="sub">This is the direct Vectora buy page. Match the mint first, use the button here, and ignore screenshots, private-sale messages, or alternative token addresses.</p>
         <div class="chips">
-          <span class="chip">Official mint repeated</span>
-          <span class="chip">Raydium route only</span>
-          <span class="chip">Proof pack cross-check</span>
-          <span class="chip">No private-sale DMs</span>
-        </div>
-        <div class="hero-cta">
-          <a class="btn primary tracked-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_raydium" target="_blank" rel="noreferrer">Open Official Raydium Route</a>
-          <a class="btn secondary tracked-link" href="./proof.html" data-label="hero_proof">Open Proof Pack</a>
-          <a class="btn secondary tracked-link" href="./updates.html" data-label="hero_updates">Read Updates</a>
+          <span class="chip">Solana token</span>
+          <span class="chip">1B fixed supply</span>
+          <span class="chip">Mint authority revoked</span>
+          <span class="chip">Freeze authority revoked</span>
         </div>
       </div>
-      <aside class="stat-card">
-        <div class="kicker">Live Market Snapshot</div>
-        <p class="metric">$1,175</p>
-        <p>Current visible Raydium liquidity from the latest public update.</p>
-        <div class="mini-cta">
-          <a class="btn secondary tracked-link" href="./updates.html" data-label="snapshot_updates">Read Update Desk</a>
-          <a class="btn secondary tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="snapshot_solscan" target="_blank" rel="noreferrer">Open Solscan</a>
-        </div>
-      </aside>
-    </section>
-
-    <section class="grid">
-      <article class="card">
-        <h2>1. Confirm The Canonical Mint</h2>
-        <p>Only this Solana mint is valid for Vectora. Anything else should be treated as fake.</p>
-        <div class="proof-block mint-row">
+      <aside class="buy-panel" aria-label="Official Vectora buy path">
+        <div class="kicker">Step 1</div>
+        <h2>Confirm this exact mint</h2>
+        <div class="mint-panel">
           <code id="buyVerifyMintCode">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
           <button class="copy-btn" type="button" data-copy-target="buyVerifyMintCode">Copy mint</button>
         </div>
+        <div class="primary-actions">
+          <a class="btn primary tracked-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_raydium" target="_blank" rel="noreferrer">Open Official Raydium</a>
+          <a class="btn secondary tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_solscan" target="_blank" rel="noreferrer">Check On Solscan</a>
+        </div>
+        <p class="fine-note">Only continue if Raydium shows the same output mint shown above.</p>
+      </aside>
+    </section>
+
+    <section class="trust-strip" aria-label="Vectora buy verification sequence">
+      <article class="trust-item">
+        <span>1</span>
+        <strong>Match the mint</strong>
+        <p>The address above is the source of truth. Do not rely on ticker, logo, or a cropped image.</p>
       </article>
-      <article class="card">
-        <h2>2. Cross-Check Before Acting</h2>
-        <ol class="steps">
-          <li>Compare the mint on this page with the proof pack and the pinned X post.</li>
-          <li>Check Solscan and confirm the same contract is shown there.</li>
-          <li>Use the Raydium route from this page only, not from replies or DMs.</li>
-        </ol>
+      <article class="trust-item">
+        <span>2</span>
+        <strong>Open Raydium from here</strong>
+        <p>Use the main button on this page after the mint matches. Avoid links from replies or DMs.</p>
       </article>
-      <article class="card">
-        <h2>3. Start Small If You Act</h2>
-        <ol class="steps">
-          <li>Do a tiny test swap first.</li>
-          <li>Confirm the output token address in your wallet before approving.</li>
-          <li>Re-open the proof page if anything looks inconsistent.</li>
-        </ol>
+      <article class="trust-item">
+        <span>3</span>
+        <strong>Start small</strong>
+        <p>Use a tiny test swap first and confirm the output token before doing anything larger.</p>
       </article>
     </section>
 
     <section class="grid">
       <article class="card">
-        <h2>Fast Route</h2>
+        <h2>Public Proof</h2>
         <div class="links">
-          <a class="tracked-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="route_raydium" target="_blank" rel="noreferrer">Official Raydium Route</a>
-          <a class="tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="route_solscan" target="_blank" rel="noreferrer">Solscan</a>
-          <a class="tracked-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" data-label="route_geckoterminal" target="_blank" rel="noreferrer">GeckoTerminal Pool</a>
+          <a class="tracked-link" href="./proof.html" data-label="proof_pack">Proof Pack</a>
+          <a class="tracked-link" href="./token-info.html" data-label="token_info">Token Info</a>
+          <a class="tracked-link" href="./updates.html" data-label="updates">Updates</a>
         </div>
-        <p>These are the only links that should matter for first-pass verification.</p>
+        <p>Use these pages to verify the mint, public links, revoked controls, and the current project trail.</p>
       </article>
       <article class="card">
-        <h2>Official Channels</h2>
+        <h2>Market References</h2>
         <div class="links">
-          <a class="tracked-link" href="./guides.html" data-label="channels_guides">Guides Hub</a>
-          <a class="tracked-link" href="./proof.html" data-label="channels_proof">Proof Pack</a>
-          <a class="tracked-link" href="./updates.html" data-label="channels_updates">Updates</a>
-          <a class="tracked-link" href="./liquidity-covenant.html" data-label="channels_covenant">Liquidity Covenant</a>
+          <a class="tracked-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" data-label="market_geckoterminal" target="_blank" rel="noreferrer">GeckoTerminal</a>
+          <a class="tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="market_solscan" target="_blank" rel="noreferrer">Solscan</a>
+          <a class="tracked-link" href="./liquidity-covenant.html" data-label="liquidity_covenant">Liquidity Covenant</a>
         </div>
-        <p>If a launch claim or trade route is not repeated across these surfaces, treat it as untrusted.</p>
+        <p>These are references for checking the same mint and pool context. They are not guarantees.</p>
       </article>
       <article class="card">
-        <h2>Red Flags</h2>
+        <h2>Do Not Trust</h2>
         <ul class="steps">
-          <li>Alternative mint or “migration” claims.</li>
+          <li>Alternative mint or migration claims.</li>
           <li>Private-sale DMs or wallet-support messages.</li>
           <li>Requests for seed phrases, remote access, or manual validation.</li>
         </ul>
-        <div class="warn">Fastest way to lose money: acting from a screenshot or DM instead of this page.</div>
-      </article>
-    </section>
-
-    <section class="grid">
-      <article class="card">
-        <h2>Need The Broader Process?</h2>
-        <p>If you found the token on DexScreener or need to understand Solana control risk before you trade, start with the guides below before you come back to the route page.</p>
-        <div class="links">
-          <a class="tracked-link" href="./solana-token-checker.html" data-label="guides_solana_checker">Solana Token Checker</a>
-          <a class="tracked-link" href="./dexscreener-token-checker.html" data-label="guides_dexscreener_checker">DexScreener Verification</a>
-          <a class="tracked-link" href="./mint-authority-freeze-authority.html" data-label="guides_authority">Mint vs Freeze Authority</a>
-        </div>
-      </article>
-      <article class="card">
-        <h2>Best Sequence</h2>
-        <ol class="steps">
-          <li>Read the specific guide if you started from a pair page or a control-risk question.</li>
-          <li>Return here to confirm the official mint and route.</li>
-          <li>Use the proof pack and updates desk before any bigger position.</li>
-        </ol>
+        <div class="warn">Do not act from a screenshot, reply, or private message. Come back to this page first.</div>
       </article>
     </section>
 
@@ -579,10 +581,10 @@
         <img src="./assets/geckoterminal-logo-dark.svg" alt="GeckoTerminal logo" loading="lazy" decoding="async" />
         <p>External discovery often starts on trackers. Always cross-check the same official pool on GeckoTerminal.</p>
       </div>
-      <a class="gecko-badge-link tracked-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" data-label="route_gecko_badge" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
+      <a class="gecko-badge-link tracked-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" data-label="gecko_badge" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
     </section>
 
-    <p class="footer">Vectora publishes proof and route checks, not guarantees. Verify the mint before every trade.</p>
+    <p class="footer">Vectora publishes proof and public references, not guarantees. Verify the mint before every trade.</p>
   </main>
   <script>
     const PAGE_NAME = 'buy_and_verify';
@@ -610,7 +612,7 @@
       traffic_campaign: attribution.campaign
     });
 
-    const leadLabels = new Set(['hero_raydium', 'route_raydium']);
+    const leadLabels = new Set(['hero_raydium']);
 
     document.querySelectorAll('.tracked-link').forEach((link) => {
       link.addEventListener('click', () => {
@@ -624,7 +626,7 @@
         });
         if (leadLabels.has(label)) {
           trackEvent('generate_lead', {
-            method: 'official_route',
+            method: 'official_raydium',
             value: 1,
             currency: 'USD',
             page_name: PAGE_NAME,
