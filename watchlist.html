@@ -80,6 +80,12 @@
       font-weight: 700;
       font-size: 1.02rem;
     }
+    .brand-buy-link {
+      color: inherit;
+      text-decoration: none;
+    }
+    .brand-buy-link:hover { color: var(--cyan); }
+
     .brand img {
       width: 26px;
       height: 26px;
@@ -756,10 +762,10 @@
 <body>
   <main class="wrap">
     <div class="nav">
-      <div class="brand">
+      <a class="brand brand-buy-link" href="./buy-and-verify.html" aria-label="Buy Vectora token through the verified path">
         <img src="./assets/vtrai-token-mark-128.png" alt="VTRAI logo" />
         <span>Vectora <span class="tag">$VTRAI</span></span>
-      </div>
+      </a>
       <div class="nav-actions">
         <div class="nav-links">
           <a href="./index.html">Home</a>

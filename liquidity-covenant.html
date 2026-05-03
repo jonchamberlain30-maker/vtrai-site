@@ -75,6 +75,14 @@
       flex-wrap: wrap;
     }
     .top-actions > a { color: var(--cyan); text-decoration: none; }
+    .brand-buy-link {
+      color: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+    .brand-buy-link:hover { color: var(--cyan); }
+
     .site-menu {
       position: relative;
       order: -1;
@@ -243,7 +251,7 @@
 <body>
   <main class="wrap">
     <div class="top">
-      <strong>Vectora Liquidity Covenant v1.0</strong>
+      <a class="brand-buy-link" href="./buy-and-verify.html" aria-label="Buy Vectora token through the verified path"><strong>Vectora Liquidity Covenant v1.0</strong></a>
       <div class="top-actions">
         <a href="./index.html">Home</a>
         <details class="site-menu">
