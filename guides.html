@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Practical token verification guides for Solana traders: DexScreener checks, contract verification, mint authority, freeze authority, and safer watchlist workflows." />
+  <meta name="description" content="Vectora guides hub: choose the right guide for token checks, DexScreener verification, mint authority, freeze authority, and public proof review." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/guides.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Token Verification Guides For Solana Traders | Vectora" />
-  <meta property="og:description" content="Learn how to check token contracts, compare DexScreener routes, and understand Solana mint and freeze authority before you buy." />
+  <meta property="og:title" content="Vectora | Guides" />
+  <meta property="og:description" content="Choose the right guide for token checks, DexScreener verification, mint authority, freeze authority, and public proof review." />
   <meta property="og:url" content="https://getvectora.ai/guides.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora token verification guides hub" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Token Verification Guides For Solana Traders | Vectora" />
-  <meta name="twitter:description" content="Learn how to check token contracts, compare DexScreener routes, and understand Solana mint and freeze authority before you buy." />
+  <meta name="twitter:title" content="Vectora | Guides" />
+  <meta name="twitter:description" content="Choose the right guide for token checks, DexScreener verification, mint authority, freeze authority, and public proof review." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -32,7 +32,7 @@
       "@type": "CollectionPage",
       "name": "Vectora Token Verification Guides",
       "url": "https://getvectora.ai/guides.html",
-      "description": "Practical guides for verifying token contracts, DexScreener routes, and Solana control risks before buying."
+      "description": "Vectora guides hub for token checks, DexScreener verification, mint authority, freeze authority, and public proof review."
     }
   </script>
   <script type="application/ld+json">
@@ -55,7 +55,7 @@
       ]
     }
   </script>
-  <title>Token Verification Guides For Solana Traders | Vectora</title>
+  <title>Vectora | Guides</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -338,63 +338,46 @@
       background: rgba(8, 15, 30, 0.72);
       padding: 16px;
     }
+    .choose-box a {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .choose-box a:hover {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     .footer {
       margin-top: 16px;
       color: var(--muted);
       font-size: 0.88rem;
       text-align: center;
     }
-    .gecko-badge {
-      margin-top: 16px;
-      border: 1px solid rgba(77, 234, 255, 0.18);
-      border-radius: 14px;
-      background: rgba(8, 15, 30, 0.72);
-      padding: 11px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .gecko-badge-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 260px;
-      flex: 1;
-    }
-    .gecko-badge-left img {
-      height: 20px;
-      width: auto;
-      display: block;
-      opacity: 0.95;
-    }
-    .gecko-badge-left p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-    .gecko-badge-link {
-      border: 1px solid rgba(77, 234, 255, 0.18);
-      border-radius: 10px;
-      padding: 8px 11px;
-      background: rgba(18, 30, 52, 0.72);
-      color: #e8fbff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.84rem;
-      white-space: nowrap;
-    }
-    .gecko-badge-link:hover { border-color: var(--cyan); }
     @media (max-width: 920px) {
-      .top { align-items: flex-start; }
+      body { overflow-x: hidden; }
+      .wrap {
+        width: 100%;
+        padding: 18px;
+      }
+      .top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
       .top-actions {
         width: 100%;
         justify-content: flex-start;
       }
       .hero, .grid, .choose-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 2rem; }
+      h1 {
+        font-size: 2rem;
+        overflow-wrap: break-word;
+      }
+      .btn, .links a, .choose-box a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -408,24 +391,24 @@
           <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
-              <span class="menu-group-title">Product</span>
-              <a href="./index.html#trust-check">Open Trust Check</a>
+              <span class="menu-group-title">Check</span>
+              <a href="./index.html#trust-check">Token Check</a>
               <a href="./open-preview.html">Open Preview</a>
               <a href="./watchlist.html">Watchlist</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Guides</span>
-              <a href="./verify-token.html">Verification Guide</a>
+              <span class="menu-group-title">Learn</span>
+              <a href="./education.html">Token Safety Basics</a>
+              <a href="./guides.html">Guides Hub</a>
               <a href="./solana-token-checker.html">Solana Token Checker</a>
-              <a href="./solana-mint-authority.html">Mint Authority Guide</a>
+              <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Project</span>
-              <a href="./lab.html">Lab / Build Log</a>
+              <span class="menu-group-title">Proof</span>
               <a href="./proof.html">Proof Pack</a>
               <a href="./token-info.html">Token Info</a>
               <a href="./updates.html">Updates</a>
-              <a href="./about.html">About &amp; Affiliation</a>
+              <a href="./about.html">About</a>
             </div>
           </div>
         </details>
@@ -434,68 +417,67 @@
 
     <section class="hero">
       <div>
-        <div class="badge">Traffic Sprint Resource Hub</div>
-        <h1>Useful Token Verification Guides For Solana And DexScreener Traders</h1>
-        <p class="sub">These pages answer the practical questions traders ask before they click a pair, trust a contract, or keep watching a token. Each guide points back into the live Vectora flow so visitors can move from reading to checking without losing context.</p>
+        <div class="badge">Guides Hub</div>
+        <h1>Choose the right token verification guide.</h1>
+        <p class="sub">Start from what you have in front of you: a mint, a DEX pair, a control-risk question, or a need to confirm public proof. Each guide points back to the Vectora check and proof flow.</p>
         <div class="cta">
-          <a class="btn tracked-link" href="./index.html#trust-check" data-label="hub_trust_check">Open Trust Check</a>
-          <a class="btn secondary tracked-link" href="./proof.html" data-label="hub_proof_pack">Open Proof Pack</a>
+          <a class="btn tracked-link" href="./index.html#trust-check" data-label="hub_trust_check">Token Check</a>
+          <a class="btn secondary tracked-link" href="./proof.html" data-label="hub_proof_pack">Proof Pack</a>
         </div>
       </div>
       <div class="guide-card">
-        <h2>What This Hub Covers</h2>
+        <h2>Start Here</h2>
         <ul>
-          <li>How to check a Solana token before you buy.</li>
-          <li>How to use DexScreener without buying the wrong pair.</li>
-          <li>What Solana mint authority means and what mint revoked means.</li>
-          <li>What freeze authority adds to the same control-risk picture.</li>
-          <li>Where Vectora fits once discovery is already happening elsewhere.</li>
+          <li>If you have a mint, use the Solana token checker guide.</li>
+          <li>If you found a pair, use the DexScreener guide.</li>
+          <li>If you are reading control flags, use the authority guides.</li>
+          <li>If you are checking Vectora itself, use the proof pack.</li>
         </ul>
       </div>
     </section>
 
     <section class="grid">
       <article class="guide-card">
-        <h3><a href="./solana-token-checker.html">Solana Token Checker Guide</a></h3>
-        <p>Use this when you already have a mint address and need a fast, sane process for checking route consistency, explorer links, control risk, and next steps.</p>
+        <h3><a href="./solana-token-checker.html">I Have A Mint Address</a></h3>
+        <p>Use this when you need to check route consistency, explorer links, control risk, and next steps from a Solana mint.</p>
         <div class="links">
           <a class="tracked-link" href="./solana-token-checker.html" data-label="hub_solana_checker">Read guide</a>
         </div>
       </article>
       <article class="guide-card">
-        <h3><a href="./dexscreener-token-checker.html">DexScreener Verification Guide</a></h3>
-        <p>Use this when discovery started on DexScreener and you want to avoid buying a clone, wrong pair, or token that never matched the official route.</p>
+        <h3><a href="./dexscreener-token-checker.html">I Found A DEX Pair</a></h3>
+        <p>Use this when discovery started on DexScreener and you need to avoid a clone, wrong pair, or route that never matched official proof.</p>
         <div class="links">
           <a class="tracked-link" href="./dexscreener-token-checker.html" data-label="hub_dexscreener_guide">Read guide</a>
         </div>
       </article>
       <article class="guide-card">
-        <h3><a href="./solana-mint-authority.html">Solana Mint Authority Explained</a></h3>
-        <p>Use this when the question is narrow and urgent: what mint authority means, what mint revoked means, and how to read that signal before you buy.</p>
+        <h3><a href="./solana-mint-authority.html">I Need Mint Authority Explained</a></h3>
+        <p>Use this when the question is narrow: what mint authority means, what mint revoked means, and how to read the signal.</p>
         <div class="links">
           <a class="tracked-link" href="./solana-mint-authority.html" data-label="hub_mint_authority_exact">Read guide</a>
         </div>
       </article>
       <article class="guide-card">
-        <h3><a href="./mint-authority-freeze-authority.html">Mint Authority vs Freeze Authority</a></h3>
+        <h3><a href="./mint-authority-freeze-authority.html">I Need Control Flags</a></h3>
         <p>Use this when you need to interpret Solana control risk quickly instead of treating authority flags as vague red or green labels.</p>
         <div class="links">
           <a class="tracked-link" href="./mint-authority-freeze-authority.html" data-label="hub_authority_guide">Read guide</a>
         </div>
       </article>
       <article class="guide-card">
-        <h3><a href="./verify-token.html">Core Token Verification Workflow</a></h3>
-        <p>Use this if you want the broadest end-to-end process first, then branch into the more specific Solana or DexScreener guides afterwards.</p>
+        <h3><a href="./verify-token.html">I Want The Full Workflow</a></h3>
+        <p>Use this when you want the broad process first, then branch into the more specific Solana or DexScreener guides afterwards.</p>
         <div class="links">
           <a class="tracked-link" href="./verify-token.html" data-label="hub_core_verification">Read guide</a>
         </div>
       </article>
     </section>
 
-    <section class="hero">
+    <section class="card">
       <div>
-        <h2>Choose Your Start Point</h2>
-        <p class="sub">This keeps the user journey short. Start from the problem you actually have instead of reading every page in order.</p>
+        <h2>Pick A Path</h2>
+        <p class="sub">Use the shortest path for the question you actually have. You do not need to read every page in order.</p>
       </div>
       <div class="choose-grid">
         <div class="choose-box">
@@ -510,21 +492,13 @@
         </div>
         <div class="choose-box">
           <h3>I need to decode mint control</h3>
-          <p>Start with the mint authority guide, then use the broader authority guide or trust card if you still need more context.</p>
+          <p>Start with the mint authority guide, then use the broader authority guide if you still need more context.</p>
           <a class="tracked-link" href="./solana-mint-authority.html" data-label="hub_start_mint_authority">Start here</a>
         </div>
       </div>
     </section>
 
-    <section class="gecko-badge" aria-label="GeckoTerminal listing reference">
-      <div class="gecko-badge-left">
-        <img src="./assets/geckoterminal-logo-dark.svg" alt="GeckoTerminal logo" loading="lazy" decoding="async" />
-        <p>Vectora is listed on GeckoTerminal. Use the pool page when verifying external market references.</p>
-      </div>
-      <a class="gecko-badge-link tracked-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" data-label="hub_geckoterminal_pool" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
-    </section>
-
-    <p class="footer">Vectora publishes verification and route context, not guarantees. Always confirm the exact contract before trading.</p>
+    <p class="footer">Vectora publishes verification and route context, not guarantees. Always confirm the exact mint before taking action.</p>
   </main>
   <script>
     const PAGE_NAME = 'guides_hub';

@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Read official Vectora updates, trust snapshots, and scheduled watched-token monitoring summaries." />
+  <meta name="description" content="Vectora updates: public review trail, trust snapshots, watched-token summaries, and official proof references in one clean record." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/updates.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Vectora | Official Updates And Trust Snapshots" />
-  <meta property="og:description" content="Read official Vectora updates, trust snapshots, and scheduled watched-token monitoring summaries." />
+  <meta property="og:title" content="Vectora | Updates" />
+  <meta property="og:description" content="Public review trail, trust snapshots, watched-token summaries, and official proof references in one clean record." />
   <meta property="og:url" content="https://getvectora.ai/updates.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
-  <meta property="og:image:alt" content="Vectora official updates and trust snapshots" />
+  <meta property="og:image:alt" content="Vectora updates page" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vectora | Official Updates And Trust Snapshots" />
-  <meta name="twitter:description" content="Read official Vectora updates, trust snapshots, and scheduled watched-token monitoring summaries." />
+  <meta name="twitter:title" content="Vectora | Updates" />
+  <meta name="twitter:description" content="Public review trail, trust snapshots, watched-token summaries, and official proof references in one clean record." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -26,7 +26,7 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
-  <title>Vectora | Official Updates</title>
+  <title>Vectora | Updates</title>
   <style>
     :root {
       --bg-1: #050912;
@@ -83,12 +83,27 @@
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
+      order: -1;
     }
     .brand-actions > a {
-      color: var(--ink);
+      color: var(--cyan);
       text-decoration: none;
-      border-bottom: 1px dashed #466487;
       font-size: 0.93rem;
+      line-height: 1.4;
+      padding: 10px 0;
+    }
+    .brand strong {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand strong::before {
+      content: "";
+      width: 28px;
+      height: 28px;
+      background: center / contain no-repeat var(--token-mark);
+      filter: drop-shadow(0 0 18px rgba(77, 234, 255, 0.24));
+      flex-shrink: 0;
     }
     .site-menu {
       position: relative;
@@ -330,11 +345,34 @@
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .quick-links a {
+      color: var(--cyan);
+      text-decoration: none;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(18, 30, 52, 0.52);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+    .quick-links a:hover {
+      border-color: rgba(77, 234, 255, 0.55);
+    }
     .card {
       border: 1px solid var(--line);
       border-radius: 14px;
       background: var(--card);
       padding: 14px;
+    }
+    .hero-card {
+      margin-top: 14px;
+      padding: 20px;
     }
     .card h2 {
       margin: 0 0 8px;
@@ -488,156 +526,118 @@
       text-underline-offset: 2px;
       margin-right: 10px;
     }
-    .gecko-badge {
-      margin-top: 14px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(10, 18, 36, 0.82);
-      padding: 11px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .gecko-badge-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 260px;
-      flex: 1;
-    }
-    .gecko-badge-left img {
-      height: 20px;
-      width: auto;
-      display: block;
-      opacity: 0.95;
-    }
-    .gecko-badge-left p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-    .gecko-badge-link {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 8px 11px;
-      background: rgba(18, 30, 52, 0.72);
-      color: #e8fbff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.84rem;
-      white-space: nowrap;
-    }
-    .gecko-badge-link:hover { border-color: var(--cyan); }
     @media (max-width: 860px) {
-      .brand { align-items: flex-start; }
+      body { overflow-x: hidden; }
+      .wrap {
+        width: 100%;
+        padding: 18px;
+      }
+      .brand {
+        align-items: flex-start;
+        flex-direction: column;
+      }
       .brand-actions {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
       }
       .grid { grid-template-columns: 1fr; }
-      h1 { font-size: 1.7rem; }
+      h1 {
+        font-size: 1.7rem;
+        overflow-wrap: break-word;
+      }
       .snapshot-meta { grid-template-columns: 1fr; }
+      .quick-links a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
   <main class="wrap">
     <header class="brand">
-      <div>
-        <h1>Official Vectora Update Desk</h1>
-        <p class="sub">Primary source for listing-review milestones, trust snapshots, and official Vectora updates.</p>
-      </div>
+      <strong>Vectora Updates</strong>
       <div class="brand-actions">
         <a href="./index.html">Home</a>
         <details class="site-menu">
           <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
-              <span class="menu-group-title">Product</span>
-              <a href="./index.html#trust-check">Open Trust Check</a>
+              <span class="menu-group-title">Check</span>
+              <a href="./index.html#trust-check">Token Check</a>
               <a href="./open-preview.html">Open Preview</a>
               <a href="./watchlist.html">Watchlist</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Guides</span>
+              <span class="menu-group-title">Learn</span>
+              <a href="./education.html">Token Safety Basics</a>
               <a href="./guides.html">Guides Hub</a>
-              <a href="./verify-token.html">Verification Guide</a>
-              <a href="./solana-mint-authority.html">Mint Authority Guide</a>
+              <a href="./solana-token-checker.html">Solana Token Checker</a>
+              <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Project</span>
+              <span class="menu-group-title">Proof</span>
               <a href="./proof.html">Proof Pack</a>
-              <a href="./lab.html">Lab / Build Log</a>
               <a href="./token-info.html">Token Info</a>
-              <a href="./about.html">About &amp; Affiliation</a>
-              <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+              <a href="./updates.html">Updates</a>
+              <a href="./about.html">About</a>
             </div>
           </div>
         </details>
       </div>
     </header>
 
+    <section class="card hero-card">
+      <h1>Vectora updates: public review trail, trust snapshots, and build notes.</h1>
+      <p class="sub">Use this page as the public record for review milestones and trust snapshots. For the official mint and token facts, start from the proof pack or token info page.</p>
+    </section>
+
     <div class="badges">
-      <span class="badge">Proof-first comms</span>
-      <span class="badge">Website-first release</span>
-      <span class="badge">GeckoTerminal submitted</span>
-      <span class="badge">CoinGecko submitted</span>
-      <span class="badge">Lab opened</span>
+      <span class="badge">Public record</span>
+      <span class="badge">Review trail</span>
+      <span class="badge">Trust snapshots</span>
+      <span class="badge">Watched tokens</span>
     </div>
     <p class="state" id="status">Loading latest updates...</p>
     <div class="filter-state" id="filterState"></div>
     <section class="card token-summary" id="tokenSummary"></section>
-    <section class="review-card">
-      <h2>Research Lane Opened</h2>
-      <p>On 2026-04-27, Vectora opened a six-month research and build window for a more ambitious direction. We are not naming the lane yet. The target window is circa the last quarter of 2026, and the public trail will focus on source confusion, wallet-action clarity, route drift, impersonation, and evidence users can actually read.</p>
-      <p>This is not a launch promise or price signal. It is a documented proof-of-work trail. <a href="./lab.html">Open the Lab / Build Log</a>.</p>
-    </section>
-    <section class="review-card">
-      <h2>Current Review Status</h2>
-      <p>Vectora is now pushing the public review trail directly. The current verified state is below.</p>
-      <ul>
-        <li>GeckoTerminal token info request submitted on 2026-03-25.</li>
-        <li>CoinGecko listing request submitted on 2026-03-25.</li>
-        <li>CoinGecko public request ID: <code>CL2503260032</code>.</li>
-        <li>Official verification thread: <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">open on X</a>.</li>
-        <li>Canonical references: <a href="./token-info.html">Token Info</a>, <a href="./proof.html">Proof Pack</a>, <a href="./whitepaper.html">Whitepaper</a>.</li>
-        <li>Next review step: Jupiter token verification.</li>
-      </ul>
-      <p>Submission does not imply approval. Treat only the official mint and links on getvectora.ai as trusted.</p>
+    <section class="grid">
+      <article class="review-card">
+        <h2>Research Window</h2>
+        <p>Vectora has opened a longer research and build window for a larger verification direction, with a target window around Q4 2026. The public record will stay focused on source confusion, wallet-action clarity, route drift, impersonation, and evidence users can actually read.</p>
+        <p>This is not a launch promise or price signal. It is a proof-of-work trail.</p>
+      </article>
+      <article class="review-card">
+        <h2>Public Review Trail</h2>
+        <ul>
+          <li>GeckoTerminal token info request submitted on 2026-03-25.</li>
+          <li>CoinGecko listing request submitted on 2026-03-25.</li>
+          <li>CoinGecko request ID: <code>CL2503260032</code>.</li>
+          <li>Public request note: <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">open on X</a>.</li>
+        </ul>
+      </article>
     </section>
 
     <section class="grid">
       <article class="card">
         <h2>Latest Bulletin</h2>
-        <div id="latestItem"><p class="loading">Waiting for update feed...</p></div>
+        <div id="latestItem"><p class="loading">Checking for public updates...</p></div>
         <div class="cadence">
-          <div><b>Today:</b> Market-gated build-up updates and trust checks.</div>
-          <div><b>This week:</b> Milestone confirmation for Trust Card Engine prerequisites.</div>
-          <div><b>Next:</b> Threat Graph planning update once proof quality passes the launch gate.</div>
+          <div><b>Current:</b> public review trail, trust snapshots, and watched-token summaries.</div>
+          <div><b>Next:</b> proof quality and product-path updates when they are ready to show.</div>
         </div>
       </article>
       <article class="card">
-        <h2>Release Plan</h2>
-        <p>We publish the official message content here first and use this page as the canonical public update desk. This keeps community access consistent and verifiable.</p>
-        <div class="links">
+        <h2>Where To Verify</h2>
+        <p>Use the proof pack for the official mint and control signals, token info for public token facts, and about for the official channels.</p>
+        <div class="quick-links">
+          <a href="./proof.html">Proof Pack</a>
+          <a href="./token-info.html">Token Info</a>
+          <a href="./about.html">About</a>
           <a href="./guides.html">Guides Hub</a>
-          <a href="./whitepaper.html">Whitepaper</a>
-          <a href="./liquidity-covenant.html">Liquidity Covenant</a>
-          <a href="./buy-and-verify.html">Buy &amp; Verify</a>
         </div>
-        <p class="warn">If a post is not on one of the official channels above, treat it as unverified.</p>
+        <p class="warn">If a claim does not resolve back to the public Vectora pages, treat it as unofficial.</p>
       </article>
-    </section>
-
-    <section class="gecko-badge" aria-label="GeckoTerminal listing reference">
-      <div class="gecko-badge-left">
-        <img src="./assets/geckoterminal-logo-dark.svg" alt="GeckoTerminal logo" loading="lazy" decoding="async" />
-        <p>GeckoTerminal listing update is live. Use the official pool link below when cross-checking market trackers.</p>
-      </div>
-      <a class="gecko-badge-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
     </section>
 
     <section class="grid">
@@ -652,13 +652,13 @@
     </section>
 
     <section class="card">
-      <h2>Scheduled Watched Tokens</h2>
+      <h2>Watched Token Snapshots</h2>
       <div id="watchedSnapshots"><p class="loading">Loading watched token snapshots...</p></div>
     </section>
 
     <section class="card">
       <h2>Update History</h2>
-      <div id="history"><p class="loading">No feed loaded yet.</p></div>
+      <div id="history"><p class="loading">No update history yet.</p></div>
     </section>
   </main>
 
@@ -707,12 +707,12 @@
         tokenSummaryEl.innerHTML = `
           <h2>Latest Token Summary</h2>
           <div class="empty-state">
-            <strong>This token is not scheduled yet.</strong>
-            <p>No scheduled background summary is available for this token yet. Use the watchlist handoff tools to add it to scheduled monitoring, or use the report page for the latest ad hoc trust check.</p>
+            <strong>No saved summary yet.</strong>
+            <p>No saved summary is available for this token yet. Use the report page for the latest check, then return here once a public summary exists.</p>
           </div>
           <div class="instruction-box">
-            <strong>Add this token to scheduled monitoring</strong>
-            Open the watchlist for this token, then use <code>Copy Manifest Entry</code> for one token or <code>Export Scheduled Manifest</code> for a full list and add that entry to <code>watched_tokens.json</code>.
+            <strong>Watchlist note</strong>
+            Saved token summaries will appear here when they are available.
           </div>
         `;
         return;
@@ -729,16 +729,16 @@
           </div>
           <span class="snapshot-badge ${snapshotBadgeClass(latest.level)}">${latest.level || item.status || 'unknown'}</span>
         </div>
-        <div class="snapshot-summary">${latest.summary || 'No scheduled summary available.'}</div>
+        <div class="snapshot-summary">${latest.summary || 'No public summary available.'}</div>
         ${renderSnapshotMeta(latest)}
-        <ul class="snapshot-list">${(changes.length ? changes.slice(0, 4) : ['No material trust change since the last scheduled check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
+        <ul class="snapshot-list">${(changes.length ? changes.slice(0, 4) : ['No material trust change since the last saved check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
         <div class="snapshot-links">
           <a href="${reportUrl}">Open report</a>
           ${latest.links && latest.links[0] ? `<a href="${latest.links[0].url}" target="_blank" rel="noreferrer">${latest.links[0].label}</a>` : ''}
         </div>
         <div class="instruction-box">
-          <strong>Need to schedule another token?</strong>
-          Use the watchlist handoff tools: <code>Copy Manifest Entry</code> for one token or <code>Export Scheduled Manifest</code> for a full list, then add those entries to <code>watched_tokens.json</code>.
+          <strong>Watchlist note</strong>
+          Use the watchlist to revisit this token and refresh the report.
         </div>
       `;
     }
@@ -747,7 +747,7 @@
       return `
         <div class="empty-state">
           <strong>No market-qualified update has been published yet.</strong>
-          <p>The feed stays empty until a real tradable pair and usable market data are visible. Local draft generation can continue in the background without creating public filler posts.</p>
+          <p>This section stays empty until there is a useful public update worth showing.</p>
         </div>
       `;
     }
@@ -802,7 +802,7 @@
 
     function renderSnapshotHistory(items) {
       if (!items.length) {
-        return '<div class=\"empty-state\"><strong>No prior trust snapshots yet.</strong><p>The first baseline snapshot will appear here once the automation finishes a full trust-report check.</p></div>';
+        return '<div class=\"empty-state\"><strong>No prior trust snapshots yet.</strong><p>The first baseline snapshot will appear here once a full trust-report check is available.</p></div>';
       }
       return items.slice(0, 5).map((item) => `
         <article class=\"item\">
@@ -815,7 +815,7 @@
 
     function renderWatchedSnapshots(items) {
       if (!items.length) {
-        return '<div class=\"empty-state\"><strong>No watched tokens are scheduled yet.</strong><p>Add tokens to /watched_tokens.json and the automation will start capturing scheduled trust snapshots for them.</p></div>';
+        return '<div class=\"empty-state\"><strong>No watched token snapshots yet.</strong><p>Saved token summaries will appear here when they are available.</p></div>';
       }
       return items.map((item) => {
         const latest = item.latest || {};
@@ -832,7 +832,7 @@
               </div>
               <span class=\"snapshot-badge ${snapshotBadgeClass(latest.level)}\">${latest.level || item.status || 'unknown'}</span>
             </div>
-            <ul class=\"snapshot-list\">${(changes.length ? changes : ['No material trust change since the last scheduled check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
+            <ul class=\"snapshot-list\">${(changes.length ? changes : ['No material trust change since the last saved check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
             <div class=\"snapshot-links\">
               <a href=\"${reportUrl}\">Open report</a>
               ${latest.links && latest.links[0] ? `<a href=\"${latest.links[0].url}\" target=\"_blank\" rel=\"noreferrer\">${latest.links[0].label}</a>` : ''}
@@ -859,7 +859,7 @@
         const items = (data && Array.isArray(data.items)) ? data.items : [];
         if (hasTokenFilter && normalizedFilterAddress !== OFFICIAL_VECTORA_MINT.toLowerCase()) {
           statusEl.textContent = 'Updates desk filtered to a non-Vectora token.';
-          latestItemEl.innerHTML = '<div class=\"empty-state\"><strong>No project bulletin feed for this token.</strong><p>Bulletins here are Vectora-wide. Use the scheduled watched token section and token report for token-specific monitoring.</p></div>';
+          latestItemEl.innerHTML = '<div class=\"empty-state\"><strong>No project bulletins for this token.</strong><p>Bulletins here are Vectora-wide. Use the watched token section and token report for token-specific monitoring.</p></div>';
           historyEl.innerHTML = '<p>No project bulletins for this token.</p>';
           return;
         }
@@ -870,7 +870,7 @@
           return;
         }
 
-        statusEl.textContent = `Feed synced: ${data.generated_at_utc || 'now'} (latest: ${items[0].timestamp_utc || 'n/a'})`;
+        statusEl.textContent = `Public updates refreshed: ${data.generated_at_utc || 'now'} (latest: ${items[0].timestamp_utc || 'n/a'})`;
         latestItemEl.innerHTML = renderItem(items[0]);
         if (items.length > 1) {
           const others = items.slice(1).map(renderItem).join('');
@@ -880,9 +880,9 @@
         }
       })
       .catch(() => {
-        statusEl.textContent = 'Update feed not published yet.';
+        statusEl.textContent = 'No public updates are available yet.';
         latestItemEl.innerHTML = renderEmptyState();
-        historyEl.innerHTML = '<p class=\"loading\">No feed file found at /updates_feed.json.</p>';
+        historyEl.innerHTML = '<p class=\"loading\">No public update history is available yet.</p>';
       });
 
     fetch('./trust_snapshots.json', { cache: 'no-store' })
@@ -895,8 +895,8 @@
         const items = sourceItems.filter((item) => matchesToken(item.address, item.network_id || item.network_label));
         if (!items.length) {
           trustLatestEl.innerHTML = hasTokenFilter
-            ? '<div class=\"empty-state\"><strong>No trust snapshots match this token yet.</strong><p>Use the report page or scheduled watched-token section to check the latest token-specific monitoring state.</p></div>'
-            : '<div class=\"empty-state\"><strong>No trust snapshot published yet.</strong><p>Baseline trust snapshots will appear here as the automation starts capturing daily state.</p></div>';
+            ? '<div class=\"empty-state\"><strong>No trust snapshots match this token yet.</strong><p>Use the report page or watched token section to check the latest token-specific monitoring state.</p></div>'
+            : '<div class=\"empty-state\"><strong>No trust snapshot published yet.</strong><p>Baseline trust snapshots will appear here when public checks are available.</p></div>';
           trustHistoryEl.innerHTML = renderSnapshotHistory([]);
           return;
         }
@@ -905,7 +905,7 @@
         trustHistoryEl.innerHTML = renderSnapshotHistory(items.slice(1));
       })
       .catch(() => {
-        trustLatestEl.innerHTML = '<div class=\"empty-state\"><strong>No trust snapshot file yet.</strong><p>The updates desk is live, but the trust snapshot feed has not been published yet.</p></div>';
+        trustLatestEl.innerHTML = '<div class=\"empty-state\"><strong>No trust snapshots published yet.</strong><p>The updates page is live, but no public trust snapshot is available yet.</p></div>';
         trustHistoryEl.innerHTML = renderSnapshotHistory([]);
       });
 
