@@ -1,2 +1,9 @@
 .DS_Store
 logs/
+assets/vtrai-aads-*
+assets/vtrai-coinzilla-*
+assets/vtrai-article-cover-*
+assets/vtrai-article-template-*
+assets/vtrai-x-ad-*
+assets/vtrai-x-case-study-*
+assets/vtrai-x-screenshot-style-*
