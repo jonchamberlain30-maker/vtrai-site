@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official Vectora affiliation page: what the project is, which channels are official, and how public listing submissions relate to getvectora.ai and @VectoraAI." />
+  <meta name="description" content="Official Vectora about page: what Vectora does, which channels count, where to verify proof, and how public review references fit together." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/about.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Vectora | Official Affiliation" />
-  <meta property="og:description" content="Official Vectora affiliation page: public role, official channels, and the relationship between the project, the site, and current listing submissions." />
+  <meta property="og:title" content="Vectora | About" />
+  <meta property="og:description" content="What Vectora does, which channels count, where to verify proof, and how public review references fit together." />
   <meta property="og:url" content="https://getvectora.ai/about.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
-  <meta property="og:image:alt" content="Vectora official affiliation page" />
+  <meta property="og:image:alt" content="Vectora about page" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vectora | Official Affiliation" />
-  <meta name="twitter:description" content="Official Vectora affiliation page: public role, official channels, and the relationship between the project, the site, and current listing submissions." />
+  <meta name="twitter:title" content="Vectora | About" />
+  <meta name="twitter:description" content="What Vectora does, which channels count, where to verify proof, and how public review references fit together." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -36,19 +36,19 @@
         "https://x.com/VectoraAI",
         "https://t.me/vectorasignal"
       ],
-      "description": "Vectora publishes verification, proof, route checks, and operational updates for the official VTRAI project surfaces."
+      "description": "Vectora publishes token verification, proof references, and public updates for VTRAI."
     }
   </script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Vectora Official Affiliation",
+      "name": "Vectora About",
       "url": "https://getvectora.ai/about.html",
-      "description": "Official affiliation page for Vectora, linking the website, public channels, proof surfaces, and listing-review references."
+      "description": "Official about page for Vectora, linking the website, public channels, proof surfaces, and public review references."
     }
   </script>
-  <title>Vectora | Official Affiliation</title>
+  <title>Vectora | About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -245,12 +245,30 @@
       font-size: 0.82rem;
     }
     .ok { color: var(--good); }
-    .cta a, .links a {
+    .links,
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .links a,
+    .cta a {
       color: var(--cyan);
       text-decoration: none;
-      margin-right: 10px;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(18, 30, 52, 0.52);
+      font-size: 0.86rem;
+      font-weight: 700;
     }
-    .cta, .links { margin-top: 14px; }
+    .links a:hover,
+    .cta a:hover {
+      color: var(--cyan);
+      border-color: rgba(77, 234, 255, 0.55);
+      text-decoration: none;
+    }
     code {
       display: inline-block;
       background: rgba(35, 50, 76, 0.82);
@@ -272,45 +290,81 @@
       font-size: 1rem;
     }
     .notice p { margin: 0 0 10px; }
+    .reference-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+    .reference-list li {
+      border-top: 1px solid rgba(77, 234, 255, 0.12);
+      padding-top: 9px;
+    }
+    .reference-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .reference-list strong { color: #dff9ff; }
+    .reference-list a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+    .reference-list a:hover { text-decoration: underline; }
     @media (max-width: 860px) {
-      .top { align-items: flex-start; }
+      body { overflow-x: hidden; }
+      .wrap {
+        width: 100%;
+        padding: 18px;
+      }
+      .top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
       .top-actions {
         width: 100%;
         justify-content: flex-start;
       }
       .grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.7rem; }
+      .hero h1 {
+        font-size: 1.7rem;
+        overflow-wrap: break-word;
+      }
+      .cta a, .links a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
   <main class="wrap">
     <div class="top">
-      <strong>Vectora Official Affiliation</strong>
+      <strong>Vectora About</strong>
       <div class="top-actions">
         <a href="./index.html">Home</a>
         <details class="site-menu">
           <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
-              <span class="menu-group-title">Product</span>
-              <a href="./index.html#trust-check">Open Trust Check</a>
+              <span class="menu-group-title">Check</span>
+              <a href="./index.html#trust-check">Token Check</a>
               <a href="./open-preview.html">Open Preview</a>
               <a href="./watchlist.html">Watchlist</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Guides</span>
+              <span class="menu-group-title">Learn</span>
+              <a href="./education.html">Token Safety Basics</a>
               <a href="./guides.html">Guides Hub</a>
-              <a href="./verify-token.html">Verification Guide</a>
-              <a href="./solana-mint-authority.html">Mint Authority Guide</a>
+              <a href="./solana-token-checker.html">Solana Token Checker</a>
+              <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Project</span>
-              <a href="./lab.html">Lab / Build Log</a>
+              <span class="menu-group-title">Proof</span>
               <a href="./proof.html">Proof Pack</a>
               <a href="./token-info.html">Token Info</a>
               <a href="./updates.html">Updates</a>
-              <a href="./whitepaper.html">Whitepaper</a>
+              <a href="./about.html">About</a>
             </div>
           </div>
         </details>
@@ -318,87 +372,83 @@
     </div>
 
     <section class="hero">
-      <h1>Public Affiliation, Official Channels, and Submission Relationship</h1>
-      <p>This page exists to make the public relationship around Vectora explicit. It ties together the official website, the public social surfaces, the proof pages, and the current listing-review references so users and reviewers do not have to infer who is speaking for the project.</p>
+      <h1>About Vectora: what it does, where to verify it, and which channels count.</h1>
+      <p>Vectora is a verification-first token project. The public site exists to give users and reviewers one clear place to check the official mint, proof pages, token info, and project channels.</p>
       <div class="chips">
-        <span class="chip">Official website: getvectora.ai</span>
-        <span class="chip">Official X: @VectoraAI</span>
-        <span class="chip">Official Telegram: t.me/vectorasignal</span>
-        <span class="chip">Project-side submissions only</span>
+        <span class="chip">Official website</span>
+        <span class="chip">Official X</span>
+        <span class="chip">Official Telegram</span>
+        <span class="chip">Public proof pages</span>
       </div>
       <div class="cta">
-        <a href="https://x.com/VectoraAI" target="_blank" rel="noreferrer">Open X</a>
-        <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Open Telegram</a>
-        <a href="./proof.html">Open Proof Pack</a>
-        <a href="./token-info.html">Open Token Info</a>
+        <a href="./index.html#trust-check">Token check</a>
+        <a href="./proof.html">Proof pack</a>
+        <a href="./token-info.html">Token info</a>
+        <a href="./updates.html">Updates</a>
       </div>
     </section>
 
     <section class="notice">
-      <strong>What this page confirms</strong>
-      <p>Vectora’s public website, public proof surfaces, and listing-review references are controlled from the project side. This site is not a third-party tracker mirror, paid listing agency, or unofficial community page.</p>
-      <ul>
-        <li>The official website is <a href="https://getvectora.ai" target="_blank" rel="noreferrer">getvectora.ai</a>.</li>
-        <li>The official public X account is <a href="https://x.com/VectoraAI" target="_blank" rel="noreferrer">@VectoraAI</a>.</li>
-        <li>The official public Telegram is <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">t.me/vectorasignal</a>.</li>
-        <li>Public listing-review references are published through these same project-controlled surfaces.</li>
-      </ul>
+      <strong>Official Surface Rule</strong>
+      <p>Use getvectora.ai, @VectoraAI, and t.me/vectorasignal as the public Vectora channels. If a claim does not resolve back to these surfaces, treat it as unofficial.</p>
     </section>
 
     <section class="grid">
       <article class="card">
-        <h2>Project role</h2>
-        <p>Vectora is building a verification-first public surface for Solana token trust checks, route verification, proof publication, and ongoing operational updates. The site is intended to reduce avoidable mistakes before users act.</p>
-        <p>Public proof, token metadata, route references, and update history are all kept on the same official domain so users do not have to rely on replies, DMs, or forwarded screenshots.</p>
+        <h2>What Vectora Does</h2>
+        <p>Vectora helps users slow down before trusting a token. The current public product path focuses on mint checks, route checks, proof references, and a simple watchlist workflow.</p>
+        <p>The goal is not to tell people what to buy. The goal is to make verification easier before attention turns into action.</p>
       </article>
       <article class="card">
-        <h2>Affiliation statement</h2>
-        <p>Current market-tracker and listing-review submissions referenced on this site are made from the project side using the official website and official Vectora public channels. They are not represented as independent third-party endorsements.</p>
-        <p>If a listing reviewer, user, or partner needs to verify affiliation, this page should be read alongside the token info page, proof pack, and the public request ID confirmation posts.</p>
+        <h2>Official Channels</h2>
+        <div class="links">
+          <a href="https://getvectora.ai" target="_blank" rel="noreferrer">Website</a>
+          <a href="https://x.com/VectoraAI" target="_blank" rel="noreferrer">X</a>
+          <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">Telegram</a>
+        </div>
+        <p>Launch confirmation, review references, or project claims only count if they appear on these channels and match the same proof path.</p>
       </article>
     </section>
 
     <section class="grid">
       <article class="card">
-        <h2>Official surfaces</h2>
-        <ul>
-          <li>Website: <a href="https://getvectora.ai" target="_blank" rel="noreferrer">https://getvectora.ai</a></li>
-          <li>X: <a href="https://x.com/VectoraAI" target="_blank" rel="noreferrer">https://x.com/VectoraAI</a></li>
-          <li>Telegram: <a href="https://t.me/vectorasignal" target="_blank" rel="noreferrer">https://t.me/vectorasignal</a></li>
-          <li>Proof pack: <a href="https://getvectora.ai/proof.html" target="_blank" rel="noreferrer">https://getvectora.ai/proof.html</a></li>
-          <li>Token info: <a href="https://getvectora.ai/token-info.html" target="_blank" rel="noreferrer">https://getvectora.ai/token-info.html</a></li>
-          <li>Updates desk: <a href="https://getvectora.ai/updates.html" target="_blank" rel="noreferrer">https://getvectora.ai/updates.html</a></li>
-        </ul>
+        <h2>Verification Surfaces</h2>
+        <p>These are the pages to use when checking whether a mint, route, or project claim is aligned with Vectora.</p>
+        <div class="links">
+          <a href="./proof.html">Proof pack</a>
+          <a href="./token-info.html">Token info</a>
+          <a href="./index.html#trust-check">Token check</a>
+          <a href="./updates.html">Updates</a>
+        </div>
       </article>
       <article class="card">
-        <h2>Current public review references</h2>
-        <ul>
-          <li>CoinGecko token listing request: submitted on 2026-03-25.</li>
-          <li>CoinGecko public request ID: <code>CL2503260032</code>.</li>
-          <li>Request ID confirmation post: <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">open on X</a>.</li>
-          <li>GeckoTerminal pool reference: <a href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" target="_blank" rel="noreferrer">open pool</a>.</li>
+        <h2>Public Review Trail</h2>
+        <ul class="reference-list">
+          <li><strong>GeckoTerminal token info:</strong> submitted on 2026-03-25.</li>
+          <li><strong>CoinGecko token listing:</strong> submitted on 2026-03-25.</li>
+          <li><strong>CoinGecko request ID:</strong> <code>CL2503260032</code>.</li>
+          <li><strong>Public request note:</strong> <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">open on X</a>.</li>
         </ul>
       </article>
     </section>
 
     <section class="grid">
       <article class="card">
-        <h2>How to verify this affiliation yourself</h2>
-        <ol>
-          <li>Check that this page, the proof pack, and token info page all use the same domain and mint.</li>
-          <li>Check that the public X account repeats the same official links and request ID references.</li>
-          <li>Cross-check the same mint against the proof pack, Solscan, and the public market route.</li>
-          <li>Treat any other site, chat, or DM as unofficial unless it resolves back to these same public surfaces.</li>
-        </ol>
+        <h2>What Is Not Official</h2>
+        <ul>
+          <li>Private-sale DMs.</li>
+          <li>Seed phrase or wallet recovery requests.</li>
+          <li>Alternative mint addresses not repeated on getvectora.ai.</li>
+          <li>Support or validation flows that do not point back to the public site.</li>
+        </ul>
       </article>
       <article class="card">
-        <h2>What is not official</h2>
-        <ul>
-          <li>Third-party “support wallets” or “recovery wallets”.</li>
-          <li>Private-sale DMs, seed-phrase requests, or off-site validation forms.</li>
-          <li>Alternative mint addresses or substitute route links not repeated on getvectora.ai.</li>
-          <li>Community mirrors that do not point back to the official site and X account.</li>
-        </ul>
+        <h2>Reviewer Context</h2>
+        <p>Public review references on this site are project-side records, not third-party endorsements. The useful check is consistency: the same domain, same channels, same mint, and same public proof path.</p>
+        <div class="cta">
+          <a href="./proof.html">Proof pack</a>
+          <a href="./token-info.html">Token info</a>
+        </div>
       </article>
     </section>
   </main>
