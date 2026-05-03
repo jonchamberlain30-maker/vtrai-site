@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Open the Vectora proof pack for official contract, verification steps, safe-buy guidance, and public proof links." />
+  <meta name="description" content="Vectora proof pack: official mint, revoked control signals, public tracker references, and official channels in one clean reference page." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/proof.html" />
@@ -11,13 +11,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Vectora | Proof Pack" />
-  <meta property="og:description" content="Official contract, verification steps, safe-buy guidance, and public proof links." />
+  <meta property="og:description" content="Official mint, revoked control signals, tracker references, and official Vectora channels." />
   <meta property="og:url" content="https://getvectora.ai/proof.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora proof pack" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora | Proof Pack" />
-  <meta name="twitter:description" content="Official contract, verification steps, safe-buy guidance, and public proof links." />
+  <meta name="twitter:description" content="Official mint, revoked control signals, tracker references, and official Vectora channels." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -243,12 +243,28 @@
       padding: 10px;
       font-size: 0.88rem;
     }
+    .links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
     .links a, .cta a {
       color: var(--cyan);
       text-decoration: none;
-      margin-right: 10px;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(18, 30, 52, 0.52);
+      font-size: 0.86rem;
+      font-weight: 700;
     }
-    .cta { margin-top: 14px; }
+    .links a:hover, .cta a:hover { border-color: rgba(77, 234, 255, 0.55); }
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
     code {
       display: inline-block;
       background: rgba(35, 50, 76, 0.82);
@@ -290,6 +306,29 @@
       color: var(--cyan);
       text-decoration: none;
     }
+    .reference-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+    .reference-list li {
+      border-top: 1px solid rgba(77, 234, 255, 0.12);
+      padding-top: 9px;
+    }
+    .reference-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .reference-list strong {
+      color: #dff9ff;
+    }
+    .reference-list a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+    .reference-list a:hover { text-decoration: underline; }
     .mint-row {
       display: flex;
       gap: 10px;
@@ -312,57 +351,29 @@
     .copy-btn:hover {
       transform: translateY(-1px);
     }
-    .gecko-badge {
-      margin-top: 14px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(8, 15, 30, 0.72);
-      padding: 11px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .gecko-badge-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 260px;
-      flex: 1;
-    }
-    .gecko-badge-left img {
-      height: 20px;
-      width: auto;
-      display: block;
-      opacity: 0.95;
-    }
-    .gecko-badge-left p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-    .gecko-badge-link {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 8px 11px;
-      background: rgba(18, 30, 52, 0.72);
-      color: #e8fbff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.84rem;
-      white-space: nowrap;
-    }
-    .gecko-badge-link:hover { border-color: var(--cyan); }
     @media (max-width: 860px) {
-      .top { align-items: flex-start; }
+      body { overflow-x: hidden; }
+      .wrap {
+        width: 100%;
+        padding: 18px;
+      }
+      .top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
       .top-actions {
         width: 100%;
         justify-content: flex-start;
       }
       .grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.7rem; }
+      .hero h1 {
+        font-size: 1.7rem;
+        overflow-wrap: break-word;
+      }
+      .cta a, .links a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -376,24 +387,24 @@
           <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
             <div class="menu-group">
-              <span class="menu-group-title">Product</span>
-              <a href="./index.html#trust-check">Open Trust Check</a>
-              <a href="./buy-and-verify.html">Buy &amp; Verify</a>
+              <span class="menu-group-title">Check</span>
+              <a href="./index.html#trust-check">Token Check</a>
+              <a href="./open-preview.html">Open Preview</a>
               <a href="./watchlist.html">Watchlist</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Guides</span>
+              <span class="menu-group-title">Learn</span>
+              <a href="./education.html">Token Safety Basics</a>
               <a href="./guides.html">Guides Hub</a>
-              <a href="./verify-token.html">Verification Guide</a>
               <a href="./solana-token-checker.html">Solana Token Checker</a>
+              <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
             </div>
             <div class="menu-group">
-              <span class="menu-group-title">Project</span>
-              <a href="./lab.html">Lab / Build Log</a>
-              <a href="./about.html">About &amp; Affiliation</a>
+              <span class="menu-group-title">Proof</span>
+              <a href="./proof.html">Proof Pack</a>
               <a href="./token-info.html">Token Info</a>
               <a href="./updates.html">Updates</a>
-              <a href="./whitepaper.html">Whitepaper</a>
+              <a href="./about.html">About</a>
             </div>
           </div>
         </details>
@@ -401,37 +412,28 @@
     </div>
 
     <section class="hero">
-      <h1>Official Contract Proof, Safe Route Checks, and Scam Filters</h1>
-      <p>This page is for customers who want the shortest possible path to verify the real Vectora token before they click anything else. Use this as the canonical reference pack.</p>
+      <h1>Vectora proof pack: official mint, controls, and public references.</h1>
+      <p>This page keeps the core Vectora proof trail in one place. Use it to cross-check the official mint, public tracker surfaces, control signals, and official channels.</p>
       <div class="chips">
-        <span class="chip">Official mint published</span>
+        <span class="chip">Official mint</span>
         <span class="chip">Mint authority revoked</span>
         <span class="chip">Freeze authority revoked</span>
-        <span class="chip">Website-first verification</span>
+        <span class="chip">Public references</span>
       </div>
       <div class="cta">
-        <a href="./buy-and-verify.html">Open Buy &amp; Verify</a>
-        <a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Open Solscan</a>
-        <a href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
-        <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Open Raydium Route</a>
+        <a href="./index.html#trust-check">Check the mint</a>
+        <a href="./token-info.html">Open token info</a>
       </div>
     </section>
 
     <section class="notice">
-      <strong>Listing Reviews In Progress</strong>
-      <p>Vectora has active market-tracker and listing submissions in progress. This proof page and the token info page are the official references used in those review flows.</p>
-      <ul>
-        <li>GeckoTerminal token info request: submitted.</li>
-        <li>CoinGecko token listing request: submitted.</li>
-        <li>CoinGecko request ID: <code>CL2503260032</code>.</li>
-        <li>Official request ID reply: <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">open on X</a>.</li>
-      </ul>
-      <p>Review in progress does not mean approval. Treat this page, the token info page, and the official mint as the only trusted references.</p>
+      <strong>Canonical Reference Rule</strong>
+      <p>Treat this page, the token info page, and the homepage token check as the public reference set. If a post, pair, or message uses a different mint, it is not the Vectora token.</p>
     </section>
 
     <section class="grid">
       <article class="card">
-        <h2>Canonical Contract</h2>
+        <h2>Official Mint</h2>
         <p>Only this Solana mint is valid for Vectora.</p>
         <div class="proof-block mint-row">
           <code id="proofMintCode">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
@@ -440,34 +442,34 @@
         <div class="warn">Any token, post, pair, or wallet route using a different mint should be treated as fake.</div>
       </article>
       <article class="card">
-        <h2>Immutable Trust Signals</h2>
+        <h2>Control Signals</h2>
         <ul>
           <li><span class="ok">Mint authority:</span> revoked.</li>
           <li><span class="ok">Freeze authority:</span> revoked.</li>
           <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
-          <li>Official public verification starts from this site, not from DMs.</li>
+          <li>Verification starts from public pages, not DMs or support chats.</li>
         </ul>
       </article>
     </section>
 
     <section class="grid">
       <article class="card">
-        <h2>How To Verify</h2>
+        <h2>Verification Order</h2>
         <ol>
           <li>Copy the canonical mint from this page.</li>
-          <li>Paste it into the homepage trust checker and confirm the result says <strong>Verified official token</strong>.</li>
-          <li>Open the Solscan, GeckoTerminal, and Raydium links from this page or the trust result.</li>
-          <li>Cross-check the same mint against the latest website update and proof pack links.</li>
+          <li>Run it through the homepage token check.</li>
+          <li>Compare the same mint on Solscan and GeckoTerminal.</li>
+          <li>Only trust public references that repeat the same mint.</li>
         </ol>
       </article>
       <article class="card">
-        <h2>How To Buy Safely</h2>
-        <ol>
-          <li>Start from this proof page or the homepage, not from a social reply.</li>
-          <li>Use the official Raydium route and market links from this page only.</li>
-          <li>Check the output token address in your wallet before confirming the swap.</li>
-          <li>Reject any request for private keys, seed phrases, remote access, or manual “support validation.”</li>
-        </ol>
+        <h2>Market References</h2>
+        <div class="links">
+          <a href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Solscan</a>
+          <a href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" target="_blank" rel="noreferrer">GeckoTerminal</a>
+          <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium route</a>
+        </div>
+        <p>These references are for cross-checking the same mint and pool context. They are not a guarantee of safety.</p>
       </article>
     </section>
 
@@ -478,13 +480,9 @@
           <a href="https://getvectora.ai" target="_blank" rel="noreferrer">Website</a>
           <a href="https://x.com/VectoraAI" target="_blank" rel="noreferrer">X</a>
           <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">Verification Post</a>
-          <a href="./about.html">About &amp; Affiliation</a>
           <a href="./token-info.html">Token Info</a>
-          <a href="./guides.html">Guides Hub</a>
-          <a href="./buy-and-verify.html">Buy &amp; Verify</a>
-          <a href="./verify-token.html">Verification Guide</a>
           <a href="./updates.html">Updates</a>
-          <a href="./liquidity-covenant.html">Liquidity Covenant</a>
+          <a href="./about.html">About</a>
         </div>
         <p>Launch confirmation only counts if it appears on these channels and repeats the same mint.</p>
       </article>
@@ -501,26 +499,22 @@
 
     <section class="grid">
       <article class="card">
-        <h2>Related Guides</h2>
-        <p>If you need a broader process before you return to the canonical proof path, start with one of these:</p>
-        <div class="links">
-          <a href="./solana-token-checker.html">Solana Token Checker</a>
-          <a href="./dexscreener-token-checker.html">DexScreener Verification</a>
-          <a href="./mint-authority-freeze-authority.html">Mint vs Freeze Authority</a>
-        </div>
+        <h2>Public Review Trail</h2>
+        <ul class="reference-list">
+          <li><strong>GeckoTerminal token info:</strong> submitted.</li>
+          <li><strong>CoinGecko token listing:</strong> submitted.</li>
+          <li><strong>CoinGecko request ID:</strong> <code>CL2503260032</code>.</li>
+          <li><strong>Public request note:</strong> <a href="https://x.com/VectoraAI/status/2036879047502745842" target="_blank" rel="noreferrer">open on X</a>.</li>
+        </ul>
       </article>
       <article class="card">
-        <h2>Where This Page Fits</h2>
-        <p>The guide pages explain how to think about verification. This page is where the official Vectora route, mint, and proof links are repeated when you need a final cross-check.</p>
+        <h2>Next Step</h2>
+        <p>Run the mint through the token check, then use the guide hub only if you want to understand the broader verification method.</p>
+        <div class="cta">
+          <a href="./index.html#trust-check">Check the mint</a>
+          <a href="./guides.html">Guide hub</a>
+        </div>
       </article>
-    </section>
-
-    <section class="gecko-badge" aria-label="GeckoTerminal listing reference">
-      <div class="gecko-badge-left">
-        <img src="./assets/geckoterminal-logo-dark.svg" alt="GeckoTerminal logo" loading="lazy" decoding="async" />
-        <p>GeckoTerminal is one of the official cross-check surfaces in this proof flow. Use the same pool each time.</p>
-      </div>
-      <a class="gecko-badge-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
     </section>
   </main>
   <script>
