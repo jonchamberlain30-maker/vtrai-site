@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-05-04",
+  "purpose": "Vectora circa Q4 teaser still frame bank from Dzine generations",
+  "web_usage": "Use landscape 1600w/1200w for site and X previews; use portrait 1080w/720w for vertical teasers and story-style posts.",
+  "assets": [
+    {
+      "family": "portrait",
+      "index": 1,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123420-8692.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-portrait-01-2026-05-04-original.png",
+      "original_width": 3060,
+      "original_height": 5440,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-portrait-01-2026-05-04-1080w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-01-2026-05-04-1080w.webp",
+          "width": 1080,
+          "height": 1920,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-01-2026-05-04-1080w.webp",
+          "bytes": 75956
+        },
+        {
+          "name": "vectora-q4-teaser-portrait-01-2026-05-04-720w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-01-2026-05-04-720w.webp",
+          "width": 720,
+          "height": 1280,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-01-2026-05-04-720w.webp",
+          "bytes": 44248
+        }
+      ]
+    },
+    {
+      "family": "portrait",
+      "index": 2,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123427-3719.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-portrait-02-2026-05-04-original.png",
+      "original_width": 3060,
+      "original_height": 5440,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-portrait-02-2026-05-04-1080w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-02-2026-05-04-1080w.webp",
+          "width": 1080,
+          "height": 1920,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-02-2026-05-04-1080w.webp",
+          "bytes": 68486
+        },
+        {
+          "name": "vectora-q4-teaser-portrait-02-2026-05-04-720w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-02-2026-05-04-720w.webp",
+          "width": 720,
+          "height": 1280,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-02-2026-05-04-720w.webp",
+          "bytes": 41216
+        }
+      ]
+    },
+    {
+      "family": "portrait",
+      "index": 3,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123411-4539.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-portrait-03-2026-05-04-original.png",
+      "original_width": 3060,
+      "original_height": 5440,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-portrait-03-2026-05-04-1080w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-03-2026-05-04-1080w.webp",
+          "width": 1080,
+          "height": 1920,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-03-2026-05-04-1080w.webp",
+          "bytes": 73686
+        },
+        {
+          "name": "vectora-q4-teaser-portrait-03-2026-05-04-720w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-03-2026-05-04-720w.webp",
+          "width": 720,
+          "height": 1280,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-03-2026-05-04-720w.webp",
+          "bytes": 42804
+        }
+      ]
+    },
+    {
+      "family": "landscape",
+      "index": 1,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123343-7788.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-landscape-01-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-landscape-01-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-01-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-01-2026-05-04-1600w.webp",
+          "bytes": 78454
+        },
+        {
+          "name": "vectora-q4-teaser-landscape-01-2026-05-04-1200w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-01-2026-05-04-1200w.webp",
+          "width": 1200,
+          "height": 675,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-01-2026-05-04-1200w.webp",
+          "bytes": 53426
+        }
+      ]
+    },
+    {
+      "family": "landscape",
+      "index": 2,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123353-2326.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-landscape-02-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-landscape-02-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-02-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-02-2026-05-04-1600w.webp",
+          "bytes": 85318
+        },
+        {
+          "name": "vectora-q4-teaser-landscape-02-2026-05-04-1200w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-02-2026-05-04-1200w.webp",
+          "width": 1200,
+          "height": 675,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-02-2026-05-04-1200w.webp",
+          "bytes": 56728
+        }
+      ]
+    },
+    {
+      "family": "portrait",
+      "index": 4,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123402-8486.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-portrait-04-2026-05-04-original.png",
+      "original_width": 3060,
+      "original_height": 5440,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-portrait-04-2026-05-04-1080w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-04-2026-05-04-1080w.webp",
+          "width": 1080,
+          "height": 1920,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-04-2026-05-04-1080w.webp",
+          "bytes": 83000
+        },
+        {
+          "name": "vectora-q4-teaser-portrait-04-2026-05-04-720w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-portrait-04-2026-05-04-720w.webp",
+          "width": 720,
+          "height": 1280,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-portrait-04-2026-05-04-720w.webp",
+          "bytes": 46496
+        }
+      ]
+    },
+    {
+      "family": "landscape",
+      "index": 3,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123239-2802.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-landscape-03-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-landscape-03-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-03-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-03-2026-05-04-1600w.webp",
+          "bytes": 91536
+        },
+        {
+          "name": "vectora-q4-teaser-landscape-03-2026-05-04-1200w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-03-2026-05-04-1200w.webp",
+          "width": 1200,
+          "height": 675,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-03-2026-05-04-1200w.webp",
+          "bytes": 58552
+        }
+      ]
+    },
+    {
+      "family": "landscape",
+      "index": 4,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-123227-0626.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/originals/vectora-q4-teaser-landscape-04-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-q4-teaser-landscape-04-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-04-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-04-2026-05-04-1600w.webp",
+          "bytes": 108676
+        },
+        {
+          "name": "vectora-q4-teaser-landscape-04-2026-05-04-1200w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/q4-teaser-stills/web/vectora-q4-teaser-landscape-04-2026-05-04-1200w.webp",
+          "width": 1200,
+          "height": 675,
+          "public_path": "assets/q4-teaser-stills/vectora-q4-teaser-landscape-04-2026-05-04-1200w.webp",
+          "bytes": 74616
+        }
+      ]
+    }
+  ]
+}

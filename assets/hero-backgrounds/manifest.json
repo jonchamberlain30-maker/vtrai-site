@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-05-04",
+  "purpose": "Vectora website hero background bank from Dzine generations",
+  "web_usage": "Use web/*.webp on pages; keep originals only as master files.",
+  "assets": [
+    {
+      "family": "ultrawide",
+      "index": 1,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121551-3495.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-ultrawide-01-2026-05-04-original.png",
+      "original_width": 6272,
+      "original_height": 2688,
+      "web": [
+        {
+          "name": "vectora-hero-bg-ultrawide-01-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-01-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1097,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-01-2026-05-04-2560w.webp",
+          "bytes": 111224
+        },
+        {
+          "name": "vectora-hero-bg-ultrawide-01-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-01-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 686,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-01-2026-05-04-1600w.webp",
+          "bytes": 63324
+        }
+      ]
+    },
+    {
+      "family": "ultrawide",
+      "index": 2,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121606-0443.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-ultrawide-02-2026-05-04-original.png",
+      "original_width": 6272,
+      "original_height": 2688,
+      "web": [
+        {
+          "name": "vectora-hero-bg-ultrawide-02-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-02-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1097,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-02-2026-05-04-2560w.webp",
+          "bytes": 101134
+        },
+        {
+          "name": "vectora-hero-bg-ultrawide-02-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-02-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 686,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-02-2026-05-04-1600w.webp",
+          "bytes": 58088
+        }
+      ]
+    },
+    {
+      "family": "ultrawide",
+      "index": 3,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121616-3939.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-ultrawide-03-2026-05-04-original.png",
+      "original_width": 6272,
+      "original_height": 2688,
+      "web": [
+        {
+          "name": "vectora-hero-bg-ultrawide-03-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-03-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1097,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-03-2026-05-04-2560w.webp",
+          "bytes": 148336
+        },
+        {
+          "name": "vectora-hero-bg-ultrawide-03-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-03-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 686,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-03-2026-05-04-1600w.webp",
+          "bytes": 80694
+        }
+      ]
+    },
+    {
+      "family": "ultrawide",
+      "index": 4,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121626-9434.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-ultrawide-04-2026-05-04-original.png",
+      "original_width": 6272,
+      "original_height": 2688,
+      "web": [
+        {
+          "name": "vectora-hero-bg-ultrawide-04-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-04-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1097,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-04-2026-05-04-2560w.webp",
+          "bytes": 123646
+        },
+        {
+          "name": "vectora-hero-bg-ultrawide-04-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-ultrawide-04-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 686,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-ultrawide-04-2026-05-04-1600w.webp",
+          "bytes": 73132
+        }
+      ]
+    },
+    {
+      "family": "wide",
+      "index": 1,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121746-8685.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-wide-01-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-hero-bg-wide-01-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-01-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1440,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-01-2026-05-04-2560w.webp",
+          "bytes": 111390
+        },
+        {
+          "name": "vectora-hero-bg-wide-01-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-01-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-01-2026-05-04-1600w.webp",
+          "bytes": 63612
+        }
+      ]
+    },
+    {
+      "family": "wide",
+      "index": 2,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121759-7100.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-wide-02-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-hero-bg-wide-02-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-02-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1440,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-02-2026-05-04-2560w.webp",
+          "bytes": 174716
+        },
+        {
+          "name": "vectora-hero-bg-wide-02-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-02-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-02-2026-05-04-1600w.webp",
+          "bytes": 102692
+        }
+      ]
+    },
+    {
+      "family": "wide",
+      "index": 3,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121842-7184.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-wide-03-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-hero-bg-wide-03-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-03-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1440,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-03-2026-05-04-2560w.webp",
+          "bytes": 147398
+        },
+        {
+          "name": "vectora-hero-bg-wide-03-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-03-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-03-2026-05-04-1600w.webp",
+          "bytes": 86412
+        }
+      ]
+    },
+    {
+      "family": "wide",
+      "index": 4,
+      "source_download": "/Users/jc/Downloads/Untitled-20260504-121852-7246.png",
+      "original": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/originals/vectora-hero-bg-wide-04-2026-05-04-original.png",
+      "original_width": 5440,
+      "original_height": 3060,
+      "web": [
+        {
+          "name": "vectora-hero-bg-wide-04-2026-05-04-2560w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-04-2026-05-04-2560w.webp",
+          "width": 2560,
+          "height": 1440,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-04-2026-05-04-2560w.webp",
+          "bytes": 206372
+        },
+        {
+          "name": "vectora-hero-bg-wide-04-2026-05-04-1600w.webp",
+          "path": "/Users/jc/Documents/New project/vtrai-site/assets/hero-backgrounds/web/vectora-hero-bg-wide-04-2026-05-04-1600w.webp",
+          "width": 1600,
+          "height": 900,
+          "public_path": "assets/hero-backgrounds/vectora-hero-bg-wide-04-2026-05-04-1600w.webp",
+          "bytes": 118196
+        }
+      ]
+    }
+  ]
+}
