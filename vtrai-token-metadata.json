@@ -1,8 +1,8 @@
 {
   "name": "Vectora",
   "symbol": "VTRAI",
-  "description": "Vectora (VTRAI) is a Solana-native AI token focused on transparent, automated operational reporting and adaptive signal infrastructure.",
-  "image": "https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png",
+  "description": "Vectora is a Solana verification project focused on official-source checks, exact mint matching, route verification, authority-state visibility, and public proof before action.",
+  "image": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
   "external_url": "https://getvectora.ai/token-info.html",
   "attributes": [
     {
@@ -25,7 +25,7 @@
   "properties": {
     "files": [
       {
-        "uri": "https://getvectora.ai/assets/vtrai-token-2026-03-26-padded.png",
+        "uri": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
         "type": "image/png"
       }
     ],
@@ -34,7 +34,6 @@
   "extensions": {
     "website": "https://getvectora.ai",
     "twitter": "https://x.com/VectoraAI",
-    "telegram": "https://t.me/vectorasignal",
     "whitepaper": "https://getvectora.ai/whitepaper.html",
     "proof": "https://getvectora.ai/proof.html"
   }
