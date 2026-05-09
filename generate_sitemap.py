@@ -29,6 +29,10 @@ ORDER = [
     "whitepaper.html",
     "liquidity-covenant.html",
     "wallet-control-policy.html",
+    "privacy.html",
+    "terms.html",
+    "disclaimer.html",
+    "contact.html",
 ]
 
 CHANGEFREQ = {
@@ -44,6 +48,10 @@ CHANGEFREQ = {
     "open-preview.html": "daily",
     "token-info.html": "weekly",
     "updates.html": "daily",
+    "privacy.html": "monthly",
+    "terms.html": "monthly",
+    "disclaimer.html": "monthly",
+    "contact.html": "monthly",
 }
 
 PRIORITY = {
@@ -64,6 +72,10 @@ PRIORITY = {
     "whitepaper.html": "0.8",
     "liquidity-covenant.html": "0.8",
     "wallet-control-policy.html": "0.75",
+    "privacy.html": "0.6",
+    "terms.html": "0.6",
+    "disclaimer.html": "0.6",
+    "contact.html": "0.65",
 }
 
 CANONICAL_RE = re.compile(r'<link\s+rel="canonical"\s+href="([^"]+)"', re.IGNORECASE)
