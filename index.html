@@ -261,6 +261,7 @@
     .hero,
     .preview-banner,
     .lab-banner,
+    .return-loop,
     .checker,
     .status-board,
     .card,
@@ -273,6 +274,7 @@
     .hero > *,
     .preview-banner > *,
     .lab-banner > *,
+    .return-loop > *,
     .checker > *,
     .status-board > *,
     .card > *,
@@ -284,6 +286,7 @@
     .hero::after,
     .preview-banner::after,
     .lab-banner::after,
+    .return-loop::after,
     .checker::after,
     .status-board::after {
       content: "";
@@ -356,6 +359,62 @@
       padding: 8px 10px;
       background: linear-gradient(90deg, var(--cyan), #86e8ff);
       white-space: nowrap;
+    }
+
+    .return-loop {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.24);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(6, 24, 35, 0.86), rgba(17, 22, 48, 0.88)),
+        var(--card);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.25fr auto;
+      gap: 14px;
+      align-items: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .return-hook {
+      border: 1px solid rgba(255, 213, 142, 0.34);
+      border-radius: 14px;
+      background: rgba(28, 19, 7, 0.7);
+      padding: 14px;
+      color: #ffe3a5;
+      font-weight: 800;
+      font-size: 1.05rem;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .return-loop h2 {
+      margin: 0;
+      font-size: 1.16rem;
+    }
+
+    .return-loop p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .return-steps {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .return-steps span {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(18, 30, 52, 0.68);
+      padding: 7px 10px;
+      color: #dff9ff;
+      font-size: 0.82rem;
+      font-weight: 700;
     }
 
     .section-head {
@@ -1250,6 +1309,8 @@
       .trust-form { grid-template-columns: 1fr; }
       .trust-meta { grid-template-columns: 1fr; }
       .lab-banner { grid-template-columns: 1fr; }
+      .return-loop { grid-template-columns: 1fr; }
+      .return-loop .btn { justify-self: flex-start; }
       h1 {
         font-size: 2.12rem;
         letter-spacing: 0;
@@ -1272,6 +1333,7 @@
       .category-grid { grid-template-columns: 1fr; }
       .hero-banner { min-height: 170px; }
       .cta .btn { width: 100%; text-align: center; }
+      .return-loop .btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -1319,18 +1381,18 @@
 
     <section class="hero">
       <div>
-        <h1>Check the source, route, and control signals before you trust a token.</h1>
-        <p class="sub">Vectora gives token pages a clearer first read: paste an address, review the visible risks, then use the proof and guide pages only when you need more context.</p>
+        <h1>Paste the mint before the chart talks you into it.</h1>
+        <p class="sub">Vectora is the return step for token research: paste an address, save the ones still worth watching, then come back and refresh the trust report before acting from memory.</p>
         <div class="quick-metrics">
           <span class="metric">Token check</span>
+          <span class="metric">Save locally</span>
+          <span class="metric">Re-check later</span>
           <span class="metric">Safety guides</span>
-          <span class="metric">Public proof</span>
-          <span class="metric">Watchlist</span>
         </div>
         <div class="cta">
           <a class="btn gold" href="#trust-check">Check a token</a>
+          <a class="btn" href="./watchlist.html">Open watchlist</a>
           <a class="btn" href="./education.html">Read safety basics</a>
-          <a class="btn" href="./proof.html">Open proof pack</a>
         </div>
       </div>
       <div class="hero-banner">
@@ -1338,9 +1400,24 @@
       </div>
     </section>
 
+    <section class="return-loop reveal" aria-label="Return workflow">
+      <div class="return-hook">Do not trust the same token from memory tomorrow.</div>
+      <div>
+        <h2>Save the token. Come back. Refresh the report.</h2>
+        <p>The point is not one scan and a dopamine click. The useful habit is checking whether the source, route, controls, and visible market context still line up when the noise changes.</p>
+        <div class="return-steps" aria-label="Vectora return loop">
+          <span>Paste mint</span>
+          <span>Save locally</span>
+          <span>Refresh later</span>
+          <span>Review changes</span>
+        </div>
+      </div>
+      <a class="btn gold" href="./watchlist.html">Use Watchlist</a>
+    </section>
+
     <section id="trust-check" class="checker reveal">
-      <h2>Paste A Token Address. Get A First-Pass Trust Report.</h2>
-      <p class="sub">Paste a token address to verify the route, check the risks, and decide whether it deserves more attention.</p>
+      <h2>Paste A Token Address. Save The Ones That Deserve A Second Look.</h2>
+      <p class="sub">Run the first check, then add serious candidates to your device watchlist so you can refresh the report later instead of trusting screenshots, replies, or memory.</p>
       <div class="trust-tool">
         <div class="trust-form">
           <select id="networkSelect" class="trust-select">
@@ -1403,8 +1480,8 @@
       </article>
       <article class="card category-card reveal">
         <div class="category-label">Watch</div>
-        <h3>Keep a short list without an account.</h3>
-        <p>Save tokens on this browser, revisit trust reports, and use the updates page to see the public trail as it changes.</p>
+        <h3>Build a return habit without an account.</h3>
+        <p>Save tokens on this browser, refresh trust reports later, and treat changed signals as the reason to slow down before a trade.</p>
         <div class="cta">
           <a class="btn" href="./watchlist.html">Watchlist</a>
           <a class="btn" href="./updates.html">Updates</a>
