@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Coinzilla landing page for Vectora: verify the official VTRAI mint, check the proof trail, and open the official route." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#050912" />
+  <link rel="canonical" href="https://getvectora.ai/coinzilla.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Vectora | Verify VTRAI Before You Act" />
+  <meta property="og:description" content="Verify the official VTRAI mint, public proof trail, and official route before acting." />
+  <meta property="og:url" content="https://getvectora.ai/coinzilla.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta property="og:image:alt" content="Vectora VTRAI verification landing page" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vectora | Verify VTRAI Before You Act" />
+  <meta name="twitter:description" content="Verify the official VTRAI mint, public proof trail, and official route before acting." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <title>Vectora | Verify VTRAI Before You Act</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #050912;
+      --bg-2: #0b1630;
+      --ink: #e8f8ff;
+      --muted: #9ab1c8;
+      --line: #243753;
+      --cyan: #4deaff;
+      --violet: #9d7cff;
+      --gold: #f2c75c;
+      --warn: #ffbfd0;
+      --card: rgba(9, 16, 32, 0.76);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      background:
+        radial-gradient(900px 540px at 10% -10%, rgba(77, 234, 255, 0.2), transparent 55%),
+        radial-gradient(780px 580px at 100% 100%, rgba(157, 124, 255, 0.16), transparent 58%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2));
+    }
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      background-image:
+        linear-gradient(to right, rgba(93, 124, 170, 0.22) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(93, 124, 170, 0.18) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, #000 34%, transparent 88%);
+    }
+    .wrap {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 48px;
+      z-index: 1;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(8, 14, 29, 0.78);
+      padding: 10px 14px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .brand img {
+      width: 28px;
+      height: 28px;
+      filter: drop-shadow(0 0 16px rgba(77, 234, 255, 0.3));
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px dashed rgba(77, 234, 255, 0.35);
+    }
+    .hero {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(9, 16, 32, 0.9), rgba(16, 28, 58, 0.78)),
+        var(--card);
+      padding: 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+      gap: 18px;
+      align-items: center;
+      overflow: hidden;
+    }
+    .kicker {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.65rem;
+      line-height: 1.02;
+      letter-spacing: 0.1px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.12rem;
+    }
+    p, li {
+      color: var(--muted);
+      line-height: 1.52;
+      font-size: 0.95rem;
+    }
+    .sub {
+      max-width: 620px;
+      margin: 12px 0 0;
+    }
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .btn, .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 12px;
+      min-height: 42px;
+      padding: 10px 14px;
+      color: #031019;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 50%),
+        linear-gradient(90deg, var(--cyan), #86e8ff);
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .btn.gold {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0) 50%),
+        linear-gradient(90deg, var(--gold), #f0b53a);
+    }
+    .btn.secondary {
+      color: var(--ink);
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      background: rgba(18, 30, 52, 0.76);
+    }
+    .proof-panel {
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 16px;
+      background: rgba(7, 13, 27, 0.8);
+      padding: 16px;
+    }
+    .mint-box {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    code {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      background: rgba(35, 50, 76, 0.82);
+      color: #dff9ff;
+      padding: 11px;
+      line-height: 1.45;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.88rem;
+    }
+    .fine {
+      margin: 10px 0 0;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .card {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 15px;
+    }
+    .card strong {
+      color: var(--ink);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .card p { margin: 0; }
+    .return {
+      margin-top: 14px;
+      border: 1px solid rgba(242, 199, 92, 0.3);
+      border-radius: 16px;
+      background: linear-gradient(90deg, rgba(64, 42, 6, 0.42), rgba(30, 24, 55, 0.34));
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .return strong { color: #ffe4a8; }
+    .return p { margin: 5px 0 0; }
+    .warning {
+      margin-top: 14px;
+      border: 1px solid #4c2a37;
+      border-radius: 14px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .return { grid-template-columns: 1fr; }
+      .checks { grid-template-columns: 1fr; }
+      h1 { font-size: 2rem; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <main class="wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand brand-buy-link" href="./buy-and-verify.html" data-brand-buy-label="coinzilla_landing_brand">
+        <img src="./assets/vtrai-token-mark-128.png" alt="" />
+        <span>Vectora</span>
+      </a>
+      <div class="nav-links">
+        <a href="./proof.html">Proof Pack</a>
+        <a href="./token-info.html">Token Info</a>
+        <a href="./watchlist.html">Watchlist</a>
+        <a href="./disclaimer.html">Disclaimer</a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-label="Vectora verification landing">
+      <div>
+        <div class="kicker">Official $VTRAI Verification Path</div>
+        <h1>Do the boring check before the exciting click.</h1>
+        <p class="sub">Vectora helps visitors verify the official $VTRAI mint, public proof trail, and official route before acting from a banner, screenshot, reply, or memory.</p>
+        <div class="cta">
+          <a class="btn gold tracked-link" href="./buy-and-verify.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=primary_cta" data-label="coinzilla_continue_verify">Verify And Open Route</a>
+          <a class="btn secondary tracked-link" href="./proof.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=proof_cta" data-label="coinzilla_proof_pack">Read Proof Pack</a>
+        </div>
+      </div>
+      <aside class="proof-panel" aria-label="Official VTRAI mint">
+        <div class="kicker">Exact Mint</div>
+        <h2>Match this before you trade</h2>
+        <div class="mint-box">
+          <code id="officialMint">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
+          <button class="copy-btn" type="button" data-copy-target="officialMint">Copy Official Mint</button>
+        </div>
+        <p class="fine">Ticker, logo, and social posts are not enough. The address has to match exactly.</p>
+      </aside>
+    </section>
+
+    <section class="checks" aria-label="Verification checks">
+      <article class="card">
+        <strong>1. Source</strong>
+        <p>Use the official Vectora pages for the mint, links, and current project trail.</p>
+      </article>
+      <article class="card">
+        <strong>2. Route</strong>
+        <p>Open the trade route from the verified page and confirm the same output mint.</p>
+      </article>
+      <article class="card">
+        <strong>3. Return</strong>
+        <p>Save tokens worth watching and refresh the report later instead of trusting memory.</p>
+      </article>
+    </section>
+
+    <section class="return" aria-label="Return workflow">
+      <div>
+        <strong>Useful research is a repeat visit, not a one-click impulse.</strong>
+        <p>Use the watchlist to come back and re-check source, route, controls, and market context after the noise changes.</p>
+      </div>
+      <a class="btn secondary tracked-link" href="./watchlist.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=watchlist_cta" data-label="coinzilla_watchlist">Open Watchlist</a>
+    </section>
+
+    <div class="warning">Vectora publishes verification data and public references, not financial advice, profit forecasts, or guarantees. Crypto assets are risky. Always verify the mint and route yourself before any trade.</div>
+
+    <p class="footer">
+      <a href="./terms.html">Terms</a> · <a href="./privacy.html">Privacy</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a>
+    </p>
+  </main>
+
+  <script>
+    const PAGE_NAME = 'coinzilla_landing';
+
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+
+    function getAttribution() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        source: params.get('utm_source') || params.get('source') || 'coinzilla',
+        medium: params.get('utm_medium') || 'display',
+        campaign: params.get('utm_campaign') || 'verify_landing',
+        term: params.get('utm_term') || params.get('zone') || 'none',
+        content: params.get('utm_content') || 'none'
+      };
+    }
+
+    const attribution = getAttribution();
+    trackEvent('coinzilla_landing_view', {
+      page_name: PAGE_NAME,
+      traffic_source: attribution.source,
+      traffic_medium: attribution.medium,
+      traffic_campaign: attribution.campaign,
+      traffic_term: attribution.term,
+      traffic_content: attribution.content
+    });
+
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        trackEvent('coinzilla_landing_click', {
+          page_name: PAGE_NAME,
+          link_label: link.dataset.label || 'unknown',
+          link_url: link.href,
+          traffic_source: attribution.source,
+          traffic_medium: attribution.medium,
+          traffic_campaign: attribution.campaign,
+          traffic_term: attribution.term,
+          traffic_content: attribution.content
+        });
+      });
+    });
+
+    document.querySelectorAll('[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target) return;
+        const original = button.textContent;
+        try {
+          await navigator.clipboard.writeText(target.textContent.trim());
+          button.textContent = 'Copied';
+          trackEvent('coinzilla_mint_copied', {
+            page_name: PAGE_NAME,
+            traffic_source: attribution.source,
+            traffic_campaign: attribution.campaign
+          });
+        } catch {
+          button.textContent = 'Copy failed';
+        }
+        window.setTimeout(() => {
+          button.textContent = original;
+        }, 1800);
+      });
+    });
+  </script>
+  <script src="./assets/coinzilla-performance.js" defer></script>
+  <script src="./assets/brand-buy-tracking.js" defer></script>
+</body>
+</html>

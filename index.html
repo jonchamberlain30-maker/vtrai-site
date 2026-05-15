@@ -417,6 +417,33 @@
       font-weight: 700;
     }
 
+    .coinzilla-path {
+      margin-top: 14px;
+      border: 1px solid rgba(242, 199, 92, 0.34);
+      border-radius: 16px;
+      background: linear-gradient(90deg, rgba(70, 45, 8, 0.48), rgba(22, 22, 56, 0.42));
+      padding: 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .coinzilla-path[hidden] { display: none; }
+
+    .coinzilla-path strong {
+      color: #ffe4a8;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .coinzilla-path p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.92rem;
+    }
+
     .section-head {
       margin-top: 18px;
       margin-bottom: 8px;
@@ -1309,7 +1336,8 @@
       .trust-form { grid-template-columns: 1fr; }
       .trust-meta { grid-template-columns: 1fr; }
       .lab-banner { grid-template-columns: 1fr; }
-      .return-loop { grid-template-columns: 1fr; }
+      .return-loop,
+      .coinzilla-path { grid-template-columns: 1fr; }
       .return-loop .btn { justify-self: flex-start; }
       h1 {
         font-size: 2.12rem;
@@ -1413,6 +1441,14 @@
         </div>
       </div>
       <a class="btn gold" href="./watchlist.html">Use Watchlist</a>
+    </section>
+
+    <section class="coinzilla-path reveal" id="coinzillaPath" hidden aria-label="Coinzilla visitor verification path">
+      <div>
+        <strong>Here from a crypto ad? Verify before the route.</strong>
+        <p>Use the dedicated $VTRAI path to match the official mint, check public proof, and open the official route without relying on a banner or screenshot.</p>
+      </div>
+      <a class="btn gold" href="./coinzilla.html?utm_source=coinzilla&utm_medium=display&utm_campaign=home_return_path&utm_content=home_banner">Open $VTRAI verification path</a>
     </section>
 
     <section id="trust-check" class="checker reveal">
@@ -1525,6 +1561,26 @@
       if (typeof window.gtag === 'function') {
         window.gtag('event', name, params);
       }
+    }
+    function currentVisitorSource() {
+      const params = new URLSearchParams(window.location.search);
+      const source = (params.get('utm_source') || params.get('source') || '').toLowerCase();
+      if (source) return source;
+      try {
+        const stored = window.sessionStorage && window.sessionStorage.getItem('vectora_coinzilla_attribution_v1');
+        if (stored) {
+          const attribution = JSON.parse(stored);
+          return String(attribution.source || '').toLowerCase();
+        }
+      } catch (err) {}
+      return '';
+    }
+    function initCoinzillaPath() {
+      if (currentVisitorSource() !== 'coinzilla') return;
+      const panel = document.getElementById('coinzillaPath');
+      if (!panel) return;
+      panel.hidden = false;
+      trackEvent('coinzilla_home_path_shown', { page: 'home' });
     }
     function classifyAddressInput(value) {
       const raw = String(value || '').trim();
@@ -2490,6 +2546,7 @@
       }
     });
 
+    initCoinzillaPath();
     loadMonitorQueueHealth();
   </script>
   <script src="./assets/coinzilla-performance.js" defer></script>
