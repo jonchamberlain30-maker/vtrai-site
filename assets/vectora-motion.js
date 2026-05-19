@@ -4,6 +4,10 @@
   var surfaceSelector = [
     "main > section",
     "main > article",
+    "main > .nav",
+    "main > .top",
+    "header.top",
+    ".topbar",
     "main > .hero",
     "main > .card",
     "main > .simple-panel",
@@ -22,6 +26,44 @@
     ".checker",
     ".status-board"
   ].join(",");
+  var menuGroups = [
+    {
+      title: "Start",
+      links: [
+        ["Home", "./index.html"],
+        ["Check Token", "./index.html#trust-check"],
+        ["Watchlist", "./watchlist.html"],
+        ["Buy & Verify", "./buy-and-verify.html"]
+      ]
+    },
+    {
+      title: "Verify",
+      links: [
+        ["Proof Hunt", "./proof-hunt.html"],
+        ["Proof Pack", "./proof.html"],
+        ["Token Info", "./token-info.html"],
+        ["Updates", "./updates.html"]
+      ]
+    },
+    {
+      title: "Learn",
+      links: [
+        ["Safety Basics", "./education.html"],
+        ["Guides Hub", "./guides.html"],
+        ["Solana Checker", "./solana-token-checker.html"],
+        ["DexScreener Guide", "./dexscreener-token-checker.html"]
+      ]
+    },
+    {
+      title: "Project",
+      links: [
+        ["About", "./about.html"],
+        ["Whitepaper", "./whitepaper.html"],
+        ["Build Log", "./lab.html"],
+        ["Contact", "./contact.html"]
+      ]
+    }
+  ];
 
   function ready(fn) {
     if (document.readyState === "loading") {
@@ -105,8 +147,127 @@
     });
   }
 
+  function buildMenuPanel(panel) {
+    panel.textContent = "";
+    panel.setAttribute("data-vectora-menu-panel", "");
+
+    menuGroups.forEach(function (group) {
+      var groupEl = document.createElement("div");
+      groupEl.className = "menu-group";
+
+      var title = document.createElement("span");
+      title.className = "menu-group-title";
+      title.textContent = group.title;
+      groupEl.appendChild(title);
+
+      group.links.forEach(function (item) {
+        var link = document.createElement("a");
+        link.href = item[1];
+        link.textContent = item[0];
+        if (isCurrentMenuLink(link)) {
+          link.setAttribute("aria-current", "page");
+        }
+        groupEl.appendChild(link);
+      });
+
+      panel.appendChild(groupEl);
+    });
+  }
+
+  function createMenu() {
+    var details = document.createElement("details");
+    details.className = "site-menu";
+    var summary = document.createElement("summary");
+    summary.setAttribute("aria-label", "Open site menu");
+    details.appendChild(summary);
+    details.appendChild(document.createElement("div"));
+    return details;
+  }
+
+  function isCurrentMenuLink(link) {
+    var linkUrl = new URL(link.href, window.location.href);
+    var current = window.location.pathname.replace(/\/$/, "/index.html");
+    var target = linkUrl.pathname.replace(/\/$/, "/index.html");
+    if (target !== current) return false;
+    if (linkUrl.hash && linkUrl.hash !== window.location.hash) return false;
+    return true;
+  }
+
+  function alignMenu(details) {
+    var summary = details.querySelector("summary");
+    if (!summary) return;
+    var rect = summary.getBoundingClientRect();
+    details.setAttribute("data-vectora-menu-align", rect.left > window.innerWidth / 2 ? "right" : "left");
+  }
+
+  function initMenus() {
+    var menus = Array.prototype.slice.call(document.querySelectorAll(".site-menu"));
+    if (!menus.length) {
+      var host = document.querySelector(".nav-actions") ||
+        document.querySelector(".top-actions") ||
+        document.querySelector("main > .nav") ||
+        document.querySelector("main > .top") ||
+        document.querySelector("header.top");
+      if (host) {
+        host.appendChild(createMenu());
+        menus = Array.prototype.slice.call(document.querySelectorAll(".site-menu"));
+      }
+    }
+
+    if (!menus.length) return;
+    document.body.classList.add("vectora-menu-ready");
+
+    menus.forEach(function (details) {
+      var summary = details.querySelector("summary") || details.appendChild(document.createElement("summary"));
+      var panel = details.querySelector(".menu-panel") || details.querySelector("div") || details.appendChild(document.createElement("div"));
+      panel.classList.add("menu-panel");
+
+      summary.innerHTML = '<span class="vectora-menu-icon" aria-hidden="true"></span><span class="vectora-menu-label">Menu</span>';
+      summary.setAttribute("aria-label", "Open site menu");
+      buildMenuPanel(panel);
+      alignMenu(details);
+
+      details.addEventListener("toggle", function () {
+        alignMenu(details);
+        if (details.open) {
+          menus.forEach(function (other) {
+            if (other !== details) other.removeAttribute("open");
+          });
+          document.body.classList.add("vectora-menu-open");
+        } else if (!document.querySelector(".site-menu[open]")) {
+          document.body.classList.remove("vectora-menu-open");
+        }
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      if (event.target.closest && event.target.closest(".site-menu")) return;
+      menus.forEach(function (details) {
+        details.removeAttribute("open");
+      });
+      document.body.classList.remove("vectora-menu-open");
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      menus.forEach(function (details) {
+        details.removeAttribute("open");
+      });
+      document.body.classList.remove("vectora-menu-open");
+    });
+
+    window.addEventListener("resize", function () {
+      menus.forEach(alignMenu);
+    });
+  }
+
   function initDepthSurfaces() {
     if (!window.matchMedia || !window.matchMedia("(pointer: fine)").matches) return;
+    document.querySelectorAll(".hero-banner, .hero-visual, .buy-panel, .trust-tool, .status-board").forEach(function (el) {
+      if (!el.hasAttribute("data-vectora-depth")) {
+        el.setAttribute("data-vectora-depth", "true");
+      }
+    });
     document.querySelectorAll("[data-vectora-depth='true']").forEach(function (el) {
       el.addEventListener("pointermove", function (event) {
         var rect = el.getBoundingClientRect();
@@ -124,6 +285,7 @@
   }
 
   ready(function () {
+    initMenus();
     if (reduceMotion) {
       document.body.classList.add("vectora-motion-reduced");
       return;
