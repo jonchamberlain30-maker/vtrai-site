@@ -3,6 +3,7 @@
   --vectora-motion-fast: 180ms;
   --vectora-motion-med: 520ms;
   --vectora-motion-glow: rgba(77, 234, 255, 0.18);
+  --vectora-motion-press: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 html {
@@ -57,6 +58,27 @@ html {
     will-change: opacity, transform, filter;
   }
 
+  [data-vectora-depth="true"] {
+    transform:
+      perspective(900px)
+      rotateX(var(--vectora-tilt-y, 0deg))
+      rotateY(var(--vectora-tilt-x, 0deg))
+      translate3d(0, 0, 0);
+    transition:
+      transform 420ms var(--vectora-motion-ease),
+      box-shadow var(--vectora-motion-fast) ease,
+      border-color var(--vectora-motion-fast) ease;
+    will-change: transform;
+  }
+
+  [data-vectora-depth="true"]:hover {
+    border-color: rgba(77, 234, 255, 0.5);
+    box-shadow:
+      0 34px 80px rgba(0, 0, 0, 0.36),
+      0 0 0 1px rgba(77, 234, 255, 0.18) inset,
+      0 0 42px rgba(77, 234, 255, 0.16);
+  }
+
   [data-vectora-motion].vectora-motion-visible {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -73,7 +95,7 @@ html {
   .watchlist-link,
   .links a {
     transition:
-      transform var(--vectora-motion-fast) ease,
+      transform var(--vectora-motion-fast) var(--vectora-motion-press),
       border-color var(--vectora-motion-fast) ease,
       background-color var(--vectora-motion-fast) ease,
       box-shadow var(--vectora-motion-fast) ease,
@@ -89,6 +111,39 @@ html {
   .watchlist-link:hover,
   .links a:hover {
     transform: translate3d(0, -1px, 0);
+  }
+
+  .btn,
+  .copy-btn,
+  .gecko-badge-link,
+  .watchlist-link,
+  .links a {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .btn::before,
+  .copy-btn::before,
+  .gecko-badge-link::before,
+  .watchlist-link::before,
+  .links a::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: 0;
+    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.32) 46%, transparent 68%);
+    transform: translateX(-125%);
+    transition: transform 620ms var(--vectora-motion-ease);
+    pointer-events: none;
+  }
+
+  .btn:hover::before,
+  .copy-btn:hover::before,
+  .gecko-badge-link:hover::before,
+  .watchlist-link:hover::before,
+  .links a:hover::before {
+    transform: translateX(125%);
   }
 
   .card.vectora-motion-visible:hover,
@@ -116,6 +171,18 @@ html {
     transform: translateZ(0);
     will-change: transform;
   }
+
+  .bg-grid::after,
+  .grid-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(115deg, transparent 0 28%, rgba(77, 234, 255, 0.12) 36%, transparent 48% 100%),
+      linear-gradient(245deg, transparent 0 50%, rgba(247, 212, 106, 0.08) 64%, transparent 74% 100%);
+    animation: vectora-background-scan 14s var(--vectora-motion-ease) infinite alternate;
+    pointer-events: none;
+  }
 }
 
 @keyframes vectora-page-enter {
@@ -126,5 +193,16 @@ html {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes vectora-background-scan {
+  from {
+    opacity: 0.32;
+    transform: translate3d(-2%, -1%, 0);
+  }
+  to {
+    opacity: 0.68;
+    transform: translate3d(2%, 1%, 0);
   }
 }

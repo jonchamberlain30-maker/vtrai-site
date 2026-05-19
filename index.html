@@ -246,16 +246,21 @@
 
     .hero {
       margin-top: 14px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(119, 231, 255, 0.28);
       border-radius: 22px;
-      background: var(--card);
-      padding: 20px;
+      background:
+        linear-gradient(135deg, rgba(10, 20, 42, 0.94), rgba(9, 13, 31, 0.82) 54%, rgba(17, 21, 46, 0.9)),
+        var(--card);
+      padding: 24px;
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 14px;
+      grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+      gap: 18px;
       align-items: center;
       overflow: hidden;
-      backdrop-filter: blur(7px);
+      backdrop-filter: blur(12px);
+      box-shadow:
+        0 34px 90px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
     .hero,
@@ -299,6 +304,18 @@
       height: 190px;
       background: radial-gradient(circle, rgba(77, 234, 255, 0.12), rgba(157, 124, 255, 0.04) 58%, transparent 76%);
       pointer-events: none;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(110deg, rgba(77, 234, 255, 0.14), transparent 26%, rgba(247, 212, 106, 0.12) 64%, transparent 82%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 80px);
+      opacity: 0.76;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .card::before,
@@ -509,11 +526,16 @@
     }
 
     .hero-banner {
-      border: 1px solid var(--line);
-      border-radius: 14px;
+      position: relative;
+      border: 1px solid rgba(125, 238, 255, 0.28);
+      border-radius: 20px;
       overflow: hidden;
-      min-height: 220px;
+      min-height: 350px;
       background: #070d1b;
+      box-shadow:
+        0 26px 62px rgba(0, 0, 0, 0.32),
+        0 0 0 1px rgba(255, 255, 255, 0.035) inset;
+      transform-style: preserve-3d;
     }
 
     .hero-banner img {
@@ -521,6 +543,135 @@
       height: 100%;
       object-fit: cover;
       animation: zoom 18s ease-in-out infinite;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent, rgba(3, 9, 18, 0.72)),
+        repeating-linear-gradient(0deg, rgba(77, 234, 255, 0.12) 0 1px, transparent 1px 9px);
+      mix-blend-mode: screen;
+      opacity: 0.34;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(223, 249, 255, 0.16);
+      border-radius: 15px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-console {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 3;
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(223, 249, 255, 0.18);
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(5, 12, 25, 0.84), rgba(13, 21, 43, 0.68));
+      padding: 12px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+    }
+
+    .console-head,
+    .console-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .console-head {
+      color: #dff9ff;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .console-pill {
+      border: 1px solid rgba(74, 227, 181, 0.34);
+      border-radius: 999px;
+      color: var(--good);
+      padding: 5px 8px;
+      font-size: 0.68rem;
+      white-space: nowrap;
+      background: rgba(10, 40, 34, 0.46);
+    }
+
+    .console-row {
+      border-top: 1px solid rgba(223, 249, 255, 0.1);
+      padding-top: 9px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .console-row strong {
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .signal-line {
+      position: relative;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .signal-line::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 72%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--good), #f7d46a);
+      box-shadow: 0 0 18px rgba(77, 234, 255, 0.34);
+    }
+
+    .hero-radar {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      width: 104px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      border-radius: 50%;
+      background:
+        linear-gradient(90deg, transparent 49%, rgba(77, 234, 255, 0.22) 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, rgba(77, 234, 255, 0.22) 50%, transparent 51%),
+        repeating-radial-gradient(circle, rgba(77, 234, 255, 0.18) 0 1px, transparent 1px 19px),
+        rgba(5, 12, 25, 0.42);
+      backdrop-filter: blur(7px);
+      box-shadow: 0 0 28px rgba(77, 234, 255, 0.14);
+    }
+
+    .hero-radar::before {
+      content: "";
+      position: absolute;
+      inset: 50% 50% 0 50%;
+      width: 48%;
+      height: 1px;
+      transform-origin: left center;
+      background: linear-gradient(90deg, rgba(77, 234, 255, 0.95), transparent);
+      animation: radarSweep 4.8s linear infinite;
+    }
+
+    @keyframes radarSweep {
+      to { transform: rotate(360deg); }
     }
 
     @keyframes zoom {
@@ -558,11 +709,14 @@
 
     .metric {
       border: 1px solid var(--line);
-      background: rgba(18, 30, 52, 0.72);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
+        rgba(18, 30, 52, 0.72);
       color: var(--ink);
       border-radius: 999px;
       padding: 6px 10px;
       font-size: 0.8rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     .btn {
@@ -1387,12 +1541,42 @@
       .wrap {
         padding: 18px;
       }
+      .hero {
+        padding: 18px;
+      }
+      .hero .cta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .hero .cta .btn:first-child {
+        grid-column: 1 / -1;
+      }
       .nav-actions {
         align-items: flex-start;
       }
       .category-grid { grid-template-columns: 1fr; }
-      .hero-banner { min-height: 170px; }
-      .cta .btn { width: 100%; text-align: center; }
+      .hero-banner { min-height: 220px; }
+      .hero-console {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+      }
+      .hero-radar {
+        width: 78px;
+        top: 14px;
+        right: 14px;
+      }
+      .console-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .cta .btn { text-align: center; }
+      .hero .cta .btn {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 0.86rem;
+      }
       .return-loop .btn,
       .proof-hunt-strip .btn { width: 100%; text-align: center; }
     }
@@ -1459,8 +1643,24 @@
           <a class="btn" href="./education.html">Read safety basics</a>
         </div>
       </div>
-      <div class="hero-banner">
+      <div class="hero-banner" data-vectora-depth="true">
         <img src="./assets/vtrai-header-2026-03-26-fast.jpg" alt="Vectora header banner" />
+        <div class="hero-radar" aria-hidden="true"></div>
+        <div class="hero-console" aria-hidden="true">
+          <div class="console-head">
+            <span>Verification Engine</span>
+            <span class="console-pill">Live path</span>
+          </div>
+          <div class="signal-line"></div>
+          <div class="console-row">
+            <span>Mint route</span>
+            <strong>Source matched</strong>
+          </div>
+          <div class="console-row">
+            <span>Control check</span>
+            <strong>Authority signals clear</strong>
+          </div>
+        </div>
       </div>
     </section>
 

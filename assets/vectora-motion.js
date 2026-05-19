@@ -105,6 +105,24 @@
     });
   }
 
+  function initDepthSurfaces() {
+    if (!window.matchMedia || !window.matchMedia("(pointer: fine)").matches) return;
+    document.querySelectorAll("[data-vectora-depth='true']").forEach(function (el) {
+      el.addEventListener("pointermove", function (event) {
+        var rect = el.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        var x = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
+        var y = ((event.clientY - rect.top) / rect.height - 0.5) * -8;
+        el.style.setProperty("--vectora-tilt-x", x.toFixed(2) + "deg");
+        el.style.setProperty("--vectora-tilt-y", y.toFixed(2) + "deg");
+      });
+      el.addEventListener("pointerleave", function () {
+        el.style.setProperty("--vectora-tilt-x", "0deg");
+        el.style.setProperty("--vectora-tilt-y", "0deg");
+      });
+    });
+  }
+
   ready(function () {
     if (reduceMotion) {
       document.body.classList.add("vectora-motion-reduced");
@@ -113,5 +131,6 @@
     document.body.classList.add("vectora-motion-enter");
     revealSurfaces(markSurfaces());
     initPageTransitions();
+    initDepthSurfaces();
   });
 })();
