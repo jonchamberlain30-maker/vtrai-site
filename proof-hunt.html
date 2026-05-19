@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vectora Proof Hunt is a verification challenge for finding unclear token source, mint, route, authority, or liquidity trails. Recognition only; no token reward promise." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#050912" />
+  <link rel="canonical" href="https://getvectora.ai/proof-hunt.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Vectora Proof Hunt | Find The Proof Gap" />
+  <meta property="og:description" content="Submit a token where the source, mint, route, authority, or liquidity trail does not line up clearly." />
+  <meta property="og:url" content="https://getvectora.ai/proof-hunt.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta property="og:image:alt" content="Vectora Proof Hunt verification campaign" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vectora Proof Hunt | Find The Proof Gap" />
+  <meta name="twitter:description" content="Submit unclear token proof trails for public verification review." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <title>Vectora Proof Hunt | Find The Proof Gap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050912;
+      --panel: rgba(9, 16, 32, 0.78);
+      --panel-strong: rgba(7, 13, 27, 0.92);
+      --ink: #e8f8ff;
+      --muted: #9ab1c8;
+      --line: #243753;
+      --cyan: #4deaff;
+      --gold: #f2c75c;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+      --token-mark: url("./assets/vtrai-token-mark-128.png");
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      background:
+        linear-gradient(145deg, rgba(5, 9, 18, 0.96), rgba(11, 22, 48, 0.96)),
+        #050912;
+      overflow-x: hidden;
+    }
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      background-image:
+        linear-gradient(to right, rgba(93, 124, 170, 0.22) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(93, 124, 170, 0.18) 1px, transparent 1px);
+      background-size: 48px 48px;
+      z-index: 0;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 48px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(8, 14, 29, 0.82);
+      padding: 10px 14px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .brand img {
+      width: 28px;
+      height: 28px;
+      filter: drop-shadow(0 0 16px rgba(77, 234, 255, 0.3));
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px dashed rgba(77, 234, 255, 0.35);
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .hero {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(9, 16, 32, 0.92), rgba(16, 28, 58, 0.82)),
+        var(--panel);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+      gap: 18px;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .hero-copy {
+      padding: 24px;
+      align-self: center;
+    }
+    .hero-visual {
+      min-height: 300px;
+      background:
+        linear-gradient(180deg, rgba(5, 9, 18, 0.1), rgba(5, 9, 18, 0.76)),
+        url("./assets/vtrai-header-2026-03-26-fast.jpg") center / cover no-repeat;
+      border-left: 1px solid rgba(77, 234, 255, 0.14);
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+    .visual-note {
+      width: 100%;
+      border: 1px solid rgba(77, 234, 255, 0.24);
+      border-radius: 14px;
+      background: rgba(7, 13, 27, 0.78);
+      padding: 14px;
+    }
+    .visual-note strong {
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .visual-note p {
+      margin: 0;
+      font-size: 0.88rem;
+    }
+    .kicker {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      line-height: 1.02;
+      letter-spacing: 0.1px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+    p, li {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .sub {
+      max-width: 670px;
+      margin: 12px 0 0;
+    }
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .btn, .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 12px;
+      min-height: 42px;
+      padding: 10px 14px;
+      color: #031019;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 50%),
+        linear-gradient(90deg, var(--cyan), #86e8ff);
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn.gold, .copy-btn {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0) 50%),
+        linear-gradient(90deg, var(--gold), #f0b53a);
+    }
+    .btn.secondary {
+      color: var(--ink);
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      background: rgba(18, 30, 52, 0.76);
+    }
+    .status-strip {
+      margin-top: 14px;
+      border: 1px solid rgba(74, 227, 181, 0.28);
+      border-radius: 16px;
+      background: linear-gradient(90deg, rgba(10, 64, 52, 0.42), rgba(20, 27, 61, 0.36));
+      padding: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .status-item {
+      border: 1px solid rgba(77, 234, 255, 0.14);
+      border-radius: 12px;
+      background: rgba(7, 13, 27, 0.58);
+      padding: 12px;
+    }
+    .status-item span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .status-item strong {
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .section-head {
+      margin: 20px 0 8px;
+      position: relative;
+      padding-left: 42px;
+    }
+    .section-head::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 30px;
+      height: 30px;
+      background: center / contain no-repeat var(--token-mark);
+      filter: drop-shadow(0 0 18px rgba(77, 234, 255, 0.2));
+      opacity: 0.96;
+      pointer-events: none;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .section-head p {
+      margin: 6px 0 0;
+      font-size: 0.92rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .card {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 14px;
+      background: var(--panel);
+      padding: 16px;
+    }
+    .card strong {
+      color: var(--ink);
+      display: block;
+      margin-bottom: 7px;
+    }
+    .card p, .card ul { margin: 0; }
+    .card ul {
+      padding-left: 18px;
+    }
+    .card li { margin-bottom: 6px; }
+    .card li:last-child { margin-bottom: 0; }
+    .submit-panel {
+      margin-top: 14px;
+      border: 1px solid rgba(242, 199, 92, 0.34);
+      border-radius: 16px;
+      background: linear-gradient(90deg, rgba(64, 42, 6, 0.42), rgba(30, 24, 55, 0.34));
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+      gap: 14px;
+      align-items: start;
+    }
+    .template-box {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(7, 13, 27, 0.72);
+      padding: 12px;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #dff9ff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+    .warning {
+      margin-top: 14px;
+      border: 1px solid #4c2a37;
+      border-radius: 14px;
+      background: rgba(58, 20, 33, 0.44);
+      color: var(--warn);
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+    @media (max-width: 880px) {
+      .hero,
+      .submit-panel { grid-template-columns: 1fr; }
+      .hero-visual {
+        border-left: 0;
+        border-top: 1px solid rgba(77, 234, 255, 0.14);
+      }
+      .status-strip,
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.1rem; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 18px; }
+      .hero-copy { padding: 18px; }
+      .hero-visual { min-height: 230px; }
+      .btn,
+      .copy-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <main class="wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand brand-buy-link" href="./buy-and-verify.html" data-brand-buy-label="proof_hunt_brand">
+        <img src="./assets/vtrai-token-mark-128.png" alt="" />
+        <span>Vectora</span>
+      </a>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./proof.html">Proof Pack</a>
+        <a href="./watchlist.html">Watchlist</a>
+        <a href="./disclaimer.html">Disclaimer</a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-label="Vectora Proof Hunt">
+      <div class="hero-copy">
+        <div class="kicker">14-Day Verification Challenge</div>
+        <h1>Vectora Proof Hunt</h1>
+        <p class="sub">Find a token where the source, mint, route, authority, or liquidity trail does not line up clearly. Submit the proof gap. We will review useful examples and publish the clearest ones on a weekly board.</p>
+        <div class="cta">
+          <button class="copy-btn tracked-action" type="button" data-copy-target="submissionTemplate" data-label="copy_submission_template">Copy Submission Template</button>
+          <a class="btn secondary tracked-link" href="https://x.com/VectoraAI" target="_blank" rel="noreferrer" data-label="open_x_profile">Send Via X</a>
+          <a class="btn secondary tracked-link" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer" data-label="open_telegram">Open Telegram</a>
+        </div>
+      </div>
+      <aside class="hero-visual" aria-label="Verification habit">
+        <div class="visual-note">
+          <strong>Recognition only in Phase 0</strong>
+          <p>No airdrop is promised. Public posting is optional. Likes, reposts, follows, comments, and replies do not create eligibility for anything.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="status-strip" aria-label="Proof Hunt status">
+      <div class="status-item">
+        <span>Phase</span>
+        <strong>Phase 0: public recognition only</strong>
+      </div>
+      <div class="status-item">
+        <span>Window</span>
+        <strong>May 19 to June 2, 2026</strong>
+      </div>
+      <div class="status-item">
+        <span>Goal</span>
+        <strong>Better receipts, not louder hype</strong>
+      </div>
+    </section>
+
+    <div class="section-head">
+      <h2>What Counts</h2>
+      <p>Useful submissions make a specific proof problem easier for another person to verify.</p>
+    </div>
+
+    <section class="grid" aria-label="Useful Proof Hunt submissions">
+      <article class="card">
+        <strong>Source Gap</strong>
+        <p>The official account, site, docs, or announcement does not clearly resolve to the same token address being promoted.</p>
+      </article>
+      <article class="card">
+        <strong>Route Gap</strong>
+        <p>The swap route, pool, or tracker page points at a token that does not match the stated official mint or contract.</p>
+      </article>
+      <article class="card">
+        <strong>Control Gap</strong>
+        <p>Mint authority, freeze authority, liquidity lock, or ownership claims are being repeated without public receipts.</p>
+      </article>
+    </section>
+
+    <section class="submit-panel" aria-label="Submit a Proof Hunt example">
+      <div>
+        <div class="kicker">Submit</div>
+        <h2>Send the token, the gap, and the public links.</h2>
+        <p>Use the template, then send it through the official Vectora X or Telegram channel. Screenshots can help, but source links matter more. We may reject duplicates, unsupported claims, defamatory wording, or anything that asks people to harass a project.</p>
+        <div class="cta">
+          <a class="btn gold tracked-link" href="./index.html#trust-check" data-label="run_token_check">Run Token Check</a>
+          <a class="btn secondary tracked-link" href="./proof.html" data-label="read_proof_pack">Read Proof Pack</a>
+        </div>
+      </div>
+      <div class="template-box">
+        <pre id="submissionTemplate">Vectora Proof Hunt submission
+
+Token / project:
+Chain:
+Mint, contract, or pair URL:
+Official source link:
+Swap or tracker link:
+Proof gap type: source / route / authority / liquidity / other
+What does not line up:
+Can Vectora credit you publicly? yes / no
+Preferred credit name:</pre>
+      </div>
+    </section>
+
+    <div class="section-head">
+      <h2>Rules</h2>
+      <p>The campaign is built around verifiable contribution, not engagement farming.</p>
+    </div>
+
+    <section class="grid" aria-label="Proof Hunt rules">
+      <article class="card">
+        <strong>No Engagement Rewards</strong>
+        <ul>
+          <li>No reward for likes, reposts, follows, comments, quote posts, tags, or replies.</li>
+          <li>Public posting is optional and not required for review.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <strong>No Airdrop Promise</strong>
+        <ul>
+          <li>There is no token allocation or claim attached to this phase.</li>
+          <li>Any future reward phase would need published rules and review first.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <strong>No Investment Claim</strong>
+        <ul>
+          <li>Vectora publishes verification context, not financial advice.</li>
+          <li>A cleaner proof trail does not remove token risk.</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="warning">Crypto assets are risky. This page is a public verification campaign, not an offer, solicitation, investment recommendation, or promise of future value. Always verify the official source, exact mint, route, and controls yourself before any trade.</div>
+
+    <p class="footer">
+      <a href="./terms.html">Terms</a> · <a href="./privacy.html">Privacy</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a>
+    </p>
+  </main>
+
+  <script>
+    const PAGE_NAME = 'proof_hunt';
+
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+
+    trackEvent('proof_hunt_view', {
+      page_name: PAGE_NAME,
+      page_location: window.location.href
+    });
+
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        trackEvent('proof_hunt_click', {
+          page_name: PAGE_NAME,
+          link_label: link.dataset.label || 'unknown',
+          link_url: link.href,
+          transport_type: 'beacon'
+        });
+      });
+    });
+
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      const copied = document.execCommand('copy');
+      textarea.remove();
+      if (!copied) throw new Error('copy failed');
+    }
+
+    document.querySelectorAll('[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target) return;
+        const original = button.textContent;
+        try {
+          await copyText(target.textContent.trim());
+          button.textContent = 'Copied';
+          trackEvent('proof_hunt_template_copied', {
+            page_name: PAGE_NAME,
+            link_label: button.dataset.label || 'copy_submission_template'
+          });
+        } catch {
+          button.textContent = 'Copy failed';
+        }
+        window.setTimeout(() => {
+          button.textContent = original;
+        }, 1800);
+      });
+    });
+  </script>
+  <script src="./assets/brand-buy-tracking.js" defer></script>
+</body>
+</html>

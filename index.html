@@ -262,6 +262,7 @@
     .preview-banner,
     .lab-banner,
     .return-loop,
+    .proof-hunt-strip,
     .checker,
     .status-board,
     .card,
@@ -275,6 +276,7 @@
     .preview-banner > *,
     .lab-banner > *,
     .return-loop > *,
+    .proof-hunt-strip > *,
     .checker > *,
     .status-board > *,
     .card > *,
@@ -438,6 +440,35 @@
     }
 
     .coinzilla-path p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.92rem;
+    }
+
+    .proof-hunt-strip {
+      margin-top: 14px;
+      border: 1px solid rgba(74, 227, 181, 0.28);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(6, 34, 35, 0.84), rgba(18, 23, 54, 0.86)),
+        var(--card);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .proof-hunt-strip strong {
+      color: var(--good);
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.02rem;
+    }
+
+    .proof-hunt-strip p {
       margin: 0;
       color: var(--muted);
       line-height: 1.45;
@@ -1337,6 +1368,7 @@
       .trust-meta { grid-template-columns: 1fr; }
       .lab-banner { grid-template-columns: 1fr; }
       .return-loop,
+      .proof-hunt-strip,
       .coinzilla-path { grid-template-columns: 1fr; }
       .return-loop .btn { justify-self: flex-start; }
       h1 {
@@ -1361,7 +1393,8 @@
       .category-grid { grid-template-columns: 1fr; }
       .hero-banner { min-height: 170px; }
       .cta .btn { width: 100%; text-align: center; }
-      .return-loop .btn { width: 100%; text-align: center; }
+      .return-loop .btn,
+      .proof-hunt-strip .btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
@@ -1377,6 +1410,7 @@
         <div class="nav-links">
           <a href="#trust-check">Check</a>
           <a href="#learn">Learn</a>
+          <a href="./proof-hunt.html">Proof Hunt</a>
           <a href="./proof.html">Proof</a>
         </div>
         <details class="site-menu">
@@ -1397,6 +1431,7 @@
             </div>
             <div class="menu-group">
               <span class="menu-group-title">Proof</span>
+              <a href="./proof-hunt.html">Proof Hunt</a>
               <a href="./proof.html">Proof Pack</a>
               <a href="./token-info.html">Token Info</a>
               <a href="./updates.html">Updates</a>
@@ -1441,6 +1476,14 @@
         </div>
       </div>
       <a class="btn gold" href="./watchlist.html">Use Watchlist</a>
+    </section>
+
+    <section class="proof-hunt-strip reveal" aria-label="Vectora Proof Hunt">
+      <div>
+        <strong>Proof Hunt is live: submit unclear token trails.</strong>
+        <p>Find a source, mint, route, authority, or liquidity gap. We will review useful examples and publish the clearest ones on a weekly board. Recognition only; no airdrop promise and no reward for X engagement.</p>
+      </div>
+      <a class="btn gold" href="./proof-hunt.html">Join Proof Hunt</a>
     </section>
 
     <section class="coinzilla-path reveal" id="coinzillaPath" hidden aria-label="Coinzilla visitor verification path">
