@@ -751,6 +751,7 @@
 
     .checker {
       margin-top: 14px;
+      scroll-margin-top: 96px;
       border: 1px solid rgba(77, 234, 255, 0.28);
       border-radius: 18px;
       padding: 18px;
@@ -1093,15 +1094,103 @@
 
     .trust-tool {
       display: grid;
-      gap: 12px;
-      max-width: 860px;
+      gap: 14px;
+      max-width: 980px;
       margin: 0 auto;
+      border: 1px solid rgba(111, 221, 255, 0.18);
+      border-radius: 22px;
+      background:
+        radial-gradient(520px 220px at 0% 0%, rgba(77, 234, 255, 0.1), transparent 68%),
+        rgba(5, 12, 25, 0.48);
+      padding: 14px;
+      text-align: left;
+    }
+
+    .trust-command-bar {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .trust-command-copy,
+    .trust-stage-rail,
+    .trust-idle-panel {
+      border: 1px solid rgba(111, 221, 255, 0.16);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+        rgba(8, 16, 31, 0.72);
+      padding: 14px;
+    }
+
+    .trust-command-copy span,
+    .trust-stage span,
+    .trust-idle-card span {
+      display: block;
+      color: var(--cyan);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .trust-command-copy strong {
+      display: block;
+      margin-top: 7px;
+      color: var(--ink);
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+      line-height: 1.08;
+    }
+
+    .trust-command-copy p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .trust-stage-rail {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .trust-stage {
+      position: relative;
+      min-height: 92px;
+      border: 1px solid rgba(77, 234, 255, 0.13);
+      border-radius: 14px;
+      background: rgba(5, 12, 25, 0.56);
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .trust-stage::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 9px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      opacity: 0.42;
+    }
+
+    .trust-stage strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: 0.88rem;
+      line-height: 1.18;
     }
 
     .trust-form {
       display: grid;
       grid-template-columns: 180px minmax(0, 1fr) auto;
       gap: 10px;
+      align-items: stretch;
     }
 
     .trust-select,
@@ -1165,12 +1254,10 @@
     }
 
     .trust-result {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px;
-      background:
-        radial-gradient(420px 180px at 0% 0%, rgba(77, 234, 255, 0.08), transparent 65%),
-        rgba(10, 18, 36, 0.84);
+      border: 0;
+      border-radius: 20px;
+      padding: 0;
+      background: transparent;
       min-height: 132px;
       text-align: left;
     }
@@ -1184,12 +1271,88 @@
       font-size: 0.98rem;
     }
 
+    .trust-idle-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .trust-idle-panel[hidden] {
+      display: none;
+    }
+
+    .trust-idle-lead {
+      display: grid;
+      align-content: center;
+      gap: 8px;
+    }
+
+    .trust-idle-lead strong {
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.18;
+    }
+
+    .trust-idle-lead p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.48;
+      font-size: 0.92rem;
+    }
+
+    .trust-idle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .trust-idle-card {
+      border: 1px solid rgba(111, 221, 255, 0.14);
+      border-radius: 14px;
+      background: rgba(5, 12, 25, 0.62);
+      padding: 12px;
+      min-height: 118px;
+    }
+
+    .trust-idle-card strong {
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: 0.95rem;
+      line-height: 1.16;
+    }
+
+    .trust-idle-card p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.38;
+    }
+
+    .trust-status-panel,
+    .trust-result-card {
+      border: 1px solid rgba(111, 221, 255, 0.18);
+      border-radius: 20px;
+      background:
+        radial-gradient(520px 220px at 0% 0%, rgba(77, 234, 255, 0.1), transparent 66%),
+        linear-gradient(135deg, rgba(9, 18, 37, 0.94), rgba(5, 11, 24, 0.94));
+      padding: 16px;
+      box-shadow: 0 22px 58px rgba(0, 0, 0, 0.28);
+    }
+
+    .trust-status-panel {
+      color: #d7ecff;
+      line-height: 1.45;
+    }
+
     .trust-head {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(111, 221, 255, 0.13);
+      padding-bottom: 14px;
     }
 
     .trust-head-main {
@@ -1324,11 +1487,86 @@
     .trust-summary {
       color: #d7ecff;
       line-height: 1.5;
-      margin-bottom: 12px;
+      margin-bottom: 0;
+    }
+
+    .trust-result-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.76fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .trust-result-main,
+    .trust-result-side {
+      display: grid;
+      gap: 12px;
+    }
+
+    .trust-result-side .trust-meta {
+      grid-template-columns: 1fr;
+      margin-top: 0;
+    }
+
+    .trust-flow {
+      margin-bottom: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .trust-flow span {
+      position: relative;
+      border: 1px solid rgba(111, 221, 255, 0.14);
+      border-radius: 999px;
+      background: rgba(5, 12, 25, 0.64);
+      color: rgba(232, 248, 255, 0.78);
+      padding: 7px 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .trust-flow span.is-done {
+      color: #031019;
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+    }
+
+    .trust-decision-orb {
+      border: 1px solid currentColor;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      padding: 14px;
+      display: grid;
+      gap: 6px;
+      min-height: 114px;
+    }
+
+    .trust-decision-orb span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .trust-decision-orb strong {
+      color: currentColor;
+      font-size: clamp(1.25rem, 3vw, 1.72rem);
+      line-height: 1.02;
+    }
+
+    .trust-decision-orb small {
+      color: #d7ecff;
+      line-height: 1.38;
+      font-size: 0.82rem;
     }
 
     .decision-banner {
-      margin-bottom: 12px;
       border: 1px solid currentColor;
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.03);
@@ -1523,6 +1761,16 @@
       .status-row { grid-template-columns: 1fr; }
       .trust-form { grid-template-columns: 1fr; }
       .trust-meta { grid-template-columns: 1fr; }
+      .trust-command-bar,
+      .trust-idle-panel,
+      .trust-result-body {
+        grid-template-columns: 1fr;
+      }
+      .trust-stage-rail,
+      .trust-idle-grid,
+      .trust-flow {
+        grid-template-columns: 1fr 1fr;
+      }
       .lab-banner { grid-template-columns: 1fr; }
       .return-loop,
       .proof-hunt-strip,
@@ -1546,6 +1794,21 @@
       }
       .hero {
         padding: 18px;
+      }
+      .trust-tool {
+        padding: 12px;
+      }
+      .trust-stage-rail,
+      .trust-idle-grid,
+      .trust-flow {
+        grid-template-columns: 1fr;
+      }
+      .trust-head,
+      .trust-head-actions {
+        align-items: flex-start;
+      }
+      .trust-head {
+        flex-direction: column;
       }
       .hero .cta {
         display: grid;
@@ -1741,6 +2004,31 @@
       <h2>Paste A Token Address. Save The Ones That Deserve A Second Look.</h2>
       <p class="sub">Run the first check, then add serious candidates to your device watchlist so you can refresh the report later instead of trusting screenshots, replies, or memory.</p>
       <div class="trust-tool">
+        <div class="trust-command-bar" aria-label="Vectora verification workflow">
+          <div class="trust-command-copy">
+            <span>Verification Desk</span>
+            <strong>One calm path from address to decision.</strong>
+            <p>Vectora keeps the workflow obvious: paste the address, read the source and route signals, then save the token if it deserves another look later.</p>
+          </div>
+          <div class="trust-stage-rail">
+            <div class="trust-stage">
+              <span>01</span>
+              <strong>Paste mint or contract</strong>
+            </div>
+            <div class="trust-stage">
+              <span>02</span>
+              <strong>Read source and route</strong>
+            </div>
+            <div class="trust-stage">
+              <span>03</span>
+              <strong>Check control signals</strong>
+            </div>
+            <div class="trust-stage">
+              <span>04</span>
+              <strong>Save or walk away</strong>
+            </div>
+          </div>
+        </div>
         <div class="trust-form">
           <select id="networkSelect" class="trust-select">
             <option value="auto">Auto detect</option>
@@ -1754,6 +2042,30 @@
           </select>
           <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
           <button id="trustButton" class="btn gold" type="button">Check Token</button>
+        </div>
+        <div id="trustIdle" class="trust-idle-panel">
+          <div class="trust-idle-lead">
+            <span class="vectora-page-kicker">Before You Act</span>
+            <strong>Use the checker as a pause, not a promise.</strong>
+            <p>The strongest habit is returning to evidence when the market gets loud. The watchlist is there for tokens that are still worth attention, not automatic trust.</p>
+          </div>
+          <div class="trust-idle-grid">
+            <div class="trust-idle-card">
+              <span>Source</span>
+              <strong>Where did the route originate?</strong>
+              <p>Prefer public project pages and official references over replies, clips, or DMs.</p>
+            </div>
+            <div class="trust-idle-card">
+              <span>Controls</span>
+              <strong>What can still change?</strong>
+              <p>Authority, metadata, supply, and liquidity context can change the decision.</p>
+            </div>
+            <div class="trust-idle-card">
+              <span>Return</span>
+              <strong>Will this still look clear later?</strong>
+              <p>Save candidates and refresh before acting from yesterday's memory.</p>
+            </div>
+          </div>
         </div>
         <div id="trustResult" class="trust-result"></div>
         <div class="trust-note">
@@ -1928,6 +2240,7 @@
     const networkSelect = document.getElementById('networkSelect');
     const trustButton = document.getElementById('trustButton');
     const trustResult = document.getElementById('trustResult');
+    const trustIdle = document.getElementById('trustIdle');
     const copyButtons = document.querySelectorAll('[data-copy-target]');
     const trustHelp = document.getElementById('trustHelp');
     const trustHelpButton = document.getElementById('trustHelpButton');
@@ -1963,6 +2276,9 @@
 
     function renderTrustResult(html) {
       trustResult.innerHTML = html;
+      if (trustIdle) {
+        trustIdle.hidden = Boolean(String(html || '').trim());
+      }
     }
 
     function getWatchlist() {
@@ -2257,45 +2573,64 @@
         : `<div class="trust-logo"><div class="trust-logo-fallback">${buildTokenFallback(title)}</div></div>`;
       const derivedNetworkLabel = networkLabel || (meta.find((item) => item.label === 'Network') || {}).value || 'Unknown';
       renderTrustResult(`
-        <div class="trust-head">
-          <div class="trust-head-main">
-            ${logoHtml}
-            <div>
-              <div class="trust-title" style="color: ${tone};">${title}</div>
-              <div class="trust-submeta">
-                <div class="trust-chip">
-                  <span class="trust-chip-mark">${buildNetworkMark(derivedNetworkLabel)}</span>
-                  <span>${derivedNetworkLabel}</span>
-                </div>
-                <div class="trust-chip" style="color: ${tone};">
-                  <span class="trust-chip-mark status"></span>
-                  <span>${statusLabel}</span>
+        <div class="trust-result-card">
+          <div class="trust-head">
+            <div class="trust-head-main">
+              ${logoHtml}
+              <div>
+                <div class="trust-title" style="color: ${tone};">${title}</div>
+                <div class="trust-submeta">
+                  <div class="trust-chip">
+                    <span class="trust-chip-mark">${buildNetworkMark(derivedNetworkLabel)}</span>
+                    <span>${derivedNetworkLabel}</span>
+                  </div>
+                  <div class="trust-chip" style="color: ${tone};">
+                    <span class="trust-chip-mark status"></span>
+                    <span>${statusLabel}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="trust-head-actions">
-            ${watchToken ? `<button class="share-btn" type="button" data-share-report="true">${shareIconHtml()}<span>Share</span></button>` : ''}
-            <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
-          </div>
-        </div>
-        <div class="trust-summary">${summary}</div>
-        <div class="decision-banner" style="color: ${decision.tone};">
-          <strong>Decision: ${decision.label}</strong>
-          <p>${decision.text}</p>
-        </div>
-        <div class="trust-meta">
-          ${meta.map((item) => `
-            <div>
-              <span>${item.label}</span>
-              <strong>${item.value}</strong>
+            <div class="trust-head-actions">
+              ${watchToken ? `<button class="share-btn" type="button" data-share-report="true">${shareIconHtml()}<span>Share</span></button>` : ''}
+              <div class="trust-badge" style="color: ${tone};">${badgeLabel}</div>
             </div>
-          `).join('')}
+          </div>
+          <div class="trust-flow" aria-label="Verification workflow status">
+            <span class="is-done">Source</span>
+            <span class="is-done">Route</span>
+            <span class="is-done">Controls</span>
+            <span>Return</span>
+          </div>
+          <div class="trust-result-body">
+            <div class="trust-result-main">
+              <div class="trust-summary">${summary}</div>
+              <div class="decision-banner" style="color: ${decision.tone};">
+                <strong>Decision: ${decision.label}</strong>
+                <p>${decision.text}</p>
+              </div>
+              ${reasonsHtml}
+              ${checksHtml}
+              ${linksSectionHtml}
+              ${watchHtml}
+            </div>
+            <aside class="trust-result-side" aria-label="Trust report details">
+              <div class="trust-decision-orb" style="color: ${decision.tone};">
+                <span>Next Move</span>
+                <strong>${decision.label}</strong>
+                <small>${statusLabel}. Treat this as a structured first pass, then verify the proof links.</small>
+              </div>
+              <div class="trust-meta">
+                ${meta.map((item) => `
+                  <div>
+                    <span>${item.label}</span>
+                    <strong>${item.value}</strong>
+                  </div>
+                `).join('')}
+              </div>
+            </aside>
+          </div>
         </div>
-        ${reasonsHtml}
-        ${checksHtml}
-        ${linksSectionHtml}
-        ${watchHtml}
       `);
     }
 
@@ -2668,8 +3003,10 @@
       }
 
       renderTrustResult(`
-        <strong>Checking token...</strong>
-        <div class="v">Fetching contract and token security data.</div>
+        <div class="trust-status-panel">
+          <strong>Checking token...</strong>
+          <div class="v">Fetching contract and token security data.</div>
+        </div>
       `);
       trackEvent('token_check_submitted', {
         page: 'home',
@@ -2745,11 +3082,13 @@
           address_type: classifyAddressInput(raw),
         });
         renderTrustResult(`
-          <strong style="color: var(--warn);">Check unavailable</strong>
-          <div class="v">${error.message}</div>
-          <div class="trust-links">
-            <a href="./updates.html" target="_blank" rel="noreferrer">Official updates</a>
-            <a href="${DEX_SEARCH_BASE}${encodeURIComponent(raw)}" target="_blank" rel="noreferrer">Search on DexScreener</a>
+          <div class="trust-status-panel">
+            <strong style="color: var(--warn);">Check unavailable</strong>
+            <div class="v">${error.message}</div>
+            <div class="trust-links">
+              <a href="./updates.html" target="_blank" rel="noreferrer">Official updates</a>
+              <a href="${DEX_SEARCH_BASE}${encodeURIComponent(raw)}" target="_blank" rel="noreferrer">Search on DexScreener</a>
+            </div>
           </div>
         `);
       }
