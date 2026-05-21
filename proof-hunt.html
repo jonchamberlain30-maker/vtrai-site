@@ -45,15 +45,22 @@
       --token-mark: url("./assets/vtrai-token-mark-128.png");
     }
     * { box-sizing: border-box; }
+    html {
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-x: clip;
+    }
     body {
       margin: 0;
       min-height: 100vh;
+      max-width: 100%;
       color: var(--ink);
       font-family: "Space Grotesk", sans-serif;
       background:
         linear-gradient(145deg, rgba(5, 9, 18, 0.96), rgba(11, 22, 48, 0.96)),
         #050912;
       overflow-x: hidden;
+      overflow-x: clip;
     }
     .grid-bg {
       position: fixed;
@@ -108,7 +115,16 @@
       font-size: 0.9rem;
       border-bottom: 1px dashed rgba(77, 234, 255, 0.35);
     }
+    .nav-links a.primary-nav-action {
+      border: 0;
+      border-radius: 999px;
+      color: #031019;
+      background: linear-gradient(90deg, var(--gold), #f0b53a);
+      padding: 8px 13px;
+      font-weight: 800;
+    }
     .nav-links a:hover { color: var(--cyan); }
+    .nav-links a.primary-nav-action:hover { color: #031019; }
     .hero {
       margin-top: 14px;
       border: 1px solid var(--line);
@@ -116,41 +132,13 @@
       background:
         linear-gradient(135deg, rgba(9, 16, 32, 0.92), rgba(16, 28, 58, 0.82)),
         var(--panel);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
-      gap: 18px;
-      align-items: stretch;
+      display: block;
       overflow: hidden;
     }
     .hero-copy {
-      padding: 24px;
+      max-width: 790px;
+      padding: 30px;
       align-self: center;
-    }
-    .hero-visual {
-      min-height: 300px;
-      background:
-        linear-gradient(180deg, rgba(5, 9, 18, 0.1), rgba(5, 9, 18, 0.76)),
-        url("./assets/vtrai-header-2026-03-26-fast.jpg") center / cover no-repeat;
-      border-left: 1px solid rgba(77, 234, 255, 0.14);
-      display: flex;
-      align-items: flex-end;
-      padding: 18px;
-    }
-    .visual-note {
-      width: 100%;
-      border: 1px solid rgba(77, 234, 255, 0.24);
-      border-radius: 14px;
-      background: rgba(7, 13, 27, 0.78);
-      padding: 14px;
-    }
-    .visual-note strong {
-      color: var(--cyan);
-      display: block;
-      margin-bottom: 5px;
-    }
-    .visual-note p {
-      margin: 0;
-      font-size: 0.88rem;
     }
     .kicker {
       color: var(--cyan);
@@ -178,6 +166,21 @@
     .sub {
       max-width: 670px;
       margin: 12px 0 0;
+    }
+    .hero-summary {
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-summary span {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(7, 13, 27, 0.58);
+      padding: 7px 10px;
+      font-size: 0.82rem;
+      font-weight: 800;
     }
     .cta {
       display: flex;
@@ -240,6 +243,38 @@
     .status-item strong {
       color: var(--ink);
       line-height: 1.3;
+    }
+    .steps {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .step {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 14px;
+      background: var(--panel);
+      padding: 16px;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .step strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .step p {
+      margin: 0;
     }
     .section-head {
       margin: 20px 0 8px;
@@ -337,6 +372,44 @@
     .proof-example p {
       margin: 0;
     }
+    .support-stack {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .support {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 14px;
+      background: var(--panel);
+      overflow: hidden;
+    }
+    .support summary {
+      cursor: pointer;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      font-weight: 800;
+      list-style: none;
+    }
+    .support summary::-webkit-details-marker {
+      display: none;
+    }
+    .support summary::after {
+      content: "+";
+      color: var(--cyan);
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    .support[open] summary::after {
+      content: "-";
+    }
+    .support-body {
+      border-top: 1px solid rgba(77, 234, 255, 0.12);
+      padding: 14px 16px 16px;
+    }
     .submit-panel {
       margin-top: 14px;
       border: 1px solid rgba(242, 199, 92, 0.34);
@@ -344,9 +417,7 @@
       background: linear-gradient(90deg, rgba(64, 42, 6, 0.42), rgba(30, 24, 55, 0.34));
       padding: 16px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
       gap: 14px;
-      align-items: start;
     }
     .intake-form {
       display: grid;
@@ -388,6 +459,30 @@
       font-size: 0.86rem;
       font-weight: 800;
     }
+    .optional-fields {
+      border: 1px solid rgba(77, 234, 255, 0.14);
+      border-radius: 12px;
+      background: rgba(7, 13, 27, 0.42);
+      padding: 0;
+    }
+    .optional-fields summary {
+      cursor: pointer;
+      color: var(--cyan);
+      padding: 11px 12px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      list-style: none;
+    }
+    .optional-fields summary::-webkit-details-marker {
+      display: none;
+    }
+    .optional-fields .field-grid,
+    .optional-fields label {
+      margin: 0 12px 12px;
+    }
+    .generated-message {
+      margin-top: 2px;
+    }
     .template-box {
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 12px;
@@ -426,12 +521,9 @@
     @media (max-width: 880px) {
       .hero,
       .submit-panel { grid-template-columns: 1fr; }
-      .hero-visual {
-        border-left: 0;
-        border-top: 1px solid rgba(77, 234, 255, 0.14);
-      }
       .status-strip,
       .grid,
+      .steps,
       .field-grid,
       .proof-example { grid-template-columns: 1fr; }
       .proof-example img {
@@ -443,153 +535,101 @@
     @media (max-width: 640px) {
       .wrap { padding: 18px; }
       .hero-copy { padding: 18px; }
-      .hero-visual { min-height: 230px; }
       .btn,
       .copy-btn { width: 100%; }
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
+  <style>
+    .vectora-menu-ready .hero {
+      display: block;
+      grid-template-columns: 1fr !important;
+    }
+    .vectora-menu-ready .hero-copy,
+    .hero *,
+    .steps *,
+    .submit-panel *,
+    .support-stack * {
+      min-width: 0;
+    }
+    @media (max-width: 640px) {
+      .wrap {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+      h1,
+      .vectora-menu-ready .hero h1 {
+        max-width: 100%;
+        font-size: clamp(1.95rem, 8.8vw, 2.12rem);
+        line-height: 1.08;
+        overflow-wrap: break-word;
+      }
+      .sub,
+      p,
+      li {
+        overflow-wrap: break-word;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="grid-bg"></div>
   <main class="wrap">
     <nav class="nav" aria-label="Primary navigation">
-      <a class="brand brand-buy-link" href="./buy-and-verify.html" data-brand-buy-label="proof_hunt_brand">
+      <a class="brand tracked-link" href="./index.html" data-label="proof_hunt_brand_home">
         <img src="./assets/vtrai-token-mark-128.png" alt="" />
         <span>Vectora</span>
       </a>
       <div class="nav-links">
-        <a href="./index.html">Home</a>
-        <a href="./proof.html">Proof Pack</a>
-        <a href="./watchlist.html">Watchlist</a>
-        <a href="./disclaimer.html">Disclaimer</a>
+        <a class="primary-nav-action tracked-link" href="#submit" data-label="nav_submit">Submit</a>
       </div>
     </nav>
 
     <section class="hero" aria-label="Vectora Proof Hunt">
       <div class="hero-copy">
-        <div class="kicker">14-Day Verification Challenge</div>
-        <h1>Vectora Proof Hunt</h1>
-        <p class="sub">Find a token where the source, mint, route, authority, or liquidity trail does not line up clearly. Submit the proof gap. We will review useful examples and publish the clearest ones on a weekly board.</p>
+        <div class="kicker">Proof Hunt</div>
+        <h1>Found a token claim that does not line up?</h1>
+        <p class="sub">Send us the token, the official source, and what looks unclear. We review useful examples and publish the clearest lessons. Recognition only; no reward promise.</p>
+        <div class="hero-summary" aria-label="Proof Hunt summary">
+          <span>1. Paste the token</span>
+          <span>2. Explain the gap</span>
+          <span>3. Send via X or Telegram</span>
+        </div>
         <div class="cta">
-          <button class="copy-btn tracked-action" type="button" data-copy-target="submissionTemplate" data-label="copy_submission_template">Copy Submission Template</button>
-          <a class="btn secondary tracked-link" href="https://x.com/VectoraAI" target="_blank" rel="noreferrer" data-label="open_x_profile">Send Via X</a>
-          <a class="btn secondary tracked-link" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer" data-label="open_telegram">Open Telegram</a>
+          <a class="btn gold tracked-link" href="#submit" data-label="start_submission">Start Submission</a>
+          <a class="btn secondary tracked-link" href="#examples" data-label="see_examples">See Examples</a>
         </div>
-      </div>
-      <aside class="hero-visual" aria-label="Verification habit">
-        <div class="visual-note">
-          <strong>Recognition only in Phase 0</strong>
-          <p>No airdrop is promised. Public posting is optional. Likes, reposts, follows, comments, and replies do not create eligibility for anything.</p>
-        </div>
-      </aside>
-    </section>
-
-    <section class="vectora-command-strip" aria-label="Proof Hunt status">
-      <div class="vectora-command-step">
-        <span>Phase</span>
-        <strong>Phase 0: public recognition only</strong>
-      </div>
-      <div class="vectora-command-step">
-        <span>Window</span>
-        <strong>May 19 to June 2, 2026</strong>
-      </div>
-      <div class="vectora-command-step">
-        <span>Goal</span>
-        <strong>Better receipts, not louder hype</strong>
       </div>
     </section>
 
     <div class="section-head">
-      <h2>The Proof Hunt Loop</h2>
-      <p>This is the repeatable campaign: collect useful proof gaps, review them, publish the clearest lessons, then send people back to better checks.</p>
+      <h2>What To Do</h2>
+      <p>Keep it simple. We need enough public information to understand the gap.</p>
     </div>
 
-    <section class="grid" aria-label="Proof Hunt operating loop">
-      <article class="card">
-        <strong>Submit</strong>
-        <p>Send the token, official source, route, and the specific proof gap. Screenshots can support the case, but public links matter most.</p>
+    <section class="steps" aria-label="Proof Hunt steps">
+      <article class="step">
+        <span class="step-number">1</span>
+        <strong>Paste the token or pair</strong>
+        <p>Use a mint, contract, pair, or tracker URL. A screenshot alone is not enough.</p>
       </article>
-      <article class="card">
-        <strong>Review</strong>
-        <p>We reject vague accusations, duplicate claims, unsupported posts, and anything that pushes harassment or engagement farming.</p>
+      <article class="step">
+        <span class="step-number">2</span>
+        <strong>Add the official source</strong>
+        <p>Share the project site, announcement, docs, or account that should anchor the claim.</p>
       </article>
-      <article class="card">
-        <strong>Publish</strong>
-        <p>Useful examples become plain-English lessons on source, route, authority, liquidity, or control risk. Recognition only in Phase 0.</p>
+      <article class="step">
+        <span class="step-number">3</span>
+        <strong>Tell us what is unclear</strong>
+        <p>Source mismatch, route confusion, authority claim, liquidity claim, or another proof gap.</p>
       </article>
     </section>
 
-    <div class="section-head">
-      <h2>Proof Board</h2>
-      <p>Seed examples show the type of useful cases we want. User-submitted examples will be added after review.</p>
-    </div>
-
-    <section class="proof-board" aria-label="Proof Hunt example board">
-      <article class="proof-example">
-        <img src="./assets/vtrai-x-screenshot-style-hawk-manual-2026-05-07.png" alt="Vectora proof example about audience size and public proof" loading="lazy" />
-        <div class="proof-example-body">
-          <div class="proof-example-meta">
-            <span class="pill">Seed example</span>
-            <span class="pill">Source gap</span>
-          </div>
-          <h3>Audience size is not due diligence.</h3>
-          <p>A viral claim still needs a public trail: exact token, official source, route context, and evidence that can be rechecked after the noise fades.</p>
-        </div>
-      </article>
-      <article class="proof-example">
-        <img src="./assets/vtrai-x-screenshot-style-safemoon-approved-2026-05-03.png" alt="Vectora proof example about control evidence" loading="lazy" />
-        <div class="proof-example-body">
-          <div class="proof-example-meta">
-            <span class="pill">Seed example</span>
-            <span class="pill">Control gap</span>
-          </div>
-          <h3>Safe language is not proof. Control evidence is.</h3>
-          <p>Claims about safety, liquidity, or authority should resolve to public receipts. A clean phrase is weaker than a checkable control state.</p>
-        </div>
-      </article>
-      <article class="proof-example">
-        <img src="./assets/vtrai-x-screenshot-style-mango-approved-2026-05-03.png" alt="Vectora proof example about market movement and proof" loading="lazy" />
-        <div class="proof-example-body">
-          <div class="proof-example-meta">
-            <span class="pill">Seed example</span>
-            <span class="pill">Evidence gap</span>
-          </div>
-          <h3>A violent move can be the warning, not the proof.</h3>
-          <p>Momentum can hide the actual question: what changed, where is it visible, and can someone verify it from public sources?</p>
-        </div>
-      </article>
-    </section>
-
-    <div class="section-head">
-      <h2>What Counts</h2>
-      <p>Useful submissions make a specific proof problem easier for another person to verify.</p>
-    </div>
-
-    <section class="grid" aria-label="Useful Proof Hunt submissions">
-      <article class="card">
-        <strong>Source Gap</strong>
-        <p>The official account, site, docs, or announcement does not clearly resolve to the same token address being promoted.</p>
-      </article>
-      <article class="card">
-        <strong>Route Gap</strong>
-        <p>The swap route, pool, or tracker page points at a token that does not match the stated official mint or contract.</p>
-      </article>
-      <article class="card">
-        <strong>Control Gap</strong>
-        <p>Mint authority, freeze authority, liquidity lock, or ownership claims are being repeated without public receipts.</p>
-      </article>
-    </section>
-
-    <section class="submit-panel" aria-label="Submit a Proof Hunt example">
-      <div>
-        <div class="kicker">Submit</div>
-        <h2>Build a clean submission.</h2>
-        <p>Fill the fields, generate the submission, then send it through the official Vectora X or Telegram channel. Screenshots can help, but source links matter more. We may reject duplicates, unsupported claims, defamatory wording, or anything that asks people to harass a project.</p>
-        <div class="cta">
-          <a class="btn gold tracked-link" href="./index.html#trust-check" data-label="run_token_check">Run Token Check</a>
-          <a class="btn secondary tracked-link" href="./proof.html" data-label="read_proof_pack">Read Proof Pack</a>
-        </div>
+    <section class="submit-panel" id="submit" aria-label="Submit a Proof Hunt example">
+      <div class="section-head">
+        <h2>Submit A Proof Gap</h2>
+        <p>Fill the short form. We generate the message for you, then you send it to Vectora.</p>
       </div>
       <div class="template-box">
         <form class="intake-form" id="proofHuntForm">
@@ -612,46 +652,50 @@
             <input id="huntSource" name="source" autocomplete="off" />
           </label>
           <label>
-            Swap, route, or tracker link
-            <input id="huntRoute" name="route" autocomplete="off" />
-          </label>
-          <div class="field-grid">
-            <label>
-              Proof gap type
-              <select id="huntGap" name="gap">
-                <option value="source">Source gap</option>
-                <option value="route">Route gap</option>
-                <option value="authority">Authority gap</option>
-                <option value="liquidity">Liquidity gap</option>
-                <option value="other">Other</option>
-              </select>
-            </label>
-            <label>
-              Public credit
-              <select id="huntCreditPermission" name="creditPermission">
-                <option value="no">No public credit</option>
-                <option value="yes">Yes, credit me</option>
-              </select>
-            </label>
-          </div>
-          <label>
             What does not line up?
             <textarea id="huntSummary" name="summary"></textarea>
           </label>
-          <label>
-            Preferred credit name
-            <input id="huntCreditName" name="creditName" autocomplete="off" />
-          </label>
+          <details class="optional-fields">
+            <summary>Optional details</summary>
+            <label>
+              Swap, route, or tracker link
+              <input id="huntRoute" name="route" autocomplete="off" />
+            </label>
+            <div class="field-grid">
+              <label>
+                Proof gap type
+                <select id="huntGap" name="gap">
+                  <option value="source">Source gap</option>
+                  <option value="route">Route gap</option>
+                  <option value="authority">Authority gap</option>
+                  <option value="liquidity">Liquidity gap</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label>
+                Public credit
+                <select id="huntCreditPermission" name="creditPermission">
+                  <option value="no">No public credit</option>
+                  <option value="yes">Yes, credit me</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Preferred credit name
+              <input id="huntCreditName" name="creditName" autocomplete="off" />
+            </label>
+          </details>
           <div class="cta">
-            <button class="copy-btn" type="submit">Generate Submission</button>
-            <button class="btn secondary" type="button" id="copyGeneratedSubmission">Copy Generated Text</button>
-            <a class="btn secondary tracked-link" href="https://x.com/VectoraAI" target="_blank" rel="noreferrer" data-label="submit_x_profile">Open X</a>
-            <a class="btn secondary tracked-link" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer" data-label="submit_telegram">Open Telegram</a>
+            <button class="copy-btn" type="submit">Generate And Copy</button>
+            <a class="btn secondary tracked-link" href="https://x.com/VectoraAI" target="_blank" rel="noreferrer" data-label="submit_x_profile">Send On X</a>
+            <a class="btn secondary tracked-link" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer" data-label="submit_telegram">Send On Telegram</a>
           </div>
           <div class="form-status" id="proofHuntFormStatus" aria-live="polite"></div>
-          <label>
-            Generated submission
-            <textarea class="submission-output" id="submissionTemplate" readonly>Vectora Proof Hunt submission
+          <details class="optional-fields generated-message" id="generatedSubmissionPanel">
+            <summary>Generated message</summary>
+            <label>
+              Copy-ready text
+              <textarea class="submission-output" id="submissionTemplate" readonly>Vectora Proof Hunt submission
 
 Token / project:
 Chain:
@@ -662,38 +706,102 @@ Proof gap type: source / route / authority / liquidity / other
 What does not line up:
 Can Vectora credit you publicly? yes / no
 Preferred credit name:</textarea>
-          </label>
+            </label>
+          </details>
         </form>
       </div>
     </section>
 
-    <div class="section-head">
-      <h2>Rules</h2>
-      <p>The campaign is built around verifiable contribution, not engagement farming.</p>
-    </div>
+    <section class="support-stack" aria-label="Proof Hunt supporting details">
+      <details class="support" id="examples">
+        <summary>Show examples</summary>
+        <div class="support-body">
+          <section class="proof-board" aria-label="Proof Hunt example board">
+            <article class="proof-example">
+              <img src="./assets/vtrai-x-screenshot-style-hawk-manual-2026-05-07.png" alt="Vectora proof example about audience size and public proof" loading="lazy" />
+              <div class="proof-example-body">
+                <div class="proof-example-meta">
+                  <span class="pill">Seed example</span>
+                  <span class="pill">Source gap</span>
+                </div>
+                <h3>Audience size is not due diligence.</h3>
+                <p>A viral claim still needs a public trail: exact token, official source, route context, and evidence that can be rechecked after the noise fades.</p>
+              </div>
+            </article>
+            <article class="proof-example">
+              <img src="./assets/vtrai-x-screenshot-style-safemoon-approved-2026-05-03.png" alt="Vectora proof example about control evidence" loading="lazy" />
+              <div class="proof-example-body">
+                <div class="proof-example-meta">
+                  <span class="pill">Seed example</span>
+                  <span class="pill">Control gap</span>
+                </div>
+                <h3>Safe language is not proof. Control evidence is.</h3>
+                <p>Claims about safety, liquidity, or authority should resolve to public receipts. A clean phrase is weaker than a checkable control state.</p>
+              </div>
+            </article>
+            <article class="proof-example">
+              <img src="./assets/vtrai-x-screenshot-style-mango-approved-2026-05-03.png" alt="Vectora proof example about market movement and proof" loading="lazy" />
+              <div class="proof-example-body">
+                <div class="proof-example-meta">
+                  <span class="pill">Seed example</span>
+                  <span class="pill">Evidence gap</span>
+                </div>
+                <h3>A violent move can be the warning, not the proof.</h3>
+                <p>Momentum can hide the actual question: what changed, where is it visible, and can someone verify it from public sources?</p>
+              </div>
+            </article>
+          </section>
+        </div>
+      </details>
 
-    <section class="grid" aria-label="Proof Hunt rules">
-      <article class="card">
-        <strong>No Engagement Rewards</strong>
-        <ul>
-          <li>No reward for likes, reposts, follows, comments, quote posts, tags, or replies.</li>
-          <li>Public posting is optional and not required for review.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <strong>No Airdrop Promise</strong>
-        <ul>
-          <li>There is no token allocation or claim attached to this phase.</li>
-          <li>Any future reward phase would need published rules and review first.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <strong>No Investment Claim</strong>
-        <ul>
-          <li>Vectora publishes verification context, not financial advice.</li>
-          <li>A cleaner proof trail does not remove token risk.</li>
-        </ul>
-      </article>
+      <details class="support">
+        <summary>What counts as a useful proof gap?</summary>
+        <div class="support-body">
+          <section class="grid" aria-label="Useful Proof Hunt submissions">
+            <article class="card">
+              <strong>Source Gap</strong>
+              <p>The official account, site, docs, or announcement does not clearly resolve to the same token address being promoted.</p>
+            </article>
+            <article class="card">
+              <strong>Route Gap</strong>
+              <p>The swap route, pool, or tracker page points at a token that does not match the stated official mint or contract.</p>
+            </article>
+            <article class="card">
+              <strong>Control Gap</strong>
+              <p>Mint authority, freeze authority, liquidity lock, or ownership claims are being repeated without public receipts.</p>
+            </article>
+          </section>
+        </div>
+      </details>
+
+      <details class="support">
+        <summary>Rules and safety notes</summary>
+        <div class="support-body">
+          <section class="grid" aria-label="Proof Hunt rules">
+            <article class="card">
+              <strong>No Engagement Rewards</strong>
+              <ul>
+                <li>No reward for likes, reposts, follows, comments, quote posts, tags, or replies.</li>
+                <li>Public posting is optional and not required for review.</li>
+              </ul>
+            </article>
+            <article class="card">
+              <strong>No Airdrop Promise</strong>
+              <ul>
+                <li>There is no token allocation or claim attached to this phase.</li>
+                <li>Any future reward phase would need published rules and review first.</li>
+              </ul>
+            </article>
+            <article class="card">
+              <strong>No Investment Claim</strong>
+              <ul>
+                <li>Vectora publishes verification context, not financial advice.</li>
+                <li>A cleaner proof trail does not remove token risk.</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </details>
     </section>
 
     <div class="warning">Crypto assets are risky. This page is a public verification campaign, not an offer, solicitation, investment recommendation, or promise of future value. Always verify the official source, exact mint, route, and controls yourself before any trade.</div>
@@ -798,6 +906,8 @@ Preferred credit name:</textarea>
       proofHuntForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const text = renderSubmission();
+        const generatedPanel = document.getElementById('generatedSubmissionPanel');
+        if (generatedPanel) generatedPanel.open = true;
         try {
           await copyText(text);
           setFormStatus('Generated and copied. Send it through X or Telegram.');
