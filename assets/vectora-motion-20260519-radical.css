@@ -15,7 +15,7 @@ html {
 .vectora-menu-ready header.top,
 .vectora-menu-ready .topbar {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
   align-items: center;
   column-gap: 14px;
   overflow: visible;
@@ -62,8 +62,9 @@ body.vectora-menu-open {
 .vectora-menu-ready .top > .brand-buy-link,
 .vectora-menu-ready header.top > .brand,
 .vectora-menu-ready header.top > .brand-buy-link,
-.vectora-menu-ready .topbar > :first-child {
-  grid-column: 1;
+.vectora-menu-ready .topbar > .brand,
+.vectora-menu-ready .topbar > .brand-buy-link {
+  grid-column: 2;
   justify-self: start;
 }
 
@@ -71,12 +72,12 @@ body.vectora-menu-open {
 .vectora-menu-ready .top > .nav,
 .vectora-menu-ready .topbar > .top-note,
 .vectora-menu-ready .topbar > .back-link {
-  grid-column: 2;
+  grid-column: 3;
   justify-self: center;
 }
 
 .vectora-menu-ready .nav > .nav-actions {
-  grid-column: 2 / 4 !important;
+  grid-column: 3 / 5 !important;
   justify-self: stretch !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) auto !important;
@@ -95,7 +96,7 @@ body.vectora-menu-open {
 
 .vectora-menu-ready .top > .top-actions,
 .vectora-menu-ready header.top > .top-actions {
-  grid-column: 2 / 4 !important;
+  grid-column: 3 / 5 !important;
   justify-self: end !important;
   display: flex !important;
   align-items: center !important;
@@ -105,9 +106,10 @@ body.vectora-menu-open {
 .vectora-menu-ready .top > .site-menu,
 .vectora-menu-ready header.top > .site-menu,
 .vectora-menu-ready .topbar > .site-menu {
-  grid-column: 3 !important;
-  justify-self: end !important;
-  margin-left: auto;
+  grid-column: 1 !important;
+  justify-self: start !important;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .vectora-menu-ready .site-menu {
@@ -228,11 +230,6 @@ body.vectora-menu-open {
   backdrop-filter: blur(16px);
   z-index: 10001;
   overflow: hidden;
-}
-
-.vectora-menu-ready .site-menu[data-vectora-menu-align="right"] .menu-panel {
-  left: auto;
-  right: 0;
 }
 
 .vectora-command-head {
@@ -1132,10 +1129,6 @@ body.vectora-menu-open {
     animation: vectora-menu-panel-in 220ms var(--vectora-motion-ease) both;
   }
 
-  .vectora-menu-ready .site-menu[data-vectora-menu-align="right"] .menu-panel {
-    transform-origin: top right;
-  }
-
   .vectora-menu-ready .menu-group {
     animation: vectora-menu-group-in 280ms var(--vectora-motion-ease) both;
   }
@@ -1263,7 +1256,7 @@ body.vectora-menu-open {
   .vectora-menu-ready .top,
   .vectora-menu-ready header.top,
   .vectora-menu-ready .topbar {
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .vectora-menu-ready .nav > .nav-actions,

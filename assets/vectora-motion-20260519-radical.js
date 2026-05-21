@@ -338,10 +338,24 @@
   }
 
   function alignMenu(details) {
-    var summary = details.querySelector("summary");
-    if (!summary) return;
-    var rect = summary.getBoundingClientRect();
-    details.setAttribute("data-vectora-menu-align", rect.left > window.innerWidth / 2 ? "right" : "left");
+    details.setAttribute("data-vectora-menu-align", "left");
+  }
+
+  function findMenuShell(details) {
+    return details.closest("main > .nav, main > .top, header.top, main > .topbar, .topbar") ||
+      details.closest(".nav, .top");
+  }
+
+  function placeMenuLeft(details) {
+    var shell = findMenuShell(details);
+    if (!shell) {
+      alignMenu(details);
+      return;
+    }
+    if (shell.firstElementChild !== details) {
+      shell.insertBefore(details, shell.firstElementChild);
+    }
+    alignMenu(details);
   }
 
   function setMenuOpenClass(isOpen) {
@@ -352,14 +366,15 @@
   function initMenus() {
     var menus = Array.prototype.slice.call(document.querySelectorAll(".site-menu"));
     if (!menus.length) {
-      var host = document.querySelector(".nav-actions") ||
-        document.querySelector(".top-actions") ||
-        document.querySelector("main > .nav") ||
+      var host = document.querySelector("main > .nav") ||
         document.querySelector("main > .top") ||
         document.querySelector("header.top") ||
-        document.querySelector(".topbar");
+        document.querySelector("main > .topbar") ||
+        document.querySelector(".topbar") ||
+        document.querySelector(".nav-actions") ||
+        document.querySelector(".top-actions");
       if (host) {
-        host.appendChild(createMenu());
+        host.insertBefore(createMenu(), host.firstElementChild);
         menus = Array.prototype.slice.call(document.querySelectorAll(".site-menu"));
       }
     }
@@ -368,6 +383,7 @@
     document.body.classList.add("vectora-menu-ready");
 
     menus.forEach(function (details) {
+      placeMenuLeft(details);
       var summary = details.querySelector("summary") || details.appendChild(document.createElement("summary"));
       var panel = details.querySelector(".menu-panel") || details.querySelector("div") || details.appendChild(document.createElement("div"));
       panel.classList.add("menu-panel");
@@ -378,7 +394,7 @@
       summary.setAttribute("aria-expanded", "false");
       summary.setAttribute("role", "button");
       buildMenuPanel(panel);
-      alignMenu(details);
+      placeMenuLeft(details);
 
       details.addEventListener("toggle", function () {
         alignMenu(details);
