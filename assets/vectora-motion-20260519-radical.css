@@ -407,20 +407,9 @@ body.vectora-menu-open {
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 10px;
-  padding: 8px 9px 8px 22px;
+  padding: 8px 10px;
   font-size: 0.86rem;
   line-height: 1.25;
-}
-
-.vectora-menu-ready .menu-group a::before {
-  content: "";
-  position: absolute;
-  left: 9px;
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(77, 234, 255, 0.42);
-  box-shadow: 0 0 10px rgba(77, 234, 255, 0.18);
 }
 
 .vectora-menu-ready .menu-group a:hover,
@@ -428,12 +417,6 @@ body.vectora-menu-open {
   color: #031019;
   border-color: rgba(77, 234, 255, 0.26);
   background: linear-gradient(90deg, var(--cyan, #4deaff), #86e8ff);
-}
-
-.vectora-menu-ready .menu-group a:hover::before,
-.vectora-menu-ready .menu-group a[aria-current="page"]::before {
-  background: #031019;
-  box-shadow: none;
 }
 
 .menu-link-title {
