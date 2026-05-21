@@ -289,6 +289,54 @@
     }
     .card li { margin-bottom: 6px; }
     .card li:last-child { margin-bottom: 0; }
+    .proof-board {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .proof-example {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 14px;
+      background: var(--panel);
+      display: grid;
+      grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+      overflow: hidden;
+    }
+    .proof-example img {
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      display: block;
+      border-right: 1px solid rgba(77, 234, 255, 0.14);
+    }
+    .proof-example-body {
+      padding: 16px;
+      display: grid;
+      gap: 9px;
+      align-content: center;
+    }
+    .proof-example-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      border: 1px solid rgba(77, 234, 255, 0.18);
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(7, 13, 27, 0.72);
+      padding: 5px 9px;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .proof-example h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+    .proof-example p {
+      margin: 0;
+    }
     .submit-panel {
       margin-top: 14px;
       border: 1px solid rgba(242, 199, 92, 0.34);
@@ -299,6 +347,46 @@
       grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
       gap: 14px;
       align-items: start;
+    }
+    .intake-form {
+      display: grid;
+      gap: 10px;
+    }
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    label {
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 10px;
+      background: rgba(7, 13, 27, 0.78);
+      color: var(--ink);
+      font: inherit;
+      padding: 10px 11px;
+    }
+    textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+    .submission-output {
+      min-height: 220px;
+    }
+    .form-status {
+      color: var(--good);
+      min-height: 1.25em;
+      font-size: 0.86rem;
+      font-weight: 800;
     }
     .template-box {
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -343,7 +431,13 @@
         border-top: 1px solid rgba(77, 234, 255, 0.14);
       }
       .status-strip,
-      .grid { grid-template-columns: 1fr; }
+      .grid,
+      .field-grid,
+      .proof-example { grid-template-columns: 1fr; }
+      .proof-example img {
+        border-right: 0;
+        border-bottom: 1px solid rgba(77, 234, 255, 0.14);
+      }
       h1 { font-size: 2.1rem; }
     }
     @media (max-width: 640px) {
@@ -407,6 +501,67 @@
     </section>
 
     <div class="section-head">
+      <h2>The Proof Hunt Loop</h2>
+      <p>This is the repeatable campaign: collect useful proof gaps, review them, publish the clearest lessons, then send people back to better checks.</p>
+    </div>
+
+    <section class="grid" aria-label="Proof Hunt operating loop">
+      <article class="card">
+        <strong>Submit</strong>
+        <p>Send the token, official source, route, and the specific proof gap. Screenshots can support the case, but public links matter most.</p>
+      </article>
+      <article class="card">
+        <strong>Review</strong>
+        <p>We reject vague accusations, duplicate claims, unsupported posts, and anything that pushes harassment or engagement farming.</p>
+      </article>
+      <article class="card">
+        <strong>Publish</strong>
+        <p>Useful examples become plain-English lessons on source, route, authority, liquidity, or control risk. Recognition only in Phase 0.</p>
+      </article>
+    </section>
+
+    <div class="section-head">
+      <h2>Proof Board</h2>
+      <p>Seed examples show the type of useful cases we want. User-submitted examples will be added after review.</p>
+    </div>
+
+    <section class="proof-board" aria-label="Proof Hunt example board">
+      <article class="proof-example">
+        <img src="./assets/vtrai-x-screenshot-style-hawk-manual-2026-05-07.png" alt="Vectora proof example about audience size and public proof" loading="lazy" />
+        <div class="proof-example-body">
+          <div class="proof-example-meta">
+            <span class="pill">Seed example</span>
+            <span class="pill">Source gap</span>
+          </div>
+          <h3>Audience size is not due diligence.</h3>
+          <p>A viral claim still needs a public trail: exact token, official source, route context, and evidence that can be rechecked after the noise fades.</p>
+        </div>
+      </article>
+      <article class="proof-example">
+        <img src="./assets/vtrai-x-screenshot-style-safemoon-approved-2026-05-03.png" alt="Vectora proof example about control evidence" loading="lazy" />
+        <div class="proof-example-body">
+          <div class="proof-example-meta">
+            <span class="pill">Seed example</span>
+            <span class="pill">Control gap</span>
+          </div>
+          <h3>Safe language is not proof. Control evidence is.</h3>
+          <p>Claims about safety, liquidity, or authority should resolve to public receipts. A clean phrase is weaker than a checkable control state.</p>
+        </div>
+      </article>
+      <article class="proof-example">
+        <img src="./assets/vtrai-x-screenshot-style-mango-approved-2026-05-03.png" alt="Vectora proof example about market movement and proof" loading="lazy" />
+        <div class="proof-example-body">
+          <div class="proof-example-meta">
+            <span class="pill">Seed example</span>
+            <span class="pill">Evidence gap</span>
+          </div>
+          <h3>A violent move can be the warning, not the proof.</h3>
+          <p>Momentum can hide the actual question: what changed, where is it visible, and can someone verify it from public sources?</p>
+        </div>
+      </article>
+    </section>
+
+    <div class="section-head">
       <h2>What Counts</h2>
       <p>Useful submissions make a specific proof problem easier for another person to verify.</p>
     </div>
@@ -429,15 +584,74 @@
     <section class="submit-panel" aria-label="Submit a Proof Hunt example">
       <div>
         <div class="kicker">Submit</div>
-        <h2>Send the token, the gap, and the public links.</h2>
-        <p>Use the template, then send it through the official Vectora X or Telegram channel. Screenshots can help, but source links matter more. We may reject duplicates, unsupported claims, defamatory wording, or anything that asks people to harass a project.</p>
+        <h2>Build a clean submission.</h2>
+        <p>Fill the fields, generate the submission, then send it through the official Vectora X or Telegram channel. Screenshots can help, but source links matter more. We may reject duplicates, unsupported claims, defamatory wording, or anything that asks people to harass a project.</p>
         <div class="cta">
           <a class="btn gold tracked-link" href="./index.html#trust-check" data-label="run_token_check">Run Token Check</a>
           <a class="btn secondary tracked-link" href="./proof.html" data-label="read_proof_pack">Read Proof Pack</a>
         </div>
       </div>
       <div class="template-box">
-        <pre id="submissionTemplate">Vectora Proof Hunt submission
+        <form class="intake-form" id="proofHuntForm">
+          <div class="field-grid">
+            <label>
+              Token / project
+              <input id="huntToken" name="token" autocomplete="off" />
+            </label>
+            <label>
+              Chain
+              <input id="huntChain" name="chain" autocomplete="off" placeholder="Solana, Ethereum, Base..." />
+            </label>
+          </div>
+          <label>
+            Mint, contract, pair, or tracker URL
+            <input id="huntAddress" name="address" autocomplete="off" />
+          </label>
+          <label>
+            Official source link
+            <input id="huntSource" name="source" autocomplete="off" />
+          </label>
+          <label>
+            Swap, route, or tracker link
+            <input id="huntRoute" name="route" autocomplete="off" />
+          </label>
+          <div class="field-grid">
+            <label>
+              Proof gap type
+              <select id="huntGap" name="gap">
+                <option value="source">Source gap</option>
+                <option value="route">Route gap</option>
+                <option value="authority">Authority gap</option>
+                <option value="liquidity">Liquidity gap</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label>
+              Public credit
+              <select id="huntCreditPermission" name="creditPermission">
+                <option value="no">No public credit</option>
+                <option value="yes">Yes, credit me</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            What does not line up?
+            <textarea id="huntSummary" name="summary"></textarea>
+          </label>
+          <label>
+            Preferred credit name
+            <input id="huntCreditName" name="creditName" autocomplete="off" />
+          </label>
+          <div class="cta">
+            <button class="copy-btn" type="submit">Generate Submission</button>
+            <button class="btn secondary" type="button" id="copyGeneratedSubmission">Copy Generated Text</button>
+            <a class="btn secondary tracked-link" href="https://x.com/VectoraAI" target="_blank" rel="noreferrer" data-label="submit_x_profile">Open X</a>
+            <a class="btn secondary tracked-link" href="https://t.me/vectorasignal" target="_blank" rel="noreferrer" data-label="submit_telegram">Open Telegram</a>
+          </div>
+          <div class="form-status" id="proofHuntFormStatus" aria-live="polite"></div>
+          <label>
+            Generated submission
+            <textarea class="submission-output" id="submissionTemplate" readonly>Vectora Proof Hunt submission
 
 Token / project:
 Chain:
@@ -447,7 +661,9 @@ Swap or tracker link:
 Proof gap type: source / route / authority / liquidity / other
 What does not line up:
 Can Vectora credit you publicly? yes / no
-Preferred credit name:</pre>
+Preferred credit name:</textarea>
+          </label>
+        </form>
       </div>
     </section>
 
@@ -512,6 +728,54 @@ Preferred credit name:</pre>
       });
     });
 
+    function fieldValue(id) {
+      const field = document.getElementById(id);
+      return field ? field.value.trim() : '';
+    }
+
+    function setFormStatus(message) {
+      const status = document.getElementById('proofHuntFormStatus');
+      if (!status) return;
+      status.textContent = message;
+      window.setTimeout(() => {
+        if (status.textContent === message) status.textContent = '';
+      }, 2600);
+    }
+
+    function buildSubmission() {
+      const token = fieldValue('huntToken');
+      const chain = fieldValue('huntChain');
+      const address = fieldValue('huntAddress');
+      const source = fieldValue('huntSource');
+      const route = fieldValue('huntRoute');
+      const gap = fieldValue('huntGap');
+      const summary = fieldValue('huntSummary');
+      const creditPermission = fieldValue('huntCreditPermission');
+      const creditName = fieldValue('huntCreditName');
+
+      return [
+        'Vectora Proof Hunt submission',
+        '',
+        `Token / project: ${token}`,
+        `Chain: ${chain}`,
+        `Mint, contract, or pair URL: ${address}`,
+        `Official source link: ${source}`,
+        `Swap or tracker link: ${route}`,
+        `Proof gap type: ${gap}`,
+        `What does not line up: ${summary}`,
+        `Can Vectora credit you publicly? ${creditPermission}`,
+        `Preferred credit name: ${creditName}`
+      ].join('\n');
+    }
+
+    function renderSubmission() {
+      const output = document.getElementById('submissionTemplate');
+      if (!output) return '';
+      const text = buildSubmission();
+      output.value = text;
+      return text;
+    }
+
     async function copyText(text) {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(text);
@@ -529,13 +793,53 @@ Preferred credit name:</pre>
       if (!copied) throw new Error('copy failed');
     }
 
+    const proofHuntForm = document.getElementById('proofHuntForm');
+    if (proofHuntForm) {
+      proofHuntForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const text = renderSubmission();
+        try {
+          await copyText(text);
+          setFormStatus('Generated and copied. Send it through X or Telegram.');
+          trackEvent('proof_hunt_submission_generated', {
+            page_name: PAGE_NAME,
+            gap_type: fieldValue('huntGap'),
+            chain: fieldValue('huntChain') || 'unknown'
+          });
+        } catch {
+          setFormStatus('Generated. Copy manually from the box.');
+        }
+      });
+
+      proofHuntForm.querySelectorAll('input, select, textarea').forEach((field) => {
+        field.addEventListener('input', renderSubmission);
+        field.addEventListener('change', renderSubmission);
+      });
+    }
+
+    const copyGenerated = document.getElementById('copyGeneratedSubmission');
+    if (copyGenerated) {
+      copyGenerated.addEventListener('click', async () => {
+        try {
+          await copyText(renderSubmission());
+          setFormStatus('Copied.');
+          trackEvent('proof_hunt_template_copied', {
+            page_name: PAGE_NAME,
+            link_label: 'copy_generated_submission'
+          });
+        } catch {
+          setFormStatus('Copy failed. Copy manually from the box.');
+        }
+      });
+    }
+
     document.querySelectorAll('[data-copy-target]').forEach((button) => {
       button.addEventListener('click', async () => {
         const target = document.getElementById(button.dataset.copyTarget);
         if (!target) return;
         const original = button.textContent;
         try {
-          await copyText(target.textContent.trim());
+          await copyText((target.value || target.textContent || '').trim());
           button.textContent = 'Copied';
           trackEvent('proof_hunt_template_copied', {
             page_name: PAGE_NAME,

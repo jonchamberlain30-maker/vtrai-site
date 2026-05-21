@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Public Proof Before Trading is a Vectora educational guide for checking the exact token, official source, route, authority state, liquidity context, and update trail before relying on screenshots or hype." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#07101d" />
+  <link rel="canonical" href="https://getvectora.ai/public-proof-before-trading.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Public Proof Before Trading | Vectora" />
+  <meta property="og:description" content="A plain-English guide to checking the right token before trusting screenshots, tickers, replies, or hype." />
+  <meta property="og:url" content="https://getvectora.ai/public-proof-before-trading.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta property="og:image:alt" content="Vectora public proof before trading guide" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Public Proof Before Trading | Vectora" />
+  <meta name="twitter:description" content="Check the exact token, official source, route, authority state, liquidity context, and update trail before relying on screenshots or hype." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Public Proof Before Trading",
+      "description": "A plain-English guide to checking the right token before relying on screenshots, tickers, replies, or hype.",
+      "author": {
+        "@type": "Organization",
+        "name": "Vectora"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vectora",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://getvectora.ai/assets/vtrai-token-mark-128.png"
+        }
+      },
+      "mainEntityOfPage": "https://getvectora.ai/public-proof-before-trading.html",
+      "image": "https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg"
+    }
+  </script>
+  <title>Public Proof Before Trading | Vectora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #07101d;
+      --bg-2: #0d1830;
+      --ink: #eff8ff;
+      --muted: #a8bbd0;
+      --line: #274062;
+      --cyan: #5be9ff;
+      --gold: #f7d46a;
+      --good: #6ce8c4;
+      --card: rgba(9, 18, 36, 0.82);
+      --soft: rgba(12, 23, 45, 0.74);
+      --token-mark: url("./assets/vtrai-token-mark-128.png");
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 8% -8%, rgba(91, 233, 255, 0.18), transparent 55%),
+        radial-gradient(860px 620px at 100% 108%, rgba(247, 212, 106, 0.12), transparent 60%),
+        linear-gradient(140deg, var(--bg-1), var(--bg-2));
+      overflow-x: hidden;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(to right, rgba(101, 130, 173, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(101, 130, 173, 0.18) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, #000 28%, transparent 86%);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 22px 18px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(8, 14, 29, 0.78);
+      padding: 12px 16px;
+      backdrop-filter: blur(8px);
+      position: relative;
+      z-index: 5;
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .brand::before {
+      content: "";
+      width: 28px;
+      height: 28px;
+      background: center / contain no-repeat var(--token-mark);
+      filter: drop-shadow(0 0 14px rgba(91, 233, 255, 0.26));
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px dashed rgba(91, 233, 255, 0.35);
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .hero {
+      margin-top: 14px;
+      min-height: clamp(560px, 72vh, 720px);
+      border: 1px solid rgba(91, 233, 255, 0.24);
+      border-radius: 22px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-items: end;
+      background: #07101d;
+      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+      isolation: isolate;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.34;
+      filter: saturate(1.08) contrast(1.08) brightness(0.66);
+      animation: slowZoom 18s ease-in-out infinite;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(7, 16, 29, 0.18), rgba(7, 16, 29, 0.92) 76%),
+        linear-gradient(90deg, rgba(7, 16, 29, 0.88), rgba(7, 16, 29, 0.26) 70%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.032) 0 1px, transparent 1px 88px);
+    }
+
+    @keyframes slowZoom {
+      0%, 100% { transform: scale(1.01); }
+      50% { transform: scale(1.055); }
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      padding: 30px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 10px 0 0;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+      max-width: 840px;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 16px 0 0;
+      color: #c6dbef;
+      font-size: 1.08rem;
+      line-height: 1.52;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      color: #031019;
+      text-decoration: none;
+      border-radius: 11px;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      padding: 10px 14px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(91, 233, 255, 0.14);
+    }
+
+    .btn.gold {
+      color: #1a1202;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0) 44%),
+        linear-gradient(90deg, var(--gold), #f0b53a);
+    }
+
+    .article-shell {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .toc,
+    .article-card,
+    .proof-strip,
+    .disclaimer {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      backdrop-filter: blur(8px);
+    }
+
+    .toc {
+      position: sticky;
+      top: 16px;
+      padding: 16px;
+    }
+
+    .toc h2,
+    .article-card h2,
+    .proof-strip h2,
+    .disclaimer h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .toc p,
+    .article-card p,
+    .disclaimer p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    .toc a {
+      display: block;
+      color: var(--ink);
+      text-decoration: none;
+      border-top: 1px solid rgba(91, 233, 255, 0.12);
+      padding: 10px 0;
+      line-height: 1.28;
+    }
+
+    .toc a:hover { color: var(--cyan); }
+
+    .article {
+      display: grid;
+      gap: 14px;
+    }
+
+    .article-card {
+      padding: 18px;
+      scroll-margin-top: 88px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .article-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(110deg, rgba(91, 233, 255, 0.07), transparent 34%, rgba(247, 212, 106, 0.07) 76%, transparent 92%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 28px);
+      opacity: 0.88;
+    }
+
+    .article-card .eyebrow {
+      display: block;
+      margin-bottom: 9px;
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .check-item {
+      border: 1px solid rgba(91, 233, 255, 0.14);
+      border-radius: 14px;
+      background: rgba(7, 16, 29, 0.58);
+      padding: 13px;
+      min-height: 132px;
+    }
+
+    .check-item strong {
+      color: var(--ink);
+      display: block;
+      line-height: 1.22;
+    }
+
+    .check-item p {
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .proof-strip {
+      margin-top: 14px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(54, 35, 4, 0.36), rgba(7, 24, 38, 0.36)),
+        var(--soft);
+    }
+
+    .proof-strip p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .disclaimer {
+      margin-top: 14px;
+      padding: 16px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .footer a,
+    .disclaimer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    @media (max-width: 880px) {
+      .article-shell,
+      .proof-strip {
+        grid-template-columns: 1fr;
+      }
+      .toc { position: static; }
+      .check-grid { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      .nav-links { justify-content: flex-end; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 14px 10px 38px; }
+      .topbar {
+        padding: 10px;
+        border-radius: 12px;
+      }
+      .nav-links { display: none; }
+      .hero {
+        min-height: 560px;
+        border-radius: 18px;
+      }
+      .hero-copy { padding: 20px; }
+      .lead { font-size: 0.98rem; }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
+</head>
+<body>
+  <div class="grid"></div>
+  <main class="wrap">
+    <header class="topbar">
+      <a class="brand brand-buy-link" href="./buy-and-verify.html" aria-label="Buy Vectora token through the verified path">Vectora</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="./index.html#trust-check">Token Check</a>
+        <a href="./proof-hunt.html">Proof Hunt</a>
+        <a href="./token-role.html">$VTRAI Role</a>
+        <a href="./disclaimer.html">Disclaimer</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="Public Proof Before Trading">
+      <img src="./assets/vtrai-x-header-2026-03-28-fast.jpg" alt="Vectora public proof research visual" loading="eager" />
+      <div class="hero-copy">
+        <div class="eyebrow">Educational Guide</div>
+        <h1>Public proof before trading.</h1>
+        <p class="lead">The ticker is not the token. The screenshot is not the source. Before relying on momentum, a crypto user should be able to identify the exact token, official source, route context, control signals, and update trail.</p>
+        <div class="cta">
+          <a class="btn gold" href="./index.html#trust-check">Run a public proof check</a>
+          <a class="btn" href="./proof-hunt.html">Submit a proof gap</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="article-shell">
+      <aside class="toc" aria-label="Article contents">
+        <h2>The five checks</h2>
+        <p>Use these before trusting a chart, reply thread, private message, banner, or copied address.</p>
+        <a href="#exact-token">1. Exact token</a>
+        <a href="#official-source">2. Official source</a>
+        <a href="#route-context">3. Route context</a>
+        <a href="#control-signals">4. Control signals</a>
+        <a href="#update-trail">5. Update trail</a>
+      </aside>
+
+      <article class="article">
+        <section class="article-card" id="exact-token">
+          <span class="eyebrow">01 Exact Token</span>
+          <h2>The ticker is not enough.</h2>
+          <p>A ticker, logo, chart image, or social handle can be copied. The first public-proof habit is to identify the exact contract or mint address and treat every other claim as secondary until that identifier is anchored.</p>
+          <div class="check-grid">
+            <div class="check-item">
+              <strong>What to look for</strong>
+              <p>One exact address that appears consistently across the project's official surfaces and public references.</p>
+            </div>
+            <div class="check-item">
+              <strong>What should slow you down</strong>
+              <p>Different addresses in replies, screenshots, Telegram messages, or link previews that ask you to act quickly.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-card" id="official-source">
+          <span class="eyebrow">02 Official Source</span>
+          <h2>Start from a page the project controls.</h2>
+          <p>A token reference is stronger when it is anchored to an official website, documentation page, or public project channel. A repost can be useful for discovery, but it should not become the source of truth.</p>
+          <div class="check-grid">
+            <div class="check-item">
+              <strong>What to look for</strong>
+              <p>A stable source page that states the address and links to the relevant explorer or official route.</p>
+            </div>
+            <div class="check-item">
+              <strong>What should slow you down</strong>
+              <p>Only seeing the address in cropped graphics, influencer posts, replies, or messages that cannot be independently checked.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-card" id="route-context">
+          <span class="eyebrow">03 Route Context</span>
+          <h2>The path matters as much as the promise.</h2>
+          <p>Even when the address is correct, route confusion can still create risk. The public route should explain where a user is expected to verify, inspect, or trade, and it should not depend on private instructions.</p>
+          <div class="check-grid">
+            <div class="check-item">
+              <strong>What to look for</strong>
+              <p>Official links to the route, explorer, or reference page, with the same token identifier visible at each step.</p>
+            </div>
+            <div class="check-item">
+              <strong>What should slow you down</strong>
+              <p>A page that pushes urgency before showing the exact token, public route, and reason the link is official.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-card" id="control-signals">
+          <span class="eyebrow">04 Control Signals</span>
+          <h2>Authority state is not small print.</h2>
+          <p>Mint authority, freeze authority, upgradeability, liquidity locks, and holder concentration are not automatic good-or-bad labels. They are control signals that deserve plain-language context before a user treats the chart as the whole story.</p>
+          <div class="check-grid">
+            <div class="check-item">
+              <strong>What to look for</strong>
+              <p>Clear explanation of the visible control state and where it can be checked publicly.</p>
+            </div>
+            <div class="check-item">
+              <strong>What should slow you down</strong>
+              <p>"Trust us" language when meaningful controls are still active or unexplained.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-card" id="update-trail">
+          <span class="eyebrow">05 Update Trail</span>
+          <h2>Good research should survive a refresh.</h2>
+          <p>A token story changes quickly. If something important changes tomorrow, there should be a public place to verify what changed, when it changed, and whether the source, route, and controls still line up.</p>
+          <div class="check-grid">
+            <div class="check-item">
+              <strong>What to look for</strong>
+              <p>A public update trail, proof pack, or watchlist habit that lets the same token be checked again later.</p>
+            </div>
+            <div class="check-item">
+              <strong>What should slow you down</strong>
+              <p>A decision that relies on memory, old screenshots, or a reply thread that no longer matches the current state.</p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </section>
+
+    <section class="proof-strip" aria-label="Vectora proof loop">
+      <div>
+        <div class="eyebrow">Vectora Loop</div>
+        <h2>Check, save, prove, publish.</h2>
+        <p>Vectora turns this habit into a repeatable workflow: run the first check, save serious candidates, submit unclear proof trails, and publish the useful examples so other people can learn faster.</p>
+      </div>
+      <a class="btn gold" href="./token-role.html">Open $VTRAI role</a>
+    </section>
+
+    <section class="disclaimer">
+      <h2>Informational use only</h2>
+      <p>This guide is educational. It does not recommend buying, selling, or holding any asset. It does not provide investment, legal, tax, or financial advice. Crypto assets are risky, and public proof checks reduce confusion but do not remove risk.</p>
+      <p><a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
+    </section>
+
+    <p class="footer">Vectora publishes public references, educational checks, and official route context, not guarantees.</p>
+  </main>
+  <script src="./assets/coinzilla-performance.js" defer></script>
+  <script src="./assets/brand-buy-tracking.js" defer></script>
+  <script src="./assets/vectora-motion-20260519-radical.js" defer></script>
+</body>
+</html>
