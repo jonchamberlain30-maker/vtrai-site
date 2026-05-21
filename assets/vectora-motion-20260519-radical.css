@@ -188,17 +188,6 @@ body.vectora-menu-open {
   background: var(--cyan, #4deaff);
 }
 
-.vectora-menu-shortcut {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 7px;
-  color: rgba(232, 248, 255, 0.72);
-  padding: 4px 6px;
-  font-size: 0.68rem;
-  font-weight: 900;
-  line-height: 1;
-  background: rgba(255, 255, 255, 0.05);
-}
-
 .vectora-menu-ready .site-menu[open] > summary {
   border-color: rgba(77, 234, 255, 0.52);
   background:
@@ -1282,10 +1271,6 @@ body.vectora-menu-open {
     max-height: calc(100dvh - 112px);
     overflow-y: auto;
     grid-template-columns: 1fr;
-  }
-
-  .vectora-menu-shortcut {
-    display: none;
   }
 
   .vectora-command-head {

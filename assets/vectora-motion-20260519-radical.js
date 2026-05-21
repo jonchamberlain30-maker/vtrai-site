@@ -388,7 +388,7 @@
       var panel = details.querySelector(".menu-panel") || details.querySelector("div") || details.appendChild(document.createElement("div"));
       panel.classList.add("menu-panel");
 
-      summary.innerHTML = '<span class="vectora-menu-icon" aria-hidden="true"></span><span class="vectora-menu-label">Menu</span><span class="vectora-menu-shortcut" aria-hidden="true">⌘K</span>';
+      summary.innerHTML = '<span class="vectora-menu-icon" aria-hidden="true"></span><span class="vectora-menu-label">Menu</span>';
       summary.setAttribute("aria-label", "Open Vectora command menu");
       summary.setAttribute("aria-haspopup", "dialog");
       summary.setAttribute("aria-expanded", "false");
