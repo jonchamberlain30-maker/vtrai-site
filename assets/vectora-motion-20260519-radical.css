@@ -212,7 +212,7 @@ body.vectora-menu-open {
   top: calc(100% + 10px);
   left: 0;
   right: auto;
-  width: min(760px, calc(100vw - 36px));
+  width: min(640px, calc(100vw - 36px));
   display: block;
   border: 1px solid rgba(111, 221, 255, 0.24);
   border-radius: 22px;
@@ -240,7 +240,7 @@ body.vectora-menu-open {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
   gap: 10px;
-  padding: 2px 2px 12px;
+  padding: 2px 2px 10px;
   border-bottom: 1px solid rgba(111, 221, 255, 0.13);
 }
 
@@ -259,7 +259,7 @@ body.vectora-menu-open {
   display: block;
   margin-top: 5px;
   color: var(--ink, #e8f8ff);
-  font-size: clamp(1.08rem, 2vw, 1.36rem);
+  font-size: clamp(1.02rem, 1.7vw, 1.2rem);
   line-height: 1.05;
 }
 
@@ -271,7 +271,7 @@ body.vectora-menu-open {
 }
 
 .vectora-command-search {
-  margin-top: 12px;
+  margin-top: 10px;
   display: grid;
   gap: 6px;
 }
@@ -285,7 +285,7 @@ body.vectora-menu-open {
 
 .vectora-command-input {
   width: 100%;
-  height: 44px;
+  height: 40px;
   border: 1px solid rgba(111, 221, 255, 0.2);
   border-radius: 14px;
   padding: 0 13px;
@@ -307,26 +307,26 @@ body.vectora-menu-open {
 }
 
 .vectora-command-primary {
-  margin-top: 12px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
 }
 
 .vectora-command-card {
   position: relative;
-  min-height: 134px;
+  min-height: 114px;
   display: grid;
   grid-template-rows: auto auto 1fr;
   gap: 8px;
   border: 1px solid rgba(77, 234, 255, 0.18);
-  border-radius: 16px;
+  border-radius: 14px;
   background:
     radial-gradient(230px 130px at 72% 0%, rgba(77, 234, 255, 0.13), transparent 68%),
     rgba(11, 20, 39, 0.82);
   color: var(--ink, #e8f8ff);
   text-decoration: none;
-  padding: 13px;
+  padding: 12px;
   overflow: hidden;
 }
 
@@ -374,14 +374,14 @@ body.vectora-menu-open {
 .vectora-command-groups {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .vectora-menu-ready .menu-group {
   border: 1px solid rgba(77, 234, 255, 0.14);
-  border-radius: 14px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 9px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
     rgba(13, 24, 46, 0.72);
@@ -402,13 +402,13 @@ body.vectora-menu-open {
   position: relative;
   display: grid;
   align-items: start;
-  min-height: 46px;
+  min-height: 36px;
   color: var(--ink, #e8f8ff);
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 10px;
-  padding: 8px 9px 8px 24px;
-  font-size: 0.9rem;
+  padding: 8px 9px 8px 22px;
+  font-size: 0.86rem;
   line-height: 1.25;
 }
 
@@ -442,11 +442,16 @@ body.vectora-menu-open {
 }
 
 .menu-link-desc {
-  display: block;
+  display: none;
   margin-top: 2px;
   color: rgba(154, 177, 200, 0.84);
   font-size: 0.75rem;
   line-height: 1.28;
+}
+
+.vectora-menu-ready main > .nav .nav-links a:nth-child(n+2),
+.vectora-menu-ready .topbar .nav-links a:nth-child(n+2) {
+  display: none;
 }
 
 .vectora-menu-ready .menu-group a:hover .menu-link-desc,
@@ -664,10 +669,6 @@ body.vectora-menu-open {
   color: var(--muted, #9ab1c8);
   font-size: 0.86rem;
   line-height: 1.45;
-}
-
-.vectora-menu-ready .hero {
-  grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
 }
 
 .vectora-hero-command {
@@ -1177,6 +1178,7 @@ body.vectora-menu-open {
   }
 
   .vectora-menu-ready .menu-group:nth-child(4),
+  .vectora-command-card:nth-child(4),
   .vhc-card:nth-child(4) {
     animation-delay: 84ms;
   }

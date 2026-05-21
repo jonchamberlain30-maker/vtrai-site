@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="VGwsr6WslzYIC7IC5MMwNFu19gLNROlnyDVxLLW8OTI" />
-  <meta name="description" content="Vectora helps token visitors check source paths, official routes, control signals, proof pages, and watchlist updates before trusting a token." />
+  <meta name="description" content="Vectora is the public proof layer for token decisions: check source paths, verify routes, save serious candidates, and publish clearer proof trails before trusting a token." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Vectora | Token Checks, Proof, and Safety Guides" />
-  <meta property="og:description" content="Check source paths, routes, control signals, proof pages, and watchlist updates before trusting a token." />
+  <meta property="og:title" content="Vectora | Public Proof Layer For Token Decisions" />
+  <meta property="og:description" content="Check source paths, verify routes, save serious candidates, and publish clearer proof trails before trusting a token." />
   <meta property="og:url" content="https://getvectora.ai/" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora token trust checks and watchlists" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vectora | Token Checks, Proof, and Safety Guides" />
-  <meta name="twitter:description" content="Check source paths, routes, control signals, proof pages, and watchlist updates before trusting a token." />
+  <meta name="twitter:title" content="Vectora | Public Proof Layer For Token Decisions" />
+  <meta name="twitter:description" content="Check source paths, verify routes, save serious candidates, and publish clearer proof trails before trusting a token." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -33,13 +33,13 @@
       "@type": "WebSite",
       "name": "Vectora",
       "url": "https://getvectora.ai/",
-      "description": "Token source checks, official route verification, public proof pages, safety guides, and watchlist updates."
+      "description": "Public proof layer for token decisions: source checks, official route verification, public proof pages, safety guides, and watchlist updates."
     }
   </script>
-  <title>Vectora | Token Checks, Proof, and Safety Guides</title>
+  <title>Vectora | Public Proof Layer For Token Decisions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-1: #050912;
@@ -829,6 +829,108 @@
       border-radius: 16px;
       background: rgba(10, 18, 36, 0.82);
       padding: 16px;
+    }
+
+    .proof-os {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.24);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(7, 26, 38, 0.88), rgba(12, 16, 38, 0.88)),
+        var(--card);
+      padding: 16px;
+      display: block;
+      backdrop-filter: blur(8px);
+    }
+
+    .proof-os-summary {
+      cursor: pointer;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .proof-os-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .proof-os-summary::after {
+      content: "+";
+      color: var(--cyan);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .proof-os[open] .proof-os-summary::after {
+      content: "-";
+    }
+
+    .proof-os-copy {
+      margin-top: 14px;
+    }
+
+    .proof-os-copy h2 {
+      margin: 4px 0 8px;
+      font-size: 1.28rem;
+    }
+
+    .proof-os-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .proof-loop {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .proof-loop-step {
+      border: 1px solid rgba(77, 234, 255, 0.17);
+      border-radius: 14px;
+      background: rgba(8, 15, 31, 0.72);
+      padding: 12px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .proof-loop-step span {
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .proof-loop-step strong {
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .proof-loop-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.42;
+    }
+
+    .token-loop-note {
+      margin-top: 12px;
+      border: 1px solid rgba(247, 212, 106, 0.22);
+      border-radius: 14px;
+      background: rgba(46, 31, 6, 0.34);
+      padding: 12px;
+      color: #f5d98b;
+      font-size: 0.9rem;
+      line-height: 1.45;
     }
 
     .simple-panel h2 {
@@ -1731,6 +1833,15 @@
       line-height: 1.4;
     }
 
+    @media (max-width: 1080px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .vectora-hero-command {
+        min-height: 320px;
+      }
+    }
+
     @media (max-width: 930px) {
       body {
         overflow-x: hidden;
@@ -1754,9 +1865,10 @@
       .nav-links {
         row-gap: 8px;
       }
-      .hero { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
       .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .proof-os { grid-template-columns: 1fr; }
+      .proof-loop { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .launch-grid { grid-template-columns: 1fr; }
       .status-row { grid-template-columns: 1fr; }
       .trust-form { grid-template-columns: 1fr; }
@@ -1800,7 +1912,8 @@
       }
       .trust-stage-rail,
       .trust-idle-grid,
-      .trust-flow {
+      .trust-flow,
+      .proof-loop {
         grid-template-columns: 1fr;
       }
       .trust-head,
@@ -1858,10 +1971,7 @@
       </a>
       <div class="nav-actions">
         <div class="nav-links">
-          <a href="#trust-check">Check</a>
-          <a href="#learn">Learn</a>
-          <a href="./proof-hunt.html">Proof Hunt</a>
-          <a href="./proof.html">Proof</a>
+          <a href="#trust-check">Check a token</a>
         </div>
         <details class="site-menu">
           <summary aria-label="Open site menu">☰</summary>
@@ -1884,6 +1994,7 @@
               <a href="./proof-hunt.html">Proof Hunt</a>
               <a href="./proof.html">Proof Pack</a>
               <a href="./token-info.html">Token Info</a>
+              <a href="./token-role.html">Token Role</a>
               <a href="./updates.html">Updates</a>
               <a href="./about.html">About</a>
             </div>
@@ -1894,18 +2005,16 @@
 
     <section class="hero">
       <div>
-        <h1>The token trust cockpit before the chart moves you.</h1>
-        <p class="sub">Vectora turns token research into a clear sequence: check the source, verify the route, save serious candidates, and come back before acting from memory.</p>
+        <h1>Check the token before the story gets loud.</h1>
+        <p class="sub">Paste a mint or contract. Vectora helps you slow down, read the source and route signals, then decide whether the token deserves more attention.</p>
         <div class="quick-metrics">
-          <span class="metric">Check source</span>
-          <span class="metric">Verify route</span>
-          <span class="metric">Save locally</span>
-          <span class="metric">Return later</span>
+          <span class="metric">Paste</span>
+          <span class="metric">Check</span>
+          <span class="metric">Save if useful</span>
         </div>
         <div class="cta">
           <a class="btn gold" href="#trust-check">Check a token</a>
-          <a class="btn" href="./watchlist.html">Open watchlist</a>
-          <a class="btn" href="./education.html">Read safety basics</a>
+          <a class="btn" href="#how-it-works">How it works</a>
         </div>
       </div>
       <div class="vectora-hero-command" data-vectora-depth="true" aria-label="Vectora trust command cockpit visual">
@@ -1958,39 +2067,72 @@
       </div>
     </section>
 
-    <section class="vectora-journey reveal" aria-label="Vectora product paths">
+    <section class="vectora-journey reveal" id="how-it-works" aria-label="How Vectora works">
       <div class="journey-lead">
-        <div class="vectora-page-kicker">Three Paths</div>
-        <h2>Check the token, verify the route, keep the receipt.</h2>
-        <p>Vectora should feel like the calm control room before a noisy crypto decision: one place to check, return, and verify public proof.</p>
+        <div class="vectora-page-kicker">How It Works</div>
+        <h2>Three simple moves.</h2>
+        <p>Most visitors should only need this path: paste the token, read the public signals, and save it only if it is worth a second look.</p>
       </div>
       <div class="journey-grid">
         <a class="journey-card" href="#trust-check">
           <span class="journey-index">01 Check</span>
           <div>
-            <strong>Run the trust card.</strong>
+            <strong>Run the first check.</strong>
             <p>Paste a mint or contract and start with visible source, route, and control signals.</p>
           </div>
           <span class="journey-action">Open checker</span>
         </a>
-        <a class="journey-card gold" href="./buy-and-verify.html">
-          <span class="journey-index">02 Verify</span>
+        <a class="journey-card gold" href="./watchlist.html">
+          <span class="journey-index">02 Save</span>
           <div>
-            <strong>Use the official $VTRAI path.</strong>
-            <p>Match the exact mint, open the route from here, and ignore private-message shortcuts.</p>
+            <strong>Save only serious candidates.</strong>
+            <p>Save tokens locally, refresh reports later, and compare what changed before acting from memory.</p>
           </div>
-          <span class="journey-action">Verify route</span>
+          <span class="journey-action">Open watchlist</span>
         </a>
         <a class="journey-card" href="./proof-hunt.html">
-          <span class="journey-index">03 Hunt</span>
+          <span class="journey-index">03 Prove</span>
           <div>
-            <strong>Find unclear proof trails.</strong>
+            <strong>Submit unclear proof trails.</strong>
             <p>Submit source, route, authority, or liquidity gaps for public review. Recognition only.</p>
           </div>
           <span class="journey-action">Join Proof Hunt</span>
         </a>
       </div>
     </section>
+
+    <details class="proof-os reveal" aria-label="Vectora proof operating loop">
+      <summary class="proof-os-summary">Why this matters</summary>
+      <div class="proof-os-copy">
+        <div class="vectora-page-kicker">Proof Loop</div>
+        <h2>Good token research should be repeatable.</h2>
+        <p>Vectora keeps the habit simple: check, save, prove, publish. Each step creates a reason to return without promising price movement.</p>
+        <div class="token-loop-note"><strong>$VTRAI context:</strong> the token should be framed around the public proof ecosystem and verification habit, not as a shortcut to gains.</div>
+        <div class="cta"><a class="btn" href="./token-role.html">Open $VTRAI role</a></div>
+      </div>
+      <div class="proof-loop" aria-label="Check Save Prove Publish loop">
+        <div class="proof-loop-step">
+          <span>01 Check</span>
+          <strong>Start with the exact token.</strong>
+          <p>Source, mint, route, authority, and liquidity context before the chart story.</p>
+        </div>
+        <div class="proof-loop-step">
+          <span>02 Save</span>
+          <strong>Build a return habit.</strong>
+          <p>Watchlist serious candidates so later decisions use refreshed evidence.</p>
+        </div>
+        <div class="proof-loop-step">
+          <span>03 Prove</span>
+          <strong>Find the missing receipt.</strong>
+          <p>Proof Hunt turns unclear source trails into useful public examples.</p>
+        </div>
+        <div class="proof-loop-step">
+          <span>04 Publish</span>
+          <strong>Make clarity visible.</strong>
+          <p>Weekly examples create ongoing conversation without engagement farming.</p>
+        </div>
+      </div>
+    </details>
 
     <section class="coinzilla-path reveal" id="coinzillaPath" hidden aria-label="Coinzilla visitor verification path">
       <div>
@@ -2001,8 +2143,8 @@
     </section>
 
     <section id="trust-check" class="checker reveal">
-      <h2>Paste A Token Address. Save The Ones That Deserve A Second Look.</h2>
-      <p class="sub">Run the first check, then add serious candidates to your device watchlist so you can refresh the report later instead of trusting screenshots, replies, or memory.</p>
+      <h2>Paste A Token Address.</h2>
+      <p class="sub">Start with the exact token. Save it only if the public signals are clear enough to deserve another look.</p>
       <div class="trust-tool">
         <div class="trust-command-bar" aria-label="Vectora verification workflow">
           <div class="trust-command-copy">

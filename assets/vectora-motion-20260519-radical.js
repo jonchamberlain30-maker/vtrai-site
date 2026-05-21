@@ -33,60 +33,59 @@
     {
       eyebrow: "Start Here",
       title: "Check a token",
-      text: "Paste a mint or contract and get the first trust read.",
+      text: "Paste a mint or contract. Read the first source, route, and control signals.",
       href: "./index.html#trust-check",
       accent: "cyan"
     },
     {
-      eyebrow: "Official Route",
-      title: "Buy & verify $VTRAI",
-      text: "Match the mint, open the route, and avoid screenshots.",
-      href: "./buy-and-verify.html",
-      accent: "gold"
-    },
-    {
       eyebrow: "Public Proof",
       title: "Join Proof Hunt",
-      text: "Submit unclear trails for review without reward promises.",
+      text: "Submit a token claim that does not line up clearly.",
       href: "./proof-hunt.html",
       accent: "green"
+    },
+    {
+      eyebrow: "Official Route",
+      title: "Buy & verify $VTRAI",
+      text: "Match the mint first, then open the official route.",
+      href: "./buy-and-verify.html",
+      accent: "gold"
     }
   ];
   var menuGroups = [
     {
-      title: "Start",
+      title: "Do",
       links: [
-        ["Home", "./index.html", "Return to the main trust cockpit."],
-        ["Check Token", "./index.html#trust-check", "Run the first source and route read."],
-        ["Watchlist", "./watchlist.html", "Keep local tokens for later review."],
-        ["Buy & Verify", "./buy-and-verify.html", "Use the official Vectora route."]
+        ["Home", "./index.html", "Main page"],
+        ["Check Token", "./index.html#trust-check", "Paste a token"],
+        ["Watchlist", "./watchlist.html", "Re-check later"],
+        ["Buy & Verify", "./buy-and-verify.html", "Official route"]
       ]
     },
     {
       title: "Verify",
       links: [
-        ["Proof Hunt", "./proof-hunt.html", "Send unclear trails for public review."],
-        ["Proof Pack", "./proof.html", "Open core project references."],
-        ["Token Info", "./token-info.html", "Check official token and tracker details."],
-        ["Updates", "./updates.html", "Read the latest project changes."]
+        ["Proof Hunt", "./proof-hunt.html", "Submit a proof gap"],
+        ["Proof Pack", "./proof.html", "Project references"],
+        ["Token Info", "./token-info.html", "Mint and links"],
+        ["Token Role", "./token-role.html", "$VTRAI purpose"]
       ]
     },
     {
       title: "Learn",
       links: [
-        ["Safety Basics", "./education.html", "Understand the checks before acting."],
-        ["Guides Hub", "./guides.html", "Browse the practical safety library."],
-        ["Solana Checker", "./solana-token-checker.html", "Learn Solana token checks."],
-        ["DexScreener Guide", "./dexscreener-token-checker.html", "Read charts without trusting them."]
+        ["Safety Basics", "./education.html", "Five checks"],
+        ["Public Proof Guide", "./public-proof-before-trading.html", "Verification guide"],
+        ["Guides Hub", "./guides.html", "All guides"]
       ]
     },
     {
       title: "Project",
       links: [
-        ["About", "./about.html", "See affiliation and project context."],
-        ["Whitepaper", "./whitepaper.html", "Read the wider thesis."],
-        ["Build Log", "./lab.html", "Follow what is being built."],
-        ["Contact", "./contact.html", "Reach the project directly."]
+        ["Updates", "./updates.html", "Latest changes"],
+        ["About", "./about.html", "Affiliation"],
+        ["Whitepaper", "./whitepaper.html", "Thesis"],
+        ["Contact", "./contact.html", "Reach us"]
       ]
     }
   ];
@@ -254,19 +253,19 @@
     var head = document.createElement("div");
     head.className = "vectora-command-head";
     var copy = document.createElement("div");
-    copy.appendChild(createTextEl("span", "vectora-command-kicker", "Navigate"));
-    copy.appendChild(createTextEl("strong", "vectora-command-title", "Vectora command"));
+    copy.appendChild(createTextEl("span", "vectora-command-kicker", "Menu"));
+    copy.appendChild(createTextEl("strong", "vectora-command-title", "Choose one path"));
     head.appendChild(copy);
-    head.appendChild(createTextEl("span", "vectora-command-hint", "Search or press Esc"));
+    head.appendChild(createTextEl("span", "vectora-command-hint", "Search or Esc"));
     panel.appendChild(head);
 
     var searchWrap = document.createElement("label");
     searchWrap.className = "vectora-command-search";
-    var searchLabel = createTextEl("span", "", "Search pages");
+    var searchLabel = createTextEl("span", "", "Search");
     var input = document.createElement("input");
     input.className = "vectora-command-input";
     input.type = "search";
-    input.placeholder = "Search check, proof, guides...";
+    input.placeholder = "Check, proof, buy, guide...";
     input.setAttribute("aria-label", "Search Vectora navigation");
     searchWrap.appendChild(searchLabel);
     searchWrap.appendChild(input);
@@ -299,7 +298,7 @@
     });
 
     panel.appendChild(groupsWrap);
-    var empty = createTextEl("div", "vectora-command-empty", "No matching path yet. Try check, proof, guide, buy, or contact.");
+    var empty = createTextEl("div", "vectora-command-empty", "No match. Try check, proof, buy, guide, or contact.");
     empty.hidden = true;
     panel.appendChild(empty);
 
