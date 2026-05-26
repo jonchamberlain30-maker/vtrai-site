@@ -107,6 +107,21 @@
       font-size: 0.9rem;
       border-bottom: 1px dashed rgba(77, 234, 255, 0.35);
     }
+    .trust-strip {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .trust-strip span {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 999px;
+      background: rgba(18, 30, 52, 0.68);
+      color: #c7e7f2;
+      padding: 7px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
     .hero {
       margin-top: 14px;
       border: 1px solid var(--line);
@@ -187,6 +202,12 @@
       background: rgba(7, 13, 27, 0.8);
       padding: 16px;
     }
+    .route-panel {
+      border-color: rgba(242, 199, 92, 0.36);
+      background:
+        linear-gradient(180deg, rgba(242, 199, 92, 0.12), transparent 34%),
+        rgba(7, 13, 27, 0.86);
+    }
     .mint-box {
       display: grid;
       gap: 10px;
@@ -227,6 +248,31 @@
       margin-bottom: 6px;
     }
     .card p { margin: 0; }
+    .route-steps {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .route-step {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.42;
+    }
+    .route-step b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(77, 234, 255, 0.16);
+      color: var(--cyan);
+      font-size: 0.8rem;
+    }
     .return {
       margin-top: 14px;
       border: 1px solid rgba(242, 199, 92, 0.3);
@@ -260,12 +306,31 @@
       color: var(--cyan);
       text-decoration: none;
     }
+    .sticky-action {
+      display: none;
+    }
     @media (max-width: 860px) {
       .hero,
       .return { grid-template-columns: 1fr; }
       .checks { grid-template-columns: 1fr; }
       h1 { font-size: 2rem; }
       .btn { width: 100%; }
+      .wrap { padding-bottom: 92px; }
+      .sticky-action {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: 1fr;
+        border: 1px solid rgba(77, 234, 255, 0.22);
+        border-radius: 16px;
+        background: rgba(5, 9, 18, 0.92);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+        padding: 10px;
+        backdrop-filter: blur(12px);
+      }
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
@@ -278,22 +343,27 @@
         <img src="./assets/vtrai-token-mark-128.png" alt="" />
         <span>Vectora</span>
       </a>
-      <div class="nav-links">
-        <a href="./buy-and-verify.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=nav_verify">Verify Route</a>
+      <div class="nav-links" aria-label="Page status">
+        <a class="tracked-link" href="./proof.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=nav_proof" data-label="coinzilla_nav_proof">Proof Pack</a>
       </div>
     </nav>
 
     <section class="hero" aria-label="Vectora verification landing">
       <div>
         <div class="kicker">Official $VTRAI Verification Path</div>
-        <h1>Do the boring check before the exciting click.</h1>
-        <p class="sub">Vectora helps visitors verify the official $VTRAI mint, public proof trail, and official route before acting from a banner, screenshot, reply, or memory.</p>
+        <h1>Match the mint. Open the official route.</h1>
+        <p class="sub">One clean path: copy the official $VTRAI mint, confirm the route shows the same output token, then decide. No screenshots, no guesswork, no promises.</p>
+        <div class="trust-strip" aria-label="Verification signals">
+          <span>Exact mint shown first</span>
+          <span>Official route only</span>
+          <span>Proof before action</span>
+        </div>
         <div class="cta">
-          <a class="btn gold tracked-link" href="./buy-and-verify.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=primary_cta" data-label="coinzilla_continue_verify">Verify And Open Route</a>
+          <a class="btn gold tracked-link" href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="coinzilla_open_raydium" target="_blank" rel="noreferrer">Open Official Route</a>
           <a class="btn secondary tracked-link" href="./proof.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=proof_cta" data-label="coinzilla_proof_pack">Read Proof Pack</a>
         </div>
       </div>
-      <aside class="proof-panel" aria-label="Official VTRAI mint">
+      <aside class="proof-panel route-panel" aria-label="Official VTRAI route check">
         <div class="kicker">Exact Mint</div>
         <h2>Match this before you trade</h2>
         <div class="mint-box">
@@ -301,36 +371,41 @@
           <button class="copy-btn" type="button" data-copy-target="officialMint">Copy Official Mint</button>
         </div>
         <p class="fine">Ticker, logo, and social posts are not enough. The address has to match exactly.</p>
+        <div class="route-steps" aria-label="Route checklist">
+          <div class="route-step"><b>1</b><span>Copy the mint above.</span></div>
+          <div class="route-step"><b>2</b><span>Open the official route from this page.</span></div>
+          <div class="route-step"><b>3</b><span>Only continue if the output mint matches.</span></div>
+        </div>
       </aside>
     </section>
 
     <section class="checks" aria-label="Verification checks">
       <article class="card">
-        <strong>1. Source</strong>
-        <p>Use the official Vectora pages for the mint, links, and current project trail.</p>
+        <strong>1. Check</strong>
+        <p>Start with the exact mint and official source before any trade page.</p>
       </article>
       <article class="card">
-        <strong>2. Route</strong>
-        <p>Open the trade route from the verified page and confirm the same output mint.</p>
+        <strong>2. Match</strong>
+        <p>Confirm Raydium shows the same output mint as the one above.</p>
       </article>
       <article class="card">
-        <strong>3. Return</strong>
-        <p>Save tokens worth watching and refresh the report later instead of trusting memory.</p>
+        <strong>3. Decide</strong>
+        <p>Use the proof pack if anything feels unclear before acting.</p>
       </article>
     </section>
 
     <section class="return" aria-label="Return workflow">
       <div>
-        <strong>Useful research is a repeat visit, not a one-click impulse.</strong>
-        <p>Use the watchlist to come back and re-check source, route, controls, and market context after the noise changes.</p>
+        <strong>Want to verify more than the mint?</strong>
+        <p>The full buy-and-verify page keeps the mint, route, proof links, and market references together in one place.</p>
       </div>
-      <a class="btn secondary tracked-link" href="./watchlist.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=watchlist_cta" data-label="coinzilla_watchlist">Open Watchlist</a>
+      <a class="btn secondary tracked-link" href="./buy-and-verify.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=full_verify_cta" data-label="coinzilla_full_verify">Open Full Verify Page</a>
     </section>
 
     <section class="return" aria-label="Educational public proof guide">
       <div>
-        <strong>Need the safer educational angle first?</strong>
-        <p>The public proof guide explains the five checks without a trading prompt: exact token, official source, route context, control signals, and update trail.</p>
+        <strong>Not ready to act?</strong>
+        <p>Use the public proof guide first. It explains the five checks without a trading prompt.</p>
       </div>
       <a class="btn secondary tracked-link" href="./public-proof-before-trading.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=education_cta" data-label="coinzilla_public_proof_guide">Read Public Proof Guide</a>
     </section>
@@ -342,12 +417,22 @@
     </p>
   </main>
 
+  <div class="sticky-action" aria-label="Quick official route">
+    <a class="btn gold tracked-link" href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="coinzilla_sticky_raydium" target="_blank" rel="noreferrer">Open Official Route</a>
+  </div>
+
   <script>
     const PAGE_NAME = 'coinzilla_landing';
 
     function trackEvent(name, params = {}) {
       if (typeof window.gtag === 'function') {
         window.gtag('event', name, params);
+      }
+    }
+
+    function trackCoinzillaConversion(eventName) {
+      if (typeof window.vectoraCoinzillaTrackConversion === 'function') {
+        window.vectoraCoinzillaTrackConversion(eventName);
       }
     }
 
@@ -363,27 +448,63 @@
     }
 
     const attribution = getAttribution();
+    const highIntentLabels = new Set([
+      'coinzilla_open_raydium',
+      'coinzilla_sticky_raydium'
+    ]);
+    const proofIntentLabels = new Set([
+      'coinzilla_proof_pack',
+      'coinzilla_public_proof_guide',
+      'coinzilla_nav_proof',
+      'coinzilla_full_verify'
+    ]);
+
+    function baseEventParams(extra = {}) {
+      return {
+        page_name: PAGE_NAME,
+        traffic_source: attribution.source,
+        traffic_medium: attribution.medium,
+        traffic_campaign: attribution.campaign,
+        traffic_term: attribution.term,
+        traffic_content: attribution.content,
+        ...extra
+      };
+    }
+
     trackEvent('coinzilla_landing_view', {
-      page_name: PAGE_NAME,
-      traffic_source: attribution.source,
-      traffic_medium: attribution.medium,
-      traffic_campaign: attribution.campaign,
-      traffic_term: attribution.term,
-      traffic_content: attribution.content
+      ...baseEventParams(),
+      transport_type: 'beacon'
     });
 
     document.querySelectorAll('.tracked-link').forEach((link) => {
       link.addEventListener('click', () => {
+        const label = link.dataset.label || 'unknown';
         trackEvent('coinzilla_landing_click', {
-          page_name: PAGE_NAME,
-          link_label: link.dataset.label || 'unknown',
+          ...baseEventParams({ link_label: label }),
           link_url: link.href,
-          traffic_source: attribution.source,
-          traffic_medium: attribution.medium,
-          traffic_campaign: attribution.campaign,
-          traffic_term: attribution.term,
-          traffic_content: attribution.content
+          transport_type: 'beacon'
         });
+
+        if (highIntentLabels.has(label)) {
+          trackCoinzillaConversion('register');
+          trackCoinzillaConversion('verify_route_click');
+          trackEvent('generate_lead', {
+            ...baseEventParams({ method: 'official_raydium', link_label: label }),
+            value: 1,
+            currency: 'USD',
+            transport_type: 'beacon'
+          });
+          trackEvent('coinzilla_high_intent', {
+            ...baseEventParams({ link_label: label, intent_type: 'official_route' }),
+            transport_type: 'beacon'
+          });
+        } else if (proofIntentLabels.has(label)) {
+          trackCoinzillaConversion('proof_read_click');
+          trackEvent('coinzilla_proof_intent', {
+            ...baseEventParams({ link_label: label, intent_type: 'proof_read' }),
+            transport_type: 'beacon'
+          });
+        }
       });
     });
 
@@ -396,10 +517,14 @@
           await navigator.clipboard.writeText(target.textContent.trim());
           button.textContent = 'Copied';
           trackEvent('coinzilla_mint_copied', {
-            page_name: PAGE_NAME,
-            traffic_source: attribution.source,
-            traffic_campaign: attribution.campaign
+            ...baseEventParams({ intent_type: 'mint_copy' }),
+            transport_type: 'beacon'
           });
+          trackEvent('coinzilla_high_intent', {
+            ...baseEventParams({ link_label: 'copy_mint', intent_type: 'mint_copy' }),
+            transport_type: 'beacon'
+          });
+          trackCoinzillaConversion('mint_copy');
         } catch {
           button.textContent = 'Copy failed';
         }
