@@ -304,6 +304,23 @@
       width: 100%;
       text-align: center;
     }
+    .btn.main-route {
+      min-height: 52px;
+      font-size: 1rem;
+      box-shadow: 0 14px 34px rgba(77, 234, 255, 0.16);
+    }
+    .support-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .support-actions .btn {
+      width: 100%;
+      text-align: center;
+      font-size: 0.84rem;
+      padding: 9px 10px;
+    }
     .kicker {
       color: var(--cyan);
       text-transform: uppercase;
@@ -340,6 +357,16 @@
       margin: 12px 0 0;
       color: var(--muted);
       font-size: 0.84rem;
+    }
+    .route-note {
+      margin-top: 12px;
+      border: 1px solid rgba(74, 227, 181, 0.22);
+      border-radius: 12px;
+      background: rgba(17, 48, 49, 0.34);
+      padding: 11px 12px;
+      color: #c8f8ea;
+      font-size: 0.88rem;
+      line-height: 1.45;
     }
     .chips {
       display: flex;
@@ -455,6 +482,9 @@
       white-space: nowrap;
     }
     .gecko-badge-link:hover { border-color: var(--cyan); }
+    .sticky-buy {
+      display: none;
+    }
     @media (max-width: 920px) {
       .top { align-items: flex-start; }
       .top-actions {
@@ -465,6 +495,26 @@
       .grid,
       .trust-strip { grid-template-columns: 1fr; }
       h1 { font-size: 1.95rem; }
+      .support-actions { grid-template-columns: 1fr; }
+      .wrap { padding-bottom: 96px; }
+      .sticky-buy {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 70;
+        display: grid;
+        border: 1px solid rgba(77, 234, 255, 0.24);
+        border-radius: 16px;
+        background: rgba(5, 9, 18, 0.94);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+        padding: 10px;
+        backdrop-filter: blur(12px);
+      }
+      .sticky-buy .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
@@ -475,7 +525,7 @@
     <div class="top">
       <a class="brand-buy-link" href="./buy-and-verify.html" aria-label="Buy Vectora token through the verified path"><strong>Vectora Buy And Verify</strong></a>
       <div class="top-actions">
-        <a href="./index.html">Home</a>
+        <a class="tracked-link" href="./proof.html" data-label="top_proof">Proof Pack</a>
         <details class="site-menu">
           <summary aria-label="Open site menu">☰</summary>
           <div class="menu-panel">
@@ -510,43 +560,45 @@
     <section class="hero">
       <div>
         <div class="kicker">Official $VTRAI Path</div>
-        <h1>Verify the mint. Then open the official Raydium page.</h1>
-        <p class="sub">This is the direct Vectora buy page. Match the mint first, use the button here, and ignore screenshots, private-sale messages, or alternative token addresses.</p>
+        <h1>Buy only through the verified route.</h1>
+        <p class="sub">Use this page as the clean path: match the official mint, open Raydium from here, and ignore screenshots, private-sale messages, or alternative token addresses.</p>
         <div class="chips">
-          <span class="chip">Solana token</span>
-          <span class="chip">1B fixed supply</span>
-          <span class="chip">Mint authority revoked</span>
-          <span class="chip">Freeze authority revoked</span>
+          <span class="chip">Official mint shown below</span>
+          <span class="chip">Raydium route opens directly</span>
+          <span class="chip">Proof links available</span>
         </div>
       </div>
       <aside class="buy-panel" aria-label="Official Vectora buy path">
-        <div class="kicker">Step 1</div>
-        <h2>Confirm this exact mint</h2>
+        <div class="kicker">Official route</div>
+        <h2>1. Match this exact mint</h2>
         <div class="mint-panel">
           <code id="buyVerifyMintCode">Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>
           <button class="copy-btn" type="button" data-copy-target="buyVerifyMintCode">Copy mint</button>
         </div>
         <div class="primary-actions">
-          <a class="btn primary tracked-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_raydium" target="_blank" rel="noreferrer">Open Official Raydium</a>
-          <a class="btn secondary tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_solscan" target="_blank" rel="noreferrer">Check On Solscan</a>
+          <a class="btn primary main-route tracked-link" href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_raydium" target="_blank" rel="noreferrer">2. Open Official Raydium</a>
         </div>
-        <p class="fine-note">Only continue if Raydium shows the same output mint shown above.</p>
+        <div class="support-actions">
+          <a class="btn secondary tracked-link" href="https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="hero_solscan" target="_blank" rel="noreferrer">Check Solscan</a>
+          <a class="btn secondary tracked-link" href="./proof.html" data-label="hero_proof">Read Proof</a>
+        </div>
+        <div class="route-note">Only continue if Raydium shows the same output mint. Vectora does not guarantee price, liquidity, or returns.</div>
       </aside>
     </section>
 
     <section class="vectora-command-strip" aria-label="Vectora buy verification sequence">
       <article class="vectora-command-step">
-        <span>Step 01</span>
+        <span>1</span>
         <strong>Match the mint</strong>
         <p>The address above is the source of truth. Do not rely on ticker, logo, or a cropped image.</p>
       </article>
       <article class="vectora-command-step">
-        <span>Step 02</span>
+        <span>2</span>
         <strong>Open Raydium from here</strong>
         <p>Use the main button on this page after the mint matches. Avoid links from replies or DMs.</p>
       </article>
       <article class="vectora-command-step">
-        <span>Step 03</span>
+        <span>3</span>
         <strong>Start small</strong>
         <p>Use a tiny test swap first and confirm the output token before doing anything larger.</p>
       </article>
@@ -592,6 +644,9 @@
 
     <p class="footer">Vectora publishes proof and public references, not guarantees. Verify the mint before every trade. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
   </main>
+  <div class="sticky-buy" aria-label="Quick official Raydium route">
+    <a class="btn primary main-route tracked-link" href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="sticky_raydium" target="_blank" rel="noreferrer">Open Official Raydium</a>
+  </div>
   <script>
     const PAGE_NAME = 'buy_and_verify';
 
@@ -622,7 +677,7 @@
       traffic_content: attribution.content
     });
 
-    const leadLabels = new Set(['hero_raydium']);
+    const leadLabels = new Set(['hero_raydium', 'sticky_raydium']);
 
     document.querySelectorAll('.tracked-link').forEach((link) => {
       link.addEventListener('click', () => {
@@ -639,6 +694,7 @@
         if (leadLabels.has(label)) {
           if (typeof window.vectoraCoinzillaTrackConversion === 'function') {
             window.vectoraCoinzillaTrackConversion('register');
+            window.vectoraCoinzillaTrackConversion('official_raydium');
           }
           trackEvent('generate_lead', {
             method: 'official_raydium',
@@ -667,8 +723,16 @@
           button.textContent = 'Copied';
           trackEvent('buy_verify_mint_copied', {
             page_name: PAGE_NAME,
-            traffic_source: attribution.source
+            traffic_source: attribution.source,
+            traffic_medium: attribution.medium,
+            traffic_campaign: attribution.campaign,
+            traffic_term: attribution.term,
+            traffic_content: attribution.content,
+            transport_type: 'beacon'
           });
+          if (typeof window.vectoraCoinzillaTrackConversion === 'function') {
+            window.vectoraCoinzillaTrackConversion('mint_copy');
+          }
         } catch {
           button.textContent = 'Copy failed';
         }
