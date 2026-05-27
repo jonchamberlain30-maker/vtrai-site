@@ -30,8 +30,8 @@
     {
       title: "Start",
       links: [
-        ["Home", "./index.html"],
-        ["Check Token", "./index.html#trust-check"],
+        ["Home", "./"],
+        ["Check Token", "./#trust-check"],
         ["Watchlist", "./watchlist.html"],
         ["Buy & Verify", "./buy-and-verify.html"]
       ]

@@ -34,7 +34,7 @@
       eyebrow: "Start Here",
       title: "Check a token",
       text: "Paste a mint or contract. Read the first source, route, and control signals.",
-      href: "./index.html#trust-check",
+      href: "./#trust-check",
       accent: "cyan"
     },
     {
@@ -56,8 +56,8 @@
     {
       title: "Do",
       links: [
-        ["Home", "./index.html", "Main page"],
-        ["Check Token", "./index.html#trust-check", "Paste a token"],
+        ["Home", "./", "Main page"],
+        ["Check Token", "./#trust-check", "Paste a token"],
         ["Watchlist", "./watchlist.html", "Re-check later"],
         ["Buy & Verify", "./buy-and-verify.html", "Official route"]
       ]

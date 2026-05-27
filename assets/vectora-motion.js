@@ -34,7 +34,7 @@
       eyebrow: "Start Here",
       title: "Check a token",
       text: "Paste a mint or contract and get the first trust read.",
-      href: "./index.html#trust-check",
+      href: "./#trust-check",
       accent: "cyan"
     },
     {
@@ -56,8 +56,8 @@
     {
       title: "Start",
       links: [
-        ["Home", "./index.html", "Return to the main trust cockpit."],
-        ["Check Token", "./index.html#trust-check", "Run the first source and route read."],
+        ["Home", "./", "Return to the main trust cockpit."],
+        ["Check Token", "./#trust-check", "Run the first source and route read."],
         ["Watchlist", "./watchlist.html", "Keep local tokens for later review."],
         ["Buy & Verify", "./buy-and-verify.html", "Use the official Vectora route."]
       ]
