@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Read the Vectora wallet control policy covering allocation roles, non-selling rules, and control upgrades." />
+  <meta name="description" content="Read the Vectora wallet control policy covering allocation roles, public wallet addresses, no-sell rules, and treasury hardening status." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/wallet-control-policy.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Vectora | Wallet Control Policy" />
-  <meta property="og:description" content="Read the Vectora wallet control policy covering allocation roles, non-selling rules, and control upgrades." />
+  <meta property="og:description" content="Read the Vectora wallet control policy covering allocation roles, public wallet addresses, no-sell rules, and treasury hardening status." />
   <meta property="og:url" content="https://getvectora.ai/wallet-control-policy.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora wallet control policy" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora | Wallet Control Policy" />
-  <meta name="twitter:description" content="Read the Vectora wallet control policy covering allocation roles, non-selling rules, and control upgrades." />
+  <meta name="twitter:description" content="Read the Vectora wallet control policy covering allocation roles, public wallet addresses, no-sell rules, and treasury hardening status." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -288,16 +288,16 @@
 
     <article class="paper">
       <h1>Wallet Control Policy <span class="badge">Bootstrap Mode</span></h1>
-      <p>This policy explains what the W1-W6 wallets mean in practice. They are role-separated internal allocations designed for accounting clarity, operational safety, and future hardening. They are not presented as independent third-party holders.</p>
+      <p>This policy explains what the W1-W6 wallets mean in practice. They are role-separated internal allocations designed for accounting clarity, operational safety, and public disclosure. They are not presented as independent third-party holders.</p>
 
       <h2>1. Role Map</h2>
       <ul>
-        <li><strong>W1_LP_Launch:</strong> LP and launch operations only.</li>
-        <li><strong>W2_Community_Rewards:</strong> non-selling reserve for future community distribution.</li>
-        <li><strong>W3_Ecosystem_Grants:</strong> non-selling reserve for future grants and partnerships.</li>
-        <li><strong>W4_Treasury_Multisig:</strong> treasury reserve intended for multisig control.</li>
-        <li><strong>W5_Team_Vesting:</strong> team allocation intended for time-based release rather than discretionary selling.</li>
-        <li><strong>W6_Ops_MM:</strong> operational / market-support inventory under disclosed rules.</li>
+        <li><strong>W1_LP_Launch:</strong> LP and launch operations only · <code>3o5aJ7d4GpryXJXcREKG77VzPmK8YiGNWGUDimNvTnSJ</code>.</li>
+        <li><strong>W2_Community_Rewards:</strong> non-selling reserve for future community distribution · <code>5qvoMGcRxpXcqWufT4D4f9dtReHXPm6rmMeUa8jbZRew</code>.</li>
+        <li><strong>W3_Ecosystem_Grants:</strong> non-selling reserve for future grants and partnerships · <code>8pniQeXJCPjG7abmNTZvVG5xJRjFRrdqNyrHtkLyPvbu</code>.</li>
+        <li><strong>W4_Treasury:</strong> treasury reserve at Squads treasury address · <code>2RuJ8nPrkZB2qpoEZbhiEfGMYpxkLySvQ9uRmr2KFBpF</code>.</li>
+        <li><strong>W5_Team_Vesting:</strong> team allocation intended for time-based release rather than discretionary selling · <code>3jwRnNj3NRP36AEy6t84LsceNzvF5CZZ2pBXDjay3rRQ</code>.</li>
+        <li><strong>W6_Ops_MM:</strong> operational / market-support inventory under disclosed rules · <code>8fVQQisN2ZeonuDbvjQgnDtCdBAHk16gau3MMmX9xAzN</code>.</li>
       </ul>
 
       <h2>2. Market-Facing Rule</h2>
@@ -334,6 +334,15 @@
         <li>Minimum target: 2-of-3 control. Preferred target: 3-of-5 control.</li>
         <li>A low-value test transaction should be executed and recorded before W4 is treated as active treasury control.</li>
       </ul>
+
+      <h2>6.1 Current Hardening Status</h2>
+      <ul>
+        <li><span class="ok">Published:</span> W4 treasury address and W1-W6 role map.</li>
+        <li><span class="badge">Pending</span> W4 signer threshold confirmation.</li>
+        <li><span class="badge">Pending</span> W4 low-value multisig test transaction.</li>
+        <li><span class="badge">Pending</span> W5 enforceable vesting or locked custody receipt.</li>
+      </ul>
+      <p>Until those pending items are complete, Vectora describes W4 and W5 as disclosed internal allocations, not as fully hardened decentralised custody.</p>
 
       <h2>7. W6 Ops/MM Rule</h2>
       <ul>

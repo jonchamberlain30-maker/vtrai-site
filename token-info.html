@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official VTRAI token info from Vectora: Solana mint, supply, revoked mint and freeze authority, market references, metadata, and official channels." />
+  <meta name="description" content="Official VTRAI token info from Vectora: Solana mint, supply, revoked controls, wallet allocation map, market references, metadata, and official channels." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/token-info.html" />
@@ -11,7 +11,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="VTRAI Token Info | Official Vectora Mint & Links" />
-  <meta property="og:description" content="Official VTRAI token mint, supply, revoked controls, market references, metadata, and Vectora channels." />
+  <meta property="og:description" content="Official VTRAI token mint, supply, revoked controls, wallet allocation map, market references, metadata, and Vectora channels." />
   <meta property="og:url" content="https://getvectora.ai/token-info.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:width" content="1376" />
@@ -19,7 +19,7 @@
   <meta property="og:image:alt" content="Vectora VTRAI token social preview" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="VTRAI Token Info | Official Vectora Mint & Links" />
-  <meta name="twitter:description" content="Official VTRAI token mint, supply, revoked controls, market references, metadata, and Vectora channels." />
+  <meta name="twitter:description" content="Official VTRAI token mint, supply, revoked controls, wallet allocation map, market references, metadata, and Vectora channels." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -34,7 +34,7 @@
       "@type": "WebPage",
       "name": "VTRAI Token Info | Official Vectora Mint & Links",
       "url": "https://getvectora.ai/token-info.html",
-      "description": "Official VTRAI token info from Vectora: Solana mint, supply, revoked mint and freeze authority, market references, metadata, and official channels.",
+      "description": "Official VTRAI token info from Vectora: Solana mint, supply, revoked mint and freeze authority, wallet allocation map, market references, metadata, and official channels.",
       "about": {
         "@type": "Thing",
         "name": "VTRAI token",
@@ -480,7 +480,7 @@
       <a class="token-mark-buy-link" href="./buy-and-verify.html" aria-label="Buy Vectora token through the verified path"><img src="./assets/vtrai-token-mark-256.png" alt="Vectora logo" /></a>
       <div>
         <h1>Vectora token info: official mint, supply, and public links.</h1>
-        <p>This page keeps the core Vectora token facts in one place. Use it to confirm the mint, supply, revoked controls, metadata, market references, and official channels.</p>
+        <p>This page keeps the core Vectora token facts in one place. Use it to confirm the mint, supply, revoked controls, wallet allocation map, metadata, market references, and official channels.</p>
         <div class="chips">
           <span class="chip">Network: Solana</span>
           <span class="chip">Symbol: VTRAI</span>
@@ -548,6 +548,7 @@
           <li><span class="ok">Mint authority:</span> revoked.</li>
           <li><span class="ok">Freeze authority:</span> revoked.</li>
           <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
+          <li>Public wallet labels are role-separated internal allocations, not separate third-party ownership.</li>
           <li>Verification starts from public pages, not DMs or support chats.</li>
         </ul>
       </article>
@@ -569,6 +570,34 @@
           <a href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Raydium route</a>
         </div>
         <p>Use these only to cross-check the same mint and pool context. They are not a guarantee of safety.</p>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Public Allocation Map</h2>
+        <ul class="reference-list">
+          <li><strong>W1 LP Launch:</strong> 22.0% · <code>3o5aJ7d4GpryXJXcREKG77VzPmK8YiGNWGUDimNvTnSJ</code></li>
+          <li><strong>W2 Community Rewards:</strong> 25.0% · <code>5qvoMGcRxpXcqWufT4D4f9dtReHXPm6rmMeUa8jbZRew</code></li>
+          <li><strong>W3 Ecosystem Grants:</strong> 18.0% · <code>8pniQeXJCPjG7abmNTZvVG5xJRjFRrdqNyrHtkLyPvbu</code></li>
+          <li><strong>W4 Treasury:</strong> 20.0% · <code>2RuJ8nPrkZB2qpoEZbhiEfGMYpxkLySvQ9uRmr2KFBpF</code></li>
+          <li><strong>W5 Team Vesting:</strong> 10.0% · <code>3jwRnNj3NRP36AEy6t84LsceNzvF5CZZ2pBXDjay3rRQ</code></li>
+          <li><strong>W6 Ops/MM:</strong> 5.0% · <code>8fVQQisN2ZeonuDbvjQgnDtCdBAHk16gau3MMmX9xAzN</code></li>
+        </ul>
+        <p>This map exists so reviewers can see why early holder concentration is visible on-chain. It is a bootstrap allocation map, not a claim that ownership is widely distributed yet.</p>
+      </article>
+      <article class="card">
+        <h2>Control Status</h2>
+        <ul>
+          <li><span class="ok">Completed:</span> fixed supply minted and mint authority revoked.</li>
+          <li><span class="ok">Completed:</span> freeze authority revoked.</li>
+          <li><strong>W4 treasury hardening:</strong> Squads treasury address published; signer threshold and test transaction still need completion before it is described as hardened multisig control.</li>
+          <li><strong>W5 team vesting:</strong> team allocation address published; enforceable vesting or locked custody remains the next control upgrade.</li>
+        </ul>
+        <div class="links">
+          <a href="./wallet-control-policy.html">Wallet control policy</a>
+          <a href="./liquidity-covenant.html">Liquidity covenant</a>
+        </div>
       </article>
     </section>
 
