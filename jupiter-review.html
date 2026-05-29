@@ -221,7 +221,7 @@
           <li><span class="ok">Completed:</span> mint authority revoked.</li>
           <li><span class="ok">Completed:</span> freeze authority revoked.</li>
           <li><span class="ok">Completed:</span> W4 treasury uses active Squads 2/2 multisig control.</li>
-          <li><span class="pending">Pending:</span> W5 team allocation still needs enforceable vesting or locked custody receipt before it is described as hardened.</li>
+          <li><span class="ok">Completed:</span> W5 team allocation moved into a public Streamflow vesting contract on May 29, 2026.</li>
         </ul>
         <p class="note">Vectora does not describe early wallet concentration as broad holder distribution. It is disclosed as bootstrap allocation until real distribution and custody hardening improve.</p>
       </article>
@@ -270,16 +270,19 @@
       </article>
 
       <article class="card">
-        <h2>W5 Vesting Execution Plan</h2>
+        <h2>W5 Streamflow Vesting Proof</h2>
         <ul>
           <li><strong>Source wallet:</strong> <code>3jwRnNj3NRP36AEy6t84LsceNzvF5CZZ2pBXDjay3rRQ</code></li>
           <li><strong>Beneficiary wallet:</strong> <code>6KHyoE65RLMakok9NzQ6KEHwHNQMrrzEUEebcbZnK5nW</code></li>
-          <li><strong>Amount to harden:</strong> 99,999,999 VTRAI, leaving 1 VTRAI dust in the source wallet if required by the vesting tool.</li>
-          <li><strong>Target structure:</strong> 12-month cliff, then 24-month linear release.</li>
-          <li><strong>Preferred route:</strong> public Streamflow vesting contract or equivalent on-chain vesting/lock receipt.</li>
-          <li><strong>Status:</strong> pending wallet signature and published contract link.</li>
+          <li><strong>Streamflow contract account:</strong> <code>4v8R8eVnBbtKP7R5kWKb21f2Xs3KdcoSjbrdRqcHuVDE</code></li>
+          <li><strong>Escrow token account:</strong> <code>Ct9rg82mhUkds8QurXKh4YZW9MVygF1JSXLixHjsQZnX</code></li>
+          <li><strong>Creation transaction:</strong> <code>8D9K1EpEjXvg5wcufoBSH88Fu47xFxnw2JFJmuuuZP5e4uEN677hqY5mm91Tw6WoHbJvS1kWWncqxNWLyE2fAPe</code></li>
+          <li><strong>Amount vested:</strong> 99,999,999 VTRAI in Streamflow escrow; 1 VTRAI remains in W5 as residual dust.</li>
+          <li><strong>Execution structure:</strong> 36-month monthly Streamflow vesting, started May 29, 2026, ending May 28, 2029.</li>
+          <li><strong>Terms shown at creation:</strong> auto-claim disabled, listed for sale: no, cancellation: neither, recipient changes: only recipient.</li>
+          <li><strong>Status:</strong> completed and visible on-chain.</li>
         </ul>
-        <p class="note">After the contract is created, this page will be updated with the Streamflow contract URL and transaction signature. Until then W5 remains disclosed, but not yet hardened.</p>
+        <p class="note">This hardens W5 from a labelled internal wallet into a public vesting escrow. The vesting schedule differs from the original target because Streamflow accepted a 36-month monthly execution with 1 VTRAI residual dust.</p>
       </article>
     </section>
 
@@ -288,7 +291,7 @@
       <ul>
         <li>High holder concentration is disclosed as bootstrap allocation, not hidden decentralisation.</li>
         <li>W4 treasury control has been hardened to active Squads multisig proof.</li>
-        <li>W5 remains the next unfinished custody-hardening item until the vesting or lock receipt exists.</li>
+        <li>W5 is now hardened through a public Streamflow vesting escrow and creation transaction.</li>
         <li>Organic score and low liquidity need real distribution, holder growth, and LP depth; they are not solved with page text alone.</li>
       </ul>
     </section>
