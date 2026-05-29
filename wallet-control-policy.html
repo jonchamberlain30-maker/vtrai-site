@@ -288,7 +288,7 @@
 
     <article class="paper">
       <h1>Wallet Control Policy <span class="badge">Bootstrap Mode</span></h1>
-      <p>This policy explains what the W1-W6 wallets mean in practice. They are role-separated internal allocations designed for accounting clarity, operational safety, and public disclosure. They are not presented as independent third-party holders.</p>
+      <p>This policy explains what the W1-W6 wallets mean in practice. They are role-separated internal allocations designed for accounting clarity, operational safety, and public disclosure. They are not presented as independent third-party holders. W7_Beneficiary is a named recipient wallet for W5 vesting execution, not a separate supply allocation.</p>
 
       <h2>1. Role Map</h2>
       <ul>
@@ -297,6 +297,7 @@
         <li><strong>W3_Ecosystem_Grants:</strong> non-selling reserve for future grants and partnerships · <code>8pniQeXJCPjG7abmNTZvVG5xJRjFRrdqNyrHtkLyPvbu</code>.</li>
         <li><strong>W4_Treasury:</strong> treasury reserve at Squads treasury address · <code>2RuJ8nPrkZB2qpoEZbhiEfGMYpxkLySvQ9uRmr2KFBpF</code>.</li>
         <li><strong>W5_Team_Vesting:</strong> team allocation intended for time-based release rather than discretionary selling · <code>3jwRnNj3NRP36AEy6t84LsceNzvF5CZZ2pBXDjay3rRQ</code>.</li>
+        <li><strong>W7_Beneficiary:</strong> named recipient wallet for the W5 vesting contract · <code>6KHyoE65RLMakok9NzQ6KEHwHNQMrrzEUEebcbZnK5nW</code>.</li>
         <li><strong>W6_Ops_MM:</strong> operational / market-support inventory under disclosed rules · <code>8fVQQisN2ZeonuDbvjQgnDtCdBAHk16gau3MMmX9xAzN</code>.</li>
       </ul>
 
@@ -347,6 +348,8 @@
       <h2>6.2 W5 Vesting Target</h2>
       <ul>
         <li>W5 active mint balance: 100,000,000 VTRAI.</li>
+        <li>W5 vesting source wallet: <code>3jwRnNj3NRP36AEy6t84LsceNzvF5CZZ2pBXDjay3rRQ</code>.</li>
+        <li>W5 beneficiary wallet: <code>6KHyoE65RLMakok9NzQ6KEHwHNQMrrzEUEebcbZnK5nW</code>.</li>
         <li>Target schedule: 12-month cliff, then 24-month linear release.</li>
         <li>Preferred proof: public Streamflow vesting contract or equivalent on-chain lock/vesting receipt.</li>
         <li>Publication requirement: contract URL and transaction signature must be added here before W5 is treated as hardened.</li>
