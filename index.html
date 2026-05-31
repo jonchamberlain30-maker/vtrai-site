@@ -24,8 +24,13 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    const VECTORA_GA_PAGE_PATH = '/';
+    const VECTORA_GA_PAGE_LOCATION = window.location.origin + '/' + window.location.search + window.location.hash;
     gtag('js', new Date());
-    gtag('config', 'G-YFD45VCN8J');
+    gtag('config', 'G-YFD45VCN8J', {
+      page_path: VECTORA_GA_PAGE_PATH,
+      page_location: VECTORA_GA_PAGE_LOCATION
+    });
   </script>
   <script type="application/ld+json">
     {
