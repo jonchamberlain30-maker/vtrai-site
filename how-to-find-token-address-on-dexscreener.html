@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How to find a token address on DexScreener without confusing the pair address with the token mint. A quick Solana-focused workflow for checking the base token, pair, explorer, and official source." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#060b15" />
+  <link rel="canonical" href="https://getvectora.ai/how-to-find-token-address-on-dexscreener.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="How To Find A Token Address On DexScreener" />
+  <meta property="og:description" content="Find the token mint on DexScreener, avoid mixing it up with the pair address, and verify it against the official source before trading." />
+  <meta property="og:url" content="https://getvectora.ai/how-to-find-token-address-on-dexscreener.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta property="og:image:alt" content="Vectora guide to finding a token address on DexScreener" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How To Find A Token Address On DexScreener" />
+  <meta name="twitter:description" content="A practical workflow for finding the token mint on DexScreener and checking it before you buy." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How To Find A Token Address On DexScreener",
+      "description": "A practical workflow for finding a token address on DexScreener, separating token mint from pair address, and verifying the address before trading.",
+      "totalTime": "PT3M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Open the exact pair page",
+          "text": "Search DexScreener by token name, symbol, token address, or pair address, then open the pair page that matches the chain and market you intend to inspect."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Find the token contract, not only the pair",
+          "text": "Look for the token contract or base token address. Do not assume the pair address is the token mint."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Compare against the official source",
+          "text": "Copy the token address and compare it with the project website, explorer, and route before connecting a wallet."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Stop if any address differs",
+          "text": "If DexScreener, the official source, and the route do not show the same token address, treat the route as unverified."
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the DexScreener pair address the same as the token address?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. A pair address identifies the trading pair or pool. The token address or mint identifies the asset. Always verify which address you copied."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I search for a token on DexScreener?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DexScreener search can be used with a token name, symbol, token address, or pair address. After opening a result, confirm the chain, token address, and official source."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do after copying a DexScreener token address?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compare the copied address with the project website, the explorer, and the route you plan to use. If they do not match exactly, do not continue."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://getvectora.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://getvectora.ai/guides.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Find Token Address On DexScreener",
+          "item": "https://getvectora.ai/how-to-find-token-address-on-dexscreener.html"
+        }
+      ]
+    }
+  </script>
+  <title>How To Find A Token Address On DexScreener</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+      --violet: #9d7cff;
+      --good: #4ae3b5;
+      --warn: #ffbfd0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.12), transparent 58%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top a { color: var(--cyan); text-decoration: none; font-weight: 700; }
+    .top strong { color: var(--ink); }
+    .nav { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero, .card, .example, .source-note {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+    }
+    .hero { margin-top: 18px; padding: 26px; }
+    .badge {
+      display: inline-flex;
+      border: 1px solid rgba(77,234,255,0.36);
+      color: var(--cyan);
+      background: rgba(77,234,255,0.08);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    h1 { margin: 14px 0 12px; font-size: clamp(2.15rem, 6vw, 4.8rem); line-height: 0.96; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: clamp(1.35rem, 3vw, 2rem); }
+    h3 { margin: 0 0 7px; font-size: 1.08rem; }
+    p, li { color: var(--muted); line-height: 1.55; }
+    code {
+      color: var(--ink);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2px 5px;
+      overflow-wrap: anywhere;
+    }
+    .sub { max-width: 740px; font-size: 1.08rem; }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .btn {
+      border: 1px solid rgba(77,234,255,0.35);
+      border-radius: 999px;
+      padding: 11px 15px;
+      background: rgba(77,234,255,0.12);
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn.primary { border-color: transparent; background: linear-gradient(135deg, var(--cyan), var(--violet)); color: #06101f; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+    .card, .example, .source-note { padding: 18px; }
+    .step-list { counter-reset: steps; display: grid; gap: 12px; margin-top: 16px; }
+    .step {
+      counter-increment: steps;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(77,234,255,0.16);
+      border-radius: 12px;
+      padding: 14px;
+      background: rgba(12, 22, 43, 0.68);
+    }
+    .step::before {
+      content: counter(steps);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(77,234,255,0.16);
+      color: var(--cyan);
+      font-weight: 800;
+    }
+    .step p { margin: 0; }
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .mini {
+      border: 1px solid rgba(77,234,255,0.14);
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(15, 26, 48, 0.74);
+    }
+    .mini b { display: block; color: var(--ink); margin-bottom: 5px; }
+    .good { color: var(--good); }
+    .warn { color: var(--warn); }
+    .source-note { margin-top: 16px; }
+    .source-note a { color: var(--cyan); }
+    .footer { margin-top: 22px; color: #7f92aa; font-size: 0.9rem; }
+    .footer a { color: var(--cyan); }
+    @media (max-width: 760px) {
+      .hero { padding: 20px; }
+      .grid, .compare { grid-template-columns: 1fr; }
+      .nav { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+      .btn { width: 100%; }
+      h1 { font-size: 2rem; line-height: 1.08; overflow-wrap: anywhere; }
+      .sub { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="top">
+      <strong>Vectora Guides</strong>
+      <div class="nav">
+        <a href="./">Home</a>
+        <a href="./guides.html">Guides</a>
+        <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
+        <a href="./5-minute-token-verification-checklist.html">Checklist</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="badge">DexScreener Address Guide</div>
+      <h1>How to find a token address on DexScreener.</h1>
+      <p class="sub">The useful trick is knowing what you are copying. A DexScreener page can show a pair address and token addresses. The pair is the market. The token address or mint is the asset. Mixing those up is how a quick check becomes a very confident mistake.</p>
+      <div class="cta">
+        <a class="btn primary tracked-link" href="#steps" data-label="find_dex_address_steps">Show the steps</a>
+        <a class="btn tracked-link" href="./dexscreener-token-checker.html" data-label="find_dex_address_full_guide">Full DexScreener guide</a>
+      </div>
+    </section>
+
+    <section id="steps" class="card" style="margin-top:16px">
+      <h2>The 3-minute workflow</h2>
+      <div class="step-list">
+        <div class="step">
+          <p><strong>Open the exact result.</strong><br>Search by token name, symbol, token address, or pair address. Check the chain and market before copying anything.</p>
+        </div>
+        <div class="step">
+          <p><strong>Separate pair from token.</strong><br>The pair address identifies the trading pair or pool. The token address, often the base token on a pair page, identifies the asset you are trying to verify.</p>
+        </div>
+        <div class="step">
+          <p><strong>Copy the token address.</strong><br>On Solana, this is the token mint. Copy it exactly, then paste it into an explorer or a verification tool before you open a trading route.</p>
+        </div>
+        <div class="step">
+          <p><strong>Compare against the official source.</strong><br>The project website, explorer, and route should all agree. If one surface shows a different address, stop.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Pair address vs token address</h2>
+        <div class="compare">
+          <div class="mini">
+            <b>Pair address</b>
+            <p>Identifies the market or pool where two assets trade. Useful for chart and liquidity context.</p>
+          </div>
+          <div class="mini">
+            <b>Token address</b>
+            <p>Identifies the actual asset. On Solana, this is the mint you should compare against the official source.</p>
+          </div>
+        </div>
+        <p class="warn">If you copy the pair address when you meant to copy the token mint, every later check starts from the wrong input.</p>
+      </article>
+
+      <article class="card">
+        <h2>What to verify after copying</h2>
+        <ul>
+          <li>The chain is the chain you expected.</li>
+          <li>The token address matches the official project source.</li>
+          <li>The explorer shows the same token address.</li>
+          <li>The swap route outputs the same token address.</li>
+          <li>The proof page or docs do not point somewhere else.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="example" style="margin-top:16px">
+      <h2>Example: VTRAI</h2>
+      <p>For Vectora, the official VTRAI mint is:</p>
+      <p><code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code></p>
+      <p>Any DexScreener, explorer, or route check should come back to that exact mint before you treat it as official.</p>
+      <div class="cta">
+        <a class="btn primary tracked-link" href="./vtrai.html" data-label="find_dex_address_vtrai">Open VTRAI official page</a>
+        <a class="btn tracked-link" href="./proof.html" data-label="find_dex_address_proof">Read proof pack</a>
+        <a class="btn tracked-link" href="./#trust-check" data-label="find_dex_address_tool">Open token check</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Common mistake</h2>
+        <p>Someone shares a DexScreener pair. The chart looks active. The ticker looks right. The buyer copies nothing, opens a route from a reply, and assumes the asset is the same.</p>
+        <p class="warn">The fix is boring: copy the token mint and compare it before the wallet comes out.</p>
+      </article>
+      <article class="card">
+        <h2>Better habit</h2>
+        <p>Use DexScreener for discovery, then use the official source and explorer for identity. If the token address, route, and proof trail agree, you have a cleaner starting point.</p>
+        <p class="good">Discovery is where you notice a token. Verification is where you decide whether it deserves attention.</p>
+      </article>
+    </section>
+
+    <section class="source-note">
+      <h2>Source notes</h2>
+      <p>DexScreener documents search by token name, symbol, token address, or pair address, and its API distinguishes the pair address from token objects such as base token and quote token. That is the core reason this check matters.</p>
+      <p><a class="tracked-link" href="https://docs.dexscreener.com/token-listing" data-label="find_dex_address_dex_docs_listing" target="_blank" rel="noreferrer">DexScreener token listing docs</a> · <a class="tracked-link" href="https://docs.dexscreener.com/api/reference" data-label="find_dex_address_dex_docs_api" target="_blank" rel="noreferrer">DexScreener API reference</a></p>
+    </section>
+
+    <p class="footer">Vectora publishes verification context, not guarantees. Always confirm the exact token address before trading. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
+  </main>
+
+  <script>
+    const PAGE_NAME = 'find_token_address_on_dexscreener';
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+    trackEvent('guide_page_view', { page_name: PAGE_NAME });
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        trackEvent('guide_cta_click', {
+          page_name: PAGE_NAME,
+          link_label: link.dataset.label || 'unknown',
+          destination: link.getAttribute('href') || ''
+        });
+      });
+    });
+  </script>
+  <script src="./assets/brand-buy-tracking.js" defer></script>
+</body>
+</html>
