@@ -7,3 +7,16 @@ assets/vtrai-article-template-*
 assets/vtrai-x-ad-*
 assets/vtrai-x-case-study-*
 assets/vtrai-x-screenshot-style-*
+
+# Creative source/export folders live in the automation archive, not GitHub Pages.
+assets/coinzilla-ad-backgrounds/originals/
+assets/coinzilla-upload-ready/
+assets/hero-backgrounds/originals/
+assets/hero-backgrounds/web/
+assets/q4-teaser-stills/dzine-upload-under-16mb/
+assets/q4-teaser-stills/originals/
+assets/q4-teaser-stills/web/
+assets/trust-video-drafts/*reject-reference*.mp4
+assets/x-post-backgrounds/originals/
+assets/x-post-backgrounds/web/
+assets/x-post-ready/
