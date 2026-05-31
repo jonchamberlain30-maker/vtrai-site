@@ -26,6 +26,46 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I verify the official VTRAI token before trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start from getvectora.ai, copy the official VTRAI mint, open the official route from the Vectora page, and only continue if the output mint matches exactly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the exact VTRAI mint matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Token names, tickers, logos, and screenshots can be copied. The exact Solana mint is the identifier that lets you compare the official site, explorer, and trading route."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I connect my wallet just to verify VTRAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Basic verification should be done before connecting a wallet. Use the public mint, proof pack, Solscan, and official route first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I do if a route shows a different token?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stop. If the token mint or route does not match the official Vectora mint, treat it as unofficial unless Vectora later publishes a public update."
+          }
+        }
+      ]
+    }
+  </script>
   <title>Verify VTRAI | Official Vectora Mint & Route Check</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -286,6 +326,38 @@
     }
     .return strong { color: #ffe4a8; }
     .return p { margin: 5px 0 0; }
+    .faq {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 16px;
+      background: rgba(7, 13, 27, 0.72);
+      padding: 16px;
+    }
+    .faq-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .faq-head p { margin: 0; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .faq-item {
+      border: 1px solid rgba(77, 234, 255, 0.14);
+      border-radius: 12px;
+      background: rgba(15, 26, 48, 0.74);
+      padding: 13px;
+    }
+    .faq-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .faq-item p { margin: 0; }
     .warning {
       margin-top: 14px;
       border: 1px solid #4c2a37;
@@ -312,7 +384,9 @@
     @media (max-width: 860px) {
       .hero,
       .return { grid-template-columns: 1fr; }
-      .checks { grid-template-columns: 1fr; }
+      .checks,
+      .faq-grid,
+      .faq-head { grid-template-columns: 1fr; }
       h1 { font-size: 2rem; }
       .btn { width: 100%; }
       .wrap { padding-bottom: 92px; }
@@ -410,6 +484,35 @@
       <a class="btn secondary tracked-link" href="./public-proof-before-trading.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=education_cta" data-label="coinzilla_public_proof_guide">Read Public Proof Guide</a>
     </section>
 
+    <section class="faq" aria-label="VTRAI verification questions">
+      <div class="faq-head">
+        <div>
+          <div class="kicker">Fast answers</div>
+          <h2>Four checks before you click</h2>
+          <p>If one of these does not line up, slow down. A clean route is easier to verify than a loud chart.</p>
+        </div>
+        <a class="btn secondary tracked-link" href="./5-minute-token-verification-checklist.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=faq_checklist" data-label="coinzilla_faq_checklist">5-minute checklist</a>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <strong>Is this the official VTRAI route?</strong>
+          <p>Use this page or the full verify page as the starting point, then check that Raydium shows the exact same output mint.</p>
+        </article>
+        <article class="faq-item">
+          <strong>Why not trust the ticker?</strong>
+          <p>Tickers and logos are easy to copy. The mint is the part that lets you compare the site, route, and explorer.</p>
+        </article>
+        <article class="faq-item">
+          <strong>Do I need to connect a wallet?</strong>
+          <p>No. You can verify the mint, proof pack, and route first. Wallet connection comes after the public checks line up.</p>
+        </article>
+        <article class="faq-item">
+          <strong>What if something differs?</strong>
+          <p>Stop and use the proof pack. A different mint, route, or source should be treated as unofficial until publicly clarified.</p>
+        </article>
+      </div>
+    </section>
+
     <div class="warning">Vectora publishes verification data and public references, not financial advice, profit forecasts, or guarantees. Crypto assets are risky. Always verify the mint and route yourself before any trade.</div>
 
     <p class="footer">
@@ -456,7 +559,8 @@
       'coinzilla_proof_pack',
       'coinzilla_public_proof_guide',
       'coinzilla_nav_proof',
-      'coinzilla_full_verify'
+      'coinzilla_full_verify',
+      'coinzilla_faq_checklist'
     ]);
 
     function baseEventParams(extra = {}) {
