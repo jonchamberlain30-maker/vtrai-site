@@ -745,6 +745,15 @@
             traffic_content: attribution.content,
             transport_type: 'beacon'
           });
+          trackEvent('official_mint_copy', {
+            page_name: PAGE_NAME,
+            traffic_source: attribution.source,
+            traffic_medium: attribution.medium,
+            traffic_campaign: attribution.campaign,
+            traffic_term: attribution.term,
+            traffic_content: attribution.content,
+            transport_type: 'beacon'
+          });
           if (typeof window.vectoraCoinzillaTrackConversion === 'function') {
             window.vectoraCoinzillaTrackConversion('mint_copy');
           }

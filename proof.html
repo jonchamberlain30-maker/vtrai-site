@@ -553,6 +553,12 @@
     <p class="footer">Vectora publishes proof and public references, not guarantees. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
   </main>
   <script>
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+
     const copyButtons = document.querySelectorAll('[data-copy-target]');
 
     async function copyMint(button) {
@@ -563,6 +569,10 @@
       try {
         await navigator.clipboard.writeText(text);
         button.textContent = 'Copied';
+        trackEvent('official_mint_copy', {
+          page_name: 'proof_pack',
+          copy_target: button.dataset.copyTarget
+        });
       } catch {
         button.textContent = 'Copy failed';
       }
