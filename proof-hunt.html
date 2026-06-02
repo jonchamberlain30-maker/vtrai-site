@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vectora Proof Hunt is a verification challenge for finding unclear token source, mint, route, authority, or liquidity trails. Recognition only; no token reward promise." />
+  <meta name="description" content="Vectora Founding Verifier Sprint is a progressive checklist for finding unclear token source, mint, route, authority, or liquidity trails. Earn status points for useful verification work; no token reward promise." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/proof-hunt.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Vectora Proof Hunt | Find The Proof Gap" />
-  <meta property="og:description" content="Submit a token where the source, mint, route, authority, or liquidity trail does not line up clearly." />
+  <meta property="og:title" content="Vectora Founding Verifier Sprint | Find The Proof Gap" />
+  <meta property="og:description" content="Start with a simple checklist, then unlock higher-status verification tasks by submitting useful public proof gaps." />
   <meta property="og:url" content="https://getvectora.ai/proof-hunt.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
-  <meta property="og:image:alt" content="Vectora Proof Hunt verification campaign" />
+  <meta property="og:image:alt" content="Vectora Founding Verifier Sprint verification campaign" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vectora Proof Hunt | Find The Proof Gap" />
-  <meta name="twitter:description" content="Submit unclear token proof trails for public verification review." />
+  <meta name="twitter:title" content="Vectora Founding Verifier Sprint | Find The Proof Gap" />
+  <meta name="twitter:description" content="Complete a simple verification checklist, then submit useful proof gaps for review." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -26,7 +26,7 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
-  <title>Vectora Proof Hunt | Find The Proof Gap</title>
+  <title>Vectora Founding Verifier Sprint | Find The Proof Gap</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -135,6 +135,17 @@
       display: block;
       overflow: hidden;
     }
+    .hero,
+    .sprint-panel,
+    .level-grid,
+    .steps,
+    .submit-panel,
+    .support-stack,
+    .warning,
+    .footer {
+      width: 100%;
+      max-width: 100%;
+    }
     .hero-copy {
       max-width: 790px;
       padding: 30px;
@@ -181,6 +192,138 @@
       padding: 7px 10px;
       font-size: 0.82rem;
       font-weight: 800;
+    }
+    .sprint-panel {
+      margin-top: 14px;
+      border: 1px solid rgba(77, 234, 255, 0.2);
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(10, 44, 56, 0.34), rgba(47, 35, 88, 0.26)),
+        rgba(7, 13, 27, 0.76);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(240px, 0.34fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+    .score-card {
+      border: 1px solid rgba(242, 199, 92, 0.34);
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(242, 199, 92, 0.13), rgba(7, 13, 27, 0.32)),
+        rgba(7, 13, 27, 0.76);
+      padding: 16px;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      align-self: start;
+    }
+    .score-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .score-number {
+      color: var(--ink);
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .score-number span {
+      color: var(--gold);
+    }
+    .score-level {
+      color: var(--cyan);
+      font-weight: 800;
+    }
+    .progress-track {
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--gold));
+      box-shadow: 0 0 20px rgba(77, 234, 255, 0.34);
+      transition: width 220ms ease;
+    }
+    .micro-note {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .checklist {
+      display: grid;
+      gap: 10px;
+    }
+    .check-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr) auto;
+      align-items: start;
+      gap: 10px;
+      border: 1px solid rgba(77, 234, 255, 0.15);
+      border-radius: 12px;
+      background: rgba(7, 13, 27, 0.56);
+      padding: 12px;
+    }
+    .check-item input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--cyan);
+    }
+    .check-item strong {
+      color: var(--ink);
+      display: block;
+      font-size: 0.94rem;
+      margin-bottom: 3px;
+    }
+    .check-item p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+    .check-points {
+      color: #031019;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), #f0b53a);
+      padding: 5px 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .check-item[data-tier="2"] .check-points {
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+    }
+    .check-item[data-tier="3"] .check-points {
+      color: var(--ink);
+      background: linear-gradient(90deg, rgba(77, 234, 255, 0.38), rgba(242, 199, 92, 0.42));
+      border: 1px solid rgba(242, 199, 92, 0.22);
+    }
+    .level-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .level-card {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 14px;
+      background: var(--panel);
+      padding: 14px;
+    }
+    .level-card strong {
+      color: var(--ink);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .level-card p {
+      margin: 0;
+      font-size: 0.85rem;
     }
     .cta {
       display: flex;
@@ -520,9 +663,11 @@
     }
     @media (max-width: 880px) {
       .hero,
+      .sprint-panel,
       .submit-panel { grid-template-columns: 1fr; }
       .status-strip,
       .grid,
+      .level-grid,
       .steps,
       .field-grid,
       .proof-example { grid-template-columns: 1fr; }
@@ -537,6 +682,33 @@
       .hero-copy { padding: 18px; }
       .btn,
       .copy-btn { width: 100%; }
+      .nav {
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero-summary span {
+        max-width: 100%;
+        white-space: normal;
+      }
+      .check-item {
+        grid-template-columns: 24px minmax(0, 1fr);
+      }
+      .check-points {
+        grid-column: 2;
+        justify-self: start;
+      }
+    }
+    @media (max-width: 420px) {
+      .wrap { padding: 14px; }
+      .hero-copy { padding: 16px; }
+      .score-card,
+      .sprint-panel,
+      .step,
+      .card,
+      .level-card,
+      .submit-panel {
+        padding: 14px;
+      }
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
@@ -552,6 +724,15 @@
     .support-stack * {
       min-width: 0;
     }
+    .vectora-menu-ready .hero,
+    .vectora-menu-ready .sprint-panel,
+    .vectora-menu-ready .level-grid,
+    .vectora-menu-ready .steps,
+    .vectora-menu-ready .submit-panel,
+    .vectora-menu-ready .support-stack {
+      width: 100%;
+      max-width: 100%;
+    }
     @media (max-width: 640px) {
       .wrap {
         width: 100%;
@@ -564,6 +745,19 @@
         font-size: clamp(1.95rem, 8.8vw, 2.12rem);
         line-height: 1.08;
         overflow-wrap: break-word;
+      }
+      .vectora-menu-ready .nav {
+        max-width: 100%;
+      }
+      .vectora-menu-ready .hero-summary {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .vectora-menu-ready .hero-summary span,
+      .vectora-menu-ready .btn,
+      .vectora-menu-ready .copy-btn {
+        width: 100%;
+        max-width: 100%;
       }
       .sub,
       p,
@@ -586,29 +780,95 @@
       </div>
     </nav>
 
-    <section class="hero" aria-label="Vectora Proof Hunt">
+    <section class="hero" aria-label="Vectora Founding Verifier Sprint">
       <div class="hero-copy">
-        <div class="kicker">Proof Hunt</div>
-        <h1>Found a token claim that does not line up?</h1>
-        <p class="sub">Send us the token, the official source, and what looks unclear. We review useful examples and publish the clearest lessons. Recognition only; no reward promise.</p>
-        <div class="hero-summary" aria-label="Proof Hunt summary">
-          <span>1. Paste the token</span>
-          <span>2. Explain the gap</span>
-          <span>3. Send via X or Telegram</span>
+        <div class="kicker">Founding Verifier Sprint</div>
+        <h1>Earn status for finding the proof gap before the crowd finds the chart.</h1>
+        <p class="sub">Start with a tiny checklist, then move into harder verification work. Useful submissions can earn review priority, public credit, and higher verifier status. Checklist points are status only; no token reward promise.</p>
+        <div class="hero-summary" aria-label="Verifier Sprint summary">
+          <span>Level 1: quick proof check</span>
+          <span>Level 2: submit a real gap</span>
+          <span>Level 3: high-signal verifier work</span>
         </div>
         <div class="cta">
-          <a class="btn gold tracked-link" href="#submit" data-label="start_submission">Start Submission</a>
+          <a class="btn gold tracked-link" href="#sprint" data-label="start_sprint">Start Sprint</a>
           <a class="btn secondary tracked-link" href="#examples" data-label="see_examples">See Examples</a>
         </div>
       </div>
     </section>
 
+    <section class="sprint-panel" id="sprint" aria-label="Founding Verifier Sprint checklist">
+      <aside class="score-card" aria-label="Sprint score">
+        <div class="score-label">Your sprint status</div>
+        <div class="score-number"><span id="sprintScore">0</span> pts</div>
+        <div class="score-level" id="sprintLevel">Level 0: warming up</div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="sprintProgress"></div>
+        </div>
+        <p class="micro-note" id="sprintNudge">Do the first two tiny checks. Fast wins first; serious proof later.</p>
+        <a class="btn secondary tracked-link" href="#submit" data-label="scorecard_submit">Submit proof gap</a>
+      </aside>
+      <div>
+        <div class="section-head">
+          <h2>Start Easy, Then Make It Count</h2>
+          <p>Tick actions as you do them. Higher levels ask for better evidence, not louder posting.</p>
+        </div>
+        <div class="checklist" id="verifierChecklist">
+          <label class="check-item" data-tier="1" data-points="5">
+            <input type="checkbox" data-check-id="source" />
+            <span><strong>Find the official source</strong><p>Open the project site, docs, or announcement before trusting a tracker page.</p></span>
+            <span class="check-points">+5</span>
+          </label>
+          <label class="check-item" data-tier="1" data-points="5">
+            <input type="checkbox" data-check-id="mint" />
+            <span><strong>Match the exact mint or contract</strong><p>Confirm the promoted token matches the address from the official source.</p></span>
+            <span class="check-points">+5</span>
+          </label>
+          <label class="check-item" data-tier="1" data-points="10">
+            <input type="checkbox" data-check-id="route" />
+            <span><strong>Check the route before touching a swap</strong><p>Look for a route, pool, or pair mismatch. Tiny mistake, expensive lesson.</p></span>
+            <span class="check-points">+10</span>
+          </label>
+          <label class="check-item" data-tier="2" data-points="20">
+            <input type="checkbox" data-check-id="gap" />
+            <span><strong>Describe one unclear proof gap</strong><p>Source, route, authority, liquidity, custody, or update trail. One clean sentence is enough to begin.</p></span>
+            <span class="check-points">+20</span>
+          </label>
+          <label class="check-item" data-tier="2" data-points="30">
+            <input type="checkbox" data-check-id="submit" />
+            <span><strong>Generate a copy-ready submission</strong><p>Use the form below and send it to Vectora through X or Telegram.</p></span>
+            <span class="check-points">+30</span>
+          </label>
+          <label class="check-item" data-tier="3" data-points="50">
+            <input type="checkbox" data-check-id="receipts" />
+            <span><strong>Add receipts that can be rechecked</strong><p>Include official source, tracker, explorer, route, and the specific claim that does not line up.</p></span>
+            <span class="check-points">+50</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="level-grid" aria-label="Verifier reward levels">
+      <article class="level-card">
+        <strong>Level 1: Quick Signal</strong>
+        <p>Complete the basic checks and get instant local status. Built for first-time visitors who need momentum.</p>
+      </article>
+      <article class="level-card">
+        <strong>Level 2: Useful Submitter</strong>
+        <p>Generate a real proof-gap submission. Accepted examples may get review priority and public credit.</p>
+      </article>
+      <article class="level-card">
+        <strong>Level 3: Founding Verifier</strong>
+        <p>High-quality receipts can be considered for the Proof Board and any future rules-reviewed reward phase.</p>
+      </article>
+    </section>
+
     <div class="section-head">
-      <h2>What To Do</h2>
-      <p>Keep it simple. We need enough public information to understand the gap.</p>
+      <h2>What To Submit</h2>
+      <p>Keep it simple at first. Stronger submissions include public receipts someone else can recheck.</p>
     </div>
 
-    <section class="steps" aria-label="Proof Hunt steps">
+    <section class="steps" aria-label="Verifier Sprint steps">
       <article class="step">
         <span class="step-number">1</span>
         <strong>Paste the token or pair</strong>
@@ -626,10 +886,10 @@
       </article>
     </section>
 
-    <section class="submit-panel" id="submit" aria-label="Submit a Proof Hunt example">
+    <section class="submit-panel" id="submit" aria-label="Submit a Verifier Sprint example">
       <div class="section-head">
         <h2>Submit A Proof Gap</h2>
-        <p>Fill the short form. We generate the message for you, then you send it to Vectora.</p>
+        <p>Fill the short form. We generate the message for you, then you send it to Vectora. The better the receipts, the higher the signal.</p>
       </div>
       <div class="template-box">
         <form class="intake-form" id="proofHuntForm">
@@ -695,8 +955,9 @@
             <summary>Generated message</summary>
             <label>
               Copy-ready text
-              <textarea class="submission-output" id="submissionTemplate" readonly>Vectora Proof Hunt submission
+              <textarea class="submission-output" id="submissionTemplate" readonly>Vectora Founding Verifier Sprint submission
 
+Sprint status:
 Token / project:
 Chain:
 Mint, contract, or pair URL:
@@ -712,11 +973,11 @@ Preferred credit name:</textarea>
       </div>
     </section>
 
-    <section class="support-stack" aria-label="Proof Hunt supporting details">
+    <section class="support-stack" aria-label="Verifier Sprint supporting details">
       <details class="support" id="examples">
         <summary>Show examples</summary>
         <div class="support-body">
-          <section class="proof-board" aria-label="Proof Hunt example board">
+          <section class="proof-board" aria-label="Verifier Sprint example board">
             <article class="proof-example">
               <img src="./assets/vtrai-x-screenshot-style-hawk-manual-2026-05-07.png" alt="Vectora proof example about audience size and public proof" loading="lazy" />
               <div class="proof-example-body">
@@ -757,7 +1018,7 @@ Preferred credit name:</textarea>
       <details class="support">
         <summary>What counts as a useful proof gap?</summary>
         <div class="support-body">
-          <section class="grid" aria-label="Useful Proof Hunt submissions">
+          <section class="grid" aria-label="Useful Verifier Sprint submissions">
             <article class="card">
               <strong>Source Gap</strong>
               <p>The official account, site, docs, or announcement does not clearly resolve to the same token address being promoted.</p>
@@ -777,7 +1038,7 @@ Preferred credit name:</textarea>
       <details class="support">
         <summary>Rules and safety notes</summary>
         <div class="support-body">
-          <section class="grid" aria-label="Proof Hunt rules">
+          <section class="grid" aria-label="Verifier Sprint rules">
             <article class="card">
               <strong>No Engagement Rewards</strong>
               <ul>
@@ -788,8 +1049,8 @@ Preferred credit name:</textarea>
             <article class="card">
               <strong>No Airdrop Promise</strong>
               <ul>
-                <li>There is no token allocation or claim attached to this phase.</li>
-                <li>Any future reward phase would need published rules and review first.</li>
+                <li>Checklist points are local status only. They are not tokens, cash, or financial value.</li>
+                <li>Any future bounty or reward phase would need published rules and review first.</li>
               </ul>
             </article>
             <article class="card">
@@ -836,6 +1097,99 @@ Preferred credit name:</textarea>
       });
     });
 
+    const checklistStorageKey = 'vectora_founding_verifier_sprint_v1';
+    const checklistInputs = Array.from(document.querySelectorAll('#verifierChecklist input[type="checkbox"]'));
+    const scoreEl = document.getElementById('sprintScore');
+    const levelEl = document.getElementById('sprintLevel');
+    const progressEl = document.getElementById('sprintProgress');
+    const nudgeEl = document.getElementById('sprintNudge');
+
+    function readChecklistState() {
+      try {
+        return JSON.parse(localStorage.getItem(checklistStorageKey) || '{}');
+      } catch {
+        return {};
+      }
+    }
+
+    function writeChecklistState(state) {
+      try {
+        localStorage.setItem(checklistStorageKey, JSON.stringify(state));
+      } catch {
+        return;
+      }
+    }
+
+    function sprintStatusForScore(score) {
+      if (score >= 120) {
+        return {
+          label: 'Level 3: Founding Verifier',
+          nudge: 'Now it is about quality. Add receipts that another person can recheck.',
+          progress: 100
+        };
+      }
+      if (score >= 70) {
+        return {
+          label: 'Level 2: Useful Submitter',
+          nudge: 'You have the basics. Submit one clean gap and make it useful.',
+          progress: Math.min(99, Math.round((score / 120) * 100))
+        };
+      }
+      if (score >= 20) {
+        return {
+          label: 'Level 1: Quick Signal',
+          nudge: 'Good. One more real proof gap turns this from browsing into signal.',
+          progress: Math.round((score / 120) * 100)
+        };
+      }
+      return {
+        label: 'Level 0: warming up',
+        nudge: 'Do the first two tiny checks. Fast wins first; serious proof later.',
+        progress: Math.round((score / 120) * 100)
+      };
+    }
+
+    function renderChecklist() {
+      const state = readChecklistState();
+      let score = 0;
+      checklistInputs.forEach((input) => {
+        const isChecked = Boolean(state[input.dataset.checkId]);
+        input.checked = isChecked;
+        if (isChecked) {
+          const item = input.closest('.check-item');
+          score += Number(item ? item.dataset.points : 0);
+        }
+      });
+      const status = sprintStatusForScore(score);
+      if (scoreEl) scoreEl.textContent = String(score);
+      if (levelEl) levelEl.textContent = status.label;
+      if (progressEl) progressEl.style.width = `${status.progress}%`;
+      if (nudgeEl) nudgeEl.textContent = status.nudge;
+      return { score, status };
+    }
+
+    function setChecklistItem(checkId, checked) {
+      const state = readChecklistState();
+      state[checkId] = checked;
+      writeChecklistState(state);
+      return renderChecklist();
+    }
+
+    checklistInputs.forEach((input) => {
+      input.addEventListener('change', () => {
+        const result = setChecklistItem(input.dataset.checkId, input.checked);
+        trackEvent('proof_hunt_checklist_toggle', {
+          page_name: PAGE_NAME,
+          check_id: input.dataset.checkId,
+          checked: input.checked ? 'yes' : 'no',
+          sprint_score: result.score,
+          sprint_level: result.status.label
+        });
+      });
+    });
+
+    renderChecklist();
+
     function fieldValue(id) {
       const field = document.getElementById(id);
       return field ? field.value.trim() : '';
@@ -860,10 +1214,12 @@ Preferred credit name:</textarea>
       const summary = fieldValue('huntSummary');
       const creditPermission = fieldValue('huntCreditPermission');
       const creditName = fieldValue('huntCreditName');
+      const sprint = renderChecklist();
 
       return [
-        'Vectora Proof Hunt submission',
+        'Vectora Founding Verifier Sprint submission',
         '',
+        `Sprint status: ${sprint.status.label} (${sprint.score} pts)`,
         `Token / project: ${token}`,
         `Chain: ${chain}`,
         `Mint, contract, or pair URL: ${address}`,
@@ -882,6 +1238,27 @@ Preferred credit name:</textarea>
       const text = buildSubmission();
       output.value = text;
       return text;
+    }
+
+    function syncFormProgressToChecklist() {
+      const current = readChecklistState();
+      const updates = [
+        ['source', fieldValue('huntSource').length >= 10],
+        ['mint', fieldValue('huntAddress').length >= 10],
+        ['route', fieldValue('huntRoute').length >= 10],
+        ['gap', fieldValue('huntSummary').length >= 24]
+      ];
+      let changed = false;
+      updates.forEach(([checkId, shouldCheck]) => {
+        if (shouldCheck && !current[checkId]) {
+          current[checkId] = true;
+          changed = true;
+        }
+      });
+      if (changed) {
+        writeChecklistState(current);
+        renderChecklist();
+      }
     }
 
     async function copyText(text) {
@@ -905,6 +1282,7 @@ Preferred credit name:</textarea>
     if (proofHuntForm) {
       proofHuntForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+        setChecklistItem('submit', true);
         const text = renderSubmission();
         const generatedPanel = document.getElementById('generatedSubmissionPanel');
         if (generatedPanel) generatedPanel.open = true;
@@ -914,7 +1292,8 @@ Preferred credit name:</textarea>
           trackEvent('proof_hunt_submission_generated', {
             page_name: PAGE_NAME,
             gap_type: fieldValue('huntGap'),
-            chain: fieldValue('huntChain') || 'unknown'
+            chain: fieldValue('huntChain') || 'unknown',
+            sprint_score: renderChecklist().score
           });
         } catch {
           setFormStatus('Generated. Copy manually from the box.');
@@ -922,8 +1301,14 @@ Preferred credit name:</textarea>
       });
 
       proofHuntForm.querySelectorAll('input, select, textarea').forEach((field) => {
-        field.addEventListener('input', renderSubmission);
-        field.addEventListener('change', renderSubmission);
+        field.addEventListener('input', () => {
+          syncFormProgressToChecklist();
+          renderSubmission();
+        });
+        field.addEventListener('change', () => {
+          syncFormProgressToChecklist();
+          renderSubmission();
+        });
       });
     }
 
