@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://getvectora.ai/guides.html</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://getvectora.ai/how-to-find-token-address-on-dexscreener.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.89</priority>
   </url>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://getvectora.ai/dexscreener-red-flags.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.88</priority>
   </url>
@@ -213,6 +213,18 @@
   <url>
     <loc>https://getvectora.ai/coinzilla.html</loc>
     <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getvectora.ai/dexscreener-pair-address-vs-token-address.html</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getvectora.ai/low-liquidity-dexscreener.html</loc>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
