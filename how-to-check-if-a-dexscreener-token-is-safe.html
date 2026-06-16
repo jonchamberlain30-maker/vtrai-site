@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How to check if a DexScreener token is safe: verify the token address, source, liquidity, holders, route, and authority signals before buying." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#060b15" />
+  <link rel="canonical" href="https://getvectora.ai/how-to-check-if-a-dexscreener-token-is-safe.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="How To Check If A DexScreener Token Is Safe" />
+  <meta property="og:description" content="A practical DexScreener safety checklist for checking source, token address, route, liquidity, holders, and control signals before buying." />
+  <meta property="og:url" content="https://getvectora.ai/how-to-check-if-a-dexscreener-token-is-safe.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta property="og:image:alt" content="Vectora DexScreener verification guide" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How To Check If A DexScreener Token Is Safe" />
+  <meta name="twitter:description" content="A practical DexScreener safety checklist for checking source, token address, route, liquidity, holders, and control signals before buying." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How To Check If A DexScreener Token Is Safe",
+      "description": "A practical DexScreener safety checklist for checking source, token address, route, liquidity, holders, and control signals before buying.",
+      "author": { "@type": "Organization", "name": "Vectora" },
+      "publisher": { "@type": "Organization", "name": "Vectora" },
+      "datePublished": "2026-06-16",
+      "dateModified": "2026-06-16",
+      "mainEntityOfPage": "https://getvectora.ai/how-to-check-if-a-dexscreener-token-is-safe.html"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can DexScreener prove a token is safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. DexScreener can show useful market data, but you still need to verify source, token identity, route, liquidity, holders, and controls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the first thing to check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The token address or mint. If the asset identity is wrong, every later check is pointed at the wrong thing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I buy after the chart looks clean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A clean chart is only one signal. Treat it as a prompt to verify, not as permission to buy."
+          }
+        }
+      ]
+    }
+  </script>
+  <title>How To Check If A DexScreener Token Is Safe | Vectora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b15;
+      --ink: #e8f8ff;
+      --muted: #9db3c8;
+      --line: #253756;
+      --card: rgba(10, 17, 33, 0.78);
+      --cyan: #4deaff;
+      --violet: #9d7cff;
+      --warn: #ffbfd0;
+      --good: #4ae3b5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 520px at 0% -10%, rgba(77,234,255,0.14), transparent 55%),
+        radial-gradient(780px 520px at 100% 110%, rgba(157,124,255,0.13), transparent 58%),
+        var(--bg);
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 20px 18px 48px; }
+    .top, .hero, .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.26);
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
+    }
+    .top a, .footer a { color: var(--cyan); text-decoration: none; }
+    .nav { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero { margin-top: 18px; padding: 34px; }
+    h1 { margin: 10px 0 12px; font-size: clamp(2.1rem, 5vw, 4rem); line-height: 0.98; }
+    h2 { margin-top: 0; }
+    p, li { color: var(--muted); }
+    .eyebrow { color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .82rem; }
+    .sub { max-width: 820px; font-size: 1.08rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .card { padding: 22px; }
+    .warn { color: var(--warn); }
+    .good { color: var(--good); }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 16px;
+      border-radius: 9px;
+      text-decoration: none;
+      color: #04111d;
+      background: var(--cyan);
+      font-weight: 700;
+    }
+    .btn.secondary { color: var(--ink); background: rgba(255,255,255,0.08); border: 1px solid var(--line); }
+    .footer { margin-top: 22px; color: #7f92aa; font-size: 0.9rem; }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 22px; }
+      .nav { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+      .btn { width: 100%; }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="top">
+      <strong>Vectora Guides</strong>
+      <div class="nav">
+        <a href="./">Home</a>
+        <a href="./guides.html">Guides</a>
+        <a href="./dexscreener-red-flags.html">Red Flags</a>
+        <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">DexScreener safety checklist</div>
+      <h1>How to check if a DexScreener token is safe.</h1>
+      <p class="sub">DexScreener is useful for discovery. It is not a magic safety stamp. Use it to find the market, then slow down and check whether the token identity, route, liquidity, and proof trail line up.</p>
+      <div class="cta">
+        <a class="btn tracked-link" href="./#trust-check" data-label="dex_safe_trust_check">Check a token</a>
+        <a class="btn secondary tracked-link" href="./dexscreener-red-flags.html" data-label="dex_safe_red_flags">Open red-flags guide</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Start with the token address</h2>
+        <ul>
+          <li>Copy the token address or mint, not only the pair address.</li>
+          <li>Compare it with the project-owned website, docs, X profile, or explorer link.</li>
+          <li>If the official source is vague, treat the chart as unverified noise.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Check route and liquidity together</h2>
+        <ul>
+          <li>A clean-looking chart can still route through the wrong asset.</li>
+          <li>Liquidity should make sense beside volume and market cap.</li>
+          <li>Thin pools can make exits painful even when entries look easy.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>The quick decision rule</h2>
+      <p class="good">Safe enough to continue researching means source, exact token address, route, liquidity, and visible controls all make sense at the same time.</p>
+      <p class="warn">If the chart is loud but the proof path is quiet, slow down. Fast entries are not a personality trait.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Read holders and controls</h2>
+        <ul>
+          <li>Look for concentrated holders or fresh wallets doing most of the supply work.</li>
+          <li>On Solana, check mint and freeze authority status.</li>
+          <li>On EVM chains, inspect ownership, proxy, tax, blacklist, and trading-control claims.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Do not let social proof replace proof</h2>
+        <ul>
+          <li>A viral thread is not an official source.</li>
+          <li>A reposted CA is not a receipt.</li>
+          <li>If you cannot trace the asset back to a clean source, the safest move is no move.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>Related DexScreener checks</h2>
+      <p>Use these pages as a cluster. The goal is not to read forever. It is to answer the one risky question in front of you.</p>
+      <div class="cta">
+        <a class="btn secondary tracked-link" href="./dexscreener-red-flags.html" data-label="dex_safe_related_1">DexScreener red flags</a>
+        <a class="btn secondary tracked-link" href="./dexscreener-pair-address-vs-token-address.html" data-label="dex_safe_related_2">Pair vs token address</a>
+        <a class="btn secondary tracked-link" href="./low-liquidity-dexscreener.html" data-label="dex_safe_related_3">Low liquidity guide</a>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>FAQ</h2>
+      <p><strong>Can DexScreener prove a token is safe?</strong><br>No. DexScreener can show useful market data, but you still need to verify source, token identity, route, liquidity, holders, and controls.</p>
+      <p><strong>What is the first thing to check?</strong><br>The token address or mint. If the asset identity is wrong, every later check is pointed at the wrong thing.</p>
+      <p><strong>Should I buy after the chart looks clean?</strong><br>No. A clean chart is only one signal. Treat it as a prompt to verify, not as permission to buy.</p>
+    </section>
+
+    <p class="footer">Vectora publishes verification context, not guarantees. Always confirm the exact token address before trading. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
+  </main>
+  <script>
+    const PAGE_NAME = 'how_to_check_if_a_dexscreener_token_is_safe';
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+      }
+    }
+    trackEvent('guide_page_view', { page_name: PAGE_NAME });
+    document.querySelectorAll('.tracked-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        trackEvent('guide_cta_click', {
+          page_name: PAGE_NAME,
+          link_label: link.dataset.label || 'unknown'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -98,9 +98,33 @@
   </url>
   <url>
     <loc>https://getvectora.ai/dexscreener-red-flags.html</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://getvectora.ai/how-to-check-if-a-dexscreener-token-is-safe.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://getvectora.ai/dexscreener-honeypot-red-flags.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://getvectora.ai/dexscreener-liquidity-lock-check.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://getvectora.ai/fake-token-on-dexscreener.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.87</priority>
   </url>
   <url>
     <loc>https://getvectora.ai/mint-authority-freeze-authority.html</loc>
