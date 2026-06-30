@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vectora Founding Verifier Sprint: a checklist for finding unclear token source, mint, route, authority, or liquidity trails." />
+  <meta name="description" content="Vectora Founding Verifier Sprint: complete free token-check actions, grow your verifier status, and submit unclear source, mint, route, authority, or liquidity trails." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#050912" />
   <link rel="canonical" href="https://getvectora.ai/proof-hunt.html" />
@@ -11,13 +11,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Vectora Founding Verifier Sprint | Find The Proof Gap" />
-  <meta property="og:description" content="Start with a simple checklist, then unlock higher-status verification tasks by submitting useful public proof gaps." />
+  <meta property="og:description" content="Complete free token-check actions, grow your verifier status, and submit useful public proof gaps." />
   <meta property="og:url" content="https://getvectora.ai/proof-hunt.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora Founding Verifier Sprint verification campaign" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora Founding Verifier Sprint | Find The Proof Gap" />
-  <meta name="twitter:description" content="Complete a simple verification checklist, then submit useful proof gaps for review." />
+  <meta name="twitter:description" content="Complete free verification actions, grow your verifier status, and submit useful proof gaps for review." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script type="application/ld+json">
     {
@@ -25,7 +25,7 @@
       "@type": "WebPage",
       "name": "Vectora Founding Verifier Sprint",
       "url": "https://getvectora.ai/proof-hunt.html",
-      "description": "A public Vectora checklist for finding unclear token source, mint, route, authority, or liquidity proof gaps.",
+      "description": "A public Vectora checklist for completing free token-check actions and finding unclear token source, mint, route, authority, or liquidity proof gaps.",
       "isPartOf": {
         "@type": "WebSite",
         "name": "Vectora",
@@ -305,6 +305,48 @@
       margin: 0;
       font-size: 0.84rem;
     }
+    .check-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 9px;
+    }
+    .mini-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      border: 1px solid rgba(77, 234, 255, 0.22);
+      border-radius: 10px;
+      background: rgba(18, 30, 52, 0.82);
+      color: var(--ink);
+      padding: 7px 10px;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .mini-action.primary {
+      color: #031019;
+      background: linear-gradient(90deg, var(--cyan), #86e8ff);
+      border-color: transparent;
+    }
+    .check-item.is-complete {
+      border-color: rgba(74, 227, 181, 0.45);
+      background:
+        linear-gradient(90deg, rgba(74, 227, 181, 0.13), rgba(77, 234, 255, 0.06)),
+        rgba(7, 13, 27, 0.62);
+    }
+    .check-item.is-complete strong::after {
+      content: " complete";
+      color: var(--good);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-left: 7px;
+    }
     .check-points {
       color: #031019;
       border-radius: 999px;
@@ -321,6 +363,38 @@
       color: var(--ink);
       background: linear-gradient(90deg, rgba(77, 234, 255, 0.38), rgba(242, 199, 92, 0.42));
       border: 1px solid rgba(242, 199, 92, 0.22);
+    }
+    .reward-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 120;
+      width: min(420px, calc(100vw - 32px));
+      transform: translate(-50%, 120px);
+      opacity: 0;
+      pointer-events: none;
+      border: 1px solid rgba(74, 227, 181, 0.36);
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(74, 227, 181, 0.18), rgba(242, 199, 92, 0.12)),
+        rgba(7, 13, 27, 0.96);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.42);
+      padding: 12px 14px;
+      color: var(--ink);
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+    .reward-toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    .reward-toast strong {
+      display: block;
+      color: var(--good);
+      margin-bottom: 2px;
+    }
+    .reward-toast span {
+      color: var(--muted);
+      font-size: 0.86rem;
     }
     .level-grid {
       display: grid;
@@ -801,12 +875,12 @@
     <section class="hero" aria-label="Vectora Founding Verifier Sprint">
       <div class="hero-copy">
         <div class="kicker">Founding Verifier Sprint</div>
-        <h1>Earn status for finding the proof gap before the crowd finds the chart.</h1>
-        <p class="sub">Start with a tiny checklist, then move into harder verification work. Useful submissions can earn review priority, public credit, and higher verifier status. Checklist points are status only; no token reward promise.</p>
+        <h1>Do the free checks. Come back for the tick.</h1>
+        <p class="sub">Run small token-safety actions, grow your verifier status, and submit unclear proof gaps. Each completed action is saved on this device and gives you an instant tick. Checklist points are status only; no token reward promise.</p>
         <div class="hero-summary" aria-label="Verifier Sprint summary">
-          <span>Level 1: quick proof check</span>
-          <span>Level 2: submit a real gap</span>
-          <span>Level 3: high-signal verifier work</span>
+          <span>Free action loop</span>
+          <span>Return for progress</span>
+          <span>Status, receipts, public credit</span>
         </div>
         <div class="cta">
           <a class="btn gold tracked-link" href="#sprint" data-label="start_sprint">Start Sprint</a>
@@ -829,7 +903,7 @@
       <div>
         <div class="section-head">
           <h2>Start Easy, Then Make It Count</h2>
-          <p>Tick actions as you do them. Higher levels ask for better evidence, not louder posting.</p>
+          <p>Do the action, come back, tick it off. The point is useful free value first: checks, receipts, and public signal.</p>
         </div>
         <div class="checklist" id="verifierChecklist">
           <label class="check-item" data-tier="1" data-points="5">
@@ -844,8 +918,38 @@
           </label>
           <label class="check-item" data-tier="1" data-points="10">
             <input type="checkbox" data-check-id="route" />
-            <span><strong>Check the route before touching a swap</strong><p>Look for a route, pool, or pair mismatch. Tiny mistake, expensive lesson.</p></span>
+            <span>
+              <strong>Run one free token check</strong>
+              <p>Paste a CA, mint, or pair into Vectora before trusting the chart.</p>
+              <span class="check-actions">
+                <a class="mini-action primary tracked-link" href="./#trust-check" data-complete-check="route" data-label="sprint_open_token_check">Open free check</a>
+              </span>
+            </span>
             <span class="check-points">+10</span>
+          </label>
+          <label class="check-item" data-tier="1" data-points="10">
+            <input type="checkbox" data-check-id="follow" />
+            <span>
+              <strong>Follow the public signal feed</strong>
+              <p>Use X for fresh examples, red flags, and proof-path habits.</p>
+              <span class="check-actions">
+                <a class="mini-action primary tracked-link" href="https://x.com/VectoraAI" target="_blank" rel="noreferrer" data-complete-check="follow" data-label="sprint_follow_x">Open X</a>
+                <button class="mini-action" type="button" data-complete-check="follow" data-label="sprint_mark_followed">I followed</button>
+              </span>
+            </span>
+            <span class="check-points">+10</span>
+          </label>
+          <label class="check-item" data-tier="2" data-points="15">
+            <input type="checkbox" data-check-id="share" />
+            <span>
+              <strong>Share one useful check habit</strong>
+              <p>Post or reply with one thing people should verify before buying.</p>
+              <span class="check-actions">
+                <a class="mini-action primary tracked-link" href="https://x.com/intent/tweet?text=Before%20I%20trust%20a%20token%20chart%2C%20I%20want%20the%20official%20source%2C%20exact%20mint%2C%20route%2C%20liquidity%2C%20and%20control%20flags%20to%20line%20up.%20Free%20check%3A%20https%3A%2F%2Fgetvectora.ai%2Fproof-hunt.html" target="_blank" rel="noreferrer" data-complete-check="share" data-label="sprint_share_x">Open draft</a>
+                <button class="mini-action" type="button" data-complete-check="share" data-label="sprint_mark_shared">I shared</button>
+              </span>
+            </span>
+            <span class="check-points">+15</span>
           </label>
           <label class="check-item" data-tier="2" data-points="20">
             <input type="checkbox" data-check-id="gap" />
@@ -868,12 +972,12 @@
 
     <section class="level-grid" aria-label="Verifier reward levels">
       <article class="level-card">
-        <strong>Level 1: Quick Signal</strong>
-        <p>Complete the basic checks and get instant local status. Built for first-time visitors who need momentum.</p>
+        <strong>Level 1: Free Value</strong>
+        <p>Run a check, follow the feed, and get the first status hit without needing a wallet connection.</p>
       </article>
       <article class="level-card">
-        <strong>Level 2: Useful Submitter</strong>
-        <p>Generate a real proof-gap submission. Accepted examples may get review priority and public credit.</p>
+        <strong>Level 2: Useful Signal</strong>
+        <p>Share one habit or submit one proof gap. Accepted examples may get review priority and public credit.</p>
       </article>
       <article class="level-card">
         <strong>Level 3: Founding Verifier</strong>
@@ -1089,6 +1193,10 @@ Preferred credit name:</textarea>
       <a href="./terms.html">Terms</a> · <a href="./privacy.html">Privacy</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a>
     </p>
   </main>
+  <div class="reward-toast" id="rewardToast" aria-live="polite">
+    <strong>Action checked</strong>
+    <span id="rewardText">Progress saved on this device.</span>
+  </div>
 
   <script>
     const PAGE_NAME = 'proof_hunt';
@@ -1121,6 +1229,9 @@ Preferred credit name:</textarea>
     const levelEl = document.getElementById('sprintLevel');
     const progressEl = document.getElementById('sprintProgress');
     const nudgeEl = document.getElementById('sprintNudge');
+    const rewardToast = document.getElementById('rewardToast');
+    const rewardText = document.getElementById('rewardText');
+    let rewardTimer = 0;
 
     function readChecklistState() {
       try {
@@ -1136,6 +1247,55 @@ Preferred credit name:</textarea>
       } catch {
         return;
       }
+    }
+
+    function playRewardSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const context = new AudioContext();
+        const gain = context.createGain();
+        gain.gain.setValueAtTime(0.0001, context.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.12, context.currentTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.28);
+        gain.connect(context.destination);
+        [540, 760].forEach((frequency, index) => {
+          const oscillator = context.createOscillator();
+          oscillator.type = 'sine';
+          oscillator.frequency.setValueAtTime(frequency, context.currentTime + index * 0.08);
+          oscillator.connect(gain);
+          oscillator.start(context.currentTime + index * 0.08);
+          oscillator.stop(context.currentTime + 0.22 + index * 0.08);
+        });
+        window.setTimeout(() => context.close(), 420);
+      } catch {
+        return;
+      }
+    }
+
+    function showReward(message) {
+      if (!rewardToast || !rewardText) return;
+      rewardText.textContent = message || 'Progress saved on this device.';
+      rewardToast.classList.add('show');
+      window.clearTimeout(rewardTimer);
+      rewardTimer = window.setTimeout(() => {
+        rewardToast.classList.remove('show');
+      }, 1800);
+    }
+
+    function rewardForCheck(checkId, result) {
+      const label = {
+        source: 'Official source checked.',
+        mint: 'Mint or contract matched.',
+        route: 'Free token check added.',
+        follow: 'Signal feed added.',
+        share: 'Useful habit shared.',
+        gap: 'Proof gap described.',
+        submit: 'Submission generated.',
+        receipts: 'Receipts added.'
+      }[checkId] || 'Action saved.';
+      playRewardSound();
+      showReward(`${label} ${result.score} pts saved.`);
     }
 
     function sprintStatusForScore(score) {
@@ -1173,8 +1333,9 @@ Preferred credit name:</textarea>
       checklistInputs.forEach((input) => {
         const isChecked = Boolean(state[input.dataset.checkId]);
         input.checked = isChecked;
+        const item = input.closest('.check-item');
+        if (item) item.classList.toggle('is-complete', isChecked);
         if (isChecked) {
-          const item = input.closest('.check-item');
           score += Number(item ? item.dataset.points : 0);
         }
       });
@@ -1186,20 +1347,39 @@ Preferred credit name:</textarea>
       return { score, status };
     }
 
-    function setChecklistItem(checkId, checked) {
+    function setChecklistItem(checkId, checked, reward = false) {
       const state = readChecklistState();
+      const wasChecked = Boolean(state[checkId]);
       state[checkId] = checked;
       writeChecklistState(state);
-      return renderChecklist();
+      const result = renderChecklist();
+      if (reward && checked && !wasChecked) rewardForCheck(checkId, result);
+      return result;
     }
 
     checklistInputs.forEach((input) => {
       input.addEventListener('change', () => {
-        const result = setChecklistItem(input.dataset.checkId, input.checked);
+        const result = setChecklistItem(input.dataset.checkId, input.checked, true);
         trackEvent('proof_hunt_checklist_toggle', {
           page_name: PAGE_NAME,
           check_id: input.dataset.checkId,
           checked: input.checked ? 'yes' : 'no',
+          sprint_score: result.score,
+          sprint_level: result.status.label
+        });
+      });
+    });
+
+    document.querySelectorAll('[data-complete-check]').forEach((action) => {
+      action.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const checkId = action.dataset.completeCheck;
+        if (!checkId) return;
+        const result = setChecklistItem(checkId, true, true);
+        trackEvent('proof_hunt_action_complete', {
+          page_name: PAGE_NAME,
+          check_id: checkId,
+          action_label: action.dataset.label || 'unknown',
           sprint_score: result.score,
           sprint_level: result.status.label
         });
@@ -1300,7 +1480,7 @@ Preferred credit name:</textarea>
     if (proofHuntForm) {
       proofHuntForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        setChecklistItem('submit', true);
+        setChecklistItem('submit', true, true);
         const text = renderSubmission();
         const generatedPanel = document.getElementById('generatedSubmissionPanel');
         if (generatedPanel) generatedPanel.open = true;
