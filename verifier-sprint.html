@@ -224,6 +224,9 @@
       border-color: rgba(242, 199, 92, 0.42);
       background: linear-gradient(90deg, rgba(242, 199, 92, 0.11), rgba(255, 136, 183, 0.04));
     }
+    .mission.locked {
+      opacity: 0.68;
+    }
     .rank {
       display: grid;
       place-items: center;
@@ -554,20 +557,93 @@
       if (typeof window.gtag === 'function') window.gtag('event', name, params);
     }
 
-    function readState() {
+    function normalizeHandleValue(value) {
+      return (value || '').trim().replace(/^@/, '').replace(/[^a-z0-9_]/gi, '').slice(0, 15);
+    }
+
+    function readStore() {
       try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        if (raw && raw.profiles) return raw;
+        const legacyHandle = normalizeHandleValue(raw.handle || '');
+        if (legacyHandle) {
+          return {
+            activeHandle: legacyHandle,
+            profiles: {
+              [legacyHandle.toLowerCase()]: {
+                ...raw,
+                handle: legacyHandle
+              }
+            }
+          };
+        }
+        return { activeHandle: '', profiles: {} };
       } catch {
-        return {};
+        return { activeHandle: '', profiles: {} };
       }
     }
 
-    function writeState(state) {
+    function writeStore(store) {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
       } catch {
         return;
       }
+    }
+
+    function readState() {
+      const store = readStore();
+      const handle = normalizeHandleValue(store.activeHandle || '');
+      if (!handle) return { handle: '', completed: {}, pending: {} };
+      const key = handle.toLowerCase();
+      return {
+        handle,
+        completed: {},
+        pending: {},
+        ...(store.profiles[key] || {})
+      };
+    }
+
+    function writeState(state) {
+      const handle = normalizeHandleValue(state.handle || readStore().activeHandle || '');
+      if (!handle) {
+        writeStore({ activeHandle: '', profiles: {} });
+        return;
+      }
+      const store = readStore();
+      const key = handle.toLowerCase();
+      store.activeHandle = handle;
+      store.profiles = store.profiles || {};
+      store.profiles[key] = {
+        ...state,
+        handle
+      };
+      writeStore(store);
+    }
+
+    function requireHandle() {
+      const state = readState();
+      if (state.handle) return state.handle;
+      showToast('Enter your X username first.');
+      document.getElementById('xHandle')?.focus();
+      return '';
+    }
+
+    function attachHandle(handle) {
+      const cleanHandle = normalizeHandleValue(handle);
+      if (!cleanHandle) return false;
+      const store = readStore();
+      const key = cleanHandle.toLowerCase();
+      store.activeHandle = cleanHandle;
+      store.profiles = store.profiles || {};
+      const profile = store.profiles[key] || { handle: cleanHandle, completed: {}, pending: {} };
+      profile.handle = cleanHandle;
+      profile.completed = profile.completed || {};
+      profile.pending = profile.pending || {};
+      profile.completed.handle = true;
+      store.profiles[key] = profile;
+      writeStore(store);
+      return true;
     }
 
     async function submitVerifierClaim(id, handle, code) {
@@ -690,6 +766,7 @@
 
     function render() {
       const state = readState();
+      const hasHandle = Boolean(state.handle);
       const handleInput = document.getElementById('xHandle');
       if (handleInput && state.handle && handleInput.value !== state.handle) handleInput.value = state.handle;
 
@@ -698,13 +775,23 @@
         const status = missionStatus(state, id);
         mission.classList.toggle('done', status === 'done');
         mission.classList.toggle('pending', status === 'pending');
+        mission.classList.toggle('locked', id !== 'handle' && !hasHandle);
         const stateEl = mission.querySelector('.state');
         if (stateEl) {
           if (status === 'done') stateEl.textContent = 'Complete';
           else if (status === 'pending') stateEl.textContent = 'Pending verification';
-          else if (mission.dataset.kind === 'verified' && !state.handle) stateEl.textContent = 'Needs handle';
+          else if (id !== 'handle' && !hasHandle) stateEl.textContent = 'Add handle first';
           else stateEl.textContent = 'Not started';
         }
+        mission.querySelectorAll('a, button').forEach((action) => {
+          if (id === 'handle') return;
+          action.setAttribute('aria-disabled', hasHandle ? 'false' : 'true');
+          if (action.tagName === 'A') {
+            if (!action.dataset.href) action.dataset.href = action.getAttribute('href') || '';
+            if (hasHandle) action.setAttribute('href', action.dataset.href || '#');
+            else action.setAttribute('href', '#');
+          }
+        });
       });
 
       const percent = percentFor(state);
@@ -733,14 +820,15 @@
     }
 
     function completeLocal(id) {
+      if (id !== 'handle' && !requireHandle()) return;
       const state = readState();
       state.completed = state.completed || {};
       state.completed[id] = true;
-      if (id === 'handle') state.handle = (document.getElementById('xHandle')?.value || '').trim().replace(/^@/, '');
+      if (id === 'handle') state.handle = normalizeHandleValue(document.getElementById('xHandle')?.value || '');
       writeState(state);
       playTone('tick');
       showToast('Progress saved.');
-      trackEvent('verifier_sprint_local_complete', { page_name: PAGE_NAME, mission_id: id });
+      trackEvent('verifier_sprint_local_complete', { page_name: PAGE_NAME, mission_id: id, handle: state.handle || '' });
       render();
     }
 
@@ -768,18 +856,28 @@
 
     document.getElementById('saveHandle')?.addEventListener('click', () => {
       const input = document.getElementById('xHandle');
-      const handle = (input?.value || '').trim().replace(/^@/, '');
+      const handle = normalizeHandleValue(input?.value || '');
       if (!handle) {
         showToast('Enter an X username first.');
         return;
       }
       input.value = handle;
-      completeLocal('handle');
+      attachHandle(handle);
+      playTone('tick');
+      showToast('X username saved. Actions are now tied to it.');
+      trackEvent('verifier_sprint_handle_saved', { page_name: PAGE_NAME, handle });
+      render();
       syncVerifiedStatus();
     });
 
     document.querySelectorAll('[data-action="complete-local"]').forEach((action) => {
-      action.addEventListener('click', () => completeLocal(action.dataset.id));
+      action.addEventListener('click', (event) => {
+        if (!requireHandle()) {
+          event.preventDefault();
+          return;
+        }
+        completeLocal(action.dataset.id);
+      });
     });
 
     document.querySelectorAll('[data-action="start-x"]').forEach((action) => {
