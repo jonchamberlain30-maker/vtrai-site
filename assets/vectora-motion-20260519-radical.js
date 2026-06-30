@@ -38,10 +38,10 @@
       accent: "cyan"
     },
     {
-      eyebrow: "Public Proof",
-      title: "Join Proof Hunt",
-      text: "Submit a token claim that does not line up clearly.",
-      href: "./proof-hunt.html",
+      eyebrow: "Free Sprint",
+      title: "Start Verifier Sprint",
+      text: "Run simple checks, attach X, and build verified badge status.",
+      href: "./verifier-sprint.html",
       accent: "green"
     },
     {
@@ -65,6 +65,7 @@
     {
       title: "Verify",
       links: [
+        ["Verifier Sprint", "./verifier-sprint.html", "Badge checklist"],
         ["Proof Hunt", "./proof-hunt.html", "Submit a proof gap"],
         ["Proof Pack", "./proof.html", "Project references"],
         ["Token Info", "./token-info.html", "Mint and links"],
