@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vectora Verifier Sprint: complete free token-check actions, connect an X handle for public verification, and unlock local verifier badges." />
+  <meta name="description" content="Vectora Verifier Sprint: complete free token-check actions, connect an X handle, attach optional wallet context for future eligibility tracking, and unlock verifier badges." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#06100f" />
   <link rel="canonical" href="https://getvectora.ai/verifier-sprint.html" />
@@ -11,13 +11,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Vectora Verifier Sprint | Free Token Check Actions" />
-  <meta property="og:description" content="A compact verifier checklist with progress, badge gradients, free token-check actions, and X-handle verification steps." />
+  <meta property="og:description" content="A compact verifier checklist with progress, badge gradients, free token-check actions, X-handle verification, and optional wallet eligibility tracking." />
   <meta property="og:url" content="https://getvectora.ai/verifier-sprint.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora Verifier Sprint badge checklist" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora Verifier Sprint" />
-  <meta name="twitter:description" content="Complete free token-check actions and build verifier status with an X-handle verification trail." />
+  <meta name="twitter:description" content="Complete free token-check actions and build verifier status with X-handle and optional wallet tracking." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script type="application/ld+json">
     {
@@ -25,7 +25,7 @@
       "@type": "WebPage",
       "name": "Vectora Verifier Sprint",
       "url": "https://getvectora.ai/verifier-sprint.html",
-      "description": "A compact Vectora verifier checklist for free token-check actions, proof-gap submissions, and public X-handle verification."
+      "description": "A compact Vectora verifier checklist for free token-check actions, proof-gap submissions, public X-handle verification, and optional wallet eligibility tracking."
     }
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
@@ -187,6 +187,12 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 7px;
+    }
+    .wallet-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) auto;
+      gap: 7px;
+      margin-top: 8px;
     }
     input {
       width: 100%;
@@ -448,7 +454,7 @@
           <div>
             <p class="eyebrow">Verifier Sprint</p>
             <h1>Complete free checks. Build a verified badge trail.</h1>
-            <p>Start easy. On-site actions complete instantly. X actions attach to your handle and wait for verification, so badges mean more than a clicked button.</p>
+            <p>Start with X, then attach optional wallet context for future eligibility tracking. No airdrop or reward is promised.</p>
           </div>
           <div class="handle-box">
             <label for="xHandle">X username</label>
@@ -464,13 +470,26 @@
             <div class="rank">01</div>
             <div>
               <h2>Attach your X handle</h2>
-              <p>Used for verification later. No wallet connection.</p>
+              <p>Every sprint action is tied to this username first.</p>
               <div class="mission-meta"><span class="pill">Easy</span><span class="pill">Local</span></div>
             </div>
             <div class="mission-actions"><span class="state">Not started</span></div>
           </article>
-          <article class="mission" data-id="check" data-kind="local">
+          <article class="mission" data-id="wallet" data-kind="local">
             <div class="rank">02</div>
+            <div>
+              <h2>Attach a public wallet</h2>
+              <p>Optional eligibility tracking for a future rules-reviewed phase. This is not an airdrop promise.</p>
+              <div class="wallet-row">
+                <input id="walletAddress" autocomplete="off" placeholder="Public Solana or EVM wallet" />
+                <button class="primary" type="button" id="saveWallet">Save</button>
+              </div>
+              <div class="mission-meta"><span class="pill">Easy</span><span class="pill">Eligibility-ready</span></div>
+            </div>
+            <div class="mission-actions"><span class="state">Add handle first</span></div>
+          </article>
+          <article class="mission" data-id="check" data-kind="local">
+            <div class="rank">03</div>
             <div>
               <h2>Run one free token check</h2>
               <p>Open Vectora and paste a token, mint, contract, or pair before trusting the chart.</p>
@@ -479,7 +498,7 @@
             <div class="mission-actions"><a class="btn primary tracked-link" data-action="complete-local" data-id="check" data-label="sprint_token_check" href="./#trust-check">Open check</a><span class="state">Not started</span></div>
           </article>
           <article class="mission" data-id="report" data-kind="local">
-            <div class="rank">03</div>
+            <div class="rank">04</div>
             <div>
               <h2>Create a shareable receipt</h2>
               <p>Open a report page so the check can be revisited instead of disappearing into memory.</p>
@@ -488,7 +507,7 @@
             <div class="mission-actions"><a class="btn primary tracked-link" data-action="complete-local" data-id="report" data-label="sprint_report" href="./report.html">Open report</a><span class="state">Not started</span></div>
           </article>
           <article class="mission" data-id="proof" data-kind="local">
-            <div class="rank">04</div>
+            <div class="rank">05</div>
             <div>
               <h2>Generate a proof-gap submission</h2>
               <p>Turn one unclear source, route, liquidity, or authority claim into a copy-ready note.</p>
@@ -497,7 +516,7 @@
             <div class="mission-actions"><a class="btn primary tracked-link" data-action="complete-local" data-id="proof" data-label="sprint_proof_gap" href="./proof-hunt.html#submit">Generate</a><span class="state">Not started</span></div>
           </article>
           <article class="mission" data-id="xpost" data-kind="verified">
-            <div class="rank">05</div>
+            <div class="rank">06</div>
             <div>
               <h2>Post one public check habit</h2>
               <p>The sprint creates a unique challenge code. Your badge waits until the public post can be checked.</p>
@@ -506,7 +525,7 @@
             <div class="mission-actions"><button class="primary" type="button" data-action="start-x" data-id="xpost">Open draft</button><span class="state">Needs handle</span></div>
           </article>
           <article class="mission" data-id="xreply" data-kind="verified">
-            <div class="rank">06</div>
+            <div class="rank">07</div>
             <div>
               <h2>Reply with useful context</h2>
               <p>Join a real conversation with a literal, useful reply. No forced promotion.</p>
@@ -523,15 +542,15 @@
             <div class="ring" id="progressRing"><strong id="percentComplete">0%</strong></div>
             <div>
               <h2 id="currentBadge">Starter</h2>
-              <p id="progressNote">Attach your X handle, then complete the first free check.</p>
+              <p id="progressNote">Attach your X handle, then add optional wallet context.</p>
             </div>
           </div>
         </div>
         <div class="badge-list">
-          <div class="badge" data-badge="starter"><strong>Starter</strong><span>0-24%. You have opened the sprint.</span></div>
-          <div class="badge" data-badge="signal"><strong>Signal Builder</strong><span>25-49%. Free utility actions completed.</span></div>
+          <div class="badge" data-badge="starter"><strong>Starter</strong><span>0-24%. X handle attached.</span></div>
+          <div class="badge" data-badge="signal"><strong>Eligibility-Ready</strong><span>25-49%. Wallet context saved for future tracking.</span></div>
           <div class="badge" data-badge="public"><strong>Public Verifier</strong><span>50-99%. X actions are pending or verified.</span></div>
-          <div class="badge" data-badge="founding"><strong>Founding Verifier</strong><span>100%. All actions verified; may be considered for future recognition if rules are published later.</span></div>
+          <div class="badge" data-badge="founding"><strong>Founding Verifier</strong><span>100%. All actions verified; may be considered if rules are published later.</span></div>
         </div>
       </aside>
     </section>
@@ -541,7 +560,7 @@
   <div class="modal" id="completeModal" role="dialog" aria-modal="true" aria-labelledby="completeTitle">
     <div class="modal-card">
       <h2 id="completeTitle">Founding Verifier unlocked.</h2>
-      <p>Your sprint is complete on this device. If public verification confirms the X actions, you may be in the running for future recognition if a rules-reviewed phase opens later. No token reward is promised.</p>
+      <p>Your sprint is complete on this device. If public verification confirms the X actions, your handle and optional wallet may be considered for future recognition if a rules-reviewed phase opens later. No token reward is promised.</p>
       <button class="primary" type="button" id="closeModal">Done</button>
     </div>
   </div>
@@ -550,7 +569,7 @@
     const PAGE_NAME = 'verifier_sprint';
     const VERIFIER_API_BASE = 'https://api.getvectora.ai';
     const STORAGE_KEY = 'vectora_verifier_sprint_v1';
-    const MISSIONS = ['handle', 'check', 'report', 'proof', 'xpost', 'xreply'];
+    const MISSIONS = ['handle', 'wallet', 'check', 'report', 'proof', 'xpost', 'xreply'];
     const VERIFIED_REQUIRED = ['xpost', 'xreply'];
 
     function trackEvent(name, params = {}) {
@@ -559,6 +578,15 @@
 
     function normalizeHandleValue(value) {
       return (value || '').trim().replace(/^@/, '').replace(/[^a-z0-9_]/gi, '').slice(0, 15);
+    }
+
+    function normalizeWalletValue(value) {
+      return (value || '').trim();
+    }
+
+    function walletLooksValid(value) {
+      const wallet = normalizeWalletValue(value);
+      return /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(wallet) || /^0x[a-fA-F0-9]{40}$/.test(wallet);
     }
 
     function readStore() {
@@ -666,6 +694,25 @@
       }
     }
 
+    async function submitWallet(handle, walletAddress) {
+      try {
+        const response = await fetch(`${VERIFIER_API_BASE}/verifier-sprint/wallet`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            handle,
+            wallet_address: walletAddress,
+            page: PAGE_NAME
+          })
+        });
+        if (!response.ok) return false;
+        const payload = await response.json();
+        return Boolean(payload && payload.ok);
+      } catch {
+        return false;
+      }
+    }
+
     async function syncVerifiedStatus() {
       const state = readState();
       const handle = (state.handle || '').trim().replace(/^@/, '');
@@ -678,6 +725,16 @@
         let changed = false;
         state.completed = state.completed || {};
         state.pending = state.pending || {};
+        if (payload.wallet && payload.wallet.wallet_address) {
+          state.wallet = {
+            address: payload.wallet.wallet_address,
+            network: payload.wallet.wallet_network || '',
+            status: payload.wallet.status || 'self_attested',
+            updatedAt: payload.wallet.updated_at || ''
+          };
+          state.completed.wallet = true;
+          changed = true;
+        }
         (payload.verified || []).forEach((item) => {
           const id = item.mission_id;
           if (!VERIFIED_REQUIRED.includes(id)) return;
@@ -760,15 +817,17 @@
     function badgeFor(percent) {
       if (percent >= 100) return ['Founding Verifier', 'founding', 'Full sprint verified. Badge gradient unlocked.'];
       if (percent >= 50) return ['Public Verifier', 'public', 'Public actions are pending or verified. Keep the fit human.'];
-      if (percent >= 25) return ['Signal Builder', 'signal', 'Free utility actions are landing. Add proof.'];
-      return ['Starter', 'starter', 'Attach your X handle, then complete the first free check.'];
+      if (percent >= 25) return ['Eligibility-Ready', 'signal', 'Wallet context and free utility actions are landing.'];
+      return ['Starter', 'starter', 'Attach your X handle, then add optional wallet context.'];
     }
 
     function render() {
       const state = readState();
       const hasHandle = Boolean(state.handle);
       const handleInput = document.getElementById('xHandle');
+      const walletInput = document.getElementById('walletAddress');
       if (handleInput && state.handle && handleInput.value !== state.handle) handleInput.value = state.handle;
+      if (walletInput && state.wallet?.address && walletInput.value !== state.wallet.address) walletInput.value = state.wallet.address;
 
       document.querySelectorAll('.mission').forEach((mission) => {
         const id = mission.dataset.id;
@@ -832,6 +891,32 @@
       render();
     }
 
+    async function saveWallet() {
+      const handle = requireHandle();
+      if (!handle) return;
+      const input = document.getElementById('walletAddress');
+      const walletAddress = normalizeWalletValue(input?.value || '');
+      if (!walletLooksValid(walletAddress)) {
+        showToast('Enter a public Solana or EVM wallet.');
+        input?.focus();
+        return;
+      }
+      const state = readState();
+      state.completed = state.completed || {};
+      state.completed.wallet = true;
+      state.wallet = {
+        address: walletAddress,
+        status: 'self_attested',
+        updatedAt: new Date().toISOString()
+      };
+      writeState(state);
+      render();
+      const submitted = await submitWallet(handle, walletAddress);
+      playTone('tick');
+      showToast(submitted ? 'Wallet saved for future eligibility tracking.' : 'Wallet saved locally. Server sync will retry later.');
+      trackEvent('verifier_sprint_wallet_saved', { page_name: PAGE_NAME, handle, wallet_status: 'self_attested' });
+    }
+
     async function startX(id) {
       const state = readState();
       const handle = (state.handle || '').trim().replace(/^@/, '');
@@ -869,6 +954,8 @@
       render();
       syncVerifiedStatus();
     });
+
+    document.getElementById('saveWallet')?.addEventListener('click', saveWallet);
 
     document.querySelectorAll('[data-action="complete-local"]').forEach((action) => {
       action.addEventListener('click', (event) => {
