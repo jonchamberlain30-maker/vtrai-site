@@ -190,9 +190,11 @@
     }
     .wallet-row {
       display: grid;
-      grid-template-columns: minmax(180px, 1fr) auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 7px;
       margin-top: 8px;
+      width: min(520px, 100%);
+      max-width: 100%;
     }
     input {
       width: 100%;
@@ -212,15 +214,25 @@
       gap: 8px;
     }
     .mission {
+      position: relative;
       display: grid;
       grid-template-columns: 52px minmax(0, 1fr) auto;
       gap: 10px;
-      align-items: center;
+      align-items: start;
       min-height: 86px;
       border: 1px solid rgba(148, 183, 187, 0.18);
       border-radius: 8px;
       background: rgba(5, 13, 18, 0.64);
       padding: 10px;
+    }
+    .mission > div:nth-child(2) {
+      min-width: 0;
+    }
+    .mission[data-id="wallet"] {
+      min-height: 136px;
+    }
+    .mission.just-completed {
+      animation: missionPop 680ms ease both;
     }
     .mission.done {
       border-color: rgba(83, 230, 167, 0.5);
@@ -275,6 +287,7 @@
       justify-content: flex-end;
       flex-wrap: wrap;
       max-width: 260px;
+      align-self: center;
     }
     .state {
       width: 104px;
@@ -333,6 +346,53 @@
       font-size: 0.86rem;
       line-height: 1.4;
     }
+    .user-badge {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(84, 232, 255, 0.24);
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(84, 232, 255, 0.16), rgba(83, 230, 167, 0.08), rgba(7, 14, 20, 0.78));
+      padding: 10px;
+      box-shadow: inset 0 0 28px rgba(84, 232, 255, 0.05);
+    }
+    .badge-orb {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      color: #041112;
+      font-weight: 900;
+      background: conic-gradient(from 210deg, var(--cyan), var(--green), var(--gold), var(--violet), var(--cyan));
+      box-shadow: 0 0 28px rgba(84, 232, 255, 0.22);
+    }
+    .badge-orb::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border-radius: inherit;
+      border: 1px solid rgba(4, 17, 18, 0.35);
+      background: rgba(255, 255, 255, 0.18);
+    }
+    .badge-orb span {
+      position: relative;
+      z-index: 1;
+    }
+    .user-badge strong,
+    .user-badge span {
+      display: block;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+    .user-badge span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 2px;
+    }
     .badge-list {
       min-height: 0;
       overflow: auto;
@@ -342,10 +402,24 @@
       align-content: start;
     }
     .badge {
+      position: relative;
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
       border: 1px solid rgba(148, 183, 187, 0.18);
       border-radius: 8px;
-      padding: 11px;
+      padding: 10px;
       background: rgba(7, 14, 20, 0.72);
+    }
+    .badge::before {
+      content: "";
+      grid-row: 1 / span 2;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: linear-gradient(145deg, rgba(84, 232, 255, 0.28), rgba(83, 230, 167, 0.12));
+      box-shadow: inset 0 0 0 8px rgba(7, 14, 20, 0.72);
     }
     .badge.active {
       border-color: rgba(83, 230, 167, 0.48);
@@ -356,14 +430,91 @@
     .badge:nth-child(3).active { background: linear-gradient(135deg, rgba(242,199,92,.27), rgba(255,136,183,.08)); }
     .badge:nth-child(4).active { background: linear-gradient(135deg, rgba(242,199,92,.3), rgba(84,232,255,.14), rgba(169,140,255,.24)); }
     .badge strong {
+      grid-column: 2;
       display: block;
       margin-bottom: 4px;
+      line-height: 1.12;
     }
     .badge span {
+      grid-column: 2;
       display: block;
       color: var(--muted);
       font-size: 0.8rem;
       line-height: 1.35;
+    }
+    .badge.active::before {
+      animation: badgeGlow 2.6s ease-in-out infinite;
+    }
+    .badge[data-badge="starter"]::before { background: linear-gradient(145deg, #54e8ff, #0e5f67); }
+    .badge[data-badge="signal"]::before { background: linear-gradient(145deg, #53e6a7, #54e8ff); }
+    .badge[data-badge="public"]::before { background: linear-gradient(145deg, #f2c75c, #ff88b7); }
+    .badge[data-badge="founding"]::before { background: conic-gradient(from 180deg, #f2c75c, #54e8ff, #a98cff, #53e6a7, #f2c75c); }
+    .reward-burst {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      place-items: center;
+    }
+    .reward-burst.show {
+      display: grid;
+    }
+    .reward-core {
+      width: 130px;
+      height: 130px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #06100f;
+      font-weight: 900;
+      font-size: 1.05rem;
+      background: conic-gradient(from 180deg, var(--green), var(--cyan), var(--gold), var(--violet), var(--green));
+      box-shadow: 0 0 70px rgba(84, 232, 255, 0.46);
+      animation: rewardPop 980ms ease both;
+    }
+    .reward-core.final {
+      width: 170px;
+      height: 170px;
+      font-size: 1.18rem;
+      animation: rewardFinal 1450ms ease both;
+    }
+    .spark {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--cyan);
+      transform: translate(-50%, -50%);
+      animation: sparkFly 860ms ease-out forwards;
+    }
+    @keyframes missionPop {
+      0% { transform: scale(1); }
+      36% { transform: scale(1.012); box-shadow: 0 0 34px rgba(83, 230, 167, 0.24); }
+      100% { transform: scale(1); }
+    }
+    @keyframes badgeGlow {
+      0%, 100% { transform: scale(1); filter: saturate(1); }
+      50% { transform: scale(1.06); filter: saturate(1.45); }
+    }
+    @keyframes rewardPop {
+      0% { transform: scale(0.55) rotate(-12deg); opacity: 0; }
+      42% { transform: scale(1.08) rotate(4deg); opacity: 1; }
+      100% { transform: scale(0.9) rotate(0deg); opacity: 0; }
+    }
+    @keyframes rewardFinal {
+      0% { transform: scale(0.35) rotate(-24deg); opacity: 0; }
+      28% { transform: scale(1.12) rotate(6deg); opacity: 1; }
+      72% { transform: scale(1) rotate(0deg); opacity: 1; }
+      100% { transform: scale(1.25) rotate(0deg); opacity: 0; }
+    }
+    @keyframes sparkFly {
+      to {
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(0);
+        opacity: 0;
+      }
     }
     .toast, .modal {
       position: fixed;
@@ -422,6 +573,12 @@
       }
       .mission {
         grid-template-columns: 42px minmax(0, 1fr);
+      }
+      .mission[data-id="wallet"] {
+        min-height: 0;
+      }
+      .wallet-row {
+        grid-template-columns: 1fr;
       }
       .mission-actions {
         grid-column: 1 / -1;
@@ -545,6 +702,13 @@
               <p id="progressNote">Attach your X handle, then add optional wallet context.</p>
             </div>
           </div>
+          <div class="user-badge" id="userBadge">
+            <div class="badge-orb" id="badgeOrb"><span>VX</span></div>
+            <div>
+              <strong id="badgeHandle">No X handle yet</strong>
+              <span id="badgeFollow">Badge follows your saved username.</span>
+            </div>
+          </div>
         </div>
         <div class="badge-list">
           <div class="badge" data-badge="starter"><strong>Starter</strong><span>0-24%. X handle attached.</span></div>
@@ -557,6 +721,9 @@
   </main>
 
   <div class="toast" id="toast" aria-live="polite">Progress saved.</div>
+  <div class="reward-burst" id="rewardBurst" aria-hidden="true">
+    <div class="reward-core" id="rewardCore">Done</div>
+  </div>
   <div class="modal" id="completeModal" role="dialog" aria-modal="true" aria-labelledby="completeTitle">
     <div class="modal-card">
       <h2 id="completeTitle">Founding Verifier unlocked.</h2>
@@ -778,26 +945,82 @@
       window.setTimeout(() => toast.classList.remove('show'), 1800);
     }
 
+    function showReward(label = 'Done', kind = 'tick', missionId = '') {
+      const burst = document.getElementById('rewardBurst');
+      const core = document.getElementById('rewardCore');
+      if (burst && core) {
+        core.textContent = label;
+        core.classList.toggle('final', kind === 'complete');
+        burst.classList.remove('show');
+        burst.querySelectorAll('.spark').forEach((spark) => spark.remove());
+        const sparkCount = kind === 'complete' ? 24 : 10;
+        for (let index = 0; index < sparkCount; index += 1) {
+          const spark = document.createElement('span');
+          spark.className = 'spark';
+          const angle = (Math.PI * 2 * index) / sparkCount;
+          const distance = kind === 'complete' ? 190 : 110;
+          spark.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
+          spark.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
+          spark.style.background = index % 3 === 0 ? 'var(--gold)' : index % 3 === 1 ? 'var(--green)' : 'var(--cyan)';
+          burst.appendChild(spark);
+        }
+        window.requestAnimationFrame(() => burst.classList.add('show'));
+        window.setTimeout(() => burst.classList.remove('show'), kind === 'complete' ? 1500 : 980);
+      }
+      if (missionId) {
+        const mission = document.querySelector(`.mission[data-id="${missionId}"]`);
+        if (mission) {
+          mission.classList.remove('just-completed');
+          window.requestAnimationFrame(() => mission.classList.add('just-completed'));
+          window.setTimeout(() => mission.classList.remove('just-completed'), 760);
+        }
+      }
+    }
+
     function playTone(kind = 'tick') {
       try {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         if (!AudioContext) return;
         const ctx = new AudioContext();
-        const gain = ctx.createGain();
-        gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(kind === 'complete' ? 0.15 : 0.09, ctx.currentTime + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + (kind === 'complete' ? 0.58 : 0.24));
-        gain.connect(ctx.destination);
-        const notes = kind === 'complete' ? [420, 560, 720, 960] : [580, 760];
+        const master = ctx.createGain();
+        master.gain.setValueAtTime(0.0001, ctx.currentTime);
+        master.gain.exponentialRampToValueAtTime(kind === 'complete' ? 0.22 : 0.12, ctx.currentTime + 0.025);
+        master.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + (kind === 'complete' ? 1.05 : 0.46));
+        master.connect(ctx.destination);
+        const notes = kind === 'complete'
+          ? [392, 523.25, 659.25, 783.99, 1046.5]
+          : kind === 'wallet'
+            ? [440, 554.37, 739.99]
+            : [523.25, 659.25, 880];
         notes.forEach((frequency, index) => {
           const osc = ctx.createOscillator();
-          osc.type = index === notes.length - 1 ? 'triangle' : 'sine';
-          osc.frequency.setValueAtTime(frequency, ctx.currentTime + index * 0.1);
+          const gain = ctx.createGain();
+          const start = ctx.currentTime + index * (kind === 'complete' ? 0.115 : 0.075);
+          osc.type = kind === 'complete' && index === notes.length - 1 ? 'triangle' : 'sine';
+          osc.frequency.setValueAtTime(frequency, start);
+          gain.gain.setValueAtTime(0.0001, start);
+          gain.gain.exponentialRampToValueAtTime(0.24, start + 0.018);
+          gain.gain.exponentialRampToValueAtTime(0.0001, start + (kind === 'complete' ? 0.34 : 0.2));
           osc.connect(gain);
-          osc.start(ctx.currentTime + index * 0.1);
-          osc.stop(ctx.currentTime + 0.18 + index * 0.1);
+          gain.connect(master);
+          osc.start(start);
+          osc.stop(start + (kind === 'complete' ? 0.38 : 0.24));
         });
-        window.setTimeout(() => ctx.close(), 800);
+        if (kind === 'complete') {
+          const bass = ctx.createOscillator();
+          const bassGain = ctx.createGain();
+          bass.type = 'triangle';
+          bass.frequency.setValueAtTime(196, ctx.currentTime);
+          bass.frequency.exponentialRampToValueAtTime(98, ctx.currentTime + 0.8);
+          bassGain.gain.setValueAtTime(0.0001, ctx.currentTime);
+          bassGain.gain.exponentialRampToValueAtTime(0.16, ctx.currentTime + 0.04);
+          bassGain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.9);
+          bass.connect(bassGain);
+          bassGain.connect(master);
+          bass.start();
+          bass.stop(ctx.currentTime + 0.92);
+        }
+        window.setTimeout(() => ctx.close(), kind === 'complete' ? 1250 : 650);
       } catch {
         return;
       }
@@ -859,10 +1082,16 @@
       const percentEl = document.getElementById('percentComplete');
       const badgeEl = document.getElementById('currentBadge');
       const noteEl = document.getElementById('progressNote');
+      const badgeHandleEl = document.getElementById('badgeHandle');
+      const badgeFollowEl = document.getElementById('badgeFollow');
+      const badgeOrb = document.getElementById('badgeOrb');
       if (ring) ring.style.background = `conic-gradient(var(--green) ${percent * 3.6}deg, rgba(255,255,255,0.09) 0deg)`;
       if (percentEl) percentEl.textContent = `${percent}%`;
       if (badgeEl) badgeEl.textContent = badgeName;
       if (noteEl) noteEl.textContent = note;
+      if (badgeHandleEl) badgeHandleEl.textContent = state.handle ? `@${state.handle}` : 'No X handle yet';
+      if (badgeFollowEl) badgeFollowEl.textContent = state.handle ? `${badgeName} follows this username.` : 'Badge follows your saved username.';
+      if (badgeOrb) badgeOrb.querySelector('span').textContent = state.handle ? state.handle.slice(0, 2).toUpperCase() : 'VX';
       document.querySelectorAll('.badge').forEach((badge) => {
         const keys = ['starter', 'signal', 'public', 'founding'];
         badge.classList.toggle('active', keys.indexOf(badge.dataset.badge) <= keys.indexOf(badgeKey));
@@ -872,6 +1101,7 @@
         state.completionShown = true;
         writeState(state);
         playTone('complete');
+        showReward('Verified', 'complete');
         const modal = document.getElementById('completeModal');
         if (modal) modal.classList.add('show');
         trackEvent('verifier_sprint_complete', { page_name: PAGE_NAME, handle: state.handle || '' });
@@ -886,6 +1116,7 @@
       if (id === 'handle') state.handle = normalizeHandleValue(document.getElementById('xHandle')?.value || '');
       writeState(state);
       playTone('tick');
+      showReward('Saved', 'tick', id);
       showToast('Progress saved.');
       trackEvent('verifier_sprint_local_complete', { page_name: PAGE_NAME, mission_id: id, handle: state.handle || '' });
       render();
@@ -912,7 +1143,8 @@
       writeState(state);
       render();
       const submitted = await submitWallet(handle, walletAddress);
-      playTone('tick');
+      playTone('wallet');
+      showReward('Wallet', 'wallet', 'wallet');
       showToast(submitted ? 'Wallet saved for future eligibility tracking.' : 'Wallet saved locally. Server sync will retry later.');
       trackEvent('verifier_sprint_wallet_saved', { page_name: PAGE_NAME, handle, wallet_status: 'self_attested' });
     }
@@ -949,6 +1181,7 @@
       input.value = handle;
       attachHandle(handle);
       playTone('tick');
+      showReward('X saved', 'tick', 'handle');
       showToast('X username saved. Actions are now tied to it.');
       trackEvent('verifier_sprint_handle_saved', { page_name: PAGE_NAME, handle });
       render();
