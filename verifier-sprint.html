@@ -545,6 +545,7 @@
 
   <script>
     const PAGE_NAME = 'verifier_sprint';
+    const VERIFIER_API_BASE = 'https://api.getvectora.ai';
     const STORAGE_KEY = 'vectora_verifier_sprint_v1';
     const MISSIONS = ['handle', 'check', 'report', 'proof', 'xpost', 'xreply'];
     const VERIFIED_REQUIRED = ['xpost', 'xreply'];
@@ -564,6 +565,63 @@
     function writeState(state) {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch {
+        return;
+      }
+    }
+
+    async function submitVerifierClaim(id, handle, code) {
+      try {
+        const response = await fetch(`${VERIFIER_API_BASE}/verifier-sprint/claim`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            handle,
+            mission_id: id,
+            challenge_code: code,
+            page: PAGE_NAME
+          })
+        });
+        if (!response.ok) return false;
+        const payload = await response.json();
+        return Boolean(payload && payload.ok);
+      } catch {
+        return false;
+      }
+    }
+
+    async function syncVerifiedStatus() {
+      const state = readState();
+      const handle = (state.handle || '').trim().replace(/^@/, '');
+      if (!handle) return;
+      try {
+        const response = await fetch(`${VERIFIER_API_BASE}/verifier-sprint/status?handle=${encodeURIComponent(handle)}`, { cache: 'no-store' });
+        if (!response.ok) return;
+        const payload = await response.json();
+        if (!payload || !payload.ok) return;
+        let changed = false;
+        state.completed = state.completed || {};
+        state.pending = state.pending || {};
+        (payload.verified || []).forEach((item) => {
+          const id = item.mission_id;
+          if (!VERIFIED_REQUIRED.includes(id)) return;
+          state.completed[id] = true;
+          delete state.pending[id];
+          changed = true;
+        });
+        (payload.pending || []).forEach((item) => {
+          const id = item.mission_id;
+          if (!VERIFIED_REQUIRED.includes(id) || state.completed[id]) return;
+          state.pending[id] = state.pending[id] || {};
+          state.pending[id].code = item.challenge_code || state.pending[id].code;
+          state.pending[id].handle = handle;
+          changed = true;
+        });
+        if (changed) {
+          writeState(state);
+          showToast('Verified status refreshed.');
+          render();
+        }
       } catch {
         return;
       }
@@ -686,7 +744,7 @@
       render();
     }
 
-    function startX(id) {
+    async function startX(id) {
       const state = readState();
       const handle = (state.handle || '').trim().replace(/^@/, '');
       if (!handle) {
@@ -699,11 +757,12 @@
       state.pending[id] = { code, handle, startedAt: new Date().toISOString() };
       writeState(state);
       render();
+      const submitted = await submitVerifierClaim(id, handle, code);
       const text = id === 'xpost'
         ? `Before I trust a token chart, I want the official source, exact mint, route, liquidity, and control flags to line up. Verifier sprint: ${code} https://getvectora.ai/verifier-sprint.html`
         : `Useful check. I would still want the source, exact token, route, and public receipts to line up before trusting the chart. ${code}`;
       window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-      showToast('Challenge opened. Badge waits for verification.');
+      showToast(submitted ? 'Challenge queued. Badge waits for verification.' : 'Challenge saved locally. Verification will retry later.');
       trackEvent('verifier_sprint_x_pending', { page_name: PAGE_NAME, mission_id: id, challenge_code: code });
     }
 
@@ -716,6 +775,7 @@
       }
       input.value = handle;
       completeLocal('handle');
+      syncVerifiedStatus();
     });
 
     document.querySelectorAll('[data-action="complete-local"]').forEach((action) => {
@@ -732,6 +792,7 @@
 
     trackEvent('verifier_sprint_view', { page_name: PAGE_NAME });
     render();
+    syncVerifiedStatus();
   </script>
 </body>
 </html>
