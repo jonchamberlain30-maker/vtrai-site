@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Check a Solana launchpad token from Pump.fun, Bonk.fun, Raydium LaunchLab, or DexScreener before you trust the chart. Paste the mint and review source, route, authority, liquidity, and public proof." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#06100f" />
+  <link rel="canonical" href="https://getvectora.ai/solana-launchpad-token-checker.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Solana Launchpad Token Checker | Pump.fun, Bonk.fun & Raydium Checks" />
+  <meta property="og:description" content="Paste a Solana launchpad token mint before the chart gets loud. Check source, route, mint authority, freeze authority, liquidity, and public proof." />
+  <meta property="og:url" content="https://getvectora.ai/solana-launchpad-token-checker.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta property="og:image:alt" content="Vectora Solana launchpad token checker" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solana Launchpad Token Checker" />
+  <meta name="twitter:description" content="Paste a Pump.fun, Bonk.fun, Raydium LaunchLab, or DexScreener token mint before trusting the chart." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Solana Launchpad Token Checker",
+      "url": "https://getvectora.ai/solana-launchpad-token-checker.html",
+      "description": "A Solana launchpad token checker for Pump.fun, Bonk.fun, Raydium LaunchLab, and DexScreener discovery flows.",
+      "datePublished": "2026-07-05",
+      "dateModified": "2026-07-05",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vectora"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I check a Solana launchpad token before buying?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Copy the token mint or contract address from the launchpad or DexScreener, paste it into Vectora, then compare source, route, authority, liquidity, and public proof before trading."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a Pump.fun or Bonk.fun token still be risky?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A launchpad can make discovery and trading easier, but you still need to check the exact mint, authority flags, liquidity, links, and whether the public story matches the contract."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I check first on a new Solana token?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with the exact token mint. Tickers, logos, screenshots, and replies can be copied; the mint is the anchor for every other check."
+          }
+        }
+      ]
+    }
+  </script>
+  <title>Solana Launchpad Token Checker | Pump.fun, Bonk.fun & Raydium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06100f;
+      --ink: #eefcff;
+      --muted: #9eb7b9;
+      --line: rgba(148, 183, 187, 0.24);
+      --panel: rgba(8, 18, 24, 0.88);
+      --cyan: #54e8ff;
+      --green: #53e6a7;
+      --gold: #f2c75c;
+      --rose: #ff88b7;
+      --violet: #a98cff;
+      --token-mark: url("./assets/vtrai-token-mark-128.png");
+    }
+    * { box-sizing: border-box; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background:
+        linear-gradient(145deg, rgba(6, 16, 15, 0.96), rgba(9, 18, 31, 0.96) 56%, rgba(17, 20, 42, 0.98)),
+        #06100f;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      background-image:
+        linear-gradient(to right, rgba(84, 232, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(83, 230, 167, 0.14) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, #000, transparent 85%);
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0 46px;
+    }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(8, 18, 24, 0.72);
+      padding: 10px 12px;
+      position: relative;
+      z-index: 20;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .brand::before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background: center / contain no-repeat var(--token-mark);
+      filter: drop-shadow(0 0 16px rgba(84, 232, 255, 0.28));
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-actions a,
+    .btn,
+    button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(13, 26, 33, 0.76);
+      color: var(--ink);
+      padding: 9px 12px;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn.primary,
+    button.primary {
+      color: #031011;
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--green), var(--cyan));
+    }
+    .btn.secondary {
+      color: var(--ink);
+      background: rgba(13, 26, 33, 0.76);
+    }
+    .hero {
+      min-height: min(720px, calc(100vh - 94px));
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.84fr);
+      gap: 14px;
+      align-items: stretch;
+      padding: 14px 0 0;
+    }
+    .hero-main,
+    .check-panel,
+    .band,
+    .flow-item,
+    .proof-row,
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+        var(--panel);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
+    }
+    .hero-main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: clamp(18px, 3vw, 34px);
+      overflow: hidden;
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      max-width: 740px;
+      font-size: clamp(2.1rem, 5vw, 4.9rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+    .sub {
+      max-width: 740px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.12rem);
+      line-height: 1.5;
+    }
+    .launch-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .launch-tags span,
+    .pill {
+      border: 1px solid rgba(148, 183, 187, 0.22);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(4, 10, 14, 0.42);
+      padding: 7px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+    .signal-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .signal {
+      border: 1px solid rgba(148, 183, 187, 0.18);
+      border-radius: 8px;
+      background: rgba(4, 10, 14, 0.42);
+      padding: 12px;
+      min-height: 94px;
+    }
+    .signal span {
+      display: block;
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .signal strong {
+      display: block;
+      margin-top: 8px;
+      line-height: 1.18;
+    }
+    .check-panel {
+      padding: clamp(16px, 2.4vw, 24px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .check-panel h2,
+    .band h2 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      line-height: 1.08;
+    }
+    .check-panel p,
+    .band p,
+    .flow-item p,
+    .proof-row p,
+    .faq-item p,
+    li {
+      color: var(--muted);
+      line-height: 1.52;
+      font-size: 0.94rem;
+    }
+    .launch-form {
+      display: grid;
+      gap: 10px;
+    }
+    label {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    input,
+    select {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(4, 10, 14, 0.72);
+      color: var(--ink);
+      padding: 10px 12px;
+      font: inherit;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 132px;
+      gap: 8px;
+    }
+    .helper {
+      min-height: 20px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .quick-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .platform-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .platform-list li {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 10px;
+      align-items: baseline;
+      border-top: 1px solid rgba(148, 183, 187, 0.14);
+      padding-top: 10px;
+      margin-top: 2px;
+    }
+    .platform-list strong {
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+    .band {
+      margin-top: 14px;
+      padding: 22px;
+    }
+    .flow-grid,
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .flow-item,
+    .proof-row,
+    .faq-item {
+      padding: 16px;
+      box-shadow: none;
+    }
+    .flow-item span {
+      color: var(--gold);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .flow-item h3,
+    .proof-row h3,
+    .faq-item h3 {
+      margin: 8px 0 0;
+      font-size: 1.02rem;
+      line-height: 1.18;
+    }
+    .proof-row {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+    .proof-row b {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      color: #031011;
+      background: linear-gradient(135deg, var(--gold), var(--green));
+      font-size: 0.88rem;
+    }
+    .final-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .final-cta p {
+      max-width: 680px;
+      margin: 8px 0 0;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .footer {
+      margin: 18px 0 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    @media (max-width: 920px) {
+      .top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav-actions {
+        justify-content: flex-start;
+      }
+      .hero,
+      .flow-grid,
+      .proof-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        min-height: 0;
+      }
+      .signal-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .btn,
+      button {
+        text-align: center;
+      }
+    }
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 22px, 1160px);
+        padding-top: 10px;
+      }
+      .top,
+      .hero-main,
+      .check-panel {
+        padding: 12px;
+      }
+      .hero {
+        gap: 10px;
+        padding-top: 10px;
+      }
+      .hero-main {
+        gap: 12px;
+      }
+      .sub {
+        margin-top: 10px;
+        font-size: 0.96rem;
+      }
+      .launch-tags {
+        gap: 6px;
+        margin-top: 12px;
+      }
+      .signal-strip {
+        display: none;
+      }
+      h1 {
+        font-size: 1.95rem;
+      }
+      .check-panel {
+        gap: 12px;
+      }
+      .check-panel p {
+        margin: 8px 0 0;
+      }
+      .platform-list {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="top" aria-label="Primary navigation">
+      <a class="brand" href="./">Vectora</a>
+      <div class="nav-actions">
+        <a href="./#trust-check">Token Check</a>
+        <a href="./verifier-sprint.html">Verifier Sprint</a>
+        <a href="./guides.html">Guides</a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-label="Solana launchpad token checker">
+      <div class="hero-main">
+        <div>
+          <p class="eyebrow">Solana Launchpad Check</p>
+          <h1>Paste before you ape.</h1>
+          <p class="sub">Found a fresh token on Pump.fun, Bonk.fun, Raydium LaunchLab, DexScreener, or X? Check the exact mint before the chart, ticker, or replies start doing the thinking for you.</p>
+          <div class="launch-tags" aria-label="Supported discovery surfaces">
+            <span>Pump.fun</span>
+            <span>Bonk.fun</span>
+            <span>Raydium LaunchLab</span>
+            <span>DexScreener</span>
+            <span>X replies</span>
+          </div>
+        </div>
+        <div class="signal-strip" aria-label="Launchpad token checks">
+          <div class="signal"><span>01 Source</span><strong>Does the token mint match the official post or site?</strong></div>
+          <div class="signal"><span>02 Controls</span><strong>Are mint or freeze authorities still active?</strong></div>
+          <div class="signal"><span>03 Liquidity</span><strong>Is the visible pool deep enough to matter?</strong></div>
+          <div class="signal"><span>04 Proof</span><strong>Can the community share a public receipt?</strong></div>
+        </div>
+      </div>
+
+      <aside class="check-panel" aria-label="Check a Solana launchpad token">
+        <div>
+          <h2>Run the launchpad pause.</h2>
+          <p>Paste the mint or CA. Vectora will open the checker with Solana selected and carry the address into the check path.</p>
+        </div>
+        <form class="launch-form" id="launchpadForm">
+          <label for="launchpadMint">Token mint or CA</label>
+          <input id="launchpadMint" autocomplete="off" spellcheck="false" placeholder="Paste Solana mint address" />
+          <div class="form-row">
+            <select id="launchpadSource" aria-label="Where you found it">
+              <option value="launchpad">Launchpad</option>
+              <option value="pumpfun">Pump.fun</option>
+              <option value="bonkfun">Bonk.fun</option>
+              <option value="raydium_launchlab">Raydium LaunchLab</option>
+              <option value="dexscreener">DexScreener</option>
+              <option value="x">X / reply thread</option>
+            </select>
+            <button class="primary" type="submit">Check now</button>
+          </div>
+          <p class="helper" id="helperText">A Solana mint is usually 32-44 base58 characters. Tickers are not enough.</p>
+        </form>
+        <div class="quick-actions">
+          <a class="btn secondary" href="./verifier-sprint.html?utm_source=site&utm_medium=launchpad&utm_campaign=launchpad_sprint">Start Sprint</a>
+          <a class="btn secondary" href="./proof-hunt.html#submit">Submit Proof Gap</a>
+        </div>
+        <ul class="platform-list" aria-label="Launchpad risk prompts">
+          <li><strong>Pump.fun</strong><span>Check the mint and graduation route before copying a ticker from comments.</span></li>
+          <li><strong>Bonk.fun</strong><span>Community alignment helps, but source, controls, and liquidity still matter.</span></li>
+          <li><strong>Raydium</strong><span>Match the pool and route to the exact output mint, not the pair name.</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="band">
+      <h2>Why launchpad attention moves so fast</h2>
+      <p>Small Solana tokens get attention when there is a live surface to join: a chart, a holder race, a claim, a community takeover, a raid, or a proof dispute. Vectora's job is to become the pause step in that flow.</p>
+      <div class="flow-grid">
+        <article class="flow-item">
+          <span>Fresh chart</span>
+          <h3>Discovery happens elsewhere.</h3>
+          <p>Launchpads and DexScreener create the rush. The website should receive people when they need the exact check.</p>
+        </article>
+        <article class="flow-item">
+          <span>Public receipt</span>
+          <h3>Proof becomes shareable.</h3>
+          <p>A useful check should produce something people can revisit, share, or use inside a real argument.</p>
+        </article>
+        <article class="flow-item">
+          <span>Return habit</span>
+          <h3>Status gives people a reason back.</h3>
+          <p>Verifier Sprint ties checks to an X handle, badge progress, and optional wallet context without promising a reward.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>The first checks to run</h2>
+      <div class="proof-grid">
+        <article class="proof-row">
+          <b>CA</b>
+          <div>
+            <h3>Exact mint first</h3>
+            <p>Do not trust the ticker, avatar, or reply-chain contract until the mint matches the project source and explorer.</p>
+          </div>
+        </article>
+        <article class="proof-row">
+          <b>AU</b>
+          <div>
+            <h3>Authority flags</h3>
+            <p>Mint authority, freeze authority, and mutable metadata can matter more than the first green candle.</p>
+          </div>
+        </article>
+        <article class="proof-row">
+          <b>LP</b>
+          <div>
+            <h3>Pool reality</h3>
+            <p>Liquidity claims should point to the actual pool people are trading, with enough depth to make the chart meaningful.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="band final-cta">
+      <div>
+        <h2>Turn a launchpad check into a public sprint.</h2>
+        <p>Run the first check, save the receipt, then use Verifier Sprint to attach your X handle and build a visible badge trail. No airdrop or reward is promised.</p>
+      </div>
+      <div class="quick-actions">
+        <a class="btn primary" href="./verifier-sprint.html?utm_source=site&utm_medium=launchpad&utm_campaign=launchpad_sprint_bottom">Start Verifier Sprint</a>
+        <a class="btn secondary" href="./solana-token-checker.html">Read Solana Guide</a>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>Launchpad token FAQ</h2>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Is a launchpad token safer than a random contract?</h3>
+          <p>Not automatically. A launchpad may standardize creation and discovery, but it does not replace mint, authority, route, liquidity, and proof checks.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What should I paste into Vectora?</h3>
+          <p>Paste the token mint or contract address. If you only have a pair page, use the token address, not the pair address.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Should every launchpad token get a public receipt?</h3>
+          <p>No. Most should be ignored quickly. Create a public receipt when the token is worth revisiting or the community is arguing over proof.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Does this promise the token is safe?</h3>
+          <p>No. Vectora publishes first-pass verification context, not guarantees. The aim is to slow down bad decisions and make proof easier to compare.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer">Vectora publishes verification context, not trading guarantees. Always confirm the exact mint before acting. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a></p>
+  </main>
+
+  <script>
+    const PAGE_NAME = 'solana_launchpad_token_checker';
+    const mintInput = document.getElementById('launchpadMint');
+    const sourceSelect = document.getElementById('launchpadSource');
+    const helperText = document.getElementById('helperText');
+    const SOLANA_MINT_RE = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+
+    function trackEvent(name, params = {}) {
+      if (typeof window.gtag === 'function') window.gtag('event', name, params);
+    }
+
+    function normalizeMint(value) {
+      return String(value || '').trim();
+    }
+
+    function checkerUrl(mint, source) {
+      const params = new URLSearchParams();
+      params.set('network', 'solana');
+      params.set('address', mint);
+      params.set('autocheck', '1');
+      params.set('utm_source', source || 'launchpad');
+      params.set('utm_medium', 'site');
+      params.set('utm_campaign', 'solana_launchpad_checker');
+      return `./?${params.toString()}#trust-check`;
+    }
+
+    document.getElementById('launchpadForm')?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const mint = normalizeMint(mintInput?.value);
+      const source = sourceSelect?.value || 'launchpad';
+      if (!SOLANA_MINT_RE.test(mint)) {
+        helperText.textContent = 'Paste the full Solana mint or CA first. A ticker like $TOKEN is not enough.';
+        helperText.style.color = 'var(--rose)';
+        mintInput?.focus();
+        trackEvent('launchpad_check_rejected', { page_name: PAGE_NAME, source });
+        return;
+      }
+      helperText.textContent = 'Opening the checker with this mint.';
+      helperText.style.color = 'var(--green)';
+      trackEvent('launchpad_check_start', { page_name: PAGE_NAME, source });
+      window.location.href = checkerUrl(mint, source);
+    });
+
+    mintInput?.addEventListener('input', () => {
+      helperText.textContent = 'A Solana mint is usually 32-44 base58 characters. Tickers are not enough.';
+      helperText.style.color = 'var(--muted)';
+    });
+
+    trackEvent('launchpad_checker_view', { page_name: PAGE_NAME });
+  </script>
+</body>
+</html>

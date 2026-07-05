@@ -78,6 +78,10 @@
     }
 
     * { box-sizing: border-box; }
+    html {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       margin: 0;
       font-family: "Space Grotesk", sans-serif;
@@ -2012,6 +2016,7 @@
               <a href="./ai-agent-token-checker.html">AI Agent Token Checker</a>
               <a href="./base-memecoin-checker.html">Base Memecoin Checker</a>
               <a href="./solana-token-checker.html">Solana Token Checker</a>
+              <a href="./solana-launchpad-token-checker.html">Solana Launchpad Checker</a>
               <a href="./dexscreener-red-flags.html">DexScreener Red Flags</a>
               <a href="./dexscreener-token-checker.html">DexScreener Guide</a>
             </div>
@@ -2042,6 +2047,7 @@
         </div>
         <div class="cta">
           <a class="btn gold" href="#trust-check">Check a token</a>
+          <a class="btn" href="./solana-launchpad-token-checker.html">Launchpad check</a>
           <a class="btn" href="./5-minute-token-verification-checklist.html">5-minute checklist</a>
           <a class="btn" href="#how-it-works">How it works</a>
         </div>
@@ -2257,6 +2263,15 @@
     </div>
 
     <section class="category-grid" aria-label="Search intent starting points">
+      <article class="card category-card reveal">
+        <div class="category-label">Solana Launchpads</div>
+        <h3>Fresh token, loud chart.</h3>
+        <p>Use the launchpad checker when discovery starts on Pump.fun, Bonk.fun, Raydium LaunchLab, DexScreener, or an X reply-chain CA.</p>
+        <div class="cta">
+          <a class="btn" href="./solana-launchpad-token-checker.html">Check launchpad token</a>
+          <a class="btn" href="./verifier-sprint.html">Start sprint</a>
+        </div>
+      </article>
       <article class="card category-card reveal">
         <div class="category-label">DexScreener Red Flags</div>
         <h3>Chart looks real. Proof still needed.</h3>
@@ -3344,6 +3359,29 @@
     trustInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') checkToken();
     });
+
+    function initCheckerFromParams() {
+      const params = new URLSearchParams(window.location.search);
+      const address = (params.get('address') || params.get('mint') || params.get('contract') || params.get('ca') || '').trim();
+      const network = (params.get('network') || '').trim();
+      if (!address) return;
+      if (trustInput) trustInput.value = address;
+      if (networkSelect && network) {
+        const hasOption = Array.from(networkSelect.options).some((option) => option.value === network);
+        if (hasOption) networkSelect.value = network;
+      }
+      document.getElementById('trust-check')?.scrollIntoView({ block: 'start' });
+      trackEvent('token_check_prefilled', {
+        page: 'home',
+        network: network || 'auto',
+        source: params.get('utm_source') || params.get('source') || 'direct',
+      });
+      if (params.get('autocheck') === '1') {
+        window.setTimeout(checkToken, 180);
+      }
+    }
+
+    initCheckerFromParams();
     trustResult.addEventListener('click', async (event) => {
       const shareButton = event.target.closest('[data-share-report]');
       if (shareButton && currentWatchToken) {

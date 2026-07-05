@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vectora Verifier Sprint: complete free token-check actions, connect an X handle, attach optional wallet context for future eligibility tracking, and unlock verifier badges." />
+  <meta name="description" content="Vectora Verifier Sprint: connect an X handle, check Solana launchpad tokens, complete free token-check actions, attach optional wallet context, and unlock verifier badges." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#06100f" />
   <link rel="canonical" href="https://getvectora.ai/verifier-sprint.html" />
@@ -11,13 +11,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="Vectora Verifier Sprint | Free Token Check Actions" />
-  <meta property="og:description" content="A compact verifier checklist with progress, badge gradients, free token-check actions, X-handle verification, and optional wallet eligibility tracking." />
+  <meta property="og:description" content="A compact verifier checklist with progress, badge gradients, Solana launchpad checks, X-handle verification, and optional wallet eligibility tracking." />
   <meta property="og:url" content="https://getvectora.ai/verifier-sprint.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora Verifier Sprint badge checklist" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vectora Verifier Sprint" />
-  <meta name="twitter:description" content="Complete free token-check actions and build verifier status with X-handle and optional wallet tracking." />
+  <meta name="twitter:description" content="Complete Solana launchpad checks and free verifier actions with X-handle and optional wallet tracking." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script type="application/ld+json">
     {
@@ -25,7 +25,7 @@
       "@type": "WebPage",
       "name": "Vectora Verifier Sprint",
       "url": "https://getvectora.ai/verifier-sprint.html",
-      "description": "A compact Vectora verifier checklist for free token-check actions, proof-gap submissions, public X-handle verification, and optional wallet eligibility tracking."
+      "description": "A compact Vectora verifier checklist for Solana launchpad checks, free token-check actions, proof-gap submissions, public X-handle verification, and optional wallet eligibility tracking."
     }
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
@@ -35,7 +35,7 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
-  <title>Vectora Verifier Sprint | Free Token Check Actions</title>
+  <title>Vectora Verifier Sprint | Launchpad & Free Token Check Actions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -607,6 +607,7 @@
       <a class="brand" href="./">Vectora</a>
       <div class="top-actions">
         <a href="./#trust-check">Token check</a>
+        <a href="./solana-launchpad-token-checker.html">Launchpad check</a>
         <a href="./proof-hunt.html">Proof Hunt</a>
       </div>
     </nav>
@@ -617,7 +618,7 @@
           <div>
             <p class="eyebrow">Verifier Sprint</p>
             <h1>Complete free checks. Build a verified badge trail.</h1>
-            <p>Start with X, then attach optional wallet context for future eligibility tracking. No airdrop or reward is promised.</p>
+            <p>Start with X, check a Solana launchpad mint, then attach optional wallet context for future eligibility tracking. No airdrop or reward is promised.</p>
           </div>
           <div class="handle-box">
             <label for="xHandle">X username</label>
@@ -651,8 +652,17 @@
             </div>
             <div class="mission-actions"><span class="state">Add handle first</span></div>
           </article>
-          <article class="mission" data-id="check" data-kind="local">
+          <article class="mission" data-id="launchpad" data-kind="local">
             <div class="rank">03</div>
+            <div>
+              <h2>Check one launchpad token</h2>
+              <p>Use the Solana launchpad checker for a Pump.fun, Bonk.fun, Raydium, DexScreener, or X reply-chain mint.</p>
+              <div class="mission-meta"><span class="pill">Easy</span><span class="pill">Launchpad visibility</span></div>
+            </div>
+            <div class="mission-actions"><a class="btn primary tracked-link" data-action="complete-local" data-id="launchpad" data-label="sprint_launchpad_check" href="./solana-launchpad-token-checker.html?utm_source=verifier_sprint&utm_medium=site&utm_campaign=launchpad_check">Open launchpad check</a><span class="state">Not started</span></div>
+          </article>
+          <article class="mission" data-id="check" data-kind="local">
+            <div class="rank">04</div>
             <div>
               <h2>Run one free token check</h2>
               <p>Open Vectora and paste a token, mint, contract, or pair before trusting the chart.</p>
@@ -661,7 +671,7 @@
             <div class="mission-actions"><a class="btn primary tracked-link" data-action="complete-local" data-id="check" data-label="sprint_token_check" href="./#trust-check">Open check</a><span class="state">Not started</span></div>
           </article>
           <article class="mission" data-id="report" data-kind="local">
-            <div class="rank">04</div>
+            <div class="rank">05</div>
             <div>
               <h2>Create a shareable receipt</h2>
               <p>Open a report page so the check can be revisited instead of disappearing into memory.</p>
@@ -670,7 +680,7 @@
             <div class="mission-actions"><a class="btn primary tracked-link" data-action="complete-local" data-id="report" data-label="sprint_report" href="./report.html">Open report</a><span class="state">Not started</span></div>
           </article>
           <article class="mission" data-id="proof" data-kind="local">
-            <div class="rank">05</div>
+            <div class="rank">06</div>
             <div>
               <h2>Generate a proof-gap submission</h2>
               <p>Turn one unclear source, route, liquidity, or authority claim into a copy-ready note.</p>
@@ -679,7 +689,7 @@
             <div class="mission-actions"><a class="btn primary tracked-link" data-action="complete-local" data-id="proof" data-label="sprint_proof_gap" href="./proof-hunt.html#submit">Generate</a><span class="state">Not started</span></div>
           </article>
           <article class="mission" data-id="xpost" data-kind="verified">
-            <div class="rank">06</div>
+            <div class="rank">07</div>
             <div>
               <h2>Post one public check habit</h2>
               <p>The sprint creates a unique challenge code. Your badge waits until the public post can be checked.</p>
@@ -688,7 +698,7 @@
             <div class="mission-actions"><button class="primary" type="button" data-action="start-x" data-id="xpost">Open draft</button><span class="state">Needs handle</span></div>
           </article>
           <article class="mission" data-id="xreply" data-kind="verified">
-            <div class="rank">07</div>
+            <div class="rank">08</div>
             <div>
               <h2>Reply with useful context</h2>
               <p>Join a real conversation with a literal, useful reply. No forced promotion.</p>
@@ -718,7 +728,7 @@
         </div>
         <div class="badge-list">
           <div class="badge" data-badge="starter"><strong>Starter</strong><span>0-24%. X handle attached.</span></div>
-          <div class="badge" data-badge="signal"><strong>Eligibility-Ready</strong><span>25-49%. Wallet context saved for future tracking.</span></div>
+          <div class="badge" data-badge="signal"><strong>Eligibility-Ready</strong><span>25-49%. Launchpad or wallet context saved for future tracking.</span></div>
           <div class="badge" data-badge="public"><strong>Public Verifier</strong><span>50-99%. X actions are pending or verified.</span></div>
           <div class="badge" data-badge="founding"><strong>Founding Verifier</strong><span>100%. All actions verified; may be considered if rules are published later.</span></div>
         </div>
@@ -742,7 +752,7 @@
     const PAGE_NAME = 'verifier_sprint';
     const VERIFIER_API_BASE = 'https://api.getvectora.ai';
     const STORAGE_KEY = 'vectora_verifier_sprint_v1';
-    const MISSIONS = ['handle', 'wallet', 'check', 'report', 'proof', 'xpost', 'xreply'];
+    const MISSIONS = ['handle', 'wallet', 'launchpad', 'check', 'report', 'proof', 'xpost', 'xreply'];
     const VERIFIED_REQUIRED = ['xpost', 'xreply'];
 
     function trackEvent(name, params = {}) {
@@ -1046,7 +1056,7 @@
     function badgeFor(percent) {
       if (percent >= 100) return ['Founding Verifier', 'founding', 'Full sprint verified. Badge gradient unlocked.'];
       if (percent >= 50) return ['Public Verifier', 'public', 'Public actions are pending or verified. Keep the fit human.'];
-      if (percent >= 25) return ['Eligibility-Ready', 'signal', 'Wallet context and free utility actions are landing.'];
+      if (percent >= 25) return ['Eligibility-Ready', 'signal', 'Launchpad, wallet, and free utility actions are landing.'];
       return ['Starter', 'starter', 'Attach your X handle, then add optional wallet context.'];
     }
 
@@ -1170,8 +1180,8 @@
       render();
       const submitted = await submitVerifierClaim(id, handle, code);
       const text = id === 'xpost'
-        ? `Before I trust a token chart, I want the official source, exact mint, route, liquidity, and control flags to line up. Verifier sprint: ${code} https://getvectora.ai/verifier-sprint.html`
-        : `Useful check. I would still want the source, exact token, route, and public receipts to line up before trusting the chart. ${code}`;
+        ? `Before I trust a launchpad chart, I want the source, exact mint, route, liquidity, and control flags to line up. Verifier sprint: ${code} https://getvectora.ai/verifier-sprint.html`
+        : `Useful check. I would still want the source, exact mint, route, and public receipts to line up before trusting the chart. ${code}`;
       window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
       showToast(submitted ? 'Challenge queued. Badge waits for verification.' : 'Challenge saved locally. Verification will retry later.');
       trackEvent('verifier_sprint_x_pending', { page_name: PAGE_NAME, mission_id: id, challenge_code: code });

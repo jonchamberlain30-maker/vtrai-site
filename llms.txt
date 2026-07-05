@@ -5,7 +5,9 @@ Vectora is a crypto trust-monitoring site focused on token checks, saved watchli
 ## Public pages
 
 - Home: https://getvectora.ai/
+- Solana launchpad token checker: https://getvectora.ai/solana-launchpad-token-checker.html
 - Verification guide: https://getvectora.ai/verify-token.html
+- Verifier Sprint: https://getvectora.ai/verifier-sprint.html
 - Proof pack: https://getvectora.ai/proof.html
 - Updates desk: https://getvectora.ai/updates.html
 - Whitepaper: https://getvectora.ai/whitepaper.html
