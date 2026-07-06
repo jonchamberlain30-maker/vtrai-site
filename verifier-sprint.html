@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vectora Verifier Sprint: connect an X handle, check Solana launchpad tokens, complete free token-check actions, attach optional wallet context, and unlock verifier badges." />
+  <meta name="description" content="Vectora Verifier Sprint Season 1: connect an X handle, complete free token-check actions, check Solana launchpad tokens, attach optional wallet context, and build public verifier badges." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#06100f" />
   <link rel="canonical" href="https://getvectora.ai/verifier-sprint.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Vectora Verifier Sprint | Free Token Check Actions" />
-  <meta property="og:description" content="A compact verifier checklist with progress, badge gradients, Solana launchpad checks, X-handle verification, and optional wallet eligibility tracking." />
+  <meta property="og:title" content="Vectora Verifier Sprint Season 1 | Free Token Check Actions" />
+  <meta property="og:description" content="Complete free verifier actions, check Solana launchpad tokens, build X-handle progress, and create a public badge trail. No reward is promised." />
   <meta property="og:url" content="https://getvectora.ai/verifier-sprint.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora Verifier Sprint badge checklist" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vectora Verifier Sprint" />
-  <meta name="twitter:description" content="Complete Solana launchpad checks and free verifier actions with X-handle and optional wallet tracking." />
+  <meta name="twitter:title" content="Vectora Verifier Sprint Season 1" />
+  <meta name="twitter:description" content="Complete free verifier actions, launchpad checks, X-handle progress, and optional wallet tracking. No reward is promised." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Vectora Verifier Sprint",
+      "name": "Vectora Verifier Sprint Season 1",
       "url": "https://getvectora.ai/verifier-sprint.html",
-      "description": "A compact Vectora verifier checklist for Solana launchpad checks, free token-check actions, proof-gap submissions, public X-handle verification, and optional wallet eligibility tracking."
+      "description": "A compact Vectora verifier checklist for Solana launchpad checks, free token-check actions, proof-gap submissions, public X-handle verification, optional wallet eligibility tracking, and badge progress."
     }
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
@@ -35,7 +35,7 @@
     gtag('js', new Date());
     gtag('config', 'G-YFD45VCN8J');
   </script>
-  <title>Vectora Verifier Sprint | Launchpad & Free Token Check Actions</title>
+  <title>Vectora Verifier Sprint Season 1 | Free Token Check Actions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -170,6 +170,37 @@
       margin: 8px 0 0;
       color: var(--muted);
       line-height: 1.45;
+    }
+    .season-strip {
+      margin-top: 11px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      max-width: 780px;
+    }
+    .season-chip {
+      min-width: 0;
+      border: 1px solid rgba(84, 232, 255, 0.18);
+      border-radius: 8px;
+      background: rgba(4, 10, 14, 0.42);
+      padding: 8px 9px;
+    }
+    .season-chip span,
+    .season-chip strong {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+    .season-chip span {
+      color: var(--green);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .season-chip strong {
+      margin-top: 2px;
+      font-size: 0.84rem;
+      line-height: 1.15;
     }
     .handle-box {
       width: min(320px, 100%);
@@ -574,6 +605,9 @@
       .intro {
         grid-template-columns: 1fr;
       }
+      .season-strip {
+        grid-template-columns: 1fr;
+      }
       .handle-box {
         width: 100%;
       }
@@ -616,9 +650,14 @@
       <div class="surface main-panel">
         <header class="intro">
           <div>
-            <p class="eyebrow">Verifier Sprint</p>
+            <p class="eyebrow">Verifier Sprint Season 1</p>
             <h1>Complete free checks. Build a verified badge trail.</h1>
-            <p>Start with X, check a Solana launchpad mint, then attach optional wallet context for future eligibility tracking. No airdrop or reward is promised.</p>
+            <p>Start with X, check a Solana launchpad mint, create a returnable proof habit, then attach optional wallet context for future eligibility tracking. No airdrop or reward is promised.</p>
+            <div class="season-strip" aria-label="Season 1 loop">
+              <div class="season-chip"><span>Step 1</span><strong>Run a free check</strong></div>
+              <div class="season-chip"><span>Step 2</span><strong>Create a receipt</strong></div>
+              <div class="season-chip"><span>Step 3</span><strong>Return for badge progress</strong></div>
+            </div>
           </div>
           <div class="handle-box">
             <label for="xHandle">X username</label>
@@ -1180,7 +1219,7 @@
       render();
       const submitted = await submitVerifierClaim(id, handle, code);
       const text = id === 'xpost'
-        ? `Before I trust a launchpad chart, I want the source, exact mint, route, liquidity, and control flags to line up. Verifier sprint: ${code} https://getvectora.ai/verifier-sprint.html`
+        ? `Before I trust a launchpad chart, I want the source, exact mint, route, liquidity, and control flags to line up. Verifier sprint: ${code}`
         : `Useful check. I would still want the source, exact mint, route, and public receipts to line up before trusting the chart. ${code}`;
       window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
       showToast(submitted ? 'Challenge queued. Badge waits for verification.' : 'Challenge saved locally. Verification will retry later.');
