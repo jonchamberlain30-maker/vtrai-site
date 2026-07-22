@@ -384,6 +384,65 @@
     .copy-btn:hover {
       transform: translateY(-1px);
     }
+    .live-receipt {
+      margin-top: 12px;
+      scroll-margin-top: 96px;
+      border: 1px solid rgba(74, 227, 181, 0.34);
+      border-radius: 16px;
+      background: rgba(8, 24, 31, 0.72);
+      padding: 20px;
+    }
+    .receipt-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .receipt-head h2 { margin-bottom: 6px; }
+    .receipt-head p { margin: 0; }
+    .receipt-status {
+      flex: 0 0 auto;
+      border: 1px solid rgba(74, 227, 181, 0.34);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--good);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .receipt-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .receipt-field {
+      border-top: 1px solid rgba(77, 234, 255, 0.18);
+      padding-top: 10px;
+      min-width: 0;
+    }
+    .receipt-field span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+    }
+    .receipt-field strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink);
+      overflow-wrap: anywhere;
+    }
+    .receipt-reasons {
+      margin-top: 16px;
+      display: grid;
+      gap: 8px;
+    }
+    .receipt-reasons li strong { color: var(--ink); }
+    .receipt-state {
+      margin-top: 14px;
+      color: var(--muted);
+    }
     @media (max-width: 860px) {
       body { overflow-x: hidden; }
       .wrap {
@@ -399,6 +458,8 @@
         justify-content: flex-start;
       }
       .grid { grid-template-columns: 1fr; }
+      .receipt-head { flex-direction: column; }
+      .receipt-grid { grid-template-columns: 1fr 1fr; }
       .hero h1 {
         font-size: 1.7rem;
         overflow-wrap: break-word;
@@ -446,15 +507,16 @@
     </div>
 
     <section class="hero">
-      <h1>Vectora proof pack: official mint, controls, and public references.</h1>
-      <p>This page keeps the core Vectora proof trail in one place. Use it to cross-check the official mint, public tracker surfaces, control signals, and official channels.</p>
+      <h1>Vectora proof pack: live receipt, official mint, and public references.</h1>
+      <p>This page keeps the core Vectora proof trail in one place. Start with the timestamped receipt, then cross-check its mint, control signals, tracker surfaces, and official channels.</p>
       <div class="chips">
         <span class="chip">Official mint</span>
-        <span class="chip">Mint authority revoked</span>
-        <span class="chip">Freeze authority revoked</span>
+        <span class="chip">Live control state</span>
+        <span class="chip">Timestamped check</span>
         <span class="chip">Public references</span>
       </div>
       <div class="cta">
+        <a href="#live-receipt">View live receipt</a>
         <a href="./#trust-check">Check the mint</a>
         <a href="./token-info.html">Open token info</a>
       </div>
@@ -463,6 +525,17 @@
     <section class="notice">
       <strong>Canonical Reference Rule</strong>
       <p>Treat this page, the token info page, and the homepage token check as the public reference set. If a post, pair, or message uses a different mint, it is not the Vectora token.</p>
+    </section>
+
+    <section class="live-receipt" id="live-receipt" aria-live="polite">
+      <div class="receipt-head">
+        <div>
+          <h2>Live receipt: official VTRAI mint</h2>
+          <p id="receiptTimestamp">Fetching the current trust report...</p>
+        </div>
+        <span class="receipt-status" id="receiptStatus">Checking</span>
+      </div>
+      <div class="receipt-state" id="receiptBody">The receipt will appear here only when the live trust API returns current evidence.</div>
     </section>
 
     <section class="grid">
@@ -476,11 +549,11 @@
         <div class="warn">Any token, post, pair, or wallet route using a different mint should be treated as fake.</div>
       </article>
       <article class="card">
-        <h2>Control Signals</h2>
+        <h2>Controls Checked</h2>
         <ul>
-          <li><span class="ok">Mint authority:</span> revoked.</li>
-          <li><span class="ok">Freeze authority:</span> revoked.</li>
-          <li>Fixed supply: <strong>1,000,000,000</strong>.</li>
+          <li>Mint authority and freeze authority state.</li>
+          <li>Supply and metadata mutability.</li>
+          <li>Official mint and route match.</li>
           <li>Verification starts from public pages, not DMs or support chats.</li>
         </ul>
       </article>
@@ -553,9 +626,95 @@
     <p class="footer">Vectora publishes proof and public references, not guarantees. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
   </main>
   <script>
+    const TRUST_API_BASE = 'https://api.getvectora.ai';
+    const OFFICIAL_MINT = 'Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J';
+    const receiptTimestamp = document.getElementById('receiptTimestamp');
+    const receiptStatus = document.getElementById('receiptStatus');
+    const receiptBody = document.getElementById('receiptBody');
+
     function trackEvent(name, params = {}) {
       if (typeof window.gtag === 'function') {
         window.gtag('event', name, params);
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function safeExternalUrl(value) {
+      try {
+        const url = new URL(value);
+        return url.protocol === 'https:' ? url.href : '';
+      } catch {
+        return '';
+      }
+    }
+
+    function receiptField(label, value) {
+      return `<div class="receipt-field"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value || 'Unknown')}</strong></div>`;
+    }
+
+    function formatReceiptTime(value) {
+      const parsed = Date.parse(value || '');
+      if (!Number.isFinite(parsed)) return 'Check time unavailable';
+      return new Intl.DateTimeFormat(undefined, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short',
+      }).format(new Date(parsed));
+    }
+
+    async function loadLiveReceipt() {
+      const reportUrl = `./report.html?network=solana&address=${encodeURIComponent(OFFICIAL_MINT)}`;
+      try {
+        const response = await fetch(`${TRUST_API_BASE}/check?network=solana&address=${encodeURIComponent(OFFICIAL_MINT)}`, { cache: 'no-store' });
+        const payload = await response.json();
+        if (!response.ok || !payload.ok || !payload.report) {
+          throw new Error(payload.error || 'Current receipt unavailable.');
+        }
+        const report = payload.report;
+        const meta = new Map((report.meta || []).map((item) => [item.label, item.value]));
+        const reasons = (report.reasons || []).slice(0, 3);
+        const links = (report.links || [])
+          .map((link) => ({ label: link.label, url: safeExternalUrl(link.url) }))
+          .filter((link) => link.url)
+          .slice(0, 4);
+        receiptTimestamp.textContent = `Checked ${formatReceiptTime(report.checked_at_utc)} against the live trust API.`;
+        receiptStatus.textContent = report.level || 'Current';
+        receiptBody.innerHTML = `
+          <div class="receipt-grid">
+            ${receiptField('Token', meta.get('Token') || report.title)}
+            ${receiptField('Network', report.network_label || meta.get('Network'))}
+            ${receiptField('Supply', meta.get('Supply'))}
+            ${receiptField('Metadata mutable', meta.get('Metadata mutable'))}
+          </div>
+          <ul class="receipt-reasons">
+            ${reasons.map((item) => `<li><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.text)}</li>`).join('')}
+          </ul>
+          <div class="links">
+            <a href="${reportUrl}" data-receipt-link="full_report">Open full receipt</a>
+            ${links.map((link) => `<a href="${escapeHtml(link.url)}" data-receipt-link="source" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`).join('')}
+          </div>
+        `;
+        trackEvent('proof_receipt_rendered', {
+          page_name: 'proof_pack',
+          network: report.network_id || 'solana',
+          level: report.level || 'unknown',
+        });
+      } catch (error) {
+        receiptTimestamp.textContent = 'The live API did not return a current receipt.';
+        receiptStatus.textContent = 'Unavailable';
+        receiptBody.innerHTML = `<div class="warn">${escapeHtml(error.message || 'Current receipt unavailable.')} <a href="${reportUrl}">Retry on the full report page.</a></div>`;
+        trackEvent('proof_receipt_failed', { page_name: 'proof_pack' });
       }
     }
 
@@ -584,6 +743,18 @@
     copyButtons.forEach((button) => {
       button.addEventListener('click', () => copyMint(button));
     });
+
+    receiptBody.addEventListener('click', (event) => {
+      const link = event.target.closest('[data-receipt-link]');
+      if (!link) return;
+      trackEvent('proof_receipt_link_clicked', {
+        page_name: 'proof_pack',
+        link_type: link.dataset.receiptLink || 'source',
+        destination_host: new URL(link.href, window.location.href).hostname,
+      });
+    });
+
+    loadLiveReceipt();
   </script>
   <script src="./assets/coinzilla-performance.js" defer></script>
   <script src="./assets/brand-buy-tracking.js" defer></script>
