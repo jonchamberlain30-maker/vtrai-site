@@ -2584,6 +2584,63 @@
       return `./report.html?${params.toString()}`;
     }
 
+    function formatCalendarDate(date) {
+      return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+    }
+
+    function escapeCalendarText(value) {
+      return String(value || '')
+        .replace(/\\/g, '\\\\')
+        .replace(/\r?\n/g, '\\n')
+        .replace(/,/g, '\\,')
+        .replace(/;/g, '\\;');
+    }
+
+    function downloadRecheckReminder(token, button) {
+      const start = new Date(Date.now() + (7 * 24 * 60 * 60 * 1000));
+      const end = new Date(start.getTime() + (30 * 60 * 1000));
+      const label = token?.token_label || token?.title || 'saved token';
+      const reportUrl = new URL(buildReportUrl(token), window.location.href).href;
+      const calendar = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Vectora//Token Recheck//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        `UID:vectora-${String(token?.address || 'token').replace(/[^A-Za-z0-9]/g, '')}-${start.getTime()}@getvectora.ai`,
+        `DTSTAMP:${formatCalendarDate(new Date())}`,
+        `DTSTART:${formatCalendarDate(start)}`,
+        `DTEND:${formatCalendarDate(end)}`,
+        `SUMMARY:${escapeCalendarText(`Recheck ${label} on Vectora`)}`,
+        `DESCRIPTION:${escapeCalendarText('Refresh the saved report and compare what changed before making another decision.')}`,
+        `URL:${reportUrl}`,
+        'END:VEVENT',
+        'END:VCALENDAR',
+        '',
+      ].join('\r\n');
+      const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
+      const objectUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      const safeLabel = String(label).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'token';
+      link.href = objectUrl;
+      link.download = `vectora-recheck-${safeLabel}.ics`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(objectUrl);
+      const original = button.textContent;
+      button.textContent = 'Reminder downloaded';
+      setTimeout(() => {
+        button.textContent = original;
+      }, 1800);
+      trackEvent('token_recheck_reminder_downloaded', {
+        page: 'home',
+        network: token?.network_id || 'unknown',
+        reminder_days: 7,
+      });
+    }
+
     async function requestScheduledMonitoring(token, button, statusEl) {
       if (!token?.address || !token?.network_id) return;
       const original = button.textContent;
@@ -2830,6 +2887,7 @@
       const watchHtml = watchToken ? `
         <div class="trust-watch-row">
           <button class="copy-btn trust-watch-btn primary" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Saved for change checks' : 'Save for change checks'}</button>
+          <button class="copy-btn trust-watch-btn" type="button" data-recheck-reminder="true" ${isWatchedToken(watchToken) ? '' : 'disabled'}>Add 7-day reminder</button>
           ${monitorQueueReady ? `<button class="copy-btn trust-watch-btn" type="button" data-request-monitoring="true" ${watchToken.scheduled_requested ? 'disabled' : ''}>${watchToken.scheduled_requested ? 'Scheduled' : 'Request scheduled monitoring'}</button>` : ''}
           <a class="watchlist-link" href="${buildReportUrl(watchToken)}">Open report page</a>
           <a class="watchlist-link" href="./watchlist.html">Open watchlist</a>
@@ -3427,6 +3485,8 @@
       if (button && currentWatchToken) {
         const watching = toggleWatchToken(currentWatchToken);
         button.textContent = watching ? 'Saved for change checks' : 'Save for change checks';
+        const reminderButton = trustResult.querySelector('[data-recheck-reminder]');
+        if (reminderButton) reminderButton.disabled = !watching;
         const status = trustResult.querySelector('[data-watch-status]');
         if (status) {
           status.textContent = watching
@@ -3442,6 +3502,12 @@
           network: currentWatchToken.network_id || 'unknown',
           monitoring_type: 'local_change_checks',
         });
+        return;
+      }
+
+      const reminderButton = event.target.closest('[data-recheck-reminder]');
+      if (reminderButton && currentWatchToken && !reminderButton.disabled) {
+        downloadRecheckReminder(currentWatchToken, reminderButton);
         return;
       }
 
