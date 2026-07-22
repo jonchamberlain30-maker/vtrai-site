@@ -652,6 +652,7 @@
     <section class="grid">
       <article class="card">
         <h2>Latest Trust Snapshot</h2>
+        <p class="state" id="trustFreshness">Checking trust snapshot freshness...</p>
         <div id="trustLatest"><p class="loading">Loading trust snapshot...</p></div>
       </article>
       <article class="card">
@@ -662,6 +663,7 @@
 
     <section class="card">
       <h2>Watched Token Snapshots</h2>
+      <p class="state" id="watchedFreshness">Checking watched-token freshness...</p>
       <div id="watchedSnapshots"><p class="loading">Loading watched token snapshots...</p></div>
     </section>
 
@@ -686,6 +688,8 @@
     const trustLatestEl = document.getElementById('trustLatest');
     const trustHistoryEl = document.getElementById('trustHistory');
     const watchedSnapshotsEl = document.getElementById('watchedSnapshots');
+    const trustFreshnessEl = document.getElementById('trustFreshness');
+    const watchedFreshnessEl = document.getElementById('watchedFreshness');
     const params = new URLSearchParams(window.location.search);
     const filterAddress = String(params.get('address') || '').trim();
     const filterNetwork = String(params.get('network') || '').trim();
@@ -879,7 +883,12 @@
           return;
         }
 
-        statusEl.textContent = `Public updates refreshed: ${data.generated_at_utc || 'now'} (latest: ${items[0].timestamp_utc || 'n/a'})`;
+        const marketState = data.market_status === 'no_indexed_pair'
+          ? 'No indexed market pair found during the latest check.'
+          : data.market_status === 'indexed_pair_available'
+            ? 'An indexed market pair is currently visible.'
+            : 'Market-index status unavailable.';
+        statusEl.textContent = `Bulletins checked: ${data.validated_at_utc || data.generated_at_utc || 'unknown'} · Latest real bulletin: ${items[0].timestamp_utc || 'n/a'} · ${marketState}`;
         latestItemEl.innerHTML = renderItem(items[0]);
         if (items.length > 1) {
           const others = items.slice(1).map(renderItem).join('');
@@ -901,6 +910,7 @@
       })
       .then((data) => {
         const sourceItems = (data && Array.isArray(data.items)) ? data.items : [];
+        trustFreshnessEl.textContent = `Trust evidence refreshed: ${data.generated_at_utc || data.generated_at_iso || 'unknown'}`;
         const items = sourceItems.filter((item) => matchesToken(item.address, item.network_id || item.network_label));
         if (!items.length) {
           trustLatestEl.innerHTML = hasTokenFilter
@@ -914,6 +924,7 @@
         trustHistoryEl.innerHTML = renderSnapshotHistory(items.slice(1));
       })
       .catch(() => {
+        trustFreshnessEl.textContent = 'Trust evidence freshness is unavailable.';
         trustLatestEl.innerHTML = '<div class=\"empty-state\"><strong>No trust snapshots published yet.</strong><p>The updates page is live, but no public trust snapshot is available yet.</p></div>';
         trustHistoryEl.innerHTML = renderSnapshotHistory([]);
       });
@@ -925,6 +936,7 @@
       })
       .then((data) => {
         const sourceItems = (data && Array.isArray(data.items)) ? data.items : [];
+        watchedFreshnessEl.textContent = `Watched-token evidence refreshed: ${data.generated_at_utc || data.generated_at_iso || 'unknown'}`;
         const items = sourceItems.filter((item) => matchesToken(item.address, item.network || item.latest?.network_id));
         if (hasTokenFilter) {
           renderTokenSummary(items[0] || null);
@@ -932,6 +944,7 @@
         watchedSnapshotsEl.innerHTML = renderWatchedSnapshots(items);
       })
       .catch(() => {
+        watchedFreshnessEl.textContent = 'Watched-token freshness is unavailable.';
         if (hasTokenFilter) {
           renderTokenSummary(null);
         }

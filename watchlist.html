@@ -979,6 +979,7 @@
     let currentSort = 'changed';
     let scheduledWatchKeys = new Set();
     let monitorQueueReady = false;
+    let savedStateViewTracked = false;
     function trackEvent(name, params = {}) {
       if (typeof window.gtag === 'function') {
         window.gtag('event', name, params);
@@ -1588,6 +1589,13 @@
 
     function renderWatchlist() {
       const items = getWatchlist();
+      if (items.length && !savedStateViewTracked) {
+        savedStateViewTracked = true;
+        trackEvent('watchlist_saved_state_viewed', {
+          page: 'watchlist',
+          saved_token_count: items.length,
+        });
+      }
       updateFilterCounts(items);
       if (!items.length) {
         watchlistState.textContent = 'No tokens saved on this device yet.';
