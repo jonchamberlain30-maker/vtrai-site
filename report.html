@@ -1074,14 +1074,14 @@
         ${checksHtml}
         ${linksHtml}
         <div class="section">
-          <h3>Report actions</h3>
+          <h3>Keep checking this token</h3>
           <div class="controls">
-            <button class="btn" type="button" data-watch-toggle="true">${isWatchedToken(currentWatchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
+            <button class="btn gold" type="button" data-watch-toggle="true">${isWatchedToken(currentWatchToken) ? 'Saved for change checks' : 'Save for change checks'}</button>
             ${monitorQueueReady ? `<button class="btn" type="button" data-request-monitoring="true" ${currentWatchToken?.scheduled_requested ? 'disabled' : ''}>${currentWatchToken?.scheduled_requested ? 'Scheduled' : 'Request scheduled monitoring'}</button>` : ''}
             <a class="btn" href="${buildUpdatesUrl(report.network_id, report.address)}">Open updates desk</a>
             <a class="btn" href="./watchlist.html">Open watchlist</a>
           </div>
-          <div class="helper" data-watch-status>${saved ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
+          <div class="helper" data-watch-status>${saved ? 'Saved on this browser. Return to refresh the report and compare what changed.' : 'Save this report on this browser so you can refresh it later and compare what changed. No login required.'}</div>
         </div>
       `);
     }
@@ -1158,13 +1158,13 @@
       const watchButton = event.target.closest('[data-watch-toggle]');
       if (watchButton && currentWatchToken) {
         const watching = toggleWatchToken(currentWatchToken);
-        watchButton.textContent = watching ? 'Watching on this device' : 'Watch on this device';
+        watchButton.textContent = watching ? 'Saved for change checks' : 'Save for change checks';
         const status = reportShell.querySelector('[data-watch-status]');
         const savedBadge = reportShell.querySelector('.saved-badge');
         if (status) {
           status.textContent = watching
-            ? 'Saved on this browser. Revisit from your watchlist page.'
-            : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
+            ? 'Saved on this browser. Return to refresh the report and compare what changed.'
+            : 'Save this report on this browser so you can refresh it later and compare what changed. No login required.';
         }
         if (savedBadge) {
           savedBadge.textContent = watching ? 'Saved on this device' : 'Not saved yet';
@@ -1174,6 +1174,11 @@
         trackEvent(watching ? 'watchlist_add' : 'watchlist_remove', {
           page: 'report',
           network: currentWatchToken.network_id || 'unknown',
+        });
+        trackEvent(watching ? 'token_monitoring_started' : 'token_monitoring_stopped', {
+          page: 'report',
+          network: currentWatchToken.network_id || 'unknown',
+          monitoring_type: 'local_change_checks',
         });
         return;
       }

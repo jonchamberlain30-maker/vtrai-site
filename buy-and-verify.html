@@ -692,7 +692,7 @@
       traffic_content: attribution.content
     });
 
-    const leadLabels = new Set(['hero_raydium', 'sticky_raydium']);
+    const outboundRouteLabels = new Set(['hero_raydium', 'sticky_raydium']);
 
     document.querySelectorAll('.tracked-link').forEach((link) => {
       link.addEventListener('click', () => {
@@ -706,15 +706,12 @@
           traffic_term: attribution.term,
           traffic_content: attribution.content
         });
-        if (leadLabels.has(label)) {
+        if (outboundRouteLabels.has(label)) {
           if (typeof window.vectoraCoinzillaTrackConversion === 'function') {
-            window.vectoraCoinzillaTrackConversion('register');
             window.vectoraCoinzillaTrackConversion('official_raydium');
           }
-          trackEvent('generate_lead', {
-            method: 'official_raydium',
-            value: 1,
-            currency: 'USD',
+          trackEvent('buy_verify_outbound_route_click', {
+            destination_type: 'official_raydium',
             page_name: PAGE_NAME,
             link_label: label,
             traffic_source: attribution.source,

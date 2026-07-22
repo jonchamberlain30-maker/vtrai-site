@@ -569,7 +569,7 @@
     }
 
     const attribution = getAttribution();
-    const highIntentLabels = new Set([
+    const outboundRouteLabels = new Set([
       'coinzilla_open_raydium',
       'coinzilla_sticky_raydium'
     ]);
@@ -607,17 +607,10 @@
           transport_type: 'beacon'
         });
 
-        if (highIntentLabels.has(label)) {
-          trackCoinzillaConversion('register');
+        if (outboundRouteLabels.has(label)) {
           trackCoinzillaConversion('verify_route_click');
-          trackEvent('generate_lead', {
-            ...baseEventParams({ method: 'official_raydium', link_label: label }),
-            value: 1,
-            currency: 'USD',
-            transport_type: 'beacon'
-          });
-          trackEvent('coinzilla_high_intent', {
-            ...baseEventParams({ link_label: label, intent_type: 'official_route' }),
+          trackEvent('coinzilla_outbound_route_click', {
+            ...baseEventParams({ link_label: label, destination_type: 'official_raydium' }),
             transport_type: 'beacon'
           });
         } else if (proofIntentLabels.has(label)) {
@@ -640,10 +633,6 @@
           button.textContent = 'Copied';
           trackEvent('coinzilla_mint_copied', {
             ...baseEventParams({ intent_type: 'mint_copy' }),
-            transport_type: 'beacon'
-          });
-          trackEvent('coinzilla_high_intent', {
-            ...baseEventParams({ link_label: 'copy_mint', intent_type: 'mint_copy' }),
             transport_type: 'beacon'
           });
           trackCoinzillaConversion('mint_copy');

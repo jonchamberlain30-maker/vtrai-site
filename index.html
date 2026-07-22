@@ -1840,6 +1840,13 @@
       min-width: 170px;
     }
 
+    .trust-watch-btn.primary {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.08) 24%, rgba(255, 255, 255, 0) 48%),
+        linear-gradient(90deg, var(--gold), #ffe59a);
+      color: #211600;
+    }
+
     .watchlist-link {
       display: inline-block;
       color: #031019;
@@ -2822,12 +2829,12 @@
       });
       const watchHtml = watchToken ? `
         <div class="trust-watch-row">
-          <button class="copy-btn trust-watch-btn" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Watching on this device' : 'Watch on this device'}</button>
+          <button class="copy-btn trust-watch-btn primary" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Saved for change checks' : 'Save for change checks'}</button>
           ${monitorQueueReady ? `<button class="copy-btn trust-watch-btn" type="button" data-request-monitoring="true" ${watchToken.scheduled_requested ? 'disabled' : ''}>${watchToken.scheduled_requested ? 'Scheduled' : 'Request scheduled monitoring'}</button>` : ''}
           <a class="watchlist-link" href="${buildReportUrl(watchToken)}">Open report page</a>
           <a class="watchlist-link" href="./watchlist.html">Open watchlist</a>
         </div>
-        <div class="watch-status" data-watch-status>${isWatchedToken(watchToken) ? 'Saved on this browser. Revisit from your watchlist page.' : 'No login required. Save this token on this browser and refresh it later on the watchlist page.'}</div>
+        <div class="watch-status" data-watch-status>${isWatchedToken(watchToken) ? 'Saved on this browser. Return to refresh the report and compare what changed.' : 'Save this report on this browser so you can refresh it later and compare what changed. No login required.'}</div>
       ` : '';
       const logoHtml = imageUrl
         ? `<div class="trust-logo"><img src="${imageUrl}" alt="${title} token logo" loading="lazy" referrerpolicy="no-referrer" /></div>`
@@ -3419,16 +3426,21 @@
       const button = event.target.closest('[data-watch-toggle]');
       if (button && currentWatchToken) {
         const watching = toggleWatchToken(currentWatchToken);
-        button.textContent = watching ? 'Watching on this device' : 'Watch on this device';
+        button.textContent = watching ? 'Saved for change checks' : 'Save for change checks';
         const status = trustResult.querySelector('[data-watch-status]');
         if (status) {
           status.textContent = watching
-            ? 'Saved on this browser. Revisit from your watchlist page.'
-            : 'No login required. Save this token on this browser and refresh it later on the watchlist page.';
+            ? 'Saved on this browser. Return to refresh the report and compare what changed.'
+            : 'Save this report on this browser so you can refresh it later and compare what changed. No login required.';
         }
         trackEvent(watching ? 'watchlist_add' : 'watchlist_remove', {
           page: 'home',
           network: currentWatchToken.network_id || 'unknown',
+        });
+        trackEvent(watching ? 'token_monitoring_started' : 'token_monitoring_stopped', {
+          page: 'home',
+          network: currentWatchToken.network_id || 'unknown',
+          monitoring_type: 'local_change_checks',
         });
         return;
       }
