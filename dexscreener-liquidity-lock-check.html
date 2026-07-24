@@ -35,7 +35,7 @@
       "author": { "@type": "Organization", "name": "Vectora" },
       "publisher": { "@type": "Organization", "name": "Vectora" },
       "datePublished": "2026-06-16",
-      "dateModified": "2026-06-16",
+      "dateModified": "2026-07-24",
       "mainEntityOfPage": "https://getvectora.ai/dexscreener-liquidity-lock-check.html"
     }
   </script>
@@ -46,10 +46,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Does locked liquidity mean a token cannot rug?",
+          "name": "What does locked liquidity mean on DexScreener?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. It reduces one liquidity-removal risk, but other risks can remain through controls, concentration, taxes, or fake source claims."
+            "text": "Locked liquidity means some liquidity-provider tokens are held in a time lock or burn address, limiting withdrawal of that position. DexScreener can show the pool and liquidity data, but it does not prove that all liquidity is locked, that the lock covers the promoted pool, or that the token is safe."
           }
         },
         {
@@ -170,6 +170,11 @@
       </div>
     </section>
 
+    <section class="card" style="margin-top:14px">
+      <h2>What does locked liquidity mean on DexScreener?</h2>
+      <p>It means some liquidity-provider tokens are held in a time lock or burn address, limiting withdrawal of that position. DexScreener can show the pool and liquidity data, but it does not prove that all liquidity is locked, that the lock covers the promoted pool, or that the token is safe.</p>
+    </section>
+
     <section class="grid">
       <article class="card">
         <h2>A lock claim is not the receipt</h2>
@@ -226,7 +231,7 @@
 
     <section class="card" style="margin-top:14px">
       <h2>FAQ</h2>
-      <p><strong>Does locked liquidity mean a token cannot rug?</strong><br>No. It reduces one liquidity-removal risk, but other risks can remain through controls, concentration, taxes, or fake source claims.</p>
+      <p><strong>What does locked liquidity mean on DexScreener?</strong><br>It means some liquidity-provider tokens are held in a time lock or burn address, limiting withdrawal of that position. DexScreener can show the pool and liquidity data, but it does not prove that all liquidity is locked, that the lock covers the promoted pool, or that the token is safe.</p>
       <p><strong>What proof should I look for?</strong><br>Look for a locker page, transaction, LP token proof, or explorer record that matches the exact pair being promoted.</p>
       <p><strong>Can a project lock the wrong liquidity?</strong><br>Yes. A lock can apply to a small or irrelevant pool while the promoted route uses another pool.</p>
     </section>
