@@ -451,7 +451,8 @@
           <span>Proof before action</span>
         </div>
         <div class="cta">
-          <a class="btn gold tracked-link" href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="coinzilla_open_raydium" target="_blank" rel="noreferrer">Open Official Route</a>
+          <a class="btn gold tracked-link" href="./?address=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J&amp;network=solana&amp;autocheck=1&amp;utm_source=coinzilla&amp;utm_medium=display&amp;utm_campaign=verify_landing&amp;utm_content=token_check_cta#trust-check" data-label="coinzilla_run_token_check">Run Free VTRAI Check</a>
+          <a class="btn secondary tracked-link" href="https://raydium.io/swap/?inputMint=sol&amp;outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" data-label="coinzilla_open_raydium" target="_blank" rel="noreferrer">Open Official Route</a>
           <a class="btn secondary tracked-link" href="./proof.html?utm_source=coinzilla&utm_medium=display&utm_campaign=verify_landing&utm_content=proof_cta" data-label="coinzilla_proof_pack">Read Proof Pack</a>
         </div>
       </div>
@@ -573,6 +574,9 @@
       'coinzilla_open_raydium',
       'coinzilla_sticky_raydium'
     ]);
+    const tokenCheckIntentLabels = new Set([
+      'coinzilla_run_token_check'
+    ]);
     const proofIntentLabels = new Set([
       'coinzilla_proof_pack',
       'coinzilla_public_proof_guide',
@@ -607,7 +611,13 @@
           transport_type: 'beacon'
         });
 
-        if (outboundRouteLabels.has(label)) {
+        if (tokenCheckIntentLabels.has(label)) {
+          trackCoinzillaConversion('token_check_start');
+          trackEvent('coinzilla_token_check_intent', {
+            ...baseEventParams({ link_label: label, intent_type: 'prefilled_token_check' }),
+            transport_type: 'beacon'
+          });
+        } else if (outboundRouteLabels.has(label)) {
           trackCoinzillaConversion('verify_route_click');
           trackEvent('coinzilla_outbound_route_click', {
             ...baseEventParams({ link_label: label, destination_type: 'official_raydium' }),
