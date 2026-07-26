@@ -2878,12 +2878,21 @@
       ` : '';
       const linksSectionHtml = linkHtml ? `<div class="trust-section"><h3>Proof links</h3><div class="trust-links">${linkHtml}</div></div>` : '';
       currentWatchToken = watchToken;
+      const reportTrafficSource = currentVisitorSource() || 'direct';
       trackEvent('token_report_rendered', {
         page: 'home',
         network: watchToken?.network_id || networkLabel || 'unknown',
         level,
         decision: buildDecision(level).label.toLowerCase().replace(/\s+/g, '_'),
+        traffic_source: reportTrafficSource,
       });
+      if (reportTrafficSource === 'coinzilla') {
+        trackEvent('coinzilla_token_report_rendered', {
+          page: 'home',
+          network: watchToken?.network_id || networkLabel || 'unknown',
+          level,
+        });
+      }
       const watchHtml = watchToken ? `
         <div class="trust-watch-row">
           <button class="copy-btn trust-watch-btn primary" type="button" data-watch-toggle="true">${isWatchedToken(watchToken) ? 'Saved for change checks' : 'Save for change checks'}</button>
@@ -3334,11 +3343,20 @@
           <div class="v">Fetching contract and token security data.</div>
         </div>
       `);
+      const checkTrafficSource = currentVisitorSource() || 'direct';
       trackEvent('token_check_submitted', {
         page: 'home',
         network: selectedNetwork,
         address_type: classifyAddressInput(raw),
+        traffic_source: checkTrafficSource,
       });
+      if (checkTrafficSource === 'coinzilla') {
+        trackEvent('coinzilla_token_check_submitted', {
+          page: 'home',
+          network: selectedNetwork,
+          address_type: classifyAddressInput(raw),
+        });
+      }
 
       try {
         try {
