@@ -680,8 +680,12 @@
     const copyLinkButton = document.getElementById('copyLinkButton');
     const reportState = document.getElementById('reportState');
     const reportShell = document.getElementById('reportShell');
+    const pageParams = new URLSearchParams(window.location.search);
+    const reminderReturnSource = pageParams.get('return_source') || '';
+    const reminderReturnDays = Number(pageParams.get('reminder_days')) || null;
     let currentWatchToken = null;
     let currentReportUrl = window.location.href;
+    let reminderReturnTracked = false;
     function trackEvent(name, params = {}) {
       if (typeof window.gtag === 'function') {
         window.gtag('event', name, params);
@@ -930,7 +934,9 @@
       const start = new Date(Date.now() + (7 * 24 * 60 * 60 * 1000));
       const end = new Date(start.getTime() + (30 * 60 * 1000));
       const label = token?.token_label || token?.title || 'saved token';
-      const reportUrl = currentReportUrl;
+      const reportUrl = new URL(currentReportUrl);
+      reportUrl.searchParams.set('return_source', 'calendar_reminder');
+      reportUrl.searchParams.set('reminder_days', '7');
       const calendar = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
@@ -944,7 +950,7 @@
         `DTEND:${formatCalendarDate(end)}`,
         `SUMMARY:${escapeCalendarText(`Recheck ${label} on Vectora`)}`,
         `DESCRIPTION:${escapeCalendarText('Refresh the saved report and compare what changed before making another decision.')}`,
-        `URL:${reportUrl}`,
+        `URL:${reportUrl.href}`,
         'END:VEVENT',
         'END:VCALENDAR',
         '',
@@ -968,6 +974,7 @@
         page: 'report',
         network: token?.network_id || 'unknown',
         reminder_days: 7,
+        reminder_destination: 'report',
       });
     }
 
@@ -1045,6 +1052,16 @@
         network: report.network_id || 'unknown',
         level: report.level || 'unknown',
       });
+      if (reminderReturnSource === 'calendar_reminder' && !reminderReturnTracked) {
+        reminderReturnTracked = true;
+        trackEvent('token_recheck_returned', {
+          page: 'report',
+          network: report.network_id || 'unknown',
+          level: report.level || 'unknown',
+          return_source: reminderReturnSource,
+          reminder_days: reminderReturnDays,
+        });
+      }
       const tone = buildStatusTone(report.level);
       const statusLabel = buildStatusLabel(report.level);
       const badgeLabel = statusLabel.toUpperCase();
@@ -1265,9 +1282,8 @@
       });
     });
 
-    const params = new URLSearchParams(window.location.search);
-    const addressParam = normalizeInput(params.get('address') || '');
-    const networkParam = params.get('network') || 'auto';
+    const addressParam = normalizeInput(pageParams.get('address') || '');
+    const networkParam = pageParams.get('network') || 'auto';
     if (networkParam) networkSelect.value = networkParam;
     if (addressParam) {
       reportInput.value = addressParam;

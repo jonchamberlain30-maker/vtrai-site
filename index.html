@@ -2600,7 +2600,9 @@
       const start = new Date(Date.now() + (7 * 24 * 60 * 60 * 1000));
       const end = new Date(start.getTime() + (30 * 60 * 1000));
       const label = token?.token_label || token?.title || 'saved token';
-      const reportUrl = new URL(buildReportUrl(token), window.location.href).href;
+      const reportUrl = new URL(buildReportUrl(token), window.location.href);
+      reportUrl.searchParams.set('return_source', 'calendar_reminder');
+      reportUrl.searchParams.set('reminder_days', '7');
       const calendar = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
@@ -2614,7 +2616,7 @@
         `DTEND:${formatCalendarDate(end)}`,
         `SUMMARY:${escapeCalendarText(`Recheck ${label} on Vectora`)}`,
         `DESCRIPTION:${escapeCalendarText('Refresh the saved report and compare what changed before making another decision.')}`,
-        `URL:${reportUrl}`,
+        `URL:${reportUrl.href}`,
         'END:VEVENT',
         'END:VCALENDAR',
         '',
@@ -2638,6 +2640,7 @@
         page: 'home',
         network: token?.network_id || 'unknown',
         reminder_days: 7,
+        reminder_destination: 'report',
       });
     }
 
