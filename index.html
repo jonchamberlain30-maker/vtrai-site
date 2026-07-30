@@ -2400,12 +2400,12 @@
       </ul>
     </section>
 
-    <section class="gecko-badge" aria-label="GeckoTerminal listing reference">
+    <section class="gecko-badge" aria-label="Official pool status">
       <div class="gecko-badge-left">
-        <img src="./assets/geckoterminal-logo-dark.svg" alt="GeckoTerminal logo" loading="lazy" decoding="async" />
-        <p>Listed on GeckoTerminal. Use the official pool page for external price-tracker reference.</p>
+        <strong>Verified pool route</strong>
+        <p>Raydium confirms the official VTRAI/USDC pool. DexScreener and GeckoTerminal indexing is still pending.</p>
       </div>
-      <a class="gecko-badge-link" href="https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU" target="_blank" rel="noreferrer">Open GeckoTerminal Pool</a>
+      <a class="gecko-badge-link" href="https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J" target="_blank" rel="noreferrer">Open Verified Raydium Route</a>
     </section>
 
     <p class="footer">Vectora publishes data, not guarantees. Always verify mint address before trading. For official project affiliation and public channels, see <a href="./about.html">About &amp; Affiliation</a>. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a>.</p>
@@ -2414,7 +2414,6 @@
   <script>
     const OFFICIAL_MINT = 'Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J';
     const MONITOR_API_BASE = 'https://api.getvectora.ai';
-    const OFFICIAL_TRACKER = 'https://www.geckoterminal.com/solana/pools/88fdj5ZgizWdDYJRKBtpiHwBmMuzwy6qoZ3v3xL3gLhU';
     const OFFICIAL_IMAGE = 'https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva';
     const SOLSCAN_BASE = 'https://solscan.io/token/';
     const RAYDIUM_BASE = 'https://raydium.io/swap/?inputMint=sol&outputMint=';
@@ -3191,7 +3190,6 @@
           ],
           links: [
             { label: 'Open Solscan', url: `${SOLSCAN_BASE}${OFFICIAL_MINT}` },
-            { label: 'Open GeckoTerminal pool', url: OFFICIAL_TRACKER },
             { label: 'Open Raydium route', url: `${RAYDIUM_BASE}${OFFICIAL_MINT}` },
             ...(topPair?.url ? [{ label: 'Open top pair', url: topPair.url }] : []),
           ],
@@ -3206,7 +3204,6 @@
           imageUrl: report.image_url,
           links: `
             <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Solscan</a>
-            <a href="${OFFICIAL_TRACKER}" target="_blank" rel="noreferrer">Open GeckoTerminal pool</a>
             <a href="${RAYDIUM_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Raydium route</a>
             ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
           `,
