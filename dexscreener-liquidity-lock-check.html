@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DexScreener liquidity lock check: how to treat LP lock claims, compare receipts with pool depth, and avoid fake or incomplete liquidity proof." />
+  <meta name="description" content="What does locked liquidity mean on DexScreener? Check the correct pool, lock receipt, amount, and unlock terms before trusting the badge." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/dexscreener-liquidity-lock-check.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="DexScreener Liquidity Lock Check" />
-  <meta property="og:description" content="A practical guide to checking liquidity lock claims around DexScreener pairs before trusting pool depth or launch promises." />
+  <meta property="og:title" content="What Does Locked Liquidity Mean on DexScreener?" />
+  <meta property="og:description" content="A two-minute workflow for checking the pool, lock receipt, amount, and unlock terms behind a DexScreener liquidity claim." />
   <meta property="og:url" content="https://getvectora.ai/dexscreener-liquidity-lock-check.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora DexScreener verification guide" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DexScreener Liquidity Lock Check" />
-  <meta name="twitter:description" content="A practical guide to checking liquidity lock claims around DexScreener pairs before trusting pool depth or launch promises." />
+  <meta name="twitter:title" content="What Does Locked Liquidity Mean on DexScreener?" />
+  <meta name="twitter:description" content="Check the pool, lock receipt, amount, and unlock terms behind a DexScreener liquidity claim." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -30,12 +30,12 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "DexScreener Liquidity Lock Check",
-      "description": "A practical guide to checking liquidity lock claims around DexScreener pairs before trusting pool depth or launch promises.",
+      "headline": "What Does Locked Liquidity Mean on DexScreener?",
+      "description": "A two-minute workflow for checking the pool, lock receipt, amount, and unlock terms behind a DexScreener liquidity claim.",
       "author": { "@type": "Organization", "name": "Vectora" },
       "publisher": { "@type": "Organization", "name": "Vectora" },
       "datePublished": "2026-06-16",
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-30",
       "mainEntityOfPage": "https://getvectora.ai/dexscreener-liquidity-lock-check.html"
     }
   </script>
@@ -67,11 +67,19 @@
             "@type": "Answer",
             "text": "Yes. A lock can apply to a small or irrelevant pool while the promoted route uses another pool."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does every Solana pool use fungible LP tokens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Concentrated-liquidity pools can represent each provider position with a position account and NFT. Verify the pool type before deciding what lock evidence should exist."
+          }
         }
       ]
     }
   </script>
-  <title>DexScreener Liquidity Lock Check | Vectora</title>
+  <title>What Does Locked Liquidity Mean on DexScreener? | Vectora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -112,7 +120,7 @@
       flex-wrap: wrap;
       padding: 10px 14px;
     }
-    .top a, .footer a { color: var(--cyan); text-decoration: none; }
+    .top a, .card a, .footer a { color: var(--cyan); text-decoration: none; }
     .nav { display: flex; gap: 14px; flex-wrap: wrap; }
     .hero { margin-top: 18px; padding: 34px; }
     h1 { margin: 10px 0 12px; font-size: clamp(2.1rem, 5vw, 4rem); line-height: 0.98; }
@@ -162,10 +170,10 @@
 
     <section class="hero">
       <div class="eyebrow">DexScreener liquidity lock check</div>
-      <h1>DexScreener liquidity lock check: receipts before reassurance.</h1>
-      <p class="sub">Locked liquidity sounds comforting. It is useful only when the receipt is real, the pool is the right pool, and the lock covers the liquidity people are pointing at.</p>
+      <h1>What does locked liquidity mean on DexScreener?</h1>
+      <p class="sub">It means some liquidity positions cannot be withdrawn immediately. That reduces one rug-pull route, but only when the receipt matches the correct pool, amount, owner and unlock terms.</p>
       <div class="cta">
-        <a class="btn tracked-link" href="./#trust-check" data-label="dex_liq_lock_trust_check">Check a token</a>
+        <a class="btn tracked-link" href="./?source=liquidity_lock_guide#trust-check" data-label="dex_liq_lock_trust_check">Check this token free</a>
         <a class="btn secondary tracked-link" href="./dexscreener-red-flags.html" data-label="dex_liq_lock_red_flags">Open red-flags guide</a>
       </div>
     </section>
@@ -173,6 +181,17 @@
     <section class="card" style="margin-top:14px">
       <h2>What does locked liquidity mean on DexScreener?</h2>
       <p>It means some liquidity-provider tokens are held in a time lock or burn address, limiting withdrawal of that position. DexScreener can show the pool and liquidity data, but it does not prove that all liquidity is locked, that the lock covers the promoted pool, or that the token is safe.</p>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>Check a liquidity lock in two minutes</h2>
+      <ol>
+        <li><strong>Match the pool.</strong> Confirm the chain, pool address, token mint and quote asset.</li>
+        <li><strong>Open the receipt.</strong> Find the locker record, burn transaction or on-chain position evidence.</li>
+        <li><strong>Read the coverage.</strong> Check how much of the relevant liquidity is covered and whether other positions remain withdrawable.</li>
+        <li><strong>Read the terms.</strong> Confirm the owner, lock method, unlock date and whether control returns later.</li>
+      </ol>
+      <p class="good">A percentage without a matching pool and public receipt is decoration, not verification.</p>
     </section>
 
     <section class="grid">
@@ -220,6 +239,12 @@
     </section>
 
     <section class="card" style="margin-top:14px">
+      <h2>Solana CLMM positions need different evidence</h2>
+      <p>Do not assume every Solana pool produces a conventional fungible LP token. Raydium CLMM tracks each provider position through a position account and position NFT. For a concentrated-liquidity pool, verify the position, its pool ID, ownership, liquidity range and lock state instead of searching only for an LP-token burn.</p>
+      <p><a href="https://docs.raydium.io/products/clmm/accounts" target="_blank" rel="noreferrer">Read Raydium's CLMM account documentation</a></p>
+    </section>
+
+    <section class="card" style="margin-top:14px">
       <h2>Related DexScreener checks</h2>
       <p>Use these pages as a cluster. The goal is not to read forever. It is to answer the one risky question in front of you.</p>
       <div class="cta">
@@ -234,6 +259,7 @@
       <p><strong>What does locked liquidity mean on DexScreener?</strong><br>It means some liquidity-provider tokens are held in a time lock or burn address, limiting withdrawal of that position. DexScreener can show the pool and liquidity data, but it does not prove that all liquidity is locked, that the lock covers the promoted pool, or that the token is safe.</p>
       <p><strong>What proof should I look for?</strong><br>Look for a locker page, transaction, LP token proof, or explorer record that matches the exact pair being promoted.</p>
       <p><strong>Can a project lock the wrong liquidity?</strong><br>Yes. A lock can apply to a small or irrelevant pool while the promoted route uses another pool.</p>
+      <p><strong>Does every Solana pool use fungible LP tokens?</strong><br>No. Concentrated-liquidity pools can represent each provider position with a position account and NFT. Verify the pool type before deciding what lock evidence should exist.</p>
     </section>
 
     <p class="footer">Vectora publishes verification context, not guarantees. Always confirm the exact token address before trading. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
