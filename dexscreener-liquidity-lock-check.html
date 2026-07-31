@@ -278,6 +278,11 @@
           page_name: PAGE_NAME,
           link_label: link.dataset.label || 'unknown'
         });
+        if (link.dataset.label === 'dex_liq_lock_trust_check') {
+          trackEvent('liquidity_lock_checker_intent', {
+            page_name: PAGE_NAME
+          });
+        }
       });
     });
   </script>
