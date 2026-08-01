@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DexScreener honeypot red flags: signs a token may be hard or impossible to sell, including route failure, blacklist controls, taxes, and fake liquidity." />
+  <meta name="description" content="What does honeypot mean on DexScreener? Learn why a token may buy but not sell, which route and control red flags matter, and what to check first." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/dexscreener-honeypot-red-flags.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="DexScreener Honeypot Red Flags" />
-  <meta property="og:description" content="Learn the DexScreener signals that can point to honeypot risk before you approve, swap, or chase a loud chart." />
+  <meta property="og:title" content="What Does Honeypot Mean on DexScreener?" />
+  <meta property="og:description" content="Why a token may buy but not sell, which route and control red flags matter, and what to check first." />
   <meta property="og:url" content="https://getvectora.ai/dexscreener-honeypot-red-flags.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Vectora DexScreener verification guide" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DexScreener Honeypot Red Flags" />
-  <meta name="twitter:description" content="Learn the DexScreener signals that can point to honeypot risk before you approve, swap, or chase a loud chart." />
+  <meta name="twitter:title" content="What Does Honeypot Mean on DexScreener?" />
+  <meta name="twitter:description" content="Why a token may buy but not sell, which route and control red flags matter, and what to check first." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -30,12 +30,12 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "DexScreener Honeypot Red Flags",
-      "description": "Learn the DexScreener signals that can point to honeypot risk before you approve, swap, or chase a loud chart.",
+      "headline": "What Does Honeypot Mean on DexScreener?",
+      "description": "Why a token may buy but not sell, which route and control red flags matter, and what to check first.",
       "author": { "@type": "Organization", "name": "Vectora" },
       "publisher": { "@type": "Organization", "name": "Vectora" },
       "datePublished": "2026-06-16",
-      "dateModified": "2026-07-23",
+      "dateModified": "2026-08-01",
       "mainEntityOfPage": "https://getvectora.ai/dexscreener-honeypot-red-flags.html"
     }
   </script>
@@ -71,7 +71,7 @@
       ]
     }
   </script>
-  <title>DexScreener Honeypot Red Flags | Vectora</title>
+  <title>What Does Honeypot Mean on DexScreener? | Vectora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -162,10 +162,10 @@
 
     <section class="hero">
       <div class="eyebrow">DexScreener honeypot guide</div>
-      <h1>DexScreener honeypot red flags before you buy.</h1>
+      <h1>What does honeypot mean on DexScreener?</h1>
       <p class="sub">A honeypot is not always obvious from the candle. Sometimes the buy works, the chart moves, and the exit quietly decides it has other plans. Check the route before you fund the lesson.</p>
       <div class="cta">
-        <a class="btn tracked-link" href="./#trust-check" data-label="dex_honeypot_trust_check">Check a token</a>
+        <a class="btn tracked-link" href="./?source=honeypot_guide#trust-check" data-label="dex_honeypot_trust_check">Check this token free</a>
         <a class="btn secondary tracked-link" href="./dexscreener-red-flags.html" data-label="dex_honeypot_red_flags">Open red-flags guide</a>
       </div>
     </section>
@@ -262,6 +262,11 @@
           page_name: PAGE_NAME,
           link_label: link.dataset.label || 'unknown'
         });
+        if (link.dataset.label === 'dex_honeypot_trust_check') {
+          trackEvent('honeypot_checker_intent', {
+            page_name: PAGE_NAME
+          });
+        }
       });
     });
   </script>

@@ -2895,6 +2895,13 @@
           level,
         });
       }
+      if (reportTrafficSource === 'honeypot_guide') {
+        trackEvent('honeypot_token_report_rendered', {
+          page: 'home',
+          network: watchToken?.network_id || networkLabel || 'unknown',
+          level,
+        });
+      }
       if (reportTrafficSource === 'coinzilla') {
         trackEvent('coinzilla_token_report_rendered', {
           page: 'home',
@@ -3359,6 +3366,13 @@
       });
       if (checkTrafficSource === 'liquidity_lock_guide') {
         trackEvent('liquidity_lock_token_check_submitted', {
+          page: 'home',
+          network: selectedNetwork,
+          address_type: classifyAddressInput(raw),
+        });
+      }
+      if (checkTrafficSource === 'honeypot_guide') {
+        trackEvent('honeypot_token_check_submitted', {
           page: 'home',
           network: selectedNetwork,
           address_type: classifyAddressInput(raw),
