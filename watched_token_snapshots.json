@@ -1,14 +1,18 @@
 {
-  "generated_at_utc": "2026-08-13 07:45:05 UTC",
-  "generated_at_iso": "2026-08-13T07:45:05Z",
+  "generated_at_utc": "2026-08-15 07:02:09 UTC",
+  "generated_at_iso": "2026-08-15T07:02:09Z",
   "count": 2,
+  "ok_count": 0,
+  "unavailable_count": 2,
   "items": [
     {
       "watch_key": "solana:ly4h6n9v4g2n7ibzm4zdmxsftpyl4l4kbxzjegf6x2j",
       "network": "solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
       "label": "Vectora (VTRAI)",
-      "status": "ok",
+      "status": "unavailable",
+      "last_refresh_attempt_utc": "2026-08-15 07:02:09 UTC",
+      "last_refresh_error": "HTTP Error 400: Bad Request",
       "latest": {
         "snapshot_date": "2026-08-13",
         "timestamp_utc": "2026-08-13 07:45:05 UTC",
@@ -1037,7 +1041,9 @@
       "network": "1",
       "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "label": "USD Coin (USDC)",
-      "status": "ok",
+      "status": "unavailable",
+      "last_refresh_attempt_utc": "2026-08-15 07:02:09 UTC",
+      "last_refresh_error": "HTTP Error 400: Bad Request",
       "latest": {
         "snapshot_date": "2026-08-13",
         "timestamp_utc": "2026-08-13 07:45:05 UTC",
