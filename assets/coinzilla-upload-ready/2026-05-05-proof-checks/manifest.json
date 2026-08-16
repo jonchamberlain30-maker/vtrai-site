@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-05-05",
+  "landing_url": "https://getvectora.ai/education.html",
+  "max_file_size_bytes": 307200,
+  "message": "Before you trust a token. Check 5 public proofs first.",
+  "status": "upload_ready",
+  "files": [
+    {
+      "label": "160x600",
+      "path": "/Users/jc/Documents/New project/vtrai-site/assets/coinzilla-upload-ready/2026-05-05-proof-checks/vectora-coinzilla-proof-checks-160x600-2026-05-05.png",
+      "bytes": 86463
+    },
+    {
+      "label": "300x250",
+      "path": "/Users/jc/Documents/New project/vtrai-site/assets/coinzilla-upload-ready/2026-05-05-proof-checks/vectora-coinzilla-proof-checks-300x250-2026-05-05.png",
+      "bytes": 40196
+    },
+    {
+      "label": "728x90",
+      "path": "/Users/jc/Documents/New project/vtrai-site/assets/coinzilla-upload-ready/2026-05-05-proof-checks/vectora-coinzilla-proof-checks-728x90-2026-05-05.png",
+      "bytes": 30845
+    },
+    {
+      "label": "468x60",
+      "path": "/Users/jc/Documents/New project/vtrai-site/assets/coinzilla-upload-ready/2026-05-05-proof-checks/vectora-coinzilla-proof-checks-468x60-2026-05-05.png",
+      "bytes": 14472
+    }
+  ],
+  "contact_sheet": "/Users/jc/Documents/New project/vtrai-automation/output/vectora-coinzilla-proof-checks-contact-sheet-2026-05-05.png"
+}

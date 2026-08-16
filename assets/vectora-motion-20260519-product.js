@@ -24,43 +24,69 @@
     ".proof-hunt-strip",
     ".coinzilla-path",
     ".checker",
-    ".status-board"
+    ".status-board",
+    ".vectora-hero-command",
+    ".vectora-command-card",
+    ".vectora-command-step"
   ].join(",");
+  var primaryPaths = [
+    {
+      eyebrow: "Start Here",
+      title: "Check a token",
+      text: "Paste a mint or contract and get the first trust read.",
+      href: "./#trust-check",
+      accent: "cyan"
+    },
+    {
+      eyebrow: "Official Route",
+      title: "Buy & verify $VTRAI",
+      text: "Match the mint, open the route, and avoid screenshots.",
+      href: "./buy-and-verify.html",
+      accent: "gold"
+    },
+    {
+      eyebrow: "Public Proof",
+      title: "Join Proof Hunt",
+      text: "Submit unclear trails for review without reward promises.",
+      href: "./proof-hunt.html",
+      accent: "green"
+    }
+  ];
   var menuGroups = [
     {
       title: "Start",
       links: [
-        ["Home", "./"],
-        ["Check Token", "./#trust-check"],
-        ["Watchlist", "./watchlist.html"],
-        ["Buy & Verify", "./buy-and-verify.html"]
+        ["Home", "./", "Return to the main trust cockpit."],
+        ["Check Token", "./#trust-check", "Run the first source and route read."],
+        ["Watchlist", "./watchlist.html", "Keep local tokens for later review."],
+        ["Buy & Verify", "./buy-and-verify.html", "Use the official Vectora route."]
       ]
     },
     {
       title: "Verify",
       links: [
-        ["Proof Hunt", "./proof-hunt.html"],
-        ["Proof Pack", "./proof.html"],
-        ["Token Info", "./token-info.html"],
-        ["Updates", "./updates.html"]
+        ["Proof Hunt", "./proof-hunt.html", "Send unclear trails for public review."],
+        ["Proof Pack", "./proof.html", "Open core project references."],
+        ["Token Info", "./token-info.html", "Check official token and tracker details."],
+        ["Updates", "./updates.html", "Read the latest project changes."]
       ]
     },
     {
       title: "Learn",
       links: [
-        ["Safety Basics", "./education.html"],
-        ["Guides Hub", "./guides.html"],
-        ["Solana Checker", "./solana-token-checker.html"],
-        ["DexScreener Guide", "./dexscreener-token-checker.html"]
+        ["Safety Basics", "./education.html", "Understand the checks before acting."],
+        ["Guides Hub", "./guides.html", "Browse the practical safety library."],
+        ["Solana Checker", "./solana-token-checker.html", "Learn Solana token checks."],
+        ["DexScreener Guide", "./dexscreener-token-checker.html", "Read charts without trusting them."]
       ]
     },
     {
       title: "Project",
       links: [
-        ["About", "./about.html"],
-        ["Whitepaper", "./whitepaper.html"],
-        ["Build Log", "./lab.html"],
-        ["Contact", "./contact.html"]
+        ["About", "./about.html", "See affiliation and project context."],
+        ["Whitepaper", "./whitepaper.html", "Read the wider thesis."],
+        ["Build Log", "./lab.html", "Follow what is being built."],
+        ["Contact", "./contact.html", "Reach the project directly."]
       ]
     }
   ];
@@ -147,9 +173,114 @@
     });
   }
 
+  function createTextEl(tag, className, text) {
+    var el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text) el.textContent = text;
+    return el;
+  }
+
+  function setSearchText(el, values) {
+    el.setAttribute("data-vectora-search", values.join(" ").toLowerCase());
+  }
+
+  function createCommandCard(item) {
+    var link = document.createElement("a");
+    link.className = "vectora-command-card";
+    link.href = item.href;
+    link.setAttribute("data-vectora-menu-link", "");
+    link.setAttribute("data-vectora-accent", item.accent || "cyan");
+    setSearchText(link, [item.eyebrow, item.title, item.text, item.href]);
+
+    link.appendChild(createTextEl("span", "vectora-command-card-kicker", item.eyebrow));
+    link.appendChild(createTextEl("strong", "", item.title));
+    link.appendChild(createTextEl("small", "", item.text));
+    if (isCurrentMenuLink(link)) {
+      link.setAttribute("aria-current", "page");
+    }
+    return link;
+  }
+
+  function createMenuLink(item) {
+    var link = document.createElement("a");
+    link.href = item[1];
+    link.setAttribute("data-vectora-menu-link", "");
+    setSearchText(link, [item[0], item[2] || "", item[1]]);
+
+    var title = createTextEl("span", "menu-link-title", item[0]);
+    var desc = createTextEl("span", "menu-link-desc", item[2] || "");
+    link.appendChild(title);
+    if (item[2]) link.appendChild(desc);
+
+    if (isCurrentMenuLink(link)) {
+      link.setAttribute("aria-current", "page");
+    }
+    return link;
+  }
+
+  function focusMenuInput(details) {
+    var input = details.querySelector(".vectora-command-input");
+    if (!input) return;
+    window.setTimeout(function () {
+      input.focus({ preventScroll: true });
+      input.select();
+    }, 30);
+  }
+
+  function filterMenu(panel) {
+    var input = panel.querySelector(".vectora-command-input");
+    var query = input ? input.value.trim().toLowerCase() : "";
+    var anyVisible = false;
+
+    panel.querySelectorAll("[data-vectora-menu-link]").forEach(function (link) {
+      var haystack = link.getAttribute("data-vectora-search") || "";
+      var visible = !query || haystack.indexOf(query) !== -1;
+      link.hidden = !visible;
+      if (visible) anyVisible = true;
+    });
+
+    panel.querySelectorAll(".menu-group").forEach(function (group) {
+      group.hidden = !group.querySelector("[data-vectora-menu-link]:not([hidden])");
+    });
+
+    var empty = panel.querySelector(".vectora-command-empty");
+    if (empty) empty.hidden = anyVisible;
+  }
+
   function buildMenuPanel(panel) {
     panel.textContent = "";
     panel.setAttribute("data-vectora-menu-panel", "");
+
+    var head = document.createElement("div");
+    head.className = "vectora-command-head";
+    var copy = document.createElement("div");
+    copy.appendChild(createTextEl("span", "vectora-command-kicker", "Navigate"));
+    copy.appendChild(createTextEl("strong", "vectora-command-title", "Vectora command"));
+    head.appendChild(copy);
+    head.appendChild(createTextEl("span", "vectora-command-hint", "Search or press Esc"));
+    panel.appendChild(head);
+
+    var searchWrap = document.createElement("label");
+    searchWrap.className = "vectora-command-search";
+    var searchLabel = createTextEl("span", "", "Search pages");
+    var input = document.createElement("input");
+    input.className = "vectora-command-input";
+    input.type = "search";
+    input.placeholder = "Search check, proof, guides...";
+    input.setAttribute("aria-label", "Search Vectora navigation");
+    searchWrap.appendChild(searchLabel);
+    searchWrap.appendChild(input);
+    panel.appendChild(searchWrap);
+
+    var primary = document.createElement("div");
+    primary.className = "vectora-command-primary";
+    primaryPaths.forEach(function (item) {
+      primary.appendChild(createCommandCard(item));
+    });
+    panel.appendChild(primary);
+
+    var groupsWrap = document.createElement("div");
+    groupsWrap.className = "vectora-command-groups";
 
     menuGroups.forEach(function (group) {
       var groupEl = document.createElement("div");
@@ -161,16 +292,27 @@
       groupEl.appendChild(title);
 
       group.links.forEach(function (item) {
-        var link = document.createElement("a");
-        link.href = item[1];
-        link.textContent = item[0];
-        if (isCurrentMenuLink(link)) {
-          link.setAttribute("aria-current", "page");
-        }
-        groupEl.appendChild(link);
+        groupEl.appendChild(createMenuLink(item));
       });
 
-      panel.appendChild(groupEl);
+      groupsWrap.appendChild(groupEl);
+    });
+
+    panel.appendChild(groupsWrap);
+    var empty = createTextEl("div", "vectora-command-empty", "No matching path yet. Try check, proof, guide, buy, or contact.");
+    empty.hidden = true;
+    panel.appendChild(empty);
+
+    input.addEventListener("input", function () {
+      filterMenu(panel);
+    });
+
+    input.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter") return;
+      var link = panel.querySelector("[data-vectora-menu-link]:not([hidden])");
+      if (!link) return;
+      event.preventDefault();
+      link.click();
     });
   }
 
@@ -178,7 +320,10 @@
     var details = document.createElement("details");
     details.className = "site-menu";
     var summary = document.createElement("summary");
-    summary.setAttribute("aria-label", "Open site menu");
+    summary.setAttribute("aria-label", "Open Vectora command menu");
+    summary.setAttribute("aria-haspopup", "dialog");
+    summary.setAttribute("aria-expanded", "false");
+    summary.setAttribute("role", "button");
     details.appendChild(summary);
     details.appendChild(document.createElement("div"));
     return details;
@@ -198,6 +343,11 @@
     if (!summary) return;
     var rect = summary.getBoundingClientRect();
     details.setAttribute("data-vectora-menu-align", rect.left > window.innerWidth / 2 ? "right" : "left");
+  }
+
+  function setMenuOpenClass(isOpen) {
+    document.body.classList.toggle("vectora-menu-open", isOpen);
+    document.documentElement.classList.toggle("vectora-menu-open", isOpen);
   }
 
   function initMenus() {
@@ -223,20 +373,25 @@
       var panel = details.querySelector(".menu-panel") || details.querySelector("div") || details.appendChild(document.createElement("div"));
       panel.classList.add("menu-panel");
 
-      summary.innerHTML = '<span class="vectora-menu-icon" aria-hidden="true"></span><span class="vectora-menu-label">Menu</span>';
-      summary.setAttribute("aria-label", "Open site menu");
+      summary.innerHTML = '<span class="vectora-menu-icon" aria-hidden="true"></span><span class="vectora-menu-label">Menu</span><span class="vectora-menu-shortcut" aria-hidden="true">⌘K</span>';
+      summary.setAttribute("aria-label", "Open Vectora command menu");
+      summary.setAttribute("aria-haspopup", "dialog");
+      summary.setAttribute("aria-expanded", "false");
+      summary.setAttribute("role", "button");
       buildMenuPanel(panel);
       alignMenu(details);
 
       details.addEventListener("toggle", function () {
         alignMenu(details);
+        summary.setAttribute("aria-expanded", details.open ? "true" : "false");
         if (details.open) {
           menus.forEach(function (other) {
             if (other !== details) other.removeAttribute("open");
           });
-          document.body.classList.add("vectora-menu-open");
+          setMenuOpenClass(true);
+          focusMenuInput(details);
         } else if (!document.querySelector(".site-menu[open]")) {
-          document.body.classList.remove("vectora-menu-open");
+          setMenuOpenClass(false);
         }
       });
     });
@@ -246,15 +401,25 @@
       menus.forEach(function (details) {
         details.removeAttribute("open");
       });
-      document.body.classList.remove("vectora-menu-open");
+      setMenuOpenClass(false);
     });
 
     document.addEventListener("keydown", function (event) {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        var firstMenu = menus[0];
+        if (!firstMenu) return;
+        firstMenu.open = true;
+        alignMenu(firstMenu);
+        setMenuOpenClass(true);
+        focusMenuInput(firstMenu);
+        return;
+      }
       if (event.key !== "Escape") return;
       menus.forEach(function (details) {
         details.removeAttribute("open");
       });
-      document.body.classList.remove("vectora-menu-open");
+      setMenuOpenClass(false);
     });
 
     window.addEventListener("resize", function () {
@@ -264,7 +429,7 @@
 
   function initDepthSurfaces() {
     if (!window.matchMedia || !window.matchMedia("(pointer: fine)").matches) return;
-    document.querySelectorAll(".hero-banner, .hero-visual, .buy-panel, .trust-tool, .status-board").forEach(function (el) {
+    document.querySelectorAll(".hero-banner, .vectora-hero-command, .hero-visual, .buy-panel, .trust-tool, .status-board").forEach(function (el) {
       if (!el.hasAttribute("data-vectora-depth")) {
         el.setAttribute("data-vectora-depth", "true");
       }

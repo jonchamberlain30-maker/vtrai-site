@@ -12,14 +12,29 @@ html {
 
 .vectora-menu-ready .nav,
 .vectora-menu-ready .top,
-.vectora-menu-ready header.top {
+.vectora-menu-ready header.top,
+.vectora-menu-ready .topbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 14px;
   overflow: visible;
+}
+
+.vectora-menu-ready main > .nav,
+.vectora-menu-ready main > .top,
+.vectora-menu-ready header.top,
+.vectora-menu-ready main > .topbar {
+  position: sticky;
+  top: 14px;
+  z-index: 9000;
+  backdrop-filter: blur(18px);
 }
 
 body.vectora-menu-open .nav,
 body.vectora-menu-open .top,
-body.vectora-menu-open header.top {
-  position: relative;
+body.vectora-menu-open header.top,
+body.vectora-menu-open .topbar {
   z-index: 10000;
 }
 
@@ -28,6 +43,65 @@ body.vectora-menu-open header.top {
 .vectora-menu-ready .nav,
 .vectora-menu-ready .top {
   gap: 10px;
+}
+
+.vectora-menu-ready .nav-actions,
+.vectora-menu-ready .top-actions,
+.vectora-menu-ready .site-menu {
+  order: 0 !important;
+}
+
+.vectora-menu-ready .nav > .brand,
+.vectora-menu-ready .top > .brand,
+.vectora-menu-ready .top > .brand-buy-link,
+.vectora-menu-ready header.top > .brand,
+.vectora-menu-ready header.top > .brand-buy-link,
+.vectora-menu-ready .topbar > :first-child {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.vectora-menu-ready .nav > .nav-links,
+.vectora-menu-ready .top > .nav,
+.vectora-menu-ready .topbar > .top-note,
+.vectora-menu-ready .topbar > .back-link {
+  grid-column: 2;
+  justify-self: center;
+}
+
+.vectora-menu-ready .nav > .nav-actions {
+  grid-column: 2 / 4 !important;
+  justify-self: stretch !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.vectora-menu-ready .nav > .nav-actions > .nav-links {
+  justify-self: center !important;
+}
+
+.vectora-menu-ready .nav > .nav-actions > .site-menu {
+  justify-self: end !important;
+  margin-left: auto;
+}
+
+.vectora-menu-ready .top > .top-actions,
+.vectora-menu-ready header.top > .top-actions {
+  grid-column: 2 / 4 !important;
+  justify-self: end !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.vectora-menu-ready .nav > .site-menu,
+.vectora-menu-ready .top > .site-menu,
+.vectora-menu-ready header.top > .site-menu,
+.vectora-menu-ready .topbar > .site-menu {
+  grid-column: 3 !important;
+  justify-self: end !important;
+  margin-left: auto;
 }
 
 .vectora-menu-ready .site-menu {
@@ -460,9 +534,24 @@ body.vectora-menu-open header.top {
 }
 
 @media (max-width: 760px) {
+  .vectora-menu-ready .nav,
+  .vectora-menu-ready .top,
+  .vectora-menu-ready header.top,
+  .vectora-menu-ready .topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .vectora-menu-ready .nav > .nav-actions,
+  .vectora-menu-ready .top > .top-actions,
+  .vectora-menu-ready header.top > .top-actions {
+    grid-column: 2;
+  }
+
   .vectora-menu-ready .nav-links,
   .vectora-menu-ready .top-actions > a[href$="index.html"],
-  .vectora-menu-ready .top > .nav > a {
+  .vectora-menu-ready .top > .nav > a,
+  .vectora-menu-ready .topbar > .top-note,
+  .vectora-menu-ready .topbar > .back-link {
     display: none;
   }
 

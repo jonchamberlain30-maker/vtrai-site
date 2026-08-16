@@ -289,6 +289,199 @@ body.vectora-menu-open .topbar {
     inset 0 1px 0 rgba(255, 255, 255, 0.045);
 }
 
+.vectora-page-kicker {
+  color: var(--cyan, #4deaff);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.vectora-journey {
+  position: relative;
+  margin-top: 14px;
+  border: 1px solid rgba(111, 221, 255, 0.22);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(9, 19, 37, 0.88), rgba(8, 14, 31, 0.72)),
+    rgba(8, 14, 31, 0.76);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: 14px;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(14px);
+}
+
+.vectora-journey::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(77, 234, 255, 0.12), transparent 34%, rgba(247, 212, 106, 0.1)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 90px);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vectora-journey > * {
+  position: relative;
+  z-index: 1;
+}
+
+.journey-lead {
+  border: 1px solid rgba(255, 213, 142, 0.26);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0)),
+    rgba(22, 18, 32, 0.72);
+  padding: 16px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+}
+
+.journey-lead h2 {
+  margin: 0;
+  color: var(--ink, #e8f8ff);
+  font-size: clamp(1.18rem, 2vw, 1.75rem);
+  line-height: 1.08;
+}
+
+.journey-lead p {
+  margin: 0;
+  color: var(--muted, #9ab1c8);
+  line-height: 1.5;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.journey-card {
+  position: relative;
+  min-height: 184px;
+  border: 1px solid rgba(77, 234, 255, 0.18);
+  border-radius: 18px;
+  background:
+    radial-gradient(260px 150px at 70% 0%, rgba(77, 234, 255, 0.12), transparent 65%),
+    rgba(9, 17, 34, 0.78);
+  color: var(--ink, #e8f8ff);
+  text-decoration: none;
+  padding: 14px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.journey-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 12px 12px 12px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan, #4deaff), transparent);
+  opacity: 0.46;
+}
+
+.journey-card:hover {
+  border-color: rgba(77, 234, 255, 0.42);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.28), 0 0 34px rgba(77, 234, 255, 0.1);
+}
+
+.journey-index {
+  color: var(--cyan, #4deaff);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.journey-card strong {
+  display: block;
+  color: var(--ink, #e8f8ff);
+  font-size: 1.08rem;
+  line-height: 1.16;
+}
+
+.journey-card p {
+  margin: 7px 0 0;
+  color: var(--muted, #9ab1c8);
+  font-size: 0.88rem;
+  line-height: 1.46;
+}
+
+.journey-action {
+  color: #06101c;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cyan, #4deaff), #86e8ff);
+  padding: 7px 10px;
+  width: max-content;
+  max-width: 100%;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.journey-card.gold .journey-action {
+  background: linear-gradient(90deg, #f7d46a, #f0b53a);
+}
+
+.vectora-command-strip {
+  margin-top: 14px;
+  border: 1px solid rgba(111, 221, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(8, 15, 31, 0.78);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  backdrop-filter: blur(12px);
+}
+
+.vectora-command-step {
+  border: 1px solid rgba(77, 234, 255, 0.13);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+    rgba(12, 22, 43, 0.78);
+  padding: 12px;
+}
+
+.vectora-command-step span {
+  display: block;
+  color: var(--cyan, #4deaff);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.vectora-command-step strong {
+  color: var(--ink, #e8f8ff);
+  display: block;
+  line-height: 1.2;
+}
+
+.vectora-command-step p {
+  margin: 6px 0 0;
+  color: var(--muted, #9ab1c8);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.vectora-menu-ready .buy-panel,
+.vectora-menu-ready .hero-visual,
+.vectora-menu-ready .trust-tool,
+.vectora-menu-ready .template-box {
+  border-color: rgba(111, 221, 255, 0.26);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -568,6 +761,47 @@ body.vectora-menu-open .topbar {
 
   .vectora-menu-ready .menu-group a {
     min-height: 38px;
+  }
+
+  .vectora-journey,
+  .vectora-command-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-card {
+    min-height: 154px;
+  }
+
+  .vectora-menu-ready .hero {
+    gap: 12px;
+  }
+
+  .vectora-menu-ready .hero h1 {
+    font-size: clamp(1.9rem, 10vw, 2.38rem);
+  }
+
+  .vectora-menu-ready .hero .chips {
+    display: none;
+  }
+
+  .vectora-menu-ready .buy-panel {
+    padding: 14px;
+  }
+
+  .vectora-menu-ready .buy-panel h2 {
+    font-size: 1.05rem;
+  }
+
+  .vectora-menu-ready .buy-panel .fine-note {
+    display: none;
+  }
+
+  .vectora-menu-ready .hero-visual {
+    min-height: 190px;
   }
 }
 

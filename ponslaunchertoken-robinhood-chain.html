@@ -32,7 +32,7 @@
       "headline": "PonsLauncherToken on Robinhood Chain: Contract Check",
       "description": "How to identify and check a token created from the PonsLauncherToken implementation on Robinhood Chain.",
       "datePublished": "2026-08-08",
-      "dateModified": "2026-08-08",
+      "dateModified": "2026-08-16",
       "mainEntityOfPage": "https://getvectora.ai/ponslaunchertoken-robinhood-chain.html",
       "publisher": {"@type": "Organization", "name": "Vectora", "url": "https://getvectora.ai/"}
     }
@@ -81,6 +81,10 @@
     .identity img { width:72px; height:72px; display:block; margin-bottom:18px; }
     .identity strong { display:block; font-size:1.15rem; }
     .identity p { margin:8px 0 0; color:var(--muted); }
+    .hero-tool label { display:block; margin:16px 0 8px; font-weight:800; }
+    .hero-tool .input-row { grid-template-columns:1fr; }
+    .secondary-action { display:flex; min-height:46px; margin-top:10px; padding:10px 16px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:8px; color:var(--ink); font-weight:800; text-align:center; text-decoration:none; }
+    .secondary-action:hover { border-color:var(--cyan); color:var(--cyan); }
     .fact-band { border-block:1px solid var(--line); background:#0c1716; }
     .facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
     .fact { min-width:0; padding:22px; border-right:1px solid var(--line); }
@@ -138,10 +142,19 @@
       <h1>PonsLauncherToken is a contract label, not a unique token.</h1>
       <p class="lede">Multiple assets can use the same implementation name. The exact contract address is the identity. Check the creator, verified source, active controls, and real liquidity before treating any Pons launchpad token as understood.</p>
     </div>
-    <aside class="identity" aria-label="Identity rule">
+    <aside class="identity hero-tool" aria-labelledby="explorer-title">
       <img src="./assets/vtrai-token-mark-128.png" alt="Vectora verification mark" />
-      <strong>Name shared. Address unique.</strong>
-      <p>A ticker, logo, or explorer label can repeat. Anchor every check to the full `0x` contract on Robinhood Chain.</p>
+      <strong id="explorer-title">Check the exact contract</strong>
+      <p>Paste a Robinhood Chain token address to open its public Blockscout record. No wallet connection or signature.</p>
+      <form id="explorerForm">
+        <label for="contractAddress">Contract address</label>
+        <div class="input-row">
+          <input id="contractAddress" inputmode="text" autocomplete="off" spellcheck="false" placeholder="0x..." />
+          <button type="submit">Open address check</button>
+        </div>
+        <p class="notice" id="notice" role="status" aria-live="polite"></p>
+      </form>
+      <a class="secondary-action" id="factoryLink" href="https://robinhoodchain.blockscout.com/address/0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB" rel="noreferrer">Inspect published factory</a>
     </aside>
   </div>
 
@@ -170,19 +183,6 @@
         <article class="check"><b>5</b><h3>Inspect the V3 position</h3><p>Confirm the actual pool, fee tier, range, paired asset, position NFT holder, and whether withdrawal authority exists.</p></article>
         <article class="check"><b>6</b><h3>Verify token-specific claims</h3><p>Compare name, symbol, socials, website, supply, and project claims with the contract address and onchain metadata.</p></article>
       </div>
-    </section>
-
-    <section class="tool" aria-labelledby="explorer-title">
-      <h2 id="explorer-title">Open an address-specific Robinhood Chain check</h2>
-      <p>Paste the token contract to open its public Blockscout record. No wallet connection or signature is requested.</p>
-      <form id="explorerForm">
-        <label for="contractAddress">Contract address</label>
-        <div class="input-row">
-          <input id="contractAddress" inputmode="text" autocomplete="off" spellcheck="false" placeholder="0x..." />
-          <button type="submit">Open explorer</button>
-        </div>
-        <p class="notice" id="notice" role="status" aria-live="polite"></p>
-      </form>
     </section>
 
     <section>
@@ -214,6 +214,7 @@
     const form = document.getElementById('explorerForm');
     const input = document.getElementById('contractAddress');
     const notice = document.getElementById('notice');
+    const factoryLink = document.getElementById('factoryLink');
     const addressPattern = /^0x[a-fA-F0-9]{40}$/;
     gtag('event', 'robinhood_launchpad_checker_view', { page_name: 'ponslaunchertoken_robinhood_chain' });
     form.addEventListener('submit', (event) => {
@@ -229,6 +230,9 @@
       notice.textContent = 'Opening the address-specific explorer record...';
       gtag('event', 'robinhood_explorer_check_start', { page_name: 'ponslaunchertoken_robinhood_chain' });
       window.location.href = `https://robinhoodchain.blockscout.com/address/${encodeURIComponent(address)}`;
+    });
+    factoryLink.addEventListener('click', () => {
+      gtag('event', 'robinhood_factory_check_start', { page_name: 'ponslaunchertoken_robinhood_chain' });
     });
   </script>
 </body>

@@ -207,7 +207,8 @@
         document.querySelector(".top-actions") ||
         document.querySelector("main > .nav") ||
         document.querySelector("main > .top") ||
-        document.querySelector("header.top");
+        document.querySelector("header.top") ||
+        document.querySelector(".topbar");
       if (host) {
         host.appendChild(createMenu());
         menus = Array.prototype.slice.call(document.querySelectorAll(".site-menu"));
