@@ -1,24 +1,24 @@
 {
-  "generated_at_utc": "2026-08-16 07:10:07 UTC",
-  "generated_at_iso": "2026-08-16T07:10:07Z",
+  "generated_at_utc": "2026-08-16 07:45:02 UTC",
+  "generated_at_iso": "2026-08-16T07:45:02Z",
   "count": 2,
   "items": [
     {
       "watch_key": "solana:ly4h6n9v4g2n7ibzm4zdmxsftpyl4l4kbxzjegf6x2j",
-      "label": "Vectora (VTRAI)",
       "network": "solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "label": "Vectora (VTRAI)",
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-08-16",
-        "timestamp_utc": "2026-08-16 07:10:07 UTC",
-        "checked_at_utc": "2026-08-16T07:10:09.021Z",
+        "timestamp_utc": "2026-08-16 07:45:02 UTC",
+        "checked_at_utc": "2026-08-16T07:35:01.174Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
         "level": "verified",
         "title": "Verified official token",
-        "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
+        "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
         "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
         "meta": [
           {
@@ -80,14 +80,14 @@
       "history": [
         {
           "snapshot_date": "2026-08-16",
-          "timestamp_utc": "2026-08-16 07:10:07 UTC",
-          "checked_at_utc": "2026-08-16T07:10:09.021Z",
+          "timestamp_utc": "2026-08-16 07:45:02 UTC",
+          "checked_at_utc": "2026-08-16T07:35:01.174Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
           "level": "verified",
           "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site and in official launch posts.",
+          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
           "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
           "meta": [
             {
@@ -798,14 +798,14 @@
     },
     {
       "watch_key": "1:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-      "label": "USD Coin (USDC)",
       "network": "1",
       "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "label": "USD Coin (USDC)",
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-08-16",
-        "timestamp_utc": "2026-08-16 07:10:07 UTC",
-        "checked_at_utc": "2026-08-16T07:10:11Z",
+        "timestamp_utc": "2026-08-16 07:45:02 UTC",
+        "checked_at_utc": "2026-08-16T07:45:03.482Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -828,7 +828,7 @@
           },
           {
             "label": "Top liquidity",
-            "value": "$884,368"
+            "value": "$884,370"
           },
           {
             "label": "Top venue",
@@ -866,16 +866,14 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 50,412,522,379.96 to 49,650,832,919.68.",
-          "Top venue changed from uniswap / 0x3416cF to uniswap / 0x0fb0e4.",
-          "Top liquidity moved from $34,744,372 to $884,368."
+          "No material trust change since the last snapshot."
         ]
       },
       "history": [
         {
           "snapshot_date": "2026-08-16",
-          "timestamp_utc": "2026-08-16 07:10:07 UTC",
-          "checked_at_utc": "2026-08-16T07:10:11Z",
+          "timestamp_utc": "2026-08-16 07:45:02 UTC",
+          "checked_at_utc": "2026-08-16T07:45:03.482Z",
           "network_id": "1",
           "network_label": "Ethereum",
           "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -898,7 +896,7 @@
             },
             {
               "label": "Top liquidity",
-              "value": "$884,368"
+              "value": "$884,370"
             },
             {
               "label": "Top venue",
@@ -936,9 +934,7 @@
             }
           ],
           "change_summary": [
-            "Supply changed from 50,412,522,379.96 to 49,650,832,919.68.",
-            "Top venue changed from uniswap / 0x3416cF to uniswap / 0x0fb0e4.",
-            "Top liquidity moved from $34,744,372 to $884,368."
+            "No material trust change since the last snapshot."
           ]
         },
         {
