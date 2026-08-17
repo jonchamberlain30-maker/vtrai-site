@@ -20,10 +20,16 @@
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
+    const analyticsEnabled = !['localhost', '127.0.0.1'].includes(window.location.hostname);
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YFD45VCN8J');
+    function trackEvent(name, parameters) {
+      if (analyticsEnabled) gtag('event', name, parameters);
+    }
+    if (analyticsEnabled) {
+      gtag('js', new Date());
+      gtag('config', 'G-YFD45VCN8J');
+    }
   </script>
   <script type="application/ld+json">
     {
@@ -216,23 +222,23 @@
     const notice = document.getElementById('notice');
     const factoryLink = document.getElementById('factoryLink');
     const addressPattern = /^0x[a-fA-F0-9]{40}$/;
-    gtag('event', 'robinhood_launchpad_checker_view', { page_name: 'ponslaunchertoken_robinhood_chain' });
+    trackEvent('robinhood_launchpad_checker_view', { page_name: 'ponslaunchertoken_robinhood_chain' });
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const address = input.value.trim();
       if (!addressPattern.test(address)) {
         notice.className = 'notice error';
         notice.textContent = 'Enter a complete 0x contract address with 40 hexadecimal characters.';
-        gtag('event', 'robinhood_explorer_check_rejected', { page_name: 'ponslaunchertoken_robinhood_chain' });
+        trackEvent('robinhood_explorer_check_rejected', { page_name: 'ponslaunchertoken_robinhood_chain' });
         return;
       }
       notice.className = 'notice';
       notice.textContent = 'Opening the address-specific explorer record...';
-      gtag('event', 'robinhood_explorer_check_start', { page_name: 'ponslaunchertoken_robinhood_chain' });
+      trackEvent('robinhood_explorer_check_start', { page_name: 'ponslaunchertoken_robinhood_chain' });
       window.location.href = `https://robinhoodchain.blockscout.com/address/${encodeURIComponent(address)}`;
     });
     factoryLink.addEventListener('click', () => {
-      gtag('event', 'robinhood_factory_check_start', { page_name: 'ponslaunchertoken_robinhood_chain' });
+      trackEvent('robinhood_factory_check_start', { page_name: 'ponslaunchertoken_robinhood_chain' });
     });
   </script>
 </body>
