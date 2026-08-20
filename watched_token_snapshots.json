@@ -1,7 +1,9 @@
 {
-  "generated_at_utc": "2026-08-18 07:45:05 UTC",
-  "generated_at_iso": "2026-08-18T07:45:05Z",
+  "generated_at_utc": "2026-08-20 07:02:28 UTC",
+  "generated_at_iso": "2026-08-20T07:02:28Z",
   "count": 2,
+  "ok_count": 1,
+  "unavailable_count": 1,
   "items": [
     {
       "watch_key": "solana:ly4h6n9v4g2n7ibzm4zdmxsftpyl4l4kbxzjegf6x2j",
@@ -10,9 +12,9 @@
       "label": "Vectora (VTRAI)",
       "status": "ok",
       "latest": {
-        "snapshot_date": "2026-08-18",
-        "timestamp_utc": "2026-08-18 07:45:05 UTC",
-        "checked_at_utc": "2026-08-18T07:35:08.214Z",
+        "snapshot_date": "2026-08-20",
+        "timestamp_utc": "2026-08-20 07:02:28 UTC",
+        "checked_at_utc": "2026-08-20T07:02:29.173Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -78,6 +80,74 @@
         ]
       },
       "history": [
+        {
+          "snapshot_date": "2026-08-20",
+          "timestamp_utc": "2026-08-20 07:02:28 UTC",
+          "checked_at_utc": "2026-08-20T07:02:29.173Z",
+          "network_id": "solana",
+          "network_label": "Solana",
+          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+          "level": "verified",
+          "title": "Verified official token",
+          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+          "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+          "meta": [
+            {
+              "label": "Network",
+              "value": "Solana"
+            },
+            {
+              "label": "Token",
+              "value": "Vectora (VTRAI)"
+            },
+            {
+              "label": "Supply",
+              "value": "1,000,000,000"
+            },
+            {
+              "label": "Top liquidity",
+              "value": "Unknown"
+            },
+            {
+              "label": "Top venue",
+              "value": "Unknown / "
+            },
+            {
+              "label": "Metadata mutable",
+              "value": "Yes"
+            }
+          ],
+          "reasons": [
+            {
+              "label": "Official match",
+              "text": "The pasted mint exactly matches the canonical Vectora contract."
+            },
+            {
+              "label": "Mint control",
+              "text": "Mint authority is revoked."
+            },
+            {
+              "label": "Freeze control",
+              "text": "Freeze authority is revoked."
+            }
+          ],
+          "notes": [
+            "Metadata mutability: mutable."
+          ],
+          "links": [
+            {
+              "label": "Open Solscan",
+              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+            },
+            {
+              "label": "Open Raydium route",
+              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+            }
+          ],
+          "change_summary": [
+            "No material trust change since the last snapshot."
+          ]
+        },
         {
           "snapshot_date": "2026-08-18",
           "timestamp_utc": "2026-08-18 07:45:05 UTC",
@@ -937,7 +1007,9 @@
       "network": "1",
       "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "label": "USD Coin (USDC)",
-      "status": "ok",
+      "status": "unavailable",
+      "last_refresh_attempt_utc": "2026-08-20 07:02:28 UTC",
+      "last_refresh_error": "HTTP Error 400: Bad Request",
       "latest": {
         "snapshot_date": "2026-08-18",
         "timestamp_utc": "2026-08-18 07:45:05 UTC",
