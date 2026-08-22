@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Is DexScreener safe before you buy? Use this red flag checklist to check the token address, liquidity, fake tokens, holders, and risky links." />
+  <meta name="description" content="DexScreener red flags: check the token address, pair-address mistakes, liquidity, holders, permissions, and risky links before buying." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/dexscreener-red-flags.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="DexScreener Red Flags: Is DexScreener Safe Before You Buy?" />
-  <meta property="og:description" content="Check the exact token, pair-address mistakes, liquidity, routes, holders, and risky links before buying from DexScreener." />
+  <meta property="og:title" content="DexScreener Red Flags: Check The Token, Not Just The Chart" />
+  <meta property="og:description" content="Check the exact token, pair-address mistakes, liquidity, routes, holders, permissions, and risky links before buying." />
   <meta property="og:url" content="https://getvectora.ai/dexscreener-red-flags.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="DexScreener red flags guide by Vectora" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DexScreener Red Flags: Is DexScreener Safe Before You Buy?" />
-  <meta name="twitter:description" content="Check the exact token, pair-address mistakes, liquidity, routes, holders, and risky links before buying from DexScreener." />
+  <meta name="twitter:title" content="DexScreener Red Flags: Check The Token, Not Just The Chart" />
+  <meta name="twitter:description" content="Check the exact token, pair-address mistakes, liquidity, routes, holders, permissions, and risky links before buying." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
@@ -30,8 +30,8 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "DexScreener Red Flags: Is DexScreener Safe Before You Buy?",
-      "description": "A practical DexScreener red flag workflow for checking the exact token, pair/address confusion, thin liquidity, routes, holder concentration, and suspicious links.",
+      "headline": "DexScreener Red Flags: Check The Token, Not Just The Chart",
+      "description": "A practical DexScreener red-flag workflow for checking the exact token, pair/address confusion, thin liquidity, routes, holder concentration, permissions, and suspicious links.",
       "author": {
         "@type": "Organization",
         "name": "Vectora"
@@ -147,7 +147,7 @@
       ]
     }
   </script>
-  <title>DexScreener Red Flags: Is DexScreener Safe Before You Buy?</title>
+  <title>DexScreener Red Flags: Check The Token, Not Just The Chart</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -338,6 +338,40 @@
       background: rgba(18, 30, 52, 0.72);
       font-size: 0.82rem;
     }
+    .quick-check {
+      margin-top: 16px;
+      max-width: 680px;
+    }
+    .quick-check label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .quick-check-row {
+      display: flex;
+      gap: 8px;
+    }
+    .quick-check input {
+      min-width: 0;
+      flex: 1;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 12px;
+      background: rgba(8, 15, 30, 0.8);
+      color: var(--ink);
+      font: inherit;
+    }
+    .quick-check button {
+      border: 0;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .quick-check-help {
+      margin: 7px 0 0;
+      font-size: 0.82rem;
+    }
     .cta {
       margin-top: 14px;
       display: flex;
@@ -395,6 +429,8 @@
         justify-content: flex-start;
       }
       .grid { grid-template-columns: 1fr; }
+      .quick-check-row { flex-direction: column; }
+      .quick-check button { width: 100%; }
       .hero h1 { font-size: 1.7rem; }
     }
   </style>
@@ -438,7 +474,7 @@
     </div>
 
     <section class="hero">
-      <h1>Is DexScreener safe? Check these red flags before the chart talks you into it.</h1>
+      <h1>DexScreener red flags: check the token, not just the chart.</h1>
       <p>If you are searching for a DexScreener red flag, start with the boring checks: exact token address, official source, pair-vs-token address, liquidity depth, holder shape, route quality, and whether the buy link came from somewhere the project controls.</p>
       <div class="chips">
         <span class="chip">Wrong contract</span>
@@ -447,6 +483,14 @@
         <span class="chip">Cloned ticker</span>
         <span class="chip">Reply-link roulette</span>
       </div>
+      <form id="dexRedFlagsCheck" class="quick-check">
+        <label for="dexRedFlagsAddress">Paste the token contract or Solana mint</label>
+        <div class="quick-check-row">
+          <input id="dexRedFlagsAddress" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Not the DexScreener pair address" />
+          <button class="btn" type="submit">Check this token</button>
+        </div>
+        <p id="dexRedFlagsCheckHelp" class="quick-check-help" aria-live="polite">A pair identifies the market. Use the token address to check the asset.</p>
+      </form>
       <div class="cta">
         <a class="btn tracked-link" href="./#trust-check" data-label="dex_red_flags_open_tool">Open Trust Check</a>
         <a class="btn secondary tracked-link" href="./verifier-sprint.html" data-label="dex_red_flags_verifier_sprint">Start Verifier Sprint</a>
@@ -622,6 +666,25 @@
           link_label: link.dataset.label || 'unknown'
         });
       });
+    });
+
+    const dexRedFlagsForm = document.getElementById('dexRedFlagsCheck');
+    const dexRedFlagsAddress = document.getElementById('dexRedFlagsAddress');
+    const dexRedFlagsCheckHelp = document.getElementById('dexRedFlagsCheckHelp');
+    const isTokenAddress = (value) => /^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$/.test(value);
+
+    dexRedFlagsForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const address = String(dexRedFlagsAddress?.value || '').trim();
+      if (!isTokenAddress(address)) {
+        dexRedFlagsCheckHelp.textContent = 'Paste the full token contract or Solana mint. A ticker or pair address is not enough.';
+        dexRedFlagsAddress?.focus();
+        trackEvent('dex_red_flags_check_rejected', { page_name: PAGE_NAME });
+        return;
+      }
+      trackEvent('dex_red_flags_check_start', { page_name: PAGE_NAME });
+      const params = new URLSearchParams({ address, network: 'auto', autocheck: '1', source: 'dex_red_flags_guide' });
+      window.location.assign(`./?${params.toString()}#trust-check`);
     });
   </script>
   <script src="./assets/coinzilla-performance.js" defer></script>
