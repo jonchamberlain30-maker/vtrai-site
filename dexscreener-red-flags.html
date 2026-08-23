@@ -21,10 +21,13 @@
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
+    const analyticsEnabled = !['localhost', '127.0.0.1'].includes(window.location.hostname);
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YFD45VCN8J');
+    if (analyticsEnabled) {
+      gtag('js', new Date());
+      gtag('config', 'G-YFD45VCN8J');
+    }
   </script>
   <script type="application/ld+json">
     {
@@ -654,7 +657,7 @@
   <script>
     const PAGE_NAME = 'dexscreener_red_flags';
     function trackEvent(name, params = {}) {
-      if (typeof window.gtag === 'function') {
+      if (analyticsEnabled && typeof window.gtag === 'function') {
         window.gtag('event', name, params);
       }
     }
