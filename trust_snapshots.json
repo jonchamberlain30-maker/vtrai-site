@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-08-22 07:35:04 UTC",
-  "generated_at_iso": "2026-08-22T07:35:04Z",
+  "generated_at_utc": "2026-08-29 07:35:09 UTC",
+  "generated_at_iso": "2026-08-29T07:35:09Z",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
   },
   "latest": {
-    "snapshot_date": "2026-08-22",
-    "timestamp_utc": "2026-08-22 07:35:04 UTC",
-    "checked_at_utc": "2026-08-22T07:35:06.401Z",
+    "snapshot_date": "2026-08-29",
+    "timestamp_utc": "2026-08-29 07:35:09 UTC",
+    "checked_at_utc": "2026-08-29T07:35:10.711Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -75,6 +75,482 @@
     ]
   },
   "items": [
+    {
+      "snapshot_date": "2026-08-29",
+      "timestamp_utc": "2026-08-29 07:35:09 UTC",
+      "checked_at_utc": "2026-08-29T07:35:10.711Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
+    {
+      "snapshot_date": "2026-08-28",
+      "timestamp_utc": "2026-08-28 08:28:10 UTC",
+      "checked_at_utc": "2026-08-28T08:28:12.253Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
+    {
+      "snapshot_date": "2026-08-27",
+      "timestamp_utc": "2026-08-27 07:35:14 UTC",
+      "checked_at_utc": "2026-08-27T07:35:16.065Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
+    {
+      "snapshot_date": "2026-08-26",
+      "timestamp_utc": "2026-08-26 07:35:00 UTC",
+      "checked_at_utc": "2026-08-26T07:35:01.739Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
+    {
+      "snapshot_date": "2026-08-25",
+      "timestamp_utc": "2026-08-25 07:35:04 UTC",
+      "checked_at_utc": "2026-08-25T07:35:06.522Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
+    {
+      "snapshot_date": "2026-08-24",
+      "timestamp_utc": "2026-08-24 07:35:00 UTC",
+      "checked_at_utc": "2026-08-24T07:35:02.611Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
+    {
+      "snapshot_date": "2026-08-23",
+      "timestamp_utc": "2026-08-23 07:35:04 UTC",
+      "checked_at_utc": "2026-08-23T07:35:05.614Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "verified",
+      "title": "Verified official token",
+      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown / "
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Official match",
+          "text": "The pasted mint exactly matches the canonical Vectora contract."
+        },
+        {
+          "label": "Mint control",
+          "text": "Mint authority is revoked."
+        },
+        {
+          "label": "Freeze control",
+          "text": "Freeze authority is revoked."
+        }
+      ],
+      "notes": [
+        "Metadata mutability: mutable."
+      ],
+      "links": [
+        {
+          "label": "Open Solscan",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
     {
       "snapshot_date": "2026-08-22",
       "timestamp_utc": "2026-08-22 07:35:04 UTC",
