@@ -2045,18 +2045,16 @@
 
     <section class="hero">
       <div>
-        <h1>Check the token. Build your verifier trail.</h1>
-        <p class="sub">Paste a mint or contract, then turn the useful checks into a returnable sprint tied to your X handle. No reward is promised; the value is the habit and the public proof trail.</p>
+        <h1>Before you buy the chart, verify the token.</h1>
+        <p class="sub">Paste the exact mint or contract to check the source, route, and visible control signals first. No wallet connection, no price call, just a calmer starting point for your decision.</p>
         <div class="quick-metrics">
-          <span class="metric">Free checks</span>
-          <span class="metric">Badge progress</span>
-          <span class="metric">Public receipts</span>
+          <span class="metric">Exact address</span>
+          <span class="metric">Visible risk signals</span>
+          <span class="metric">Save serious candidates</span>
         </div>
         <div class="cta">
-          <a class="btn gold" href="#trust-check">Check a token</a>
-          <a class="btn" href="./verifier-sprint.html?utm_source=site&utm_medium=home&utm_campaign=verifier_sprint_season_1">Start Verifier Sprint</a>
-          <a class="btn" href="./solana-launchpad-token-checker.html">Launchpad check</a>
-          <a class="btn" href="#how-it-works">How it works</a>
+          <a class="btn gold" data-home-sale-cta="checker" href="#trust-check">Run a free token check</a>
+          <a class="btn" data-home-sale-cta="how_it_works" href="#how-it-works">See the 3-step check</a>
         </div>
       </div>
       <div class="vectora-hero-command" data-vectora-depth="true" aria-label="Vectora trust command cockpit visual">
@@ -2185,8 +2183,8 @@
     </section>
 
     <section id="trust-check" class="checker reveal">
-      <h2>Paste A Token Address.</h2>
-      <p class="sub">Start with the exact token. Save it only if the public signals are clear enough to deserve another look.</p>
+      <h2>Verify the exact token before you act.</h2>
+      <p class="sub">A ticker, chart, or reply-chain link is not enough. Start with the mint or contract, then decide whether this deserves more of your attention.</p>
       <div class="trust-tool">
         <div class="trust-command-bar" aria-label="Vectora verification workflow">
           <div class="trust-command-copy">
@@ -2225,7 +2223,7 @@
             <option value="10">Optimism</option>
           </select>
           <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
-          <button id="trustButton" class="btn gold" type="button">Check Token</button>
+          <button id="trustButton" class="btn gold" type="button">Check the token</button>
         </div>
         <div id="trustIdle" class="trust-idle-panel">
           <div class="trust-idle-lead">
@@ -3576,6 +3574,13 @@
           page: 'home',
           destination: link.getAttribute('href') || '',
         });
+        const homeSaleCta = link.dataset.homeSaleCta;
+        if (homeSaleCta) {
+          trackEvent('home_sales_cta_click', {
+            page: 'home',
+            cta: homeSaleCta,
+          });
+        }
       }
     });
 
