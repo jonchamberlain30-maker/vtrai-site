@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DexScreener red flags: check the token address, pair-address mistakes, liquidity, holders, permissions, and risky links before buying." />
+  <meta name="description" content="A practical DexScreener red-flags field guide: verify the token address, separate pair data from asset identity, inspect liquidity and controls, then decide whether to stop or keep researching." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/dexscreener-red-flags.html" />
@@ -11,14 +11,14 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vectora" />
   <meta property="og:title" content="DexScreener Red Flags: Check The Token, Not Just The Chart" />
-  <meta property="og:description" content="Check the exact token, pair-address mistakes, liquidity, routes, holders, permissions, and risky links before buying." />
+  <meta property="og:description" content="A practical field guide for separating chart context from token identity, liquidity, and control checks before you act." />
   <meta property="og:url" content="https://getvectora.ai/dexscreener-red-flags.html" />
-  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
-  <meta property="og:image:alt" content="DexScreener red flags guide by Vectora" />
+  <meta property="og:image" content="https://getvectora.ai/assets/dexscreener-red-flags-field-guide-20260830.png" />
+  <meta property="og:image:alt" content="A chart leading to an evidence-based token verification panel" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="DexScreener Red Flags: Check The Token, Not Just The Chart" />
-  <meta name="twitter:description" content="Check the exact token, pair-address mistakes, liquidity, routes, holders, permissions, and risky links before buying." />
-  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta name="twitter:description" content="A practical field guide for separating chart context from token identity, liquidity, and control checks before you act." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/dexscreener-red-flags-field-guide-20260830.png" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
   <script>
     const analyticsEnabled = !['localhost', '127.0.0.1'].includes(window.location.hostname);
@@ -34,7 +34,7 @@
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "DexScreener Red Flags: Check The Token, Not Just The Chart",
-      "description": "A practical DexScreener red-flag workflow for checking the exact token, pair/address confusion, thin liquidity, routes, holder concentration, permissions, and suspicious links.",
+      "description": "A practical DexScreener red-flag workflow for separating token identity from pair data, then inspecting liquidity, controls, sources, and links before deciding whether to continue researching.",
       "author": {
         "@type": "Organization",
         "name": "Vectora"
@@ -414,6 +414,50 @@
       margin-top: 12px;
     }
     .proof strong { color: var(--ink); }
+    .guide-visual {
+      margin: 18px 0 0;
+      border: 1px solid rgba(77, 234, 255, 0.24);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #07111f;
+    }
+    .guide-visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .guide-visual figcaption {
+      margin: 0;
+      padding: 10px 12px;
+      border-top: 1px solid rgba(77, 234, 255, 0.14);
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .triage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .triage-step {
+      border: 1px solid rgba(77, 234, 255, 0.16);
+      border-radius: 12px;
+      background: rgba(8, 15, 30, 0.68);
+      padding: 13px;
+    }
+    .triage-step b {
+      display: block;
+      color: var(--cyan);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .triage-step strong { display: block; margin-top: 6px; }
+    .triage-step p { margin: 7px 0 0; font-size: 0.88rem; }
+    .source-notes { margin-top: 12px; padding-left: 18px; }
+    .source-notes a { color: var(--cyan); }
     .footer {
       margin-top: 14px;
       color: var(--muted);
@@ -431,7 +475,7 @@
         width: 100%;
         justify-content: flex-start;
       }
-      .grid { grid-template-columns: 1fr; }
+      .grid, .triage-grid { grid-template-columns: 1fr; }
       .quick-check-row { flex-direction: column; }
       .quick-check button { width: 100%; }
       .hero h1 { font-size: 1.7rem; }
@@ -494,6 +538,10 @@
         </div>
         <p id="dexRedFlagsCheckHelp" class="quick-check-help" aria-live="polite">A pair identifies the market. Use the token address to check the asset.</p>
       </form>
+      <figure class="guide-visual">
+        <img src="./assets/dexscreener-red-flags-field-guide-20260830.png" width="1792" height="1024" alt="A price chart leading to a token verification panel for identity, source, liquidity, and controls" fetchpriority="low" />
+        <figcaption>A chart can show activity. It cannot establish that the asset, source, route, and controls are the ones you intended to trust.</figcaption>
+      </figure>
       <div class="cta">
         <a class="btn tracked-link" href="./#trust-check" data-label="dex_red_flags_open_tool">Open Trust Check</a>
         <a class="btn secondary tracked-link" href="./verifier-sprint.html" data-label="dex_red_flags_verifier_sprint">Start Verifier Sprint</a>
@@ -504,7 +552,7 @@
 
     <section class="card">
       <h2>If You Searched "DexScreener Red Flag", Start Here</h2>
-      <p>A red flag does not always mean scam. It means the page has stopped being enough evidence on its own. Before buying, prove that the token shown on DexScreener is the same asset the official project is pointing to.</p>
+      <p>A red flag does not always mean a scam. It means the page has stopped being enough evidence on its own. DexScreener can search by token name, symbol, token address, or pair address, and tokens can appear automatically once a pool has liquidity and a transaction. That makes it useful for discovery, not a stamp of legitimacy.</p>
       <div class="proof">
         <strong>The clean order:</strong>
         <p>Official source first. Token address second. Pair page third. Liquidity, route, holders, and controls after that. If any step depends on "trust me bro", the wallet can enjoy a brief holiday.</p>
@@ -518,6 +566,29 @@
     </section>
 
     <section class="card">
+      <h2>The 60-Second Evidence Ladder</h2>
+      <p>Do these in order. Each step answers a different question. Skipping to the chart first is how a plausible-looking market becomes the wrong asset.</p>
+      <div class="triage-grid">
+        <article class="triage-step">
+          <b>1. Identity</b>
+          <strong>Does the token address match the project-owned source?</strong>
+          <p>Copy the mint or contract from the project website or verified account, then compare every character. A pair address identifies a market; it is not the token identity.</p>
+        </article>
+        <article class="triage-step">
+          <b>2. Market context</b>
+          <strong>Does the pool make sense for the claim?</strong>
+          <p>Read liquidity, pair age, transaction mix, and volume as context. Thin liquidity and sudden activity deserve explanation, not automatic conclusions.</p>
+        </article>
+        <article class="triage-step">
+          <b>3. Controls</b>
+          <strong>Who can still change the asset's behaviour?</strong>
+          <p>On Solana, mint and freeze authorities are meaningful capabilities. Their presence is not a verdict, but it is information you should understand before acting.</p>
+        </article>
+      </div>
+      <div class="warn">Decision rule: a mismatch is a stop. Missing evidence is a downgrade. A clean-looking chart is neither a pass nor a reason to rush.</div>
+    </section>
+
+    <section class="card">
       <h2>DexScreener Red Flag Checklist</h2>
       <ol>
         <li>The ticker or name matches, but the contract is not on the official website or verified social source.</li>
@@ -528,6 +599,17 @@
         <li>The buy link came from a reply, DM, screenshot, or influencer caption instead of the project surface.</li>
       </ol>
       <div class="warn">One red flag does not always mean scam. It does mean pause. The wallet can wait. The chart will survive being ignored for five minutes.</div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>What A Paid Profile Or Busy Chart Cannot Tell You</h2>
+        <p>Marketing details, profile information, and active pairs can help you find a project. They do not prove that the contract is official, that liquidity is durable, that a route is correct, or that a wallet approval is sensible. Treat presentation as a lead, then verify the asset independently.</p>
+      </article>
+      <article class="card">
+        <h2>When The Honest Answer Is "I Cannot Verify This"</h2>
+        <p>That is not a failure of the check. It is a useful result. If the official source does not publish an exact address, the pair and mint do not line up, or the controls are unclear, save the candidate and wait for better evidence. You do not need to prove a token is bad to decide it is not ready.</p>
+      </article>
     </section>
 
     <section class="grid">
@@ -650,6 +732,16 @@
         <strong>What should I do if I see a DexScreener red flag?</strong>
         <p>Pause, copy the token contract, compare it with the official source and explorer, run a trust check, and avoid approving anything until the identity and route are clear.</p>
       </div>
+    </section>
+
+    <section class="card">
+      <h2>Source Notes</h2>
+      <p>This guide separates what a market page can show from what still needs independent verification. The useful primary references are below.</p>
+      <ul class="source-notes">
+        <li><a href="https://docs.dexscreener.com/token-listing" target="_blank" rel="noreferrer">DEX Screener token listing documentation</a>: tokens can be listed automatically after a liquidity pool and transaction exist; search can return both token and pair addresses.</li>
+        <li><a href="https://docs.dexscreener.com/api/reference" target="_blank" rel="noreferrer">DEX Screener API reference</a>: token, pair, profile, paid-order, liquidity, and market fields are distinct data surfaces.</li>
+        <li><a href="https://solana.com/docs/tokens/basics" target="_blank" rel="noreferrer">Solana SPL Token Basics</a>: mint and freeze authority capabilities can affect supply and individual token-account behaviour.</li>
+      </ul>
     </section>
 
     <p class="footer">Vectora publishes verification context, not guarantees. Always confirm the exact contract before trading. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="./disclaimer.html">Disclaimer</a> · <a href="./contact.html">Contact</a></p>
