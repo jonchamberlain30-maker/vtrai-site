@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <title>Help Test Vectora | Token Research Pilot</title>
+  <meta name="description" content="Try Vectora on a public token you already research. Tell us what is clear, what is missing and whether the evidence is useful. No wallet or purchase required.">
+  <link rel="canonical" href="https://getvectora.ai/pilot.html">
+  <link rel="icon" href="./assets/vtrai-token-mark-128.png">
+  <meta property="og:title" content="Help test Vectora with one real research task">
+  <meta property="og:description" content="A short, voluntary token-checking pilot. No wallet connection, purchase or endorsement.">
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg">
+  <meta property="og:url" content="https://getvectora.ai/pilot.html">
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#111416;color:#f2f5f4;letter-spacing:0}
+    *{box-sizing:border-box}body{margin:0}a{color:#79dfed;text-underline-offset:3px}a:hover{color:#c8f6fc}
+    header,main,footer{max-width:760px;margin:auto;padding:20px}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #3c4346;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font-weight:700}.brand img{width:32px;height:32px}
+    h1{font-size:32px;line-height:1.2;margin:16px 0}h2{font-size:21px;line-height:1.3;margin:0 0 12px}p,li{line-height:1.6;color:#c2cccf}p{margin:10px 0 16px}
+    .eyebrow{font-size:13px;color:#c9e895;font-weight:650;margin-top:12px}section{border-bottom:1px solid #3c4346;padding:26px 0}ol{padding-left:24px}li{padding:4px 0}
+    .command,button{display:inline-block;min-height:44px;padding:12px 16px;border:1px solid #79dfed;border-radius:6px;background:#79dfed;color:#10191c;font:inherit;font-weight:650;text-decoration:none;cursor:pointer;text-align:center}
+    .command:hover,button:hover{background:#b4eef5;color:#10191c}button:disabled{opacity:.5;cursor:wait}.secondary{background:transparent;color:#c2cccf;border-color:#697579}
+    label,legend{display:block;font-size:15px;font-weight:600;line-height:1.5}select,textarea{width:100%;border:1px solid #697579;background:#1c2225;color:inherit;border-radius:4px;font:inherit;padding:12px;margin:8px 0 20px}textarea{resize:vertical;min-height:100px}
+    fieldset{border:0;padding:0;margin:0 0 22px;min-width:0}.choice{font-weight:400;display:flex;gap:10px;align-items:flex-start;padding:8px 0}.choice input{width:18px;height:18px;margin:3px 0 0;flex-shrink:0;accent-color:#79dfed}
+    .muted{font-size:14px;color:#a4b1b6}.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.message{white-space:pre-wrap;overflow-wrap:anywhere}.trap{display:none}footer{font-size:14px;color:#a4b1b6;padding-bottom:36px}
+    :focus-visible{outline:3px solid #c9e895;outline-offset:3px}[hidden]{display:none!important}
+    @media(max-width:480px){h1{font-size:28px}header,main,footer{padding-left:18px;padding-right:18px}.actions>*{width:100%}}
+  </style>
+</head>
+<body>
+  <header><a href="./" class="brand"><img src="./assets/vtrai-token-mark-128.png" alt="">Vectora</a><a href="./">Token checker</a></header>
+  <main>
+    <p class="eyebrow">VOLUNTARY RESEARCH PILOT</p>
+    <h1>Help us find what needs fixing.</h1>
+    <p>Do you research tokens or moderate a crypto community? Try one real task in Vectora, then tell us how it went. Allow about five minutes. We are testing the product, not you.</p>
+    <p class="muted">No wallet connection, purchase, reward or endorsement. Participation is optional; leave whenever you like. Use a public token you are comfortable discussing, not private holdings.</p>
+    <section aria-labelledby="task-title">
+      <h2 id="task-title">Your task</h2>
+      <ol>
+        <li>Choose a public token you already have a reason to research. Use Vectora to investigate it.</li>
+        <li>Decide what you can conclude from the result and what you would check next.</li>
+        <li>Keep a copy of the evidence you could revisit or send to someone else.</li>
+      </ol>
+      <a id="start" class="command" href="./?utm_source=pilot&utm_medium=referral&utm_campaign=activation_sep2026" target="_blank" rel="noopener">Open Vectora</a>
+      <p class="muted">Come back here when you finish or get stuck. A limitation or a failed check is useful feedback too.</p>
+    </section>
+    <section aria-labelledby="feedback-title">
+      <h2 id="feedback-title">What happened?</h2>
+      <form id="feedback">
+        <label for="role">How do you usually research tokens?</label>
+        <select id="role" required><option value="">Choose one</option><option value="researcher">I research tokens regularly</option><option value="moderator">I moderate a community</option><option value="occasional">I check tokens occasionally</option><option value="other">Something else</option></select>
+        <fieldset><legend>How far did you get?</legend>
+          <label class="choice"><input type="radio" name="outcome" value="completed" required>I checked a token and kept a copy of the evidence</label>
+          <label class="choice"><input type="radio" name="outcome" value="assisted">I finished, but needed help or another tool</label>
+          <label class="choice"><input type="radio" name="outcome" value="blocked">I got stuck or stopped before finishing</label>
+          <label class="choice"><input type="radio" name="outcome" value="not_attempted">I did not try the task</label>
+        </fieldset>
+        <label for="details">What was clear, confusing or missing?</label>
+        <textarea id="details" maxlength="1000" placeholder="One specific moment is enough." required></textarea>
+        <label for="next">What would you do next with this result?</label>
+        <textarea id="next" maxlength="1000" required></textarea>
+        <div class="trap" aria-hidden="true"><input id="website" tabindex="-1" autocomplete="off"></div>
+        <p class="muted">Do not include names, contact details, wallet balances, seed phrases or private keys. Written answers are reviewed privately by Vectora and its AI assistant, not published as testimonials. This form has no analytics tags. The main checker has the analytics described in our <a href="./privacy.html#pilot">privacy policy</a>.</p>
+        <label class="choice"><input id="consent" type="checkbox" required>I agree to Vectora storing and reviewing these answers to improve the product, for up to 31 days. A local submission reference lets me withdraw them from this browser.</label>
+        <div class="actions"><button id="submit" type="submit">Send feedback</button></div>
+      </form>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <div id="after" hidden>
+        <p>You do not need to post, follow or endorse anything. If another token gives you a reason to return, we would like to know whether Vectora helped.</p>
+        <div class="actions"><button id="remind" class="secondary" type="button">Add a seven-day reminder</button><button id="withdraw" class="secondary" type="button">Withdraw my feedback</button></div>
+        <p class="muted">The reminder is an optional calendar download, not an email subscription. Withdrawal affects the answers in our research store, not public posts you make elsewhere.</p>
+      </div>
+      <noscript><p>This form requires JavaScript. Feedback is also welcome through the <a href="./contact.html">official contact channels</a>.</p></noscript>
+    </section>
+  </main>
+  <footer><a href="./privacy.html#pilot">Privacy</a> &middot; <a href="./contact.html">Contact Vectora</a></footer>
+  <script src="./assets/vectora-pilot.js" defer></script>
+</body>
+</html>
