@@ -582,6 +582,15 @@
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
+  <script src="./assets/vectora-journey.js"></script>
+  <style>
+    .hero { padding: 20px 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+    .hero h1 { font-size: 28px; letter-spacing: 0; }
+    .hero .sub { margin-bottom: 12px; }
+    #freshCheckForm summary { cursor: pointer; padding: 8px 0; }
+    .report-title { overflow-wrap: anywhere; }
+    .report-shell.ready { opacity: 1; filter: none; }
+  </style>
 </head>
 <body>
   <main class="wrap">
@@ -626,13 +635,10 @@
     </div>
 
     <section class="hero">
-      <h1>Shareable Token Report</h1>
-      <p class="sub">Open a token-specific report URL that fetches the latest trust card directly from the public API and can be passed around in chats, posts, or DMs.</p>
-      <div class="badges">
-        <span class="badge">Shareable URL</span>
-        <span class="badge">Live API report</span>
-        <span class="badge">Works with watchlist</span>
-      </div>
+      <h1>Token evidence</h1>
+      <p class="sub">Reported controls, market evidence and unanswered questions.</p>
+      <details id="freshCheckForm" open>
+      <summary>Run a fresh check</summary>
       <div class="report-form">
         <select id="networkSelect" class="select">
           <option value="auto">Auto detect</option>
@@ -645,14 +651,14 @@
           <option value="10">Optimism</option>
         </select>
         <input id="reportInput" class="input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
-        <button id="openReportButton" class="btn gold" type="button">Open Report</button>
+        <button id="openReportButton" class="btn gold" type="button">Check now</button>
       </div>
+      </details>
       <div class="controls">
-        <button id="copyLinkButton" class="btn" type="button">Copy Report Link</button>
+        <button id="copyLinkButton" class="btn" type="button" disabled>Copy receipt</button>
         <a class="btn" href="./#trust-check">Back to Checker</a>
         <a class="btn" href="./watchlist.html">Open Watchlist</a>
       </div>
-      <div class="helper">Use this page when you want a token check that can be reopened or shared directly without re-entering the address.</div>
     </section>
 
     <section id="reportState" class="state">Paste a token address above or open this page with `?network=...&address=...`.</section>
@@ -681,16 +687,13 @@
     const reportState = document.getElementById('reportState');
     const reportShell = document.getElementById('reportShell');
     const pageParams = new URLSearchParams(window.location.search);
+    document.getElementById('freshCheckForm').open = !pageParams.has('receipt');
     const reminderReturnSource = pageParams.get('return_source') || '';
     const reminderReturnDays = Number(pageParams.get('reminder_days')) || null;
     let currentWatchToken = null;
     let currentReportUrl = window.location.href;
     let reminderReturnTracked = false;
-    function trackEvent(name, params = {}) {
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', name, params);
-      }
-    }
+    function trackEvent(name, params = {}) { window.VectoraJourney.track(name, params); }
 
     function normalizeInput(raw) {
       return String(raw || '').trim();
@@ -710,7 +713,8 @@
     }
 
     function buildStatusLabel(level) {
-      if (level === 'verified') return 'Verified official token';
+      if (level === 'unknown') return 'Insufficient evidence';
+      if (level === 'verified') return 'Legacy identity match';
       if (level === 'low') return 'Low caution';
       if (level === 'medium') return 'Medium caution';
       return 'High caution';
@@ -752,11 +756,11 @@
     function buildQuickSummary(report) {
       const reasonsBlob = reasonText(report);
       const topLiquidity = metaValue(report, 'Top liquidity');
-      const officialRoute = report.level === 'verified'
+      const officialRoute = report.identity?.status === 'official_match'
         ? 'Matches the official Vectora contract published across the canonical launch routes.'
         : 'Use the proof links below to verify the contract, socials, and trading route before acting.';
 
-      let controlRisk = 'No severe control flags were surfaced by the current checks.';
+      let controlRisk = report.level === 'unknown' ? 'Evidence is incomplete. Missing fields do not establish that controls are absent.' : 'Review reported controls and evidence gaps below.';
       if (report.level === 'high') {
         controlRisk = 'High caution: control or trading restrictions need manual review before any trade.';
       } else if (report.level === 'medium') {
@@ -769,7 +773,7 @@
         ? `Observed top liquidity: ${topLiquidity}. Cross-check the venue and pair before trading.`
         : 'Liquidity context is limited right now. Use the proof links to inspect venue depth before trading.';
 
-      if (report.level === 'verified') {
+      if (report.identity?.status === 'official_match') {
         liquidityContext = topLiquidity && topLiquidity !== 'Unknown'
           ? `Official token match. Current top liquidity reads ${topLiquidity}. Confirm the venue route from the links below.`
           : 'Official token match. Pair data is still limited here, so verify the route through the proof links below.';
@@ -791,6 +795,7 @@
     }
 
     function buildDecision(report) {
+      if (report.level === 'unknown') return {label: 'Evidence incomplete', tone: '#ffd27f', text: 'Some checks could not be established. Inspect the evidence gaps before deciding.'};
       if (report.level === 'verified') {
         return {
           label: 'Continue',
@@ -904,6 +909,9 @@
         summary: report.summary,
         image_url: report.image_url || '',
         checked_at_utc: report.checked_at_utc || '',
+        receipt_id: report.receipt_id || '',
+        assessment_version: report.assessment_version || '',
+        identity: report.identity || {},
         meta: report.meta || [],
         reasons: report.reasons || [],
         notes: report.notes || [],
@@ -935,6 +943,7 @@
       const end = new Date(start.getTime() + (30 * 60 * 1000));
       const label = token?.token_label || token?.title || 'saved token';
       const reportUrl = new URL(currentReportUrl);
+      reportUrl.searchParams.delete('receipt');
       reportUrl.searchParams.set('return_source', 'calendar_reminder');
       reportUrl.searchParams.set('reminder_days', '7');
       const calendar = [
@@ -1047,10 +1056,21 @@
     }
 
     function renderReport(report) {
+      const rawReport = report;
+      report = window.VectoraJourney.displayReport(report);
+      const receiptUrl = new URL(window.location.href);
+      receiptUrl.search = new URLSearchParams({ network: report.network_id || 'auto', address: report.address || '', source: 'shared_report' });
+      if (report.receipt_id) receiptUrl.searchParams.set('receipt', report.receipt_id);
+      currentReportUrl = receiptUrl.href;
+      copyLinkButton.disabled = !report.receipt_id;
+      copyLinkButton.title = report.receipt_id ? 'Copy the saved evidence receipt' : 'Receipt storage unavailable; this is a current lookup only';
+
       trackEvent('token_report_rendered', {
         page: 'report',
         network: report.network_id || 'unknown',
         level: report.level || 'unknown',
+        mode: report.mode,
+        assessment_version: report.assessment_version || '',
       });
       if (reminderReturnSource === 'calendar_reminder' && !reminderReturnTracked) {
         reminderReturnTracked = true;
@@ -1075,11 +1095,12 @@
         title: report.title,
         summary: report.summary,
         image_url: imageUrl,
-        report,
+        report: rawReport,
       };
       const saved = isWatchedToken(currentWatchToken);
       document.title = `Vectora | ${report.title}`;
       const quickSummary = buildQuickSummary(report);
+      quickSummary.unshift({label: report.receipt_id ? 'Saved evidence receipt' : 'Current lookup only', text: `Observed ${report.checked_at_utc || 'at an unknown time'}. Assessment ${report.assessment_version || 'legacy'}. Run a new check for current evidence.`});
       const decision = buildDecision(report);
       const reasonsHtml = (report.reasons || []).length ? `
         <div class="section">
@@ -1161,25 +1182,33 @@
       `);
     }
 
-    async function openReport() {
+    async function openReport(receiptId = '') {
+      if (typeof receiptId !== 'string') receiptId = '';
+      if (openReportButton.disabled) return;
+      openReportButton.disabled = true;
       const address = normalizeInput(reportInput.value);
       const network = networkSelect.value || 'auto';
-      if (!address) {
+      if (!address && !receiptId) {
+        openReportButton.disabled = false;
         setReportState('Paste a token address to open a shareable report.');
         return;
       }
-      updateUrl(network, address);
+      if (!receiptId) updateUrl(network, address);
       setReportState('Fetching trust report...');
       trackEvent('report_lookup_submitted', {
         page: 'report',
         network,
+        lookup_kind: receiptId ? 'shared_receipt' : reminderReturnSource ? 'recheck' : 'report_lookup',
       });
       try {
-        const response = await fetch(`${TRUST_API_BASE}/check?network=${encodeURIComponent(network)}&address=${encodeURIComponent(address)}`);
+        const endpoint = receiptId ? `${TRUST_API_BASE}/receipts/${encodeURIComponent(receiptId)}` : `${TRUST_API_BASE}/check?network=${encodeURIComponent(network)}&address=${encodeURIComponent(address)}`;
+        const response = await fetch(endpoint);
         const payload = await response.json();
         if (!response.ok || !payload.ok || !payload.report) {
           throw new Error(payload.error || 'Trust report unavailable.');
         }
+        reportInput.value = payload.report.address;
+        networkSelect.value = payload.report.network_id;
         renderReport(payload.report);
       } catch (error) {
         trackEvent('report_lookup_failed', {
@@ -1187,7 +1216,7 @@
           network,
         });
         setReportState(error.message || 'Trust report unavailable.');
-      }
+      } finally { openReportButton.disabled = false; }
     }
 
     openReportButton.addEventListener('click', openReport);
@@ -1285,13 +1314,13 @@
     const addressParam = normalizeInput(pageParams.get('address') || '');
     const networkParam = pageParams.get('network') || 'auto';
     if (networkParam) networkSelect.value = networkParam;
-    if (addressParam) {
+    if (addressParam || pageParams.get('receipt')) {
       reportInput.value = addressParam;
       currentReportUrl = window.location.href;
-      openReport();
+      openReport(pageParams.get('receipt') || '');
     }
     loadMonitorQueueHealth().then(() => {
-      if (currentWatchToken) renderReport(currentWatchToken);
+      if (currentWatchToken) renderReport(currentWatchToken.report);
     });
   </script>
   <script src="./assets/brand-buy-tracking.js" defer></script>

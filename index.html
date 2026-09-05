@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="Vectora AI | VTRAI Token Verification, Proof Pack & Official Mint" />
+  <meta property="og:title" content="Vectora | Free Token Checks and Evidence Reports" />
   <meta property="og:description" content="Check the official VTRAI mint, public proof pack, Raydium route, token safety guides, and Vectora AI updates before acting." />
   <meta property="og:url" content="https://getvectora.ai/" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
@@ -62,6 +62,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
   <style>
+    .nav .brand { color: #e7f4fa; text-decoration: none; }
     :root {
       --bg-1: #050912;
       --bg-2: #0b1630;
@@ -1992,14 +1993,31 @@
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
+  <script src="./assets/vectora-journey.js"></script>
+  <style>
+    .checker-primary { margin-top: 20px; padding: 24px 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+    .checker-primary::before, .checker-primary::after { display: none; }
+    .checker-primary h1 { font-size: 36px; line-height: 1.15; max-width: 760px; letter-spacing: 0; margin: 0 0 12px; }
+    .checker-primary .sub { max-width: 660px; margin-bottom: 20px; }
+    .checker-primary .trust-tool { border: 0; background: none; box-shadow: none; padding: 0; }
+    .checker-empty { padding: 16px 0; color: #c4cbd0; max-width: 720px; }
+    .trust-form { grid-template-columns: 165px minmax(0, 1fr) auto; }
+    .trust-form > * { min-width: 0; }
+    @media (max-width: 640px) {
+      .checker-primary { margin-top: 12px; padding-top: 12px; }
+      .checker-primary h1 { font-size: 28px; }
+      .trust-form { grid-template-columns: 1fr; }
+      .trust-form > * { width: 100%; }
+    }
+  </style>
 </head>
 <body>
   <div class="bg-grid"></div>
   <main class="wrap">
     <div class="nav">
-      <a class="brand brand-buy-link" href="./buy-and-verify.html" aria-label="Buy Vectora token through the verified path">
+      <a class="brand" href="./" aria-label="Vectora home">
         <img src="./assets/vtrai-token-mark-128.png" alt="VTRAI logo" />
-        <span>Vectora <span class="tag">$VTRAI</span></span>
+        <span>Vectora</span>
       </a>
       <div class="nav-actions">
         <div class="nav-links">
@@ -2043,65 +2061,33 @@
       </div>
     </div>
 
-    <section class="hero">
-      <div>
-        <h1>Before you buy the chart, verify the token.</h1>
-        <p class="sub">Paste the exact mint or contract to check the source, route, and visible control signals first. No wallet connection, no price call, just a calmer starting point for your decision.</p>
-        <div class="quick-metrics">
-          <span class="metric">Exact address</span>
-          <span class="metric">Visible risk signals</span>
-          <span class="metric">Save serious candidates</span>
+    <section id="trust-check" class="checker checker-primary">
+      <h1>Check the token. See the evidence.</h1>
+      <p class="sub">Free token checks, source-backed findings and saved reports. No wallet connection required.</p>
+      <div class="trust-tool">
+        <div class="trust-form">
+          <select id="networkSelect" class="trust-select" aria-label="Token network">
+            <option value="auto">Auto detect</option>
+            <option value="solana">Solana</option>
+            <option value="1">Ethereum</option>
+            <option value="8453">Base</option>
+            <option value="56">BNB Chain</option>
+            <option value="42161">Arbitrum</option>
+            <option value="137">Polygon</option>
+            <option value="10">Optimism</option>
+          </select>
+          <input id="trustInput" class="trust-input" type="text" spellcheck="false" aria-label="Token address or DexScreener market URL" placeholder="Token address or DexScreener market URL" />
+          <button id="trustButton" class="btn gold" type="button">Check the token</button>
         </div>
-        <div class="cta">
-          <a class="btn gold" data-home-sale-cta="checker" href="#trust-check">Run a free token check</a>
-          <a class="btn" data-home-sale-cta="how_it_works" href="#how-it-works">See the 3-step check</a>
-        </div>
-      </div>
-      <div class="vectora-hero-command" data-vectora-depth="true" aria-label="Vectora trust command cockpit visual">
-        <div class="vhc-top">
-          <span class="vhc-product"><span class="vhc-orb" aria-hidden="true"></span>Vectora Trust OS</span>
-          <span class="vhc-live">Live route</span>
-        </div>
-        <div class="vhc-mint">
-          <span>Official mint</span>
-          <strong>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</strong>
-        </div>
-        <div class="vhc-path" aria-label="Token trust flow">
-          <span class="is-active">Source</span>
-          <span>Route</span>
-          <span>Controls</span>
-          <span>Watch</span>
-        </div>
-        <div class="vhc-grid">
-          <div class="vhc-card">
-            <span>Source</span>
-            <strong>Official page matched</strong>
-            <em>clear</em>
-          </div>
-          <div class="vhc-card">
-            <span>Route</span>
-            <strong>Public pool reference</strong>
-            <em>checked</em>
-          </div>
-          <div class="vhc-card">
-            <span>Controls</span>
-            <strong>Authority signals visible</strong>
-            <em>review</em>
-          </div>
-          <div class="vhc-card">
-            <span>Memory</span>
-            <strong>Saved for return check</strong>
-            <em>local</em>
-          </div>
-        </div>
-        <div class="vhc-lower">
-          <div class="vhc-dial" aria-label="Example trust readiness score">
-            <span>84</span>
-          </div>
-          <div class="vhc-feed">
-            <div><b>Sprint</b><span>X handle progress</span></div>
-            <div><b>Receipt</b><span>Returnable proof trail</span></div>
-            <div><b>Never</b><span>From screenshots or DMs</span></div>
+        <div id="trustIdle" class="checker-empty">A check can identify reported controls and missing evidence. It cannot guarantee safety.</div>
+        <div id="trustResult" class="trust-result"></div>
+        <div class="trust-note">
+          <div class="trust-help" id="trustHelp">
+            <span class="trust-help-label">Coverage</span>
+            <button class="trust-help-button" id="trustHelpButton" type="button" aria-expanded="false" aria-controls="trustHelpPanel">?</button>
+            <div class="trust-help-panel" id="trustHelpPanel">
+              Supported now: Solana, Ethereum, Base, BNB Chain, Arbitrum, Polygon, and Optimism. Auto detect works for Solana and will sweep the common EVM set when a `0x...` contract is pasted. The long-term job is trust-change monitoring and alerts, not just static checks.
+            </div>
           </div>
         </div>
       </div>
@@ -2130,14 +2116,7 @@
           </div>
           <span class="journey-action">Open watchlist</span>
         </a>
-        <a class="journey-card" href="./verifier-sprint.html">
-          <span class="journey-index">03 Sprint</span>
-          <div>
-            <strong>Come back for progress.</strong>
-            <p>Attach an X handle, complete free verifier actions, and let the badge trail update when public checks land.</p>
-          </div>
-          <span class="journey-action">Start sprint</span>
-        </a>
+        <a class="journey-card" href="./watchlist.html"><span class="journey-index">03 Recheck</span><div><strong>See what changed.</strong><p>Return to saved tokens and compare fresh evidence with the previous report.</p></div><span class="journey-action">Open watchlist</span></a>
       </div>
     </section>
 
@@ -2180,86 +2159,6 @@
         <p>Use the dedicated $VTRAI path to match the official mint, check public proof, and open the official route without relying on a banner or screenshot.</p>
       </div>
       <a class="btn gold" href="./coinzilla.html?utm_source=coinzilla&utm_medium=display&utm_campaign=home_return_path&utm_content=home_banner">Open $VTRAI verification path</a>
-    </section>
-
-    <section id="trust-check" class="checker reveal">
-      <h2>Verify the exact token before you act.</h2>
-      <p class="sub">A ticker, chart, or reply-chain link is not enough. Start with the mint or contract, then decide whether this deserves more of your attention.</p>
-      <div class="trust-tool">
-        <div class="trust-command-bar" aria-label="Vectora verification workflow">
-          <div class="trust-command-copy">
-            <span>Verification Desk</span>
-            <strong>One calm path from address to decision.</strong>
-            <p>Vectora keeps the workflow obvious: paste the address, read the source and route signals, then save the token if it deserves another look later.</p>
-          </div>
-          <div class="trust-stage-rail">
-            <div class="trust-stage">
-              <span>01</span>
-              <strong>Paste mint or contract</strong>
-            </div>
-            <div class="trust-stage">
-              <span>02</span>
-              <strong>Read source and route</strong>
-            </div>
-            <div class="trust-stage">
-              <span>03</span>
-              <strong>Check control signals</strong>
-            </div>
-            <div class="trust-stage">
-              <span>04</span>
-              <strong>Save or walk away</strong>
-            </div>
-          </div>
-        </div>
-        <div class="trust-form">
-          <select id="networkSelect" class="trust-select">
-            <option value="auto">Auto detect</option>
-            <option value="solana">Solana</option>
-            <option value="1">Ethereum</option>
-            <option value="8453">Base</option>
-            <option value="56">BNB Chain</option>
-            <option value="42161">Arbitrum</option>
-            <option value="137">Polygon</option>
-            <option value="10">Optimism</option>
-          </select>
-          <input id="trustInput" class="trust-input" type="text" spellcheck="false" placeholder="Paste token mint or contract address" />
-          <button id="trustButton" class="btn gold" type="button">Check the token</button>
-        </div>
-        <div id="trustIdle" class="trust-idle-panel">
-          <div class="trust-idle-lead">
-            <span class="vectora-page-kicker">Before You Act</span>
-            <strong>Use the checker as a pause, not a promise.</strong>
-            <p>The strongest habit is returning to evidence when the market gets loud. The watchlist is there for tokens that are still worth attention, not automatic trust.</p>
-          </div>
-          <div class="trust-idle-grid">
-            <div class="trust-idle-card">
-              <span>Source</span>
-              <strong>Where did the route originate?</strong>
-              <p>Prefer public project pages and official references over replies, clips, or DMs.</p>
-            </div>
-            <div class="trust-idle-card">
-              <span>Controls</span>
-              <strong>What can still change?</strong>
-              <p>Authority, metadata, supply, and liquidity context can change the decision.</p>
-            </div>
-            <div class="trust-idle-card">
-              <span>Return</span>
-              <strong>Will this still look clear later?</strong>
-              <p>Save candidates and refresh before acting from yesterday's memory.</p>
-            </div>
-          </div>
-        </div>
-        <div id="trustResult" class="trust-result"></div>
-        <div class="trust-note">
-          <div class="trust-help" id="trustHelp">
-            <span class="trust-help-label">Coverage</span>
-            <button class="trust-help-button" id="trustHelpButton" type="button" aria-expanded="false" aria-controls="trustHelpPanel">?</button>
-            <div class="trust-help-panel" id="trustHelpPanel">
-              Supported now: Solana, Ethereum, Base, BNB Chain, Arbitrum, Polygon, and Optimism. Auto detect works for Solana and will sweep the common EVM set when a `0x...` contract is pasted. The long-term job is trust-change monitoring and alerts, not just static checks.
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <div class="section-head" id="start-here">
@@ -2420,11 +2319,7 @@
     const WATCHLIST_KEY = 'vectora_watchlist_v1';
     const WATCH_HISTORY_LIMIT = 12;
     let monitorQueueReady = false;
-    function trackEvent(name, params = {}) {
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', name, params);
-      }
-    }
+    function trackEvent(name, params = {}) { window.VectoraJourney.track(name, params); }
     function currentVisitorSource() {
       const params = new URLSearchParams(window.location.search);
       const source = (params.get('utm_source') || params.get('source') || '').toLowerCase();
@@ -2578,6 +2473,7 @@
       const params = new URLSearchParams();
       params.set('network', token?.network_id || token?.networkId || 'auto');
       params.set('address', token?.address || '');
+      if (token?.report?.receipt_id) params.set('receipt', token.report.receipt_id);
       return `./report.html?${params.toString()}`;
     }
 
@@ -2598,6 +2494,7 @@
       const end = new Date(start.getTime() + (30 * 60 * 1000));
       const label = token?.token_label || token?.title || 'saved token';
       const reportUrl = new URL(buildReportUrl(token), window.location.href);
+      reportUrl.searchParams.delete('receipt');
       reportUrl.searchParams.set('return_source', 'calendar_reminder');
       reportUrl.searchParams.set('reminder_days', '7');
       const calendar = [
@@ -2784,13 +2681,15 @@
     }
 
     function buildStatusLabel(level) {
-      if (level === 'verified') return 'Verified official token';
+      if (level === 'unknown') return 'Insufficient evidence';
+      if (level === 'verified') return 'Legacy identity match';
       if (level === 'low') return 'Low caution';
       if (level === 'medium') return 'Medium caution';
       return 'High caution';
     }
 
     function buildDecision(level) {
+      if (level === 'unknown') return { label: 'Evidence incomplete', tone: '#ffd27f', text: 'Some checks could not be established. Review the missing evidence before deciding.' };
       if (level === 'verified') {
         return {
           label: 'Continue',
@@ -2854,6 +2753,11 @@
     }
 
     function renderCard({ title, tone, summary, meta, bullets, links, reasons = [], imageUrl = '', level = 'low', networkLabel = '', watchToken = null }) {
+      const display = window.VectoraJourney.displayReport({ title, summary, meta, notes:bullets, reasons, links:Array.isArray(links) ? links : [], image_url:imageUrl });
+      ({title, summary, meta, reasons} = display);
+      bullets = display.notes;
+      imageUrl = display.image_url;
+      if (Array.isArray(links)) links = display.links;
       const linkHtml = Array.isArray(links)
         ? links.map((link) => `<a href="${link.url}" target="_blank" rel="noreferrer">${link.label}</a>`).join('')
         : links;
@@ -2883,6 +2787,8 @@
         page: 'home',
         network: watchToken?.network_id || networkLabel || 'unknown',
         level,
+        mode: watchToken?.report?.mode,
+        assessment_version: watchToken?.report?.assessment_version || '',
         decision: buildDecision(level).label.toLowerCase().replace(/\s+/g, '_'),
         traffic_source: reportTrafficSource,
       });
@@ -3009,338 +2915,8 @@
       });
     }
 
-    async function fetchEvmSecurity(chainId, address) {
-      const url = `https://api.gopluslabs.io/api/v1/token_security/${chainId}?contract_addresses=${encodeURIComponent(address)}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Security API failed for chain ${chainId}`);
-      const payload = await response.json();
-      const key = address.toLowerCase();
-      return payload.result ? payload.result[key] : null;
-    }
-
-    async function fetchSolanaSecurity(address) {
-      const url = `https://api.gopluslabs.io/api/v1/solana/token_security?contract_addresses=${encodeURIComponent(address)}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Security API failed for Solana');
-      const payload = await response.json();
-      return payload.result ? payload.result[address] : null;
-    }
-
-    async function fetchDexPair(address, preferredChainId) {
-      try {
-        const url = `https://api.dexscreener.com/latest/dex/search?q=${encodeURIComponent(address)}`;
-        const response = await fetch(url);
-        if (!response.ok) return null;
-        const payload = await response.json();
-        const pairs = Array.isArray(payload.pairs) ? payload.pairs : [];
-        if (!pairs.length) return null;
-        const preferred = pairs.filter((pair) => pair.chainId === preferredChainId);
-        const pool = preferred.length ? preferred : pairs;
-        pool.sort((a, b) => (Number(b?.liquidity?.usd || 0) - Number(a?.liquidity?.usd || 0)));
-        return pool[0] || null;
-      } catch {
-        return null;
-      }
-    }
-
-    async function fetchMetadataImage(metadataUri) {
-      if (!metadataUri) return '';
-      try {
-        const response = await fetch(metadataUri);
-        if (!response.ok) return '';
-        const payload = await response.json();
-        return payload.image || payload?.properties?.files?.[0]?.uri || '';
-      } catch {
-        return '';
-      }
-    }
-
-    async function analyzeEvmToken(chainId, address, data) {
-      let risk = 0;
-      const bullets = [];
-      const reasons = [];
-      const ownerAddress = data.owner_address || '';
-      const buyTax = Number(data.buy_tax || 0);
-      const sellTax = Number(data.sell_tax || 0);
-      const transferTax = Number(data.transfer_tax || 0);
-      const topPair = await fetchDexPair(address, NETWORKS[chainId].dexChainId);
-
-      if (data.is_honeypot === '1') {
-        risk += 4;
-        reasons.push({ label: 'Honeypot signal', text: 'The security API flags potential honeypot behavior.' });
-        bullets.push('GoPlus flags this token as a honeypot risk.');
-      }
-      if (data.is_open_source !== '1') {
-        risk += 2;
-        reasons.push({ label: 'Contract visibility', text: 'Contract is not reported as open source.' });
-        bullets.push('Contract is not reported as open source.');
-      } else {
-        bullets.push('Contract is reported as open source.');
-      }
-      if (ownerAddress && ownerAddress !== '0x0000000000000000000000000000000000000000') {
-        risk += 2;
-        reasons.push({ label: 'Owner control', text: 'Owner privileges appear to remain active.' });
-        bullets.push('Owner privileges appear to exist on the contract.');
-      } else {
-        bullets.push('No active owner address was reported.');
-      }
-      if (data.is_proxy === '1' || data.proxy === '1') {
-        risk += 1;
-        reasons.push({ label: 'Upgrade risk', text: 'Proxy or upgrade pattern was detected.' });
-        bullets.push('Proxy or upgrade pattern detected.');
-      }
-      if (data.cannot_buy === '1' || data.cannot_sell_all === '1') {
-        risk += 3;
-        reasons.push({ label: 'Trading restrictions', text: 'The security API reports buy or sell restrictions.' });
-        bullets.push('Trading restrictions were reported by the security API.');
-      }
-      if (buyTax > 10 || sellTax > 10 || transferTax > 10) {
-        risk += 1;
-        reasons.push({ label: 'Token tax', text: `Elevated tax profile detected at buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.` });
-        bullets.push(`Elevated tax detected: buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.`);
-      } else {
-        bullets.push(`Tax profile: buy ${buyTax}% / sell ${sellTax}% / transfer ${transferTax}%.`);
-      }
-      if (Array.isArray(data.dex) && data.dex.length > 0) {
-        bullets.push(`DEX liquidity observed across ${data.dex.length} venue(s).`);
-      } else {
-        bullets.push('No DEX liquidity was returned by the security API.');
-      }
-
-      let level = 'low';
-      if (risk >= 5) {
-        level = 'high';
-      } else if (risk >= 2) {
-        level = 'medium';
-      }
-
-      const report = {
-        network_id: chainId,
-        network_label: NETWORKS[chainId].label,
-        address,
-        level,
-        title: `${buildStatusLabel(level)} on ${NETWORKS[chainId].label}`,
-        summary: `This is a first-pass trust card for a third-party token on ${NETWORKS[chainId].label}. It is not a guarantee of safety; it summarizes the main visible contract and trading risks.`,
-        image_url: '',
-        meta: [
-          { label: 'Network', value: NETWORKS[chainId].label },
-          { label: 'Token', value: `${data.token_name || 'Unknown'}${data.token_symbol ? ` (${data.token_symbol})` : ''}` },
-          { label: 'Supply', value: formatValue(data.total_supply) },
-          { label: 'Top liquidity', value: topPair ? formatUsd(topPair.liquidity?.usd) : 'Unknown' },
-          { label: 'Top venue', value: topPair ? `${topPair.dexId || 'Unknown'} / ${topPair.pairAddress?.slice(0, 8) || ''}` : 'Unknown' },
-          { label: 'Open source', value: data.is_open_source === '1' ? 'Yes' : 'No' },
-        ],
-        reasons: reasons.length ? reasons : [{ label: 'Why this score', text: 'No severe contract control or trading restriction flags were returned by the current checks.' }],
-        notes: bullets,
-        links: [
-          { label: 'Open explorer', url: `${NETWORKS[chainId].explorer}${encodeURIComponent(address)}` },
-          { label: 'Search on DexScreener', url: `${DEX_SEARCH_BASE}${encodeURIComponent(address)}` },
-          ...(topPair?.url ? [{ label: 'Open top pair', url: topPair.url }] : []),
-        ],
-      };
-      renderCard({
-        title: report.title,
-        tone: buildStatusTone(level),
-        summary: report.summary,
-        meta: report.meta,
-        reasons: report.reasons,
-        bullets,
-        links: `
-          ${buildLinks(chainId, address)}
-          ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
-        `,
-        level,
-        networkLabel: NETWORKS[chainId].label,
-        watchToken: {
-          network_id: report.network_id,
-          network_label: report.network_label,
-          address: report.address,
-          token_label: report.meta.find((item) => item.label === 'Token')?.value || report.title,
-          title: report.title,
-          summary: report.summary,
-          image_url: '',
-          report,
-        },
-      });
-    }
-
-    async function analyzeSolanaToken(address, data) {
-      const mintable = data.mintable?.status === '1';
-      const freezable = data.freezable?.status === '1';
-      const metadataMutable = data.metadata_mutable?.status === '1';
-      const nonTransferable = data.non_transferable?.status === '1';
-      let risk = 0;
-      const bullets = [];
-      const reasons = [];
-      const topPair = await fetchDexPair(address, 'solana');
-      const imageUrl = await fetchMetadataImage(data.metadata?.uri);
-
-      if (address === OFFICIAL_MINT) {
-        const report = {
-          network_id: 'solana',
-          network_label: 'Solana',
-          address,
-          level: 'verified',
-          title: 'Verified official Vectora mint',
-          summary: 'This mint matches the canonical Vectora contract published on the site and in official launch posts.',
-          image_url: imageUrl || OFFICIAL_IMAGE,
-          meta: [
-            { label: 'Network', value: 'Solana' },
-            { label: 'Token', value: `${data.metadata?.name || 'Vectora'} (${data.metadata?.symbol || 'VTRAI'})` },
-            { label: 'Supply', value: formatValue(data.total_supply) },
-            { label: 'Top liquidity', value: topPair ? formatUsd(topPair.liquidity?.usd) : 'Unknown' },
-            { label: 'Top venue', value: topPair ? `${topPair.dexId || 'Unknown'} / ${topPair.pairAddress?.slice(0, 8) || ''}` : 'Unknown' },
-            { label: 'Metadata mutable', value: metadataMutable ? 'Yes' : 'No' },
-          ],
-          reasons: [
-            { label: 'Official match', text: 'The pasted mint exactly matches the canonical Vectora contract.' },
-            { label: 'Mint control', text: `Mint authority is ${mintable ? 'still active' : 'revoked'}.` },
-            { label: 'Freeze control', text: `Freeze authority is ${freezable ? 'still active' : 'revoked'}.` },
-          ],
-          notes: [
-            `Metadata mutability: ${metadataMutable ? 'mutable' : 'locked'}.`,
-          ],
-          links: [
-            { label: 'Open Solscan', url: `${SOLSCAN_BASE}${OFFICIAL_MINT}` },
-            { label: 'Open Raydium route', url: `${RAYDIUM_BASE}${OFFICIAL_MINT}` },
-            ...(topPair?.url ? [{ label: 'Open top pair', url: topPair.url }] : []),
-          ],
-        };
-        renderCard({
-          title: report.title,
-          tone: buildStatusTone('verified'),
-          summary: report.summary,
-          meta: report.meta,
-          reasons: report.reasons,
-          bullets: report.notes,
-          imageUrl: report.image_url,
-          links: `
-            <a href="${SOLSCAN_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Solscan</a>
-            <a href="${RAYDIUM_BASE}${OFFICIAL_MINT}" target="_blank" rel="noreferrer">Open Raydium route</a>
-            ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
-          `,
-          level: 'verified',
-          networkLabel: 'Solana',
-          watchToken: {
-            network_id: report.network_id,
-            network_label: report.network_label,
-            address: report.address,
-            token_label: report.meta.find((item) => item.label === 'Token')?.value || report.title,
-            title: report.title,
-            summary: report.summary,
-            image_url: report.image_url,
-            report,
-          },
-        });
-        return;
-      }
-
-      if (mintable) {
-        risk += 3;
-        reasons.push({ label: 'Mint control', text: 'Mint authority appears active, so supply controls may still exist.' });
-        bullets.push('Mint authority appears active.');
-      } else {
-        bullets.push('Mint authority appears revoked.');
-      }
-      if (freezable) {
-        risk += 2;
-        reasons.push({ label: 'Freeze control', text: 'Freeze authority appears active.' });
-        bullets.push('Freeze authority appears active.');
-      } else {
-        bullets.push('Freeze authority appears revoked.');
-      }
-      if (metadataMutable) {
-        risk += 1;
-        reasons.push({ label: 'Metadata mutability', text: 'Metadata can still be changed.' });
-        bullets.push('Metadata is still mutable.');
-      } else {
-        bullets.push('Metadata appears locked.');
-      }
-      if (nonTransferable) {
-        risk += 2;
-        reasons.push({ label: 'Transferability', text: 'The token is flagged as non-transferable.' });
-        bullets.push('Token is flagged as non-transferable.');
-      }
-      if (Array.isArray(data.dex) && data.dex.length > 0) {
-        bullets.push(`DEX pools found: ${data.dex.length}.`);
-      } else {
-        bullets.push('No DEX pools were returned by the API.');
-      }
-
-      let level = 'low';
-      if (risk >= 5) {
-        level = 'high';
-      } else if (risk >= 2) {
-        level = 'medium';
-      }
-
-      const report = {
-        network_id: 'solana',
-        network_label: 'Solana',
-        address,
-        level,
-        title: `${buildStatusLabel(level)} on Solana`,
-        summary: 'This is a first-pass trust card for a Solana token. It focuses on mint control, freeze control, metadata mutability, and visible pool presence.',
-        image_url: imageUrl,
-        meta: [
-          { label: 'Network', value: 'Solana' },
-          { label: 'Token', value: `${data.metadata?.name || 'Unknown'}${data.metadata?.symbol ? ` (${data.metadata.symbol})` : ''}` },
-          { label: 'Supply', value: formatValue(data.total_supply) },
-          { label: 'Top liquidity', value: topPair ? formatUsd(topPair.liquidity?.usd) : 'Unknown' },
-          { label: 'Top venue', value: topPair ? `${topPair.dexId || 'Unknown'} / ${topPair.pairAddress?.slice(0, 8) || ''}` : 'Unknown' },
-          { label: 'Metadata mutable', value: metadataMutable ? 'Yes' : 'No' },
-        ],
-        reasons: reasons.length ? reasons : [{ label: 'Why this score', text: 'No major Solana control flags were returned by the current checks.' }],
-        notes: bullets,
-        links: [
-          { label: 'Open explorer', url: `${SOLSCAN_BASE}${encodeURIComponent(address)}` },
-          { label: 'Search on DexScreener', url: `${DEX_SEARCH_BASE}${encodeURIComponent(address)}` },
-          { label: 'Open Raydium route', url: `${RAYDIUM_BASE}${encodeURIComponent(address)}` },
-          ...(topPair?.url ? [{ label: 'Open top pair', url: topPair.url }] : []),
-        ],
-      };
-      renderCard({
-        title: report.title,
-        tone: buildStatusTone(level),
-        summary: report.summary,
-        meta: report.meta,
-        reasons: report.reasons,
-        bullets,
-        imageUrl,
-        links: `
-          ${buildLinks('solana', address)}
-          ${topPair?.url ? `<a href="${topPair.url}" target="_blank" rel="noreferrer">Open top pair</a>` : ''}
-        `,
-        level,
-        networkLabel: 'Solana',
-        watchToken: {
-          network_id: report.network_id,
-          network_label: report.network_label,
-          address: report.address,
-          token_label: report.meta.find((item) => item.label === 'Token')?.value || report.title,
-          title: report.title,
-          summary: report.summary,
-          image_url: report.image_url,
-          report,
-        },
-      });
-    }
-
-    async function autoDetectEvm(address) {
-      const results = await Promise.all(EVM_CHAIN_IDS.map(async (chainId) => {
-        try {
-          const data = await fetchEvmSecurity(chainId, address);
-          if (!data) return null;
-          const hasSignal = data.token_name || data.token_symbol || data.total_supply || (Array.isArray(data.dex) && data.dex.length > 0);
-          return hasSignal ? { chainId, data } : null;
-        } catch {
-          return null;
-        }
-      }));
-      return results.filter(Boolean);
-    }
-
     async function checkToken() {
+      if (trustButton.disabled) return;
       const raw = normalizeInput(trustInput.value);
       const selectedNetwork = networkSelect.value;
 
@@ -3384,67 +2960,12 @@
         });
       }
 
+      trustButton.disabled = true;
       try {
-        try {
-          const apiResponse = await fetch(`${TRUST_API_BASE}/check?network=${encodeURIComponent(selectedNetwork)}&address=${encodeURIComponent(raw)}`);
-          if (apiResponse.ok) {
-            const apiPayload = await apiResponse.json();
-            if (apiPayload.ok && apiPayload.report) {
-              renderApiReport(apiPayload.report);
-              return;
-            }
-          }
-        } catch {
-          // Fall back to browser-side checks if the public API is unavailable.
-        }
-
-        if (selectedNetwork === 'auto') {
-          if (isLikelySolanaAddress(raw)) {
-            const data = await fetchSolanaSecurity(raw);
-            if (!data) throw new Error('No Solana data returned for that mint.');
-            await analyzeSolanaToken(raw, data);
-            return;
-          }
-
-          if (isLikelyEvmAddress(raw)) {
-            const matches = await autoDetectEvm(raw);
-            if (matches.length === 0) {
-              throw new Error('No token data was found on the common supported EVM networks.');
-            }
-            if (matches.length > 1) {
-              renderCard({
-                title: 'Multiple network matches found',
-                tone: '#ffd27f',
-                summary: 'This address appears on more than one supported EVM network. Pick the intended chain from the selector and run the check again for an exact trust card.',
-                meta: [
-                  { label: 'Address', value: raw },
-                  { label: 'Matches', value: String(matches.length) },
-                  { label: 'Mode', value: 'Auto detect' },
-                ],
-                bullets: matches.map((match) => `Potential match on ${NETWORKS[match.chainId].label}.`),
-                links: buildLinks(matches[0].chainId, raw),
-                level: 'medium',
-                networkLabel: 'Auto detect',
-              });
-              return;
-            }
-            await analyzeEvmToken(matches[0].chainId, raw, matches[0].data);
-            return;
-          }
-
-          throw new Error('Auto detect currently supports Solana mints and common EVM contract addresses.');
-        }
-
-        if (selectedNetwork === 'solana') {
-          const data = await fetchSolanaSecurity(raw);
-          if (!data) throw new Error('No Solana token data returned for that mint.');
-          await analyzeSolanaToken(raw, data);
-          return;
-        }
-
-        const data = await fetchEvmSecurity(selectedNetwork, raw);
-        if (!data) throw new Error(`No token data returned for ${NETWORKS[selectedNetwork].label}.`);
-        await analyzeEvmToken(selectedNetwork, raw, data);
+        const response = await fetch(`${TRUST_API_BASE}/check?network=${encodeURIComponent(selectedNetwork)}&address=${encodeURIComponent(raw)}`);
+        const payload = await response.json();
+        if (!response.ok || !payload.ok || !payload.report) throw new Error(payload.error || 'The check is unavailable. Please retry; no fallback assessment was substituted.');
+        renderApiReport(payload.report);
       } catch (error) {
         trackEvent('token_check_failed', {
           page: 'home',
@@ -3454,13 +2975,15 @@
         renderTrustResult(`
           <div class="trust-status-panel">
             <strong style="color: var(--warn);">Check unavailable</strong>
-            <div class="v">${error.message}</div>
+            <div class="v">${window.VectoraJourney.html(error.message)}</div>
             <div class="trust-links">
               <a href="./updates.html" target="_blank" rel="noreferrer">Official updates</a>
               <a href="${DEX_SEARCH_BASE}${encodeURIComponent(raw)}" target="_blank" rel="noreferrer">Search on DexScreener</a>
             </div>
           </div>
         `);
+      } finally {
+        trustButton.disabled = false;
       }
     }
 
