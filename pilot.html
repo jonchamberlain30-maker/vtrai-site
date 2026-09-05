@@ -32,9 +32,10 @@
   <header><a href="./" class="brand"><img src="./assets/vtrai-token-mark-128.png" alt="">Vectora</a><a href="./">Token checker</a></header>
   <main>
     <p class="eyebrow">VOLUNTARY RESEARCH PILOT</p>
-    <h1>Help us find what needs fixing.</h1>
+    <h1>Bring a token question. Get a clearer next step.</h1>
     <p>Do you research tokens or moderate a crypto community? Try one real task in Vectora, then tell us how it went. Allow about five minutes. We are testing the product, not you.</p>
     <p class="muted">No wallet connection, purchase, reward or endorsement. Participation is optional; leave whenever you like. Use a public token you are comfortable discussing, not private holdings.</p>
+    <p>In return for trying the task, you can ask for a free, personalised explanation of what your result establishes, what it leaves unknown and what evidence to look for next. You can also ask how your feedback was used. This is research help, not a safety verdict or investment advice.</p>
     <section aria-labelledby="task-title">
       <h2 id="task-title">Your task</h2>
       <ol>
@@ -63,10 +64,20 @@
         <div class="trap" aria-hidden="true"><input id="website" tabindex="-1" autocomplete="off"></div>
         <p class="muted">Do not include names, contact details, wallet balances, seed phrases or private keys. Written answers are reviewed privately by Vectora and its AI assistant, not published as testimonials. This form has no analytics tags. The main checker has the analytics described in our <a href="./privacy.html#pilot">privacy policy</a>.</p>
         <label class="choice"><input id="consent" type="checkbox" required>I agree to Vectora storing and reviewing these answers to improve the product, for up to 31 days. A local submission reference lets me withdraw them from this browser.</label>
+        <label class="choice"><input id="followup" type="checkbox">Optional: I would like an AI-assisted response and a private follow-up conversation here about my result or feedback.</label>
+        <p class="muted">We check requests during daily reviews, not live chat; response times are not guaranteed. Return to this page in the same browser to see replies. No email, social account or marketing subscription is needed. Clearing browser storage loses access. Messages expire with your feedback, within 31 days of the original submission.</p>
         <div class="actions"><button id="submit" type="submit">Send feedback</button></div>
       </form>
       <p id="message" class="message" role="status" aria-live="polite"></p>
       <div id="after" hidden>
+        <div id="conversation" hidden>
+          <h2>Your private conversation</h2>
+          <p class="muted">Vectora replies are AI-assisted. Share only a public token address, network or receipt and your question, never wallet secrets or personal details. Up to 20 messages total.</p>
+          <div id="messages" class="message" aria-live="polite"></div>
+          <form id="question-form"><label for="question">Your question or follow-up</label><textarea id="question" maxlength="2000" required></textarea><button id="send-question" type="submit">Send question</button></form>
+          <button id="refresh" class="secondary" type="button">Check for a reply</button>
+          <p id="thread-status" role="status"></p>
+        </div>
         <p>You do not need to post, follow or endorse anything. If another token gives you a reason to return, we would like to know whether Vectora helped.</p>
         <div class="actions"><button id="remind" class="secondary" type="button">Add a seven-day reminder</button><button id="withdraw" class="secondary" type="button">Withdraw my feedback</button></div>
         <p class="muted">The reminder is an optional calendar download, not an email subscription. Withdrawal affects the answers in our research store, not public posts you make elsewhere.</p>
