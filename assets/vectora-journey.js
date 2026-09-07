@@ -76,6 +76,7 @@
     if (!Number.isFinite(before) || !Number.isFinite(after) || after <= before) return 'No newer observation available yet. This is not evidence of no change.';
     if (after > Date.now() || Date.now() - after > 24 * 60 * 60 * 1000) return 'Observation is stale or has an invalid timestamp. Changes cannot be confirmed.';
     if (!previous.level || !current.level || previous.level === 'unknown' || current.level === 'unknown') return 'Evidence is incomplete. A reliable no-change conclusion is unavailable.';
+    if ([previous,current].some(report => (report.reasons || []).some(reason => /evidence gaps/i.test(reason.label)))) return 'Evidence gaps remain. A reliable no-change conclusion is unavailable.';
     return '';
   }
   const seen = new Set();
