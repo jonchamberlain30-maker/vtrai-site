@@ -9,7 +9,15 @@
   write('vectora_journey_id', journeyId);
   const source = (params.get('utm_source') || params.get('source') || read('vectora_journey_source') || 'direct').slice(0, 80);
   write('vectora_journey_source', source);
-  const trafficClass = /^(internal_qa|test|qa)$/.test(source) || !production ? 'internal_qa' : source === 'coinzilla' || /^(cpc|ppc|paid)/.test(params.get('utm_medium') || '') ? 'paid' : /google|bing|duckduckgo/.test(document.referrer || '') ? 'organic_search' : document.referrer && !document.referrer.startsWith(location.origin + '/') ? 'referral' : 'direct';
+  let referrerHost = '';
+  try { referrerHost = new URL(document.referrer).hostname; } catch {}
+  const explicitSource = params.has('utm_source') || params.has('source') || params.has('utm_medium');
+  const trafficClass = /^(internal_qa|test|qa)$/.test(source) || !production ? 'internal_qa'
+    : !explicitSource && read('vectora_traffic_class') ? read('vectora_traffic_class')
+    : source === 'coinzilla' || /^(cpc|ppc|paid)/.test(params.get('utm_medium') || '') ? 'paid'
+    : /(^|\.)(google\.[a-z.]+|bing\.com|duckduckgo\.com)$/.test(referrerHost) ? 'organic_search'
+    : referrerHost && referrerHost !== location.hostname ? 'referral' : 'direct';
+  write('vectora_traffic_class', trafficClass);
   let attempt = null;
   function savedAction(name, values) {
     const key = `vectora_retention:${values.network}:${values.mint}`;
@@ -24,10 +32,16 @@
     } catch { /* Unavailable storage cannot establish cross-session retention. */ }
   }
   function emit(name, values = {}) {
-    if (production && typeof window.gtag === 'function') window.gtag('event', name, {
+    const payload = {
       journey_id: journeyId, attempt_id: attempt?.id || '', attempt_kind: attempt?.kind || '',
-      acquisition_source: source, measurement_version: '2026-09-07.2', ...values, traffic_class: trafficClass,
-    });
+      acquisition_source: source, measurement_version: '2026-09-07.3',
+      completeness_state:'unknown',comparison_state:'not_applicable',...values, traffic_class: trafficClass,
+    };
+    window.VectoraLifecycle?.record(name,payload);
+    if (production && typeof window.gtag === 'function') {
+      window.gtag('event', name, {...payload, ...(trafficClass === 'internal_qa' ? {debug_mode:true} : {})});
+      if (trafficClass === 'internal_qa') console.info('Vectora GA queued',JSON.stringify({event:name,...payload}));
+    }
   }
   function begin(kind) {
     attempt = { id: id(), kind, completed: false };
@@ -94,15 +108,18 @@
     reasons.push('BACKEND_CORRELATION_NOT_ATTESTED');
     return {health:'INVALID',reasons,comparison,valid_from:null};
   }
-  const seen = new Set();
+  let priorSeen = [];
+  try { const stored = JSON.parse(read('vectora_seen_observations') || '[]'); if (Array.isArray(stored)) priorSeen = stored; } catch {}
+  const seen = new Set(priorSeen);
   function observeSaved() {
     if (typeof IntersectionObserver === 'undefined') return;
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) if (entry.isIntersecting) {
-        const el = entry.target, key = el.dataset.savedItem + ':' + el.dataset.observation;
+        const el = entry.target, key = el.dataset.network + ':' + el.dataset.savedItem + ':' + el.dataset.observation + ':' + el.dataset.previousObservation + ':' + el.dataset.comparison;
         if (!seen.has(key)) {
           seen.add(key);
-          const values = {mint:el.dataset.savedItem, report_id:el.dataset.observation, comparison_state:el.dataset.comparison};
+          write('vectora_seen_observations',JSON.stringify([...seen].slice(-200)));
+          const values = {network:el.dataset.network,mint:el.dataset.savedItem, report_id:el.dataset.observation, previous_report_id:el.dataset.previousObservation || '',comparison_state:el.dataset.comparison};
           emit('saved_token_viewed', values);
           if (el.dataset.comparison === 'available') { emit('comparison_available', values); emit('comparison_viewed', values); }
         }

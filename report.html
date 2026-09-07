@@ -582,7 +582,8 @@
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
-  <script src="./assets/vectora-journey.js?v=20260907-4"></script>
+  <script src="./assets/vectora-lifecycle.js?v=20260907-1"></script>
+  <script src="./assets/vectora-journey.js?v=20260907-5"></script>
   <style>
     .hero { padding: 20px 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
     .hero h1 { font-size: 28px; letter-spacing: 0; }
@@ -1072,6 +1073,7 @@
         network: report.network_id || 'unknown',
         mint: report.address || '',
         report_id: report.receipt_id || '',
+        completeness_state: report.level && report.level !== 'unknown' && !(report.reasons || []).some(r=>/evidence gaps/i.test(r.label)) ? 'usable' : 'incomplete',
         level: report.level || 'unknown',
         mode: report.mode,
         assessment_version: report.assessment_version || '',
@@ -1265,16 +1267,16 @@
       }
       const watchButton = event.target.closest('[data-watch-toggle]');
       if (watchButton && currentWatchToken) {
-        trackEvent('save_clicked', {page: 'report'});
+        trackEvent('save_clicked', {page: 'report',mint:currentWatchToken.address,network:currentWatchToken.network_id,report_id:currentWatchToken.report?.receipt_id || ''});
         let watching;
         try { watching = toggleWatchToken(currentWatchToken); }
         catch {
           const status = reportShell.querySelector('[data-watch-status]');
           if (status) status.textContent = 'Could not save on this browser. Storage may be full or unavailable.';
-          trackEvent('save_failed', {page: 'report'});
+          trackEvent('save_failed', {page: 'report',mint:currentWatchToken.address,network:currentWatchToken.network_id,report_id:currentWatchToken.report?.receipt_id || ''});
           return;
         }
-        if (watching) trackEvent('save_completed', {page: 'report', mint:currentWatchToken.address, network:currentWatchToken.network_id});
+        if (watching) trackEvent('save_completed', {page: 'report', mint:currentWatchToken.address, network:currentWatchToken.network_id,report_id:currentWatchToken.report?.receipt_id || ''});
         watchButton.textContent = watching ? 'Saved for change checks' : 'Save for change checks';
         const reminderButton = reportShell.querySelector('[data-recheck-reminder]');
         if (reminderButton) reminderButton.disabled = !watching;

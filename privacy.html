@@ -142,6 +142,20 @@
     <section class="card">
       <h2>Analytics And Advertising Attribution</h2>
       <p>The site uses Google Analytics to understand page usage and link clicks. When traffic arrives from advertising campaigns, campaign attribution may be used to measure performance and conversion events such as opening the official Raydium route.</p>
+      <p>To measure whether checks are saved and revisited, Vectora also keeps a small first-party event record for up to 30 days. It contains random browser-scoped and saved-item references, event times, report hashes, evidence status and broad traffic categories. It does not contain your name, email, wallet address, IP address or a device fingerprint. Hosting providers may process connection data in normal service operation. These records do not identify a person, and do not follow you across browsers or devices.</p>
+      <p>The random browser reference expires after 30 days. You can delete its server-side event records below before clearing browser storage. Clearing browser storage alone removes the deletion reference; remaining server records then expire automatically. Saved token reports are separate and are not removed by this button.</p>
+      <button type="button" id="erase-lifecycle">Delete this browser's measurement history</button>
+      <p id="erase-lifecycle-status" role="status"></p>
+      <script src="./assets/vectora-lifecycle.js?v=20260907-1"></script>
+      <script>
+        document.getElementById('erase-lifecycle').addEventListener('click',async function () {
+          this.disabled=true;
+          const status=document.getElementById('erase-lifecycle-status');
+          try { status.textContent=await window.VectoraLifecycle.erase() ? 'Measurement history deleted. Saved tokens are unchanged.' : 'Could not delete yet. Please retry.'; }
+          catch { status.textContent='Could not delete yet. Please retry.'; }
+          finally { this.disabled=false; }
+        });
+      </script>
     </section>
 
     <section class="card">

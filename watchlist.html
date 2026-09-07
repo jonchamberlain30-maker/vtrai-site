@@ -841,7 +841,8 @@
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
-  <script src="./assets/vectora-journey.js?v=20260907-4"></script>
+  <script src="./assets/vectora-lifecycle.js?v=20260907-1"></script>
+  <script src="./assets/vectora-journey.js?v=20260907-5"></script>
 </head>
 <body>
   <main class="wrap">
@@ -1440,9 +1441,10 @@
       const current = item.last_report || {};
       const previous = previousSnapshot(item);
       if (!current.address) return '';
+      const attributes = `data-saved-item="${window.VectoraJourney.html(current.address)}" data-network="${window.VectoraJourney.html(current.network_id)}" data-observation="${window.VectoraJourney.html(current.receipt_id)}" data-previous-observation="${window.VectoraJourney.html(previous?.receipt_id || '')}"`;
       if (!previous || !previous.address) {
         return `
-          <div class="diff-box">
+          <div class="diff-box" ${attributes} data-comparison="unavailable">
             <strong>What changed since saved</strong>
             <div class="quiet">No comparison yet. Refresh this token to compare the next report against the saved snapshot.</div>
           </div>
@@ -1452,11 +1454,11 @@
       const changes = buildChangeDetails(previous, current);
 
       const issue = window.VectoraJourney.comparisonIssue(previous, current);
-      if (issue) return `<div class="diff-box" data-saved-item="${window.VectoraJourney.html(current.address)}" data-observation="${window.VectoraJourney.html(current.checked_at_utc)}" data-comparison="unavailable"><strong>Comparison unavailable</strong><div class="quiet">${window.VectoraJourney.html(issue)}</div></div>`;
+      if (issue) return `<div class="diff-box" ${attributes} data-comparison="unavailable"><strong>Comparison unavailable</strong><div class="quiet">${window.VectoraJourney.html(issue)}</div></div>`;
 
       if (!changes.length) {
         return `
-          <div class="diff-box" data-saved-item="${window.VectoraJourney.html(current.address)}" data-observation="${window.VectoraJourney.html(current.checked_at_utc)}" data-comparison="available">
+          <div class="diff-box" ${attributes} data-comparison="available">
             <strong>Since your last check</strong>
             <div class="quiet">No changes in the compared fields. Unobserved wallet movements and missing evidence are not covered.</div>
           </div>
@@ -1464,7 +1466,7 @@
       }
 
       return `
-        <div class="diff-box" data-saved-item="${window.VectoraJourney.html(current.address)}" data-observation="${window.VectoraJourney.html(current.checked_at_utc)}" data-comparison="available">
+        <div class="diff-box" ${attributes} data-comparison="available">
           <strong>Since your last check</strong>
           <ul>${changes.slice(0, 4).map((entry) => `<li>${entry}</li>`).join('')}</ul>
         </div>
@@ -1730,6 +1732,8 @@
           network: item.network_id || 'unknown',
           mint: nextReport.address,
           report_id: nextReport.receipt_id,
+          previous_report_id: item.previous_report?.receipt_id || '',
+          completeness_state: nextReport.level && nextReport.level !== 'unknown' && !(nextReport.reasons || []).some(r=>/evidence gaps/i.test(r.label)) ? 'usable' : 'incomplete',
           assessment_version: nextReport.assessment_version,
           level: nextReport.level || 'unknown',
         });
