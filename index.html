@@ -2786,6 +2786,8 @@
       trackEvent('token_report_rendered', {
         page: 'home',
         network: watchToken?.network_id || networkLabel || 'unknown',
+        mint: watchToken?.address || '',
+        report_id: watchToken?.report?.receipt_id || '',
         level,
         mode: watchToken?.report?.mode,
         assessment_version: watchToken?.report?.assessment_version || '',
@@ -2852,9 +2854,9 @@
             </div>
           </div>
           <div class="trust-flow" aria-label="Verification workflow status">
-            <span class="is-done">Source</span>
-            <span class="is-done">Route</span>
-            <span class="is-done">Controls</span>
+            <span>Source evidence</span>
+            <span>Market evidence</span>
+            <span>Control evidence</span>
             <span>Return</span>
           </div>
           <div class="trust-result-body">
@@ -2864,10 +2866,10 @@
                 <strong>Decision: ${decision.label}</strong>
                 <p>${decision.text}</p>
               </div>
-              ${reasonsHtml}
-              ${checksHtml}
-              ${linksSectionHtml}
               ${watchHtml}
+              <p class="watch-status">Observed: ${window.VectoraJourney.html(watchToken?.report?.checked_at_utc || 'Timestamp unavailable')}. Missing evidence is not a clean result.</p>
+              ${reasonsHtml}
+              <details><summary>Evidence and sources</summary>${checksHtml}${linksSectionHtml}</details>
             </div>
             <aside class="trust-result-side" aria-label="Trust report details">
               <div class="trust-decision-orb" style="color: ${decision.tone};">
@@ -3050,7 +3052,16 @@
       }
       const button = event.target.closest('[data-watch-toggle]');
       if (button && currentWatchToken) {
-        const watching = toggleWatchToken(currentWatchToken);
+        trackEvent('save_clicked', {page: 'home'});
+        let watching;
+        try { watching = toggleWatchToken(currentWatchToken); }
+        catch {
+          const status = trustResult.querySelector('[data-watch-status]');
+          if (status) status.textContent = 'Could not save on this browser. Storage may be full or unavailable.';
+          trackEvent('save_failed', {page: 'home'});
+          return;
+        }
+        if (watching) trackEvent('save_completed', {page: 'home', mint:currentWatchToken.address, network:currentWatchToken.network_id});
         button.textContent = watching ? 'Saved for change checks' : 'Save for change checks';
         const reminderButton = trustResult.querySelector('[data-recheck-reminder]');
         if (reminderButton) reminderButton.disabled = !watching;

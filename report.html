@@ -1068,6 +1068,8 @@
       trackEvent('token_report_rendered', {
         page: 'report',
         network: report.network_id || 'unknown',
+        mint: report.address || '',
+        report_id: report.receipt_id || '',
         level: report.level || 'unknown',
         mode: report.mode,
         assessment_version: report.assessment_version || '',
@@ -1261,7 +1263,16 @@
       }
       const watchButton = event.target.closest('[data-watch-toggle]');
       if (watchButton && currentWatchToken) {
-        const watching = toggleWatchToken(currentWatchToken);
+        trackEvent('save_clicked', {page: 'report'});
+        let watching;
+        try { watching = toggleWatchToken(currentWatchToken); }
+        catch {
+          const status = reportShell.querySelector('[data-watch-status]');
+          if (status) status.textContent = 'Could not save on this browser. Storage may be full or unavailable.';
+          trackEvent('save_failed', {page: 'report'});
+          return;
+        }
+        if (watching) trackEvent('save_completed', {page: 'report', mint:currentWatchToken.address, network:currentWatchToken.network_id});
         watchButton.textContent = watching ? 'Saved for change checks' : 'Save for change checks';
         const reminderButton = reportShell.querySelector('[data-recheck-reminder]');
         if (reminderButton) reminderButton.disabled = !watching;
