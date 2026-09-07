@@ -731,6 +731,7 @@
         return;
       }
       const latest = item.latest || {};
+      const unavailable = item.status && item.status !== 'ok';
       const changes = Array.isArray(latest.change_summary) ? latest.change_summary : [];
       const reportUrl = `./report.html?network=${encodeURIComponent(item.network || latest.network_id || 'auto')}&address=${encodeURIComponent(item.address || latest.address || '')}`;
       tokenSummaryEl.innerHTML = `
@@ -740,8 +741,9 @@
             <strong>${item.label || latest.title || item.address || 'Watched token'}</strong>
             <div class="meta">${latest.timestamp_utc || latest.checked_at_utc || 'Unknown time'} · ${latest.network_label || item.network || 'Unknown network'}</div>
           </div>
-          <span class="snapshot-badge ${snapshotBadgeClass(latest.level)}">${latest.level || item.status || 'unknown'}</span>
+          <span class="snapshot-badge ${snapshotBadgeClass(unavailable ? 'unknown' : latest.level)}">${unavailable ? 'unavailable' : (latest.level || 'unknown')}</span>
         </div>
+        ${unavailable ? `<div class="instruction-box"><strong>Current refresh unavailable</strong>The evidence below is retained from the last validated observation (${latest.checked_at_utc || latest.timestamp_utc || 'unknown time'}). It is not a current assessment.</div>` : ''}
         <div class="snapshot-summary">${latest.summary || 'No public summary available.'}</div>
         ${renderSnapshotMeta(latest)}
         <ul class="snapshot-list">${(changes.length ? changes.slice(0, 4) : ['No material trust change since the last saved check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
@@ -832,6 +834,7 @@
       }
       return items.map((item) => {
         const latest = item.latest || {};
+        const unavailable = item.status && item.status !== 'ok';
         const changes = Array.isArray(latest.change_summary) ? latest.change_summary : [];
         const reportUrl = `./report.html?network=${encodeURIComponent(item.network || latest.network_id || 'auto')}&address=${encodeURIComponent(item.address || latest.address || '')}`;
         return `
@@ -843,8 +846,9 @@
                 <strong>${latest.title || item.label || 'Trust snapshot'}</strong>
                 <div class=\"meta\">${latest.summary || ''}</div>
               </div>
-              <span class=\"snapshot-badge ${snapshotBadgeClass(latest.level)}\">${latest.level || item.status || 'unknown'}</span>
+              <span class=\"snapshot-badge ${snapshotBadgeClass(unavailable ? 'unknown' : latest.level)}\">${unavailable ? 'unavailable' : (latest.level || 'unknown')}</span>
             </div>
+            ${unavailable ? `<div class=\"instruction-box\"><strong>Current refresh unavailable</strong>The evidence below is retained from the last validated observation (${latest.checked_at_utc || latest.timestamp_utc || 'unknown time'}). It is not a current assessment.</div>` : ''}
             <ul class=\"snapshot-list\">${(changes.length ? changes : ['No material trust change since the last saved check.']).map((line) => `<li>${line}</li>`).join('')}</ul>
             <div class=\"snapshot-links\">
               <a href=\"${reportUrl}\">Open report</a>
@@ -910,7 +914,9 @@
       })
       .then((data) => {
         const sourceItems = (data && Array.isArray(data.items)) ? data.items : [];
-        trustFreshnessEl.textContent = `Trust evidence refreshed: ${data.generated_at_utc || data.generated_at_iso || 'unknown'}`;
+        trustFreshnessEl.textContent = data.status && data.status !== 'ok'
+          ? `Trust refresh unavailable: ${data.last_refresh_attempt_utc || data.generated_at_utc || 'unknown'} · retained evidence is historical, not a current assessment.`
+          : `Trust evidence refreshed: ${data.generated_at_utc || data.generated_at_iso || 'unknown'}`;
         const items = sourceItems.filter((item) => matchesToken(item.address, item.network_id || item.network_label));
         if (!items.length) {
           trustLatestEl.innerHTML = hasTokenFilter
