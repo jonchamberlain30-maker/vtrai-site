@@ -1,21 +1,22 @@
 {
-  "generated_at_utc": "2026-09-05 07:35:03 UTC",
-  "generated_at_iso": "2026-09-05T07:35:03Z",
+  "generated_at_utc": "2026-09-07 07:05:00 UTC",
+  "generated_at_iso": "2026-09-07T07:05:00Z",
+  "status": "ok",
   "subject": {
     "label": "Vectora (VTRAI)",
     "network": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
   },
   "latest": {
-    "snapshot_date": "2026-09-05",
-    "timestamp_utc": "2026-09-05 07:35:03 UTC",
-    "checked_at_utc": "2026-09-05T07:35:04.005Z",
+    "snapshot_date": "2026-09-07",
+    "timestamp_utc": "2026-09-07 07:05:00 UTC",
+    "checked_at_utc": "2026-09-07T07:05:01.725Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-    "level": "verified",
-    "title": "Verified official token",
-    "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
+    "level": "unknown",
+    "title": "Insufficient evidence",
+    "summary": "A limited assessment of reported authorities, transfer controls and exact-market evidence. Unknown fields remain unknown; this is not a safety guarantee.",
     "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
     "meta": [
       {
@@ -36,34 +37,42 @@
       },
       {
         "label": "Top venue",
-        "value": "Unknown / "
+        "value": "Unknown"
       },
       {
         "label": "Metadata mutable",
         "value": "Yes"
+      },
+      {
+        "label": "Identity",
+        "value": "Official Vectora mint match; not a risk endorsement"
       }
     ],
     "reasons": [
       {
-        "label": "Official match",
-        "text": "The pasted mint exactly matches the canonical Vectora contract."
+        "label": "Metadata mutability",
+        "text": "Mutable."
       },
       {
-        "label": "Mint control",
-        "text": "Mint authority is revoked."
-      },
-      {
-        "label": "Freeze control",
-        "text": "Freeze authority is revoked."
+        "label": "Evidence gaps",
+        "text": "Not established: Exact market liquidity. Missing evidence is not a clean result."
       }
     ],
     "notes": [
-      "Metadata mutability: mutable."
+      "Mint authority: Reported revoked.",
+      "Freeze authority: Reported revoked.",
+      "Metadata mutability: Mutable.",
+      "Non-transferable: Not flagged by the source.",
+      "Disclosure: Vectora operates this checker and publishes VTRAI. The mint match does not override this risk assessment."
     ],
     "links": [
       {
-        "label": "Open Solscan",
+        "label": "Open explorer",
         "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+      },
+      {
+        "label": "Search on DexScreener",
+        "url": "https://dexscreener.com/search?q=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
       },
       {
         "label": "Open Raydium route",
@@ -71,10 +80,96 @@
       }
     ],
     "change_summary": [
-      "No material trust change since the last snapshot."
+      "Caution level changed from verified to unknown.",
+      "Top venue changed from Unknown /  to Unknown.",
+      "New watch item: Metadata mutability.",
+      "New watch item: Evidence gaps.",
+      "Prior watch item cleared: Official match.",
+      "Prior watch item cleared: Mint control."
     ]
   },
   "items": [
+    {
+      "snapshot_date": "2026-09-07",
+      "timestamp_utc": "2026-09-07 07:05:00 UTC",
+      "checked_at_utc": "2026-09-07T07:05:01.725Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "unknown",
+      "title": "Insufficient evidence",
+      "summary": "A limited assessment of reported authorities, transfer controls and exact-market evidence. Unknown fields remain unknown; this is not a safety guarantee.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown"
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        },
+        {
+          "label": "Identity",
+          "value": "Official Vectora mint match; not a risk endorsement"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Metadata mutability",
+          "text": "Mutable."
+        },
+        {
+          "label": "Evidence gaps",
+          "text": "Not established: Exact market liquidity. Missing evidence is not a clean result."
+        }
+      ],
+      "notes": [
+        "Mint authority: Reported revoked.",
+        "Freeze authority: Reported revoked.",
+        "Metadata mutability: Mutable.",
+        "Non-transferable: Not flagged by the source.",
+        "Disclosure: Vectora operates this checker and publishes VTRAI. The mint match does not override this risk assessment."
+      ],
+      "links": [
+        {
+          "label": "Open explorer",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Search on DexScreener",
+          "url": "https://dexscreener.com/search?q=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "Caution level changed from verified to unknown.",
+        "Top venue changed from Unknown /  to Unknown.",
+        "New watch item: Metadata mutability.",
+        "New watch item: Evidence gaps.",
+        "Prior watch item cleared: Official match.",
+        "Prior watch item cleared: Mint control."
+      ]
+    },
     {
       "snapshot_date": "2026-09-05",
       "timestamp_utc": "2026-09-05 07:35:03 UTC",
