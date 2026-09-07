@@ -68,16 +68,31 @@
       notes:(report.notes || []).map(html),
       links:(report.links || []).map(item=>({label:html(item.label),url:safeUrl(item.url)})).filter(item=>item.url)};
   }
-  function comparisonIssue(previous, current) {
-    if (!previous?.address) return 'First saved check. Check again later to compare evidence.';
-    if (previous.address !== current?.address || previous.network_id !== current.network_id) return 'These reports cover different tokens or networks.';
-    if (!previous.assessment_version || previous.assessment_version !== current.assessment_version) return 'Assessment method changed or is missing. A new comparable baseline is needed.';
+  function comparisonEligibility(previous, current, now = Date.now()) {
+    const blocked = (code, message) => ({eligible:false, code, message});
+    if (!previous?.address || !current?.address) return blocked('INSUFFICIENT_EVIDENCE','First saved check. Check again later to compare evidence.');
+    if (previous.address !== current.address || previous.network_id !== current.network_id) return blocked('IDENTITY_MISMATCH','These reports cover different tokens or networks.');
+    if (!previous.assessment_version || previous.assessment_version !== current.assessment_version) return blocked('INCOMPATIBLE_VERSION','Assessment method changed or is missing. A new comparable baseline is needed.');
     const before = Date.parse(previous.checked_at_utc), after = Date.parse(current.checked_at_utc);
-    if (!Number.isFinite(before) || !Number.isFinite(after) || after <= before) return 'No newer observation available yet. This is not evidence of no change.';
-    if (after > Date.now() || Date.now() - after > 24 * 60 * 60 * 1000) return 'Observation is stale or has an invalid timestamp. Changes cannot be confirmed.';
-    if (!previous.level || !current.level || previous.level === 'unknown' || current.level === 'unknown') return 'Evidence is incomplete. A reliable no-change conclusion is unavailable.';
-    if ([previous,current].some(report => (report.reasons || []).some(reason => /evidence gaps/i.test(reason.label)))) return 'Evidence gaps remain. A reliable no-change conclusion is unavailable.';
-    return '';
+    if (!Number.isFinite(before) || !Number.isFinite(after) || after <= before || (previous.receipt_id && previous.receipt_id === current.receipt_id)) return blocked('SAME_OBSERVATION','No newer observation available yet. This is not evidence of no change.');
+    if (!previous.receipt_id || !current.receipt_id) return blocked('OBSERVATION_ID_MISSING','Observation identity is missing. Comparison cannot be verified.');
+    if (after > now || now - after > 86400000) return blocked('STALE_SOURCE','Observation is stale or has an invalid timestamp. Changes cannot be confirmed.');
+    if ([previous,current].some(r=>r.source_status === 'degraded')) return blocked('SOURCE_FAILURE','Source coverage is degraded. Comparison is insufficient.');
+    if ([previous,current].some(r=>!r.level || r.level === 'unknown' || (r.reasons || []).some(reason=>/evidence gaps/i.test(reason.label)))) return blocked('INSUFFICIENT_EVIDENCE','Evidence is incomplete. A reliable no-change conclusion is unavailable.');
+    const sourceA = Date.parse(previous.source_observed_at), sourceB = Date.parse(current.source_observed_at);
+    if (!Number.isFinite(sourceA) || !Number.isFinite(sourceB)) return blocked('FRESHNESS_UNKNOWN_AND_INSUFFICIENT','Provider observation time is unknown. A new fetch alone cannot prove a fresh comparison.');
+    if (sourceB <= sourceA || sourceA > before || sourceB > after || before-sourceA > 86400000 || after-sourceB > 86400000) return blocked('STALE_SOURCE','Independent fresh source observations are not established.');
+    return {eligible:true,code:'ELIGIBLE',message:''};
+  }
+  function comparisonIssue(previous, current) { return comparisonEligibility(previous,current).message; }
+  function measurementSelfCheck(previous, current) {
+    const reasons=[];
+    if (typeof window.gtag !== 'function') reasons.push('GA_NOT_CONFIGURED');
+    if (!read('vectora_journey_id')) reasons.push('SESSION_STORAGE_UNAVAILABLE');
+    const comparison=comparisonEligibility(previous,current);
+    if (!comparison.eligible) reasons.push(comparison.code);
+    reasons.push('BACKEND_CORRELATION_NOT_ATTESTED');
+    return {health:'INVALID',reasons,comparison,valid_from:null};
   }
   const seen = new Set();
   function observeSaved() {
@@ -96,5 +111,5 @@
     }, {threshold:0.25});
     document.querySelectorAll('[data-saved-item]').forEach(el => observer.observe(el));
   }
-  window.VectoraJourney = { track, begin, source, html, safeUrl, displayReport, comparisonIssue, observeSaved };
+  window.VectoraJourney = { track, begin, source, html, safeUrl, displayReport, comparisonIssue, comparisonEligibility, measurementSelfCheck, observeSaved };
 })();

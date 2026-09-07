@@ -841,7 +841,7 @@
     }
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
-  <script src="./assets/vectora-journey.js?v=20260907-3"></script>
+  <script src="./assets/vectora-journey.js?v=20260907-4"></script>
 </head>
 <body>
   <main class="wrap">
@@ -1070,6 +1070,8 @@
         checked_at_utc: report.checked_at_utc || '',
         receipt_id: report.receipt_id || '',
         assessment_version: report.assessment_version || '',
+        source_observed_at: report.source_observed_at || null,
+        source_status: report.source_status || 'unknown',
         identity: report.identity || {},
         meta: report.meta || [],
         reasons: report.reasons || [],
