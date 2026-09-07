@@ -1450,11 +1450,11 @@
       const changes = buildChangeDetails(previous, current);
 
       const issue = window.VectoraJourney.comparisonIssue(previous, current);
-      if (issue) return `<div class="diff-box"><strong>Comparison unavailable</strong><div class="quiet">${window.VectoraJourney.html(issue)}</div></div>`;
+      if (issue) return `<div class="diff-box" data-saved-item="${window.VectoraJourney.html(current.address)}" data-observation="${window.VectoraJourney.html(current.checked_at_utc)}" data-comparison="unavailable"><strong>Comparison unavailable</strong><div class="quiet">${window.VectoraJourney.html(issue)}</div></div>`;
 
       if (!changes.length) {
         return `
-          <div class="diff-box">
+          <div class="diff-box" data-saved-item="${window.VectoraJourney.html(current.address)}" data-observation="${window.VectoraJourney.html(current.checked_at_utc)}" data-comparison="available">
             <strong>Since your last check</strong>
             <div class="quiet">No changes in the compared fields. Unobserved wallet movements and missing evidence are not covered.</div>
           </div>
@@ -1462,7 +1462,7 @@
       }
 
       return `
-        <div class="diff-box">
+        <div class="diff-box" data-saved-item="${window.VectoraJourney.html(current.address)}" data-observation="${window.VectoraJourney.html(current.checked_at_utc)}" data-comparison="available">
           <strong>Since your last check</strong>
           <ul>${changes.slice(0, 4).map((entry) => `<li>${entry}</li>`).join('')}</ul>
         </div>
@@ -1697,6 +1697,9 @@
         `;
       }).join('');
     }
+
+    const comparisonObserver = new MutationObserver(() => window.VectoraJourney.observeSaved());
+    comparisonObserver.observe(watchlistGrid, {childList:true});
 
     async function refreshToken(watchKey) {
       const items = getWatchlist();

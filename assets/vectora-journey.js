@@ -78,5 +78,22 @@
     if (!previous.level || !current.level || previous.level === 'unknown' || current.level === 'unknown') return 'Evidence is incomplete. A reliable no-change conclusion is unavailable.';
     return '';
   }
-  window.VectoraJourney = { track, begin, source, html, safeUrl, displayReport, comparisonIssue };
+  const seen = new Set();
+  function observeSaved() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) {
+        const el = entry.target, key = el.dataset.savedItem + ':' + el.dataset.observation;
+        if (!seen.has(key)) {
+          seen.add(key);
+          const values = {mint:el.dataset.savedItem, report_id:el.dataset.observation, comparison_state:el.dataset.comparison};
+          emit('saved_token_viewed', values);
+          if (el.dataset.comparison === 'available') { emit('comparison_available', values); emit('comparison_viewed', values); }
+        }
+        observer.unobserve(el);
+      }
+    }, {threshold:0.25});
+    document.querySelectorAll('[data-saved-item]').forEach(el => observer.observe(el));
+  }
+  window.VectoraJourney = { track, begin, source, html, safeUrl, displayReport, comparisonIssue, observeSaved };
 })();
