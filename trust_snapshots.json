@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-09-07 07:05:00 UTC",
-  "generated_at_iso": "2026-09-07T07:05:00Z",
+  "generated_at_utc": "2026-09-07 07:35:05 UTC",
+  "generated_at_iso": "2026-09-07T07:35:05Z",
   "status": "ok",
   "subject": {
     "label": "Vectora (VTRAI)",
@@ -9,8 +9,8 @@
   },
   "latest": {
     "snapshot_date": "2026-09-07",
-    "timestamp_utc": "2026-09-07 07:05:00 UTC",
-    "checked_at_utc": "2026-09-07T07:05:01.725Z",
+    "timestamp_utc": "2026-09-07 07:35:05 UTC",
+    "checked_at_utc": "2026-09-07T07:35:06.955Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -80,19 +80,14 @@
       }
     ],
     "change_summary": [
-      "Caution level changed from verified to unknown.",
-      "Top venue changed from Unknown /  to Unknown.",
-      "New watch item: Metadata mutability.",
-      "New watch item: Evidence gaps.",
-      "Prior watch item cleared: Official match.",
-      "Prior watch item cleared: Mint control."
+      "No material trust change since the last snapshot."
     ]
   },
   "items": [
     {
       "snapshot_date": "2026-09-07",
-      "timestamp_utc": "2026-09-07 07:05:00 UTC",
-      "checked_at_utc": "2026-09-07T07:05:01.725Z",
+      "timestamp_utc": "2026-09-07 07:35:05 UTC",
+      "checked_at_utc": "2026-09-07T07:35:06.955Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -162,12 +157,7 @@
         }
       ],
       "change_summary": [
-        "Caution level changed from verified to unknown.",
-        "Top venue changed from Unknown /  to Unknown.",
-        "New watch item: Metadata mutability.",
-        "New watch item: Evidence gaps.",
-        "Prior watch item cleared: Official match.",
-        "Prior watch item cleared: Mint control."
+        "No material trust change since the last snapshot."
       ]
     },
     {
