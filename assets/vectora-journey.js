@@ -22,10 +22,10 @@
   function savedAction(name, values) {
     const key = `vectora_retention:${values.network}:${values.mint}`;
     try {
-      if (name === 'save_completed') localStorage.setItem(key, JSON.stringify({at:Date.now(), session:journeyId}));
+      if (name === 'save_completed') localStorage.setItem(key, JSON.stringify({at:Date.now(), session:journeyId,report_id:values.report_id || ''}));
       else {
         const saved = JSON.parse(localStorage.getItem(key) || 'null');
-        if (saved && saved.session !== journeyId && Date.now() >= saved.at && Date.now() - saved.at <= 14 * 86400000) {
+        if (saved && saved.session !== journeyId && values.report_id && values.previous_report_id && values.report_id!==values.previous_report_id && values.report_id!==saved.report_id && Date.now() >= saved.at && Date.now() - saved.at <= 14 * 86400000) {
           emit('return_check_completed', {...values, days_since_save:Math.floor((Date.now()-saved.at)/86400000)});
         }
       }
@@ -60,7 +60,7 @@
       attempt.completed = true;
       emit('journey_attempt_completed', values);
       emit(attempt.kind === 'shared_receipt' ? 'journey_receipt_viewed' : attempt.kind === 'recheck' ? 'journey_recheck_completed' : 'journey_check_completed', values);
-      if (values.assessment_version && values.mint && attempt.kind !== 'shared_receipt') {
+      if (values.assessment_version && values.mint && values.report_id && values.completeness_state === 'usable' && attempt.kind !== 'shared_receipt') {
         emit('check_valid_mint', values);
         emit('check_completed', values);
         if (attempt.kind === 'recheck') savedAction('recheck', values);
@@ -68,6 +68,9 @@
     }
     if (['token_check_failed', 'report_lookup_failed', 'watchlist_token_refresh_failed'].includes(name)) { emit('journey_attempt_failed', values); emit('check_failed', values); }
     if (name === 'watchlist_add') emit('journey_token_saved', values);
+    if (name === 'watchlist_remove' && values.mint) {
+      try { localStorage.removeItem(`vectora_retention:${values.network}:${values.mint}`); } catch {}
+    }
     if (name === 'save_completed' && values.mint) savedAction(name, values);
     if (['report_link_copied', 'token_report_shared'].includes(name)) emit('journey_receipt_shared', values);
   }
@@ -86,6 +89,11 @@
     const blocked = (code, message) => ({eligible:false, code, message});
     if (!previous?.address || !current?.address) return blocked('INSUFFICIENT_EVIDENCE','First saved check. Check again later to compare evidence.');
     if (previous.address !== current.address || previous.network_id !== current.network_id) return blocked('IDENTITY_MISMATCH','These reports cover different tokens or networks.');
+    if (previous.comparison_scope !== current.comparison_scope) return blocked('SCOPE_MISMATCH','These observations cover different evidence.');
+    if (current.comparison_scope === 'solana_mint_controls') {
+      const authority=value=>value===null || (typeof value==='string' && /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(value));
+      if ([previous,current].some(r=>r.commitment!=='finalized' || !Number.isSafeInteger(r.slot) || r.slot<=0 || !authority(r.mint_authority) || !authority(r.freeze_authority)) || current.slot<=previous.slot) return blocked('INVALID_FINALIZED_CONTROLS','Distinct finalized mint-control evidence is required.');
+    }
     if (!previous.assessment_version || previous.assessment_version !== current.assessment_version) return blocked('INCOMPATIBLE_VERSION','Assessment method changed or is missing. A new comparable baseline is needed.');
     const before = Date.parse(previous.checked_at_utc), after = Date.parse(current.checked_at_utc);
     if (!Number.isFinite(before) || !Number.isFinite(after) || after <= before || (previous.receipt_id && previous.receipt_id === current.receipt_id)) return blocked('SAME_OBSERVATION','No newer observation available yet. This is not evidence of no change.');
@@ -99,14 +107,25 @@
     return {eligible:true,code:'ELIGIBLE',message:''};
   }
   function comparisonIssue(previous, current) { return comparisonEligibility(previous,current).message; }
-  function measurementSelfCheck(previous, current) {
+  function controlComparison(previous,current) {
+    const a=previous?.control_observation,b=current?.control_observation;
+    if (!a || !b || a.comparison_scope!=='solana_mint_controls' || b.comparison_scope!=='solana_mint_controls' ||
+        a.address!==previous.address || b.address!==current.address || a.network_id!==previous.network_id || b.network_id!==current.network_id) return {eligible:false,code:'CONTROLS_UNAVAILABLE',changes:[]};
+    const result=comparisonEligibility(a,b);
+    return {...result,changes:result.eligible?['mint_authority','freeze_authority'].filter(field=>a[field]!==b[field]):[]};
+  }
+  function measurementSelfCheck(previous, current, attestation = {}) {
     const reasons=[];
     if (typeof window.gtag !== 'function') reasons.push('GA_NOT_CONFIGURED');
     if (!read('vectora_journey_id')) reasons.push('SESSION_STORAGE_UNAVAILABLE');
     const comparison=comparisonEligibility(previous,current);
     if (!comparison.eligible) reasons.push(comparison.code);
-    reasons.push('BACKEND_CORRELATION_NOT_ATTESTED');
-    return {health:'INVALID',reasons,comparison,valid_from:null};
+    const required=['events_received','qa_excludable','traffic_segmentation','lifecycle_correlation','browser_restart_persistence','deduplication'];
+    for (const name of required) if (attestation[name] !== true) reasons.push(name.toUpperCase()+'_NOT_ATTESTED');
+    const verified=Date.parse(attestation.verified_at), baseline=Date.parse(attestation.valid_from);
+    if (!Number.isFinite(verified) || verified>Date.now() || Date.now()-verified>86400000) reasons.push('ATTESTATION_MISSING_OR_STALE');
+    if (!Number.isFinite(baseline) || baseline>Date.now()) reasons.push('FORWARD_BASELINE_NOT_SET');
+    return {health:reasons.length?'INVALID':'HEALTHY',reasons,comparison,valid_from:reasons.length?null:attestation.valid_from};
   }
   let priorSeen = [];
   try { const stored = JSON.parse(read('vectora_seen_observations') || '[]'); if (Array.isArray(stored)) priorSeen = stored; } catch {}
@@ -128,5 +147,5 @@
     }, {threshold:0.25});
     document.querySelectorAll('[data-saved-item]').forEach(el => observer.observe(el));
   }
-  window.VectoraJourney = { track, begin, source, html, safeUrl, displayReport, comparisonIssue, comparisonEligibility, measurementSelfCheck, observeSaved };
+  window.VectoraJourney = { track, begin, source, html, safeUrl, displayReport, comparisonIssue, comparisonEligibility, controlComparison, measurementSelfCheck, observeSaved };
 })();

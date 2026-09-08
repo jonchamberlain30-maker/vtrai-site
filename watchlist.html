@@ -842,7 +842,7 @@
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
   <script src="./assets/vectora-lifecycle.js?v=20260907-1"></script>
-  <script src="./assets/vectora-journey.js?v=20260907-5"></script>
+  <script src="./assets/vectora-journey.js?v=20260908-1"></script>
 </head>
 <body>
   <main class="wrap">
@@ -1072,6 +1072,7 @@
         receipt_id: report.receipt_id || '',
         assessment_version: report.assessment_version || '',
         source_observed_at: report.source_observed_at || null,
+        control_observation: report.control_observation || null,
         source_status: report.source_status || 'unknown',
         identity: report.identity || {},
         meta: report.meta || [],
@@ -1454,6 +1455,15 @@
       const changes = buildChangeDetails(previous, current);
 
       const issue = window.VectoraJourney.comparisonIssue(previous, current);
+      const controls = window.VectoraJourney.controlComparison(previous,current);
+      if (issue && controls.eligible) {
+        const escape=window.VectoraJourney.html;
+        const a=previous.control_observation,b=current.control_observation;
+        const output=controls.changes.length
+          ? controls.changes.map(field=>`${field==='mint_authority'?'Mint':'Freeze'} authority: ${escape(a[field] || 'revoked')} → ${escape(b[field] || 'revoked')}`).join('<br>')
+          : 'No verified material change in mint or freeze authority.';
+        return `<div class="diff-box" ${attributes} data-comparison="available"><strong>Finalized mint controls only</strong><div>${output}</div><div class="quiet">Finalized slots ${a.slot} → ${b.slot}. Broader comparison unavailable: ${escape(issue)} This does not compare liquidity, sellability or overall safety.</div></div>`;
+      }
       if (issue) return `<div class="diff-box" ${attributes} data-comparison="unavailable"><strong>Comparison unavailable</strong><div class="quiet">${window.VectoraJourney.html(issue)}</div></div>`;
 
       if (!changes.length) {
@@ -1824,9 +1834,10 @@
         const items = getWatchlist();
         const index = items.findIndex((item) => (item.watch_key || buildWatchKey(item.network_id, item.address)) === removeButton.dataset.removeKey);
         if (index < 0) return;
-        trackEvent('watchlist_remove', { page: 'watchlist' });
+        const removed=items[index];
         items.splice(index, 1);
         saveWatchlist(items);
+        trackEvent('watchlist_remove', { page: 'watchlist',mint:removed.address,network:removed.network_id });
         renderWatchlist();
       }
     });

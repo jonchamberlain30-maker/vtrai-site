@@ -1994,7 +1994,7 @@
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
   <script src="./assets/vectora-lifecycle.js?v=20260907-1"></script>
-  <script src="./assets/vectora-journey.js?v=20260907-5"></script>
+  <script src="./assets/vectora-journey.js?v=20260908-1"></script>
   <style>
     .checker-primary { margin-top: 20px; padding: 24px 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
     .checker-primary::before, .checker-primary::after { display: none; }
@@ -2611,6 +2611,7 @@
         checked_at_utc: report.checked_at_utc || '',
         assessment_version: report.assessment_version || '',
         source_observed_at: report.source_observed_at || null,
+        control_observation: report.control_observation || null,
         source_status: report.source_status || 'unknown',
         receipt_id: report.receipt_id || '',
         source_freshness: report.source_freshness || 'unknown',
@@ -3059,6 +3060,8 @@
       }
       const button = event.target.closest('[data-watch-toggle]');
       if (button && currentWatchToken) {
+        if (Number(button.dataset.busyUntil || 0) > Date.now()) return;
+        button.dataset.busyUntil = String(Date.now()+700);
         trackEvent('save_clicked', {page: 'home', mint:currentWatchToken.address, network:currentWatchToken.network_id,report_id:currentWatchToken.report?.receipt_id || ''});
         let watching;
         try { watching = toggleWatchToken(currentWatchToken); }
@@ -3080,6 +3083,7 @@
         }
         trackEvent(watching ? 'watchlist_add' : 'watchlist_remove', {
           page: 'home',
+          mint: currentWatchToken.address,
           network: currentWatchToken.network_id || 'unknown',
         });
         trackEvent(watching ? 'token_monitoring_started' : 'token_monitoring_stopped', {
