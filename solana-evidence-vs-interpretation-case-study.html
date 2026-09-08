@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A timestamped Solana case study showing the difference between token identity, onchain facts, interpretation, and evidence that remains unknown." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#07101d" />
+  <link rel="canonical" href="https://getvectora.ai/solana-evidence-vs-interpretation-case-study.html" />
+  <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Vectora" />
+  <meta property="og:title" content="Solana Evidence vs Interpretation | Vectora Case Study" />
+  <meta property="og:description" content="What a token record establishes, what needs an interpretation layer, and why missing evidence must stay unknown." />
+  <meta property="og:url" content="https://getvectora.ai/solana-evidence-vs-interpretation-case-study.html" />
+  <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <meta property="og:image:alt" content="Vectora Solana evidence case study" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solana Evidence vs Interpretation" />
+  <meta name="twitter:description" content="A timestamped example of verified facts, interpretation, and explicit unknowns in a Solana token check." />
+  <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YFD45VCN8J');
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Solana Evidence vs Interpretation",
+      "datePublished": "2026-09-08",
+      "dateModified": "2026-09-08",
+      "description": "A timestamped Solana case study separating token identity, onchain facts, interpretation, and unknown evidence.",
+      "author": {"@type": "Organization", "name": "Vectora"},
+      "publisher": {"@type": "Organization", "name": "Vectora"},
+      "mainEntityOfPage": "https://getvectora.ai/solana-evidence-vs-interpretation-case-study.html"
+    }
+  </script>
+  <title>Solana Evidence vs Interpretation | Vectora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#07101d; --bg2:#0d1830; --ink:#eff8ff; --muted:#abc0d5; --line:#274062; --cyan:#5be9ff; --gold:#f7d46a; --card:rgba(9,18,36,.82); }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:"Space Grotesk",sans-serif; color:var(--ink); background:radial-gradient(900px 520px at 8% -8%,rgba(91,233,255,.16),transparent 55%),linear-gradient(140deg,var(--bg),var(--bg2)); }
+    .wrap { max-width:980px; margin:0 auto; padding:22px 18px 58px; }
+    .top { display:flex; justify-content:space-between; align-items:center; gap:14px; padding:12px 16px; border:1px solid var(--line); border-radius:16px; background:rgba(8,14,29,.78); }
+    .top a { color:var(--ink); text-decoration:none; }
+    .brand { font-weight:800; }
+    .nav { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero,.card { margin-top:16px; border:1px solid rgba(91,233,255,.22); border-radius:20px; background:var(--card); padding:clamp(22px,5vw,46px); }
+    .eyebrow { color:var(--cyan); text-transform:uppercase; letter-spacing:.12em; font-size:.76rem; font-weight:800; }
+    h1 { margin:10px 0 0; max-width:800px; font-size:clamp(2.35rem,7vw,5rem); line-height:.98; }
+    h2 { margin:0 0 10px; font-size:1.35rem; }
+    h3 { margin:0 0 8px; font-size:1.05rem; }
+    p,li { color:var(--muted); line-height:1.65; }
+    .lead { max-width:780px; font-size:1.08rem; }
+    .stamp { display:inline-block; margin-top:10px; color:var(--gold); font-size:.88rem; font-weight:700; }
+    .cta,.sources { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .btn { display:inline-block; padding:11px 15px; border-radius:11px; background:linear-gradient(90deg,var(--cyan),#9cf1ff); color:#031019; font-weight:800; text-decoration:none; }
+    .btn.secondary { background:rgba(16,28,52,.76); color:var(--ink); border:1px solid var(--line); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:16px; }
+    .fact { padding:18px; border:1px solid var(--line); border-radius:16px; background:rgba(5,13,28,.55); }
+    .fact strong { color:var(--cyan); }
+    .fact.unknown strong { color:var(--gold); }
+    code { color:#d8f8ff; overflow-wrap:anywhere; }
+    a { color:var(--cyan); }
+    .note { border-left:3px solid var(--gold); padding-left:14px; }
+    .sources { display:block; padding-left:20px; }
+    footer { margin-top:18px; color:var(--muted); text-align:center; font-size:.86rem; }
+    @media (max-width:700px) { .top { align-items:flex-start; flex-direction:column; } .grid { grid-template-columns:1fr; } .btn { width:100%; text-align:center; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <a class="brand" href="./">Vectora</a>
+      <nav class="nav" aria-label="Primary"><a href="./#trust-check">Token check</a><a href="./guides.html">Guides</a><a href="./proof.html">Proof</a></nav>
+    </header>
+
+    <article>
+      <section class="hero">
+        <div class="eyebrow">Observed case study · Solana</div>
+        <h1>A token record is evidence. It is not the whole conclusion.</h1>
+        <p class="lead">A recent Solana developer discussion asks what a landed transaction can prove without an external interpretation layer. The same discipline applies to token checks: keep identity, observed controls, market evidence and unknowns separate.</p>
+        <span class="stamp">Vectora observation: 7 September 2026, 12:22:20 UTC · assessment version 2026-09-05.1</span>
+        <div class="cta">
+          <a class="btn tracked" data-label="case_study_receipt" href="./report.html?receipt=63774ead55ec2e17adec4528156af9b66e2a48f82bfdd6f194f192c14f163394">Inspect the immutable receipt</a>
+          <a class="btn secondary tracked" data-label="case_study_fresh_check" href="./report.html?network=solana&amp;address=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J">Run a fresh check</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>The example: Vectora's published VTRAI mint</h2>
+        <p>The mint matched Vectora's official published identity. That answers an identity question only. It does not override the separate assessment or turn missing market evidence into a clean result.</p>
+        <div class="grid">
+          <div class="fact"><h3>Identity</h3><p><strong>Official mint match.</strong> The exact Solana address was <code>Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J</code>. The receipt explicitly says this is not a risk endorsement.</p></div>
+          <div class="fact"><h3>Observed controls</h3><p><strong>Mint and freeze authority were reported revoked.</strong> Solana documents these as distinct token authority roles; their state is useful evidence, not a complete safety verdict.</p></div>
+          <div class="fact"><h3>Interpretation</h3><p><strong>Metadata was reported mutable.</strong> This is a control characteristic that needs context. It is not interchangeable with identity, liquidity or route evidence.</p></div>
+          <div class="fact unknown"><h3>Unknown</h3><p><strong>Exact-market liquidity was not established.</strong> The assessment stayed at “Insufficient evidence.” Missing evidence was not scored as clean.</p></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Why the distinction matters</h2>
+        <p>A transaction contains signatures, account addresses and compiled instructions. A token mint exposes defined authority roles. But economic labels and market claims often require additional mappings, sources or observations. A Solana forum researcher demonstrated this with routed execution: the same landed records produced different coverage when the venue registry changed.</p>
+        <p class="note">The practical rule is simple: say what the source established, name the interpretation layer, timestamp the observation, and leave the rest unknown. A saved receipt preserves the earlier assessment; it does not become a current assessment later.</p>
+      </section>
+
+      <section class="card">
+        <h2>Sources and scope</h2>
+        <ul class="sources">
+          <li><a href="https://solana.com/docs/core">Solana core concepts</a> — official description of accounts, programs, instructions and transactions.</li>
+          <li><a href="https://solana.com/docs/tokens/basics">SPL token basics</a> — official documentation for mint and freeze authority roles.</li>
+          <li><a href="https://forum.solana.com/t/what-can-a-landed-solana-transaction-actually-prove-about-defi-execution/5036">Solana Developer Forum research discussion</a> — external research that motivated the evidence-versus-interpretation comparison. No affiliation or endorsement is implied.</li>
+          <li><a href="./report.html?receipt=63774ead55ec2e17adec4528156af9b66e2a48f82bfdd6f194f192c14f163394">Vectora immutable receipt</a> — the timestamped VTRAI observation used above.</li>
+        </ul>
+        <p>This case study is educational and describes one historical assessment. It is not a safety guarantee, investment recommendation or statement that conditions remain unchanged. Use the fresh-check link for a new observation.</p>
+      </section>
+    </article>
+
+    <footer>Free, read-only checks. No wallet connection or token purchase required.</footer>
+  </main>
+  <script>
+    document.querySelectorAll('.tracked').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof window.gtag === 'function') window.gtag('event', 'case_study_click', { link_label: link.dataset.label || 'unknown' });
+      });
+    });
+  </script>
+</body>
+</html>
