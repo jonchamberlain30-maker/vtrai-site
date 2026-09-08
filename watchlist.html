@@ -1715,11 +1715,14 @@
     const comparisonObserver = new MutationObserver(() => window.VectoraJourney.observeSaved());
     comparisonObserver.observe(watchlistGrid, {childList:true});
 
+    let refreshInProgress = false;
     async function refreshToken(watchKey) {
+      if (refreshInProgress) return;
       const items = getWatchlist();
       const index = items.findIndex((item) => (item.watch_key || buildWatchKey(item.network_id, item.address)) === watchKey);
       const item = index >= 0 ? items[index] : null;
       if (!item) return;
+      refreshInProgress = true;
       watchlistState.textContent = `Refreshing ${item.token_label || item.address}...`;
       trackEvent('watchlist_token_refresh_started', {page:'watchlist',network:item.network_id});
       try {
@@ -1757,6 +1760,8 @@
           page: 'watchlist',
           network: item.network_id || 'unknown',
         });
+      } finally {
+        refreshInProgress = false;
       }
     }
 
