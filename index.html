@@ -2630,6 +2630,10 @@
 
     function toggleWatchToken(token) {
       if (!token?.address) return false;
+      const qaSave = new URLSearchParams(location.search);
+      if (qaSave.get('source') === 'internal_qa' && qaSave.get('qaSaveFailure') === '1') {
+        throw new Error('QA-only save rejection before storage access');
+      }
       const watchKey = buildWatchKey(token.network_id || token.networkId, token.address);
       const items = getWatchlist();
       const existingIndex = items.findIndex((item) => item.watch_key === watchKey);
