@@ -842,7 +842,7 @@
   </style>
   <link rel="stylesheet" href="./assets/vectora-motion-20260519-radical.css" />
   <script src="./assets/vectora-lifecycle.js?v=20260907-1"></script>
-  <script src="./assets/vectora-journey.js?v=20260908-1"></script>
+  <script src="./assets/vectora-journey.js?v=20260908-2"></script>
 </head>
 <body>
   <main class="wrap">
@@ -1743,6 +1743,7 @@
           mint: nextReport.address,
           report_id: nextReport.receipt_id,
           previous_report_id: item.previous_report?.receipt_id || '',
+          cached: payload.cached,
           completeness_state: nextReport.level && nextReport.level !== 'unknown' && !(nextReport.reasons || []).some(r=>/evidence gaps/i.test(r.label)) ? 'usable' : 'incomplete',
           assessment_version: nextReport.assessment_version,
           level: nextReport.level || 'unknown',

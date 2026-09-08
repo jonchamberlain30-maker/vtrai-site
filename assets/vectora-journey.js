@@ -60,7 +60,8 @@
       attempt.completed = true;
       emit('journey_attempt_completed', values);
       emit(attempt.kind === 'shared_receipt' ? 'journey_receipt_viewed' : attempt.kind === 'recheck' ? 'journey_recheck_completed' : 'journey_check_completed', values);
-      if (values.assessment_version && values.mint && values.report_id && values.completeness_state === 'usable' && attempt.kind !== 'shared_receipt') {
+      const freshRecheck = attempt.kind !== 'recheck' || (values.cached === false && values.previous_report_id && values.report_id !== values.previous_report_id);
+      if (freshRecheck && values.assessment_version && values.mint && values.report_id && values.completeness_state === 'usable' && attempt.kind !== 'shared_receipt') {
         emit('check_valid_mint', values);
         emit('check_completed', values);
         if (attempt.kind === 'recheck') savedAction('recheck', values);
