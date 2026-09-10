@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-09-10 07:35:26 UTC",
-  "generated_at_iso": "2026-09-10T07:35:26Z",
+  "generated_at_utc": "2026-09-10 07:45:05 UTC",
+  "generated_at_iso": "2026-09-10T07:45:05Z",
   "count": 2,
-  "ok_count": 1,
-  "unavailable_count": 1,
+  "ok_count": 2,
+  "unavailable_count": 0,
   "items": [
     {
       "watch_key": "solana:ly4h6n9v4g2n7ibzm4zdmxsftpyl4l4kbxzjegf6x2j",
@@ -13,8 +13,8 @@
       "status": "ok",
       "latest": {
         "snapshot_date": "2026-09-10",
-        "timestamp_utc": "2026-09-10 07:35:26 UTC",
-        "checked_at_utc": "2026-09-10T07:35:28.106Z",
+        "timestamp_utc": "2026-09-10 07:45:05 UTC",
+        "checked_at_utc": "2026-09-10T07:35:28.112Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -90,8 +90,8 @@
       "history": [
         {
           "snapshot_date": "2026-09-10",
-          "timestamp_utc": "2026-09-10 07:35:26 UTC",
-          "checked_at_utc": "2026-09-10T07:35:28.106Z",
+          "timestamp_utc": "2026-09-10 07:45:05 UTC",
+          "checked_at_utc": "2026-09-10T07:35:28.112Z",
           "network_id": "solana",
           "network_label": "Solana",
           "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -1079,13 +1079,11 @@
       "network": "1",
       "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "label": "USD Coin (USDC)",
-      "status": "unavailable",
-      "last_refresh_attempt_utc": "2026-09-10 07:35:26 UTC",
-      "last_refresh_error": "HTTP Error 400: Bad Request",
+      "status": "ok",
       "latest": {
-        "snapshot_date": "2026-09-09",
-        "timestamp_utc": "2026-09-09 07:45:00 UTC",
-        "checked_at_utc": "2026-09-09T07:45:01.476Z",
+        "snapshot_date": "2026-09-10",
+        "timestamp_utc": "2026-09-10 07:45:05 UTC",
+        "checked_at_utc": "2026-09-10T07:45:05.985Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1104,7 +1102,7 @@
           },
           {
             "label": "Supply",
-            "value": "50,639,143,337.41"
+            "value": "50,567,283,174.82"
           },
           {
             "label": "Top liquidity",
@@ -1155,10 +1153,86 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 50,579,027,795.32 to 50,639,143,337.41."
+          "Supply changed from 50,639,143,337.41 to 50,567,283,174.82."
         ]
       },
       "history": [
+        {
+          "snapshot_date": "2026-09-10",
+          "timestamp_utc": "2026-09-10 07:45:05 UTC",
+          "checked_at_utc": "2026-09-10T07:45:05.985Z",
+          "network_id": "1",
+          "network_label": "Ethereum",
+          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "level": "unknown",
+          "title": "Insufficient evidence",
+          "summary": "A limited assessment of reported controls and trading restrictions. Unknown fields remain unknown; this is not a safety guarantee.",
+          "image_url": null,
+          "meta": [
+            {
+              "label": "Network",
+              "value": "Ethereum"
+            },
+            {
+              "label": "Token",
+              "value": "USD Coin (USDC)"
+            },
+            {
+              "label": "Supply",
+              "value": "50,567,283,174.82"
+            },
+            {
+              "label": "Top liquidity",
+              "value": "Unknown"
+            },
+            {
+              "label": "Top venue",
+              "value": "Unknown"
+            },
+            {
+              "label": "Open source",
+              "value": "Yes"
+            },
+            {
+              "label": "Identity",
+              "value": "Project affiliation not established"
+            }
+          ],
+          "reasons": [
+            {
+              "label": "Upgrade control",
+              "text": "Proxy pattern detected."
+            },
+            {
+              "label": "Evidence gaps",
+              "text": "Not established: Sell restriction, Owner control, Transfer tax, Exact market liquidity. Missing evidence is not a clean result."
+            }
+          ],
+          "notes": [
+            "Honeypot signal: Not flagged by the source.",
+            "Upgrade control: Proxy pattern detected.",
+            "Buy restriction: Not flagged by the source.",
+            "Sell restriction: unknown; source did not establish this finding.",
+            "Contract visibility: reported open source.",
+            "Owner control: unknown; no owner address established.",
+            "Buy tax: 0%.",
+            "Sell tax: 0%.",
+            "Transfer tax: unknown."
+          ],
+          "links": [
+            {
+              "label": "Open explorer",
+              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            },
+            {
+              "label": "Search on DexScreener",
+              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            }
+          ],
+          "change_summary": [
+            "Supply changed from 50,639,143,337.41 to 50,567,283,174.82."
+          ]
+        },
         {
           "snapshot_date": "2026-09-09",
           "timestamp_utc": "2026-09-09 07:45:00 UTC",
@@ -2029,73 +2103,6 @@
           ],
           "change_summary": [
             "No material trust change since the last snapshot."
-          ]
-        },
-        {
-          "snapshot_date": "2026-07-22",
-          "timestamp_utc": "2026-07-22 19:38:46 UTC",
-          "checked_at_utc": "2026-07-22T19:30:15.083Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "50,412,522,379.96"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "$34,744,372"
-            },
-            {
-              "label": "Top venue",
-              "value": "uniswap / 0x3416cF"
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "No DEX liquidity was returned by the security API."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Open top pair",
-              "url": "https://dexscreener.com/ethereum/0x3416cf6c708da44db2624d63ea0aaef7113527c6"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 55,053,513,437.72 to 50,412,522,379.96."
           ]
         }
       ]
