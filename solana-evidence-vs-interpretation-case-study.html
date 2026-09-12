@@ -106,6 +106,21 @@
       </section>
 
       <section class="card">
+        <h2 id="wrapped-sol-example">Wrapped SOL: authority evidence with an incomplete report</h2>
+        <p>On 12 September 2026 at 10:51:59 UTC, an internal QA observation of <code>So11111111111111111111111111111111111111112</code> returned a partial report. This is a historical product example, not a customer success or a current token assessment.</p>
+        <ul class="sources">
+          <li><strong>Observed:</strong> finalized Solana slot <code>446411181</code> returned null mint and freeze authorities. The RPC observation time was 10:51:48 UTC.</li>
+          <li><strong>Unavailable:</strong> GoPlus security coverage. Metadata mutability, non-transferability and exact-market liquidity remained unknown.</li>
+          <li><strong>Conclusion:</strong> the authority observation was complete for its narrow scope; the overall report was not. It did not establish safety, sellability or project affiliation.</li>
+        </ul>
+        <p class="note">A missing result is different from a verified absence. Preserve both the observation time and the coverage gaps when comparing evidence later.</p>
+        <div class="cta">
+          <a class="btn tracked" data-label="example_discovery_001_receipt" href="./report.html?receipt=daaf2196be5db2e0892ac0ef68c5fd3fbd6736da524244977b7d33182b01019f&amp;discovery=example_discovery_001">Inspect this saved observation</a>
+          <a class="btn secondary tracked" data-label="example_discovery_001_checker" href="./?discovery=example_discovery_001#trust-check">Check another Solana mint</a>
+        </div>
+      </section>
+
+      <section class="card">
         <h2>Why the distinction matters</h2>
         <p>A transaction contains signatures, account addresses and compiled instructions. A token mint exposes defined authority roles. But economic labels and market claims often require additional mappings, sources or observations. A Solana forum researcher demonstrated this with routed execution: the same landed records produced different coverage when the venue registry changed.</p>
         <p class="note">The practical rule is simple: say what the source established, name the interpretation layer, timestamp the observation, and leave the rest unknown. A saved receipt preserves the earlier assessment; it does not become a current assessment later.</p>
