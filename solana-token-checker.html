@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="How to check if a Solana token is legit: verify the mint, compare DexScreener with Solscan, read mint or freeze authority risk, and use the launchpad checker for fresh Pump.fun, Bonk.fun, or Raydium tokens." />
+  <meta name="description" content="Check Solana mint and freeze authority, understand missing evidence, and save a timestamped report to recheck later. Free, with no wallet connection." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#060b15" />
   <link rel="canonical" href="https://getvectora.ai/solana-token-checker.html" />
   <link rel="icon" type="image/png" href="https://getvectora.ai/assets/vtrai-token-mark-128.png" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vectora" />
-  <meta property="og:title" content="How To Check If A Solana Token Is Legit Before You Buy" />
+  <meta property="og:title" content="Solana Token Checker: Mint &amp; Freeze Authority | Vectora" />
   <meta property="og:description" content="A practical Solana token checker workflow: verify the token mint, compare DexScreener with Solscan, inspect control risk, and decide whether to ignore, watch, or investigate more." />
   <meta property="og:url" content="https://getvectora.ai/solana-token-checker.html" />
   <meta property="og:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <meta property="og:image:alt" content="Solana token checker guide by Vectora" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="How To Check If A Solana Token Is Legit Before You Buy" />
+  <meta name="twitter:title" content="Solana Token Checker: Mint &amp; Freeze Authority | Vectora" />
   <meta name="twitter:description" content="A practical Solana token checker workflow: verify the token mint, compare DexScreener with Solscan, inspect control risk, and decide whether to ignore, watch, or investigate more." />
   <meta name="twitter:image" content="https://getvectora.ai/assets/vtrai-x-header-2026-03-28-fast.jpg" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFD45VCN8J"></script>
@@ -30,7 +30,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "How To Check If A Solana Token Is Legit Before You Buy",
+      "headline": "Solana Token Checker: Mint and Freeze Authority",
       "description": "A practical workflow for checking a Solana token mint, DexScreener route, explorer links, and control risk before trading.",
       "author": {
         "@type": "Organization",
@@ -41,7 +41,7 @@
         "name": "Vectora"
       },
       "datePublished": "2026-03-23",
-      "dateModified": "2026-07-05",
+      "dateModified": "2026-09-12",
       "mainEntityOfPage": "https://getvectora.ai/solana-token-checker.html"
     }
   </script>
@@ -111,7 +111,7 @@
       ]
     }
   </script>
-  <title>How To Check If A Solana Token Is Legit Before You Buy</title>
+  <title>Solana Token Checker: Mint &amp; Freeze Authority | Vectora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -410,8 +410,8 @@
     </div>
 
     <section class="hero">
-      <h1>How To Check If A Solana Token Is Legit Before You Buy</h1>
-      <p>The fastest way to lose money on Solana is to trust a ticker, screenshot, or reply before you verify the actual token mint. A useful Solana token checker workflow does not start from hype. It starts from the address, the DexScreener route, the explorer, and the control risk.</p>
+      <h1>Solana Token Checker: Mint and Freeze Authority</h1>
+      <p>Start with the exact mint address. Check the authority evidence Vectora can retrieve, read what remains unknown, and save a timestamped report on this browser if you want to recheck later. No wallet connection is required; a report is not a safety guarantee.</p>
       <div class="chips">
         <span class="chip">Verify the mint first</span>
         <span class="chip">Compare explorer and pair links</span>
@@ -419,11 +419,19 @@
         <span class="chip">Watch instead of rushing</span>
       </div>
       <div class="cta">
-        <a class="btn tracked-link" href="./#trust-check" data-label="solana_checker_trust_check">Open Trust Check</a>
+        <a class="btn tracked-link" href="./?discovery=search_discovery_001#trust-check" data-label="solana_checker_trust_check">Open Trust Check</a>
         <a class="btn secondary tracked-link" href="./solana-launchpad-token-checker.html" data-label="solana_checker_launchpad_check">Launchpad Checker</a>
         <a class="btn secondary tracked-link" href="./5-minute-token-verification-checklist.html" data-label="solana_checker_checklist">5-Minute Checklist</a>
         <a class="btn secondary tracked-link" href="./watchlist.html" data-label="solana_checker_watchlist">Open Watchlist</a>
       </div>
+    </section>
+
+    <section class="proof" aria-labelledby="authority-evidence">
+      <h2 id="authority-evidence">How to read mint and freeze authority</h2>
+      <p><strong>Mint authority</strong> controls whether additional units can be minted. <strong>Freeze authority</strong> can freeze individual token accounts. Read the exact mint account, not a ticker or screenshot. An authority address identifies a control; it does not by itself prove misuse.</p>
+      <p><strong>None</strong> means that particular authority is absent. <strong>Unknown</strong> means the check did not establish it. Those are different results. Token extensions can introduce additional controls, so absent mint and freeze authorities do not establish that a token is safe.</p>
+      <p>Vectora may return a partial report when a provider is unavailable. Missing metadata or liquidity evidence stays unknown. Save the observation timestamp and recheck when you need current evidence; a saved report does not monitor continuously.</p>
+      <p>Sources: <a href="https://solana.com/docs/tokens/basics/set-authority" target="_blank" rel="noreferrer">Solana authority documentation</a> and <a href="https://solana.com/docs/tokens/basics/freeze-account" target="_blank" rel="noreferrer">freezing token accounts</a>. See also the <a href="./solana-mint-authority.html">mint authority guide</a> and <a href="./mint-authority-freeze-authority.html">mint versus freeze authority guide</a>.</p>
     </section>
 
     <section class="grid">
@@ -478,7 +486,7 @@
         <p>Find a token on X or DexScreener, verify it on Vectora, and save it to a watchlist if you want to revisit it later without relying on memory.</p>
       </div>
       <div class="cta">
-        <a class="btn tracked-link" href="./#trust-check" data-label="solana_checker_open_tool">Check A Solana Token</a>
+        <a class="btn tracked-link" href="./?discovery=search_discovery_001#trust-check" data-label="solana_checker_open_tool">Check A Solana Token</a>
         <a class="btn secondary tracked-link" href="./solana-launchpad-token-checker.html" data-label="solana_checker_related_launchpad">Check Launchpad Token</a>
         <a class="btn secondary tracked-link" href="./5-minute-token-verification-checklist.html" data-label="solana_checker_bottom_checklist">Use 5-Minute Checklist</a>
         <a class="btn secondary tracked-link" href="./dexscreener-token-checker.html" data-label="solana_checker_related_dexscreener">Read DexScreener Guide</a>
