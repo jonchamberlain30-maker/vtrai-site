@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-09-14 07:45:04 UTC",
-  "generated_at_iso": "2026-09-14T07:45:04Z",
+  "generated_at_utc": "2026-09-15 07:45:01 UTC",
+  "generated_at_iso": "2026-09-15T07:45:01Z",
   "count": 2,
-  "ok_count": 1,
-  "unavailable_count": 1,
+  "ok_count": 2,
+  "unavailable_count": 0,
   "items": [
     {
       "watch_key": "solana:ly4h6n9v4g2n7ibzm4zdmxsftpyl4l4kbxzjegf6x2j",
@@ -12,32 +12,28 @@
       "label": "Vectora (VTRAI)",
       "status": "ok",
       "latest": {
-        "snapshot_date": "2026-09-14",
-        "timestamp_utc": "2026-09-14 07:45:04 UTC",
-        "checked_at_utc": "2026-09-14T07:45:21.322Z",
+        "snapshot_date": "2026-09-15",
+        "timestamp_utc": "2026-09-15 07:45:01 UTC",
+        "checked_at_utc": "2026-09-15T07:35:05.949Z",
         "network_id": "solana",
         "network_label": "Solana",
         "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
         "level": "unknown",
         "title": "Insufficient evidence",
-        "summary": "Partial report: the security provider is unavailable. Mint and freeze authorities were read from finalized Solana state. Broader security checks remain unavailable.",
-        "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
+        "summary": "A limited assessment of reported authorities, transfer controls and exact-market evidence. Unknown fields remain unknown; this is not a safety guarantee.",
+        "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
         "meta": [
-          {
-            "label": "Evidence source",
-            "value": "Partial: finalized Solana slot 446922747"
-          },
           {
             "label": "Network",
             "value": "Solana"
           },
           {
             "label": "Token",
-            "value": "Unknown (?)"
+            "value": "Vectora (VTRAI)"
           },
           {
             "label": "Supply",
-            "value": "Unknown"
+            "value": "1,000,000,000"
           },
           {
             "label": "Top liquidity",
@@ -49,7 +45,7 @@
           },
           {
             "label": "Metadata mutable",
-            "value": "Unknown"
+            "value": "Yes"
           },
           {
             "label": "Identity",
@@ -58,16 +54,19 @@
         ],
         "reasons": [
           {
+            "label": "Metadata mutability",
+            "text": "Mutable."
+          },
+          {
             "label": "Evidence gaps",
-            "text": "Not established: Metadata mutability, Non-transferable, Exact market liquidity. Missing evidence is not a clean result."
+            "text": "Not established: Exact market liquidity. Missing evidence is not a clean result."
           }
         ],
         "notes": [
-          "Limited fallback: finalized Solana slot 446922747. GoPlus security coverage is unavailable; this report does not establish safety or sellability.",
           "Mint authority: Reported revoked.",
           "Freeze authority: Reported revoked.",
-          "Metadata mutability: unknown; source did not establish this finding.",
-          "Non-transferable: unknown; source did not establish this finding.",
+          "Metadata mutability: Mutable.",
+          "Non-transferable: Not flagged by the source.",
           "Disclosure: Vectora operates this checker and publishes VTRAI. The mint match does not override this risk assessment."
         ],
         "links": [
@@ -85,14 +84,94 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 1,000,000,000 to Unknown.",
-          "Metadata mutable changed from Yes to Unknown.",
-          "Token changed from Vectora (VTRAI) to Unknown (?).",
-          "Reason changed for Evidence gaps.",
-          "Prior watch item cleared: Metadata mutability."
+          "Supply changed from Unknown to 1,000,000,000.",
+          "Metadata mutable changed from Unknown to Yes.",
+          "Token changed from Unknown (?) to Vectora (VTRAI).",
+          "New watch item: Metadata mutability.",
+          "Reason changed for Evidence gaps."
         ]
       },
       "history": [
+        {
+          "snapshot_date": "2026-09-15",
+          "timestamp_utc": "2026-09-15 07:45:01 UTC",
+          "checked_at_utc": "2026-09-15T07:35:05.949Z",
+          "network_id": "solana",
+          "network_label": "Solana",
+          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+          "level": "unknown",
+          "title": "Insufficient evidence",
+          "summary": "A limited assessment of reported authorities, transfer controls and exact-market evidence. Unknown fields remain unknown; this is not a safety guarantee.",
+          "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+          "meta": [
+            {
+              "label": "Network",
+              "value": "Solana"
+            },
+            {
+              "label": "Token",
+              "value": "Vectora (VTRAI)"
+            },
+            {
+              "label": "Supply",
+              "value": "1,000,000,000"
+            },
+            {
+              "label": "Top liquidity",
+              "value": "Unknown"
+            },
+            {
+              "label": "Top venue",
+              "value": "Unknown"
+            },
+            {
+              "label": "Metadata mutable",
+              "value": "Yes"
+            },
+            {
+              "label": "Identity",
+              "value": "Official Vectora mint match; not a risk endorsement"
+            }
+          ],
+          "reasons": [
+            {
+              "label": "Metadata mutability",
+              "text": "Mutable."
+            },
+            {
+              "label": "Evidence gaps",
+              "text": "Not established: Exact market liquidity. Missing evidence is not a clean result."
+            }
+          ],
+          "notes": [
+            "Mint authority: Reported revoked.",
+            "Freeze authority: Reported revoked.",
+            "Metadata mutability: Mutable.",
+            "Non-transferable: Not flagged by the source.",
+            "Disclosure: Vectora operates this checker and publishes VTRAI. The mint match does not override this risk assessment."
+          ],
+          "links": [
+            {
+              "label": "Open explorer",
+              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+            },
+            {
+              "label": "Search on DexScreener",
+              "url": "https://dexscreener.com/search?q=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+            },
+            {
+              "label": "Open Raydium route",
+              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+            }
+          ],
+          "change_summary": [
+            "Supply changed from Unknown to 1,000,000,000.",
+            "Metadata mutable changed from Unknown to Yes.",
+            "Token changed from Unknown (?) to Vectora (VTRAI).",
+            "New watch item: Metadata mutability.",
+            "Reason changed for Evidence gaps."
+          ]
+        },
         {
           "snapshot_date": "2026-09-14",
           "timestamp_utc": "2026-09-14 07:45:04 UTC",
@@ -1045,74 +1124,6 @@
           "change_summary": [
             "No material trust change since the last snapshot."
           ]
-        },
-        {
-          "snapshot_date": "2026-08-31",
-          "timestamp_utc": "2026-08-31 07:45:00 UTC",
-          "checked_at_utc": "2026-08-31T07:35:03.935Z",
-          "network_id": "solana",
-          "network_label": "Solana",
-          "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-          "level": "verified",
-          "title": "Verified official token",
-          "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-          "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Solana"
-            },
-            {
-              "label": "Token",
-              "value": "Vectora (VTRAI)"
-            },
-            {
-              "label": "Supply",
-              "value": "1,000,000,000"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Metadata mutable",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Official match",
-              "text": "The pasted mint exactly matches the canonical Vectora contract."
-            },
-            {
-              "label": "Mint control",
-              "text": "Mint authority is revoked."
-            },
-            {
-              "label": "Freeze control",
-              "text": "Freeze authority is revoked."
-            }
-          ],
-          "notes": [
-            "Metadata mutability: mutable."
-          ],
-          "links": [
-            {
-              "label": "Open Solscan",
-              "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            },
-            {
-              "label": "Open Raydium route",
-              "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-            }
-          ],
-          "change_summary": [
-            "No material trust change since the last snapshot."
-          ]
         }
       ]
     },
@@ -1121,13 +1132,11 @@
       "network": "1",
       "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "label": "USD Coin (USDC)",
-      "status": "unavailable",
-      "last_refresh_attempt_utc": "2026-09-14 07:45:04 UTC",
-      "last_refresh_error": "HTTP Error 400: Bad Request",
+      "status": "ok",
       "latest": {
-        "snapshot_date": "2026-09-13",
-        "timestamp_utc": "2026-09-13 07:45:03 UTC",
-        "checked_at_utc": "2026-09-13T07:45:14.206Z",
+        "snapshot_date": "2026-09-15",
+        "timestamp_utc": "2026-09-15 07:45:01 UTC",
+        "checked_at_utc": "2026-09-15T07:45:02.135Z",
         "network_id": "1",
         "network_label": "Ethereum",
         "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
@@ -1146,7 +1155,7 @@
           },
           {
             "label": "Supply",
-            "value": "50,467,607,307.08"
+            "value": "50,603,869,698.2"
           },
           {
             "label": "Top liquidity",
@@ -1197,10 +1206,86 @@
           }
         ],
         "change_summary": [
-          "Supply changed from 50,397,281,687.45 to 50,467,607,307.08."
+          "Supply changed from 50,467,607,307.08 to 50,603,869,698.2."
         ]
       },
       "history": [
+        {
+          "snapshot_date": "2026-09-15",
+          "timestamp_utc": "2026-09-15 07:45:01 UTC",
+          "checked_at_utc": "2026-09-15T07:45:02.135Z",
+          "network_id": "1",
+          "network_label": "Ethereum",
+          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "level": "unknown",
+          "title": "Insufficient evidence",
+          "summary": "A limited assessment of reported controls and trading restrictions. Unknown fields remain unknown; this is not a safety guarantee.",
+          "image_url": null,
+          "meta": [
+            {
+              "label": "Network",
+              "value": "Ethereum"
+            },
+            {
+              "label": "Token",
+              "value": "USD Coin (USDC)"
+            },
+            {
+              "label": "Supply",
+              "value": "50,603,869,698.2"
+            },
+            {
+              "label": "Top liquidity",
+              "value": "Unknown"
+            },
+            {
+              "label": "Top venue",
+              "value": "Unknown"
+            },
+            {
+              "label": "Open source",
+              "value": "Yes"
+            },
+            {
+              "label": "Identity",
+              "value": "Project affiliation not established"
+            }
+          ],
+          "reasons": [
+            {
+              "label": "Upgrade control",
+              "text": "Proxy pattern detected."
+            },
+            {
+              "label": "Evidence gaps",
+              "text": "Not established: Sell restriction, Owner control, Transfer tax, Exact market liquidity. Missing evidence is not a clean result."
+            }
+          ],
+          "notes": [
+            "Honeypot signal: Not flagged by the source.",
+            "Upgrade control: Proxy pattern detected.",
+            "Buy restriction: Not flagged by the source.",
+            "Sell restriction: unknown; source did not establish this finding.",
+            "Contract visibility: reported open source.",
+            "Owner control: unknown; no owner address established.",
+            "Buy tax: 0%.",
+            "Sell tax: 0%.",
+            "Transfer tax: unknown."
+          ],
+          "links": [
+            {
+              "label": "Open explorer",
+              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            },
+            {
+              "label": "Search on DexScreener",
+              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            }
+          ],
+          "change_summary": [
+            "Supply changed from 50,467,607,307.08 to 50,603,869,698.2."
+          ]
+        },
         {
           "snapshot_date": "2026-09-13",
           "timestamp_utc": "2026-09-13 07:45:03 UTC",
@@ -2114,69 +2199,6 @@
           ],
           "change_summary": [
             "Supply changed from 50,813,233,991.23 to 50,810,716,082.41."
-          ]
-        },
-        {
-          "snapshot_date": "2026-08-29",
-          "timestamp_utc": "2026-08-29 07:45:01 UTC",
-          "checked_at_utc": "2026-08-29T07:45:02.605Z",
-          "network_id": "1",
-          "network_label": "Ethereum",
-          "address": "0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "level": "low",
-          "title": "Low caution on Ethereum",
-          "summary": "First-pass trust card for a token on Ethereum. This is not a guarantee of safety; it summarizes visible contract and trading risks.",
-          "image_url": null,
-          "meta": [
-            {
-              "label": "Network",
-              "value": "Ethereum"
-            },
-            {
-              "label": "Token",
-              "value": "USD Coin (USDC)"
-            },
-            {
-              "label": "Supply",
-              "value": "50,813,233,991.23"
-            },
-            {
-              "label": "Top liquidity",
-              "value": "Unknown"
-            },
-            {
-              "label": "Top venue",
-              "value": "Unknown / "
-            },
-            {
-              "label": "Open source",
-              "value": "Yes"
-            }
-          ],
-          "reasons": [
-            {
-              "label": "Upgrade risk",
-              "text": "Proxy or upgrade pattern was detected."
-            }
-          ],
-          "notes": [
-            "Tax profile: buy 0% / sell 0% / transfer 0%.",
-            "Contract is reported as open source.",
-            "No active owner address was reported.",
-            "No DEX liquidity was returned by the security API."
-          ],
-          "links": [
-            {
-              "label": "Open explorer",
-              "url": "https://etherscan.io/token/0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            },
-            {
-              "label": "Search on DexScreener",
-              "url": "https://dexscreener.com/search?q=0xA0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-            }
-          ],
-          "change_summary": [
-            "Supply changed from 49,703,245,825.09 to 50,813,233,991.23."
           ]
         }
       ]
