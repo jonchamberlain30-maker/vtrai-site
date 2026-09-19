@@ -1,35 +1,39 @@
 {
-  "generated_at_utc": "2026-09-18 07:35:04 UTC",
-  "generated_at_iso": "2026-09-18T07:35:04Z",
+  "generated_at_utc": "2026-09-19 07:35:03 UTC",
+  "generated_at_iso": "2026-09-19T07:35:03Z",
   "status": "ok",
   "subject": {
-    "label": "Vectora (VTRAI)",
+    "label": "Unknown (?)",
     "network": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
   },
   "latest": {
-    "snapshot_date": "2026-09-18",
-    "timestamp_utc": "2026-09-18 07:35:04 UTC",
-    "checked_at_utc": "2026-09-18T07:35:06.706Z",
+    "snapshot_date": "2026-09-19",
+    "timestamp_utc": "2026-09-19 07:35:03 UTC",
+    "checked_at_utc": "2026-09-19T07:35:12.124Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
     "level": "unknown",
     "title": "Insufficient evidence",
-    "summary": "A limited assessment of reported authorities, transfer controls and exact-market evidence. Unknown fields remain unknown; this is not a safety guarantee.",
-    "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+    "summary": "Partial report: the security provider is unavailable. Mint and freeze authorities were read from finalized Solana state. Broader security checks remain unavailable.",
+    "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
     "meta": [
+      {
+        "label": "Evidence source",
+        "value": "Partial: finalized Solana slot 448341423"
+      },
       {
         "label": "Network",
         "value": "Solana"
       },
       {
         "label": "Token",
-        "value": "Vectora (VTRAI)"
+        "value": "Unknown (?)"
       },
       {
         "label": "Supply",
-        "value": "1,000,000,000"
+        "value": "Unknown"
       },
       {
         "label": "Top liquidity",
@@ -41,7 +45,7 @@
       },
       {
         "label": "Metadata mutable",
-        "value": "Yes"
+        "value": "Unknown"
       },
       {
         "label": "Identity",
@@ -50,19 +54,16 @@
     ],
     "reasons": [
       {
-        "label": "Metadata mutability",
-        "text": "Mutable."
-      },
-      {
         "label": "Evidence gaps",
-        "text": "Not established: Exact market liquidity. Missing evidence is not a clean result."
+        "text": "Not established: Metadata mutability, Non-transferable, Exact market liquidity. Missing evidence is not a clean result."
       }
     ],
     "notes": [
+      "Limited fallback: finalized Solana slot 448341423. GoPlus security coverage is unavailable; this report does not establish safety or sellability.",
       "Mint authority: Reported revoked.",
       "Freeze authority: Reported revoked.",
-      "Metadata mutability: Mutable.",
-      "Non-transferable: Not flagged by the source.",
+      "Metadata mutability: unknown; source did not establish this finding.",
+      "Non-transferable: unknown; source did not establish this finding.",
       "Disclosure: Vectora operates this checker and publishes VTRAI. The mint match does not override this risk assessment."
     ],
     "links": [
@@ -80,10 +81,95 @@
       }
     ],
     "change_summary": [
-      "No material trust change since the last snapshot."
+      "Supply changed from 1,000,000,000 to Unknown.",
+      "Metadata mutable changed from Yes to Unknown.",
+      "Token changed from Vectora (VTRAI) to Unknown (?).",
+      "Reason changed for Evidence gaps.",
+      "Prior watch item cleared: Metadata mutability."
     ]
   },
   "items": [
+    {
+      "snapshot_date": "2026-09-19",
+      "timestamp_utc": "2026-09-19 07:35:03 UTC",
+      "checked_at_utc": "2026-09-19T07:35:12.124Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "unknown",
+      "title": "Insufficient evidence",
+      "summary": "Partial report: the security provider is unavailable. Mint and freeze authorities were read from finalized Solana state. Broader security checks remain unavailable.",
+      "image_url": "https://gateway.pinata.cloud/ipfs/bafkreibzxv4647xaqvviwyatb7zk6orh6ldsvwnfkaz465unj4pvlbffva",
+      "meta": [
+        {
+          "label": "Evidence source",
+          "value": "Partial: finalized Solana slot 448341423"
+        },
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Unknown (?)"
+        },
+        {
+          "label": "Supply",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown"
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Unknown"
+        },
+        {
+          "label": "Identity",
+          "value": "Official Vectora mint match; not a risk endorsement"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Evidence gaps",
+          "text": "Not established: Metadata mutability, Non-transferable, Exact market liquidity. Missing evidence is not a clean result."
+        }
+      ],
+      "notes": [
+        "Limited fallback: finalized Solana slot 448341423. GoPlus security coverage is unavailable; this report does not establish safety or sellability.",
+        "Mint authority: Reported revoked.",
+        "Freeze authority: Reported revoked.",
+        "Metadata mutability: unknown; source did not establish this finding.",
+        "Non-transferable: unknown; source did not establish this finding.",
+        "Disclosure: Vectora operates this checker and publishes VTRAI. The mint match does not override this risk assessment."
+      ],
+      "links": [
+        {
+          "label": "Open explorer",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Search on DexScreener",
+          "url": "https://dexscreener.com/search?q=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "Supply changed from 1,000,000,000 to Unknown.",
+        "Metadata mutable changed from Yes to Unknown.",
+        "Token changed from Vectora (VTRAI) to Unknown (?).",
+        "Reason changed for Evidence gaps.",
+        "Prior watch item cleared: Metadata mutability."
+      ]
+    },
     {
       "snapshot_date": "2026-09-18",
       "timestamp_utc": "2026-09-18 07:35:04 UTC",
@@ -2098,74 +2184,6 @@
       "snapshot_date": "2026-08-17",
       "timestamp_utc": "2026-08-17 07:35:04 UTC",
       "checked_at_utc": "2026-08-17T07:35:05.849Z",
-      "network_id": "solana",
-      "network_label": "Solana",
-      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-      "level": "verified",
-      "title": "Verified official token",
-      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
-      "meta": [
-        {
-          "label": "Network",
-          "value": "Solana"
-        },
-        {
-          "label": "Token",
-          "value": "Vectora (VTRAI)"
-        },
-        {
-          "label": "Supply",
-          "value": "1,000,000,000"
-        },
-        {
-          "label": "Top liquidity",
-          "value": "Unknown"
-        },
-        {
-          "label": "Top venue",
-          "value": "Unknown / "
-        },
-        {
-          "label": "Metadata mutable",
-          "value": "Yes"
-        }
-      ],
-      "reasons": [
-        {
-          "label": "Official match",
-          "text": "The pasted mint exactly matches the canonical Vectora contract."
-        },
-        {
-          "label": "Mint control",
-          "text": "Mint authority is revoked."
-        },
-        {
-          "label": "Freeze control",
-          "text": "Freeze authority is revoked."
-        }
-      ],
-      "notes": [
-        "Metadata mutability: mutable."
-      ],
-      "links": [
-        {
-          "label": "Open Solscan",
-          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-        },
-        {
-          "label": "Open Raydium route",
-          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-        }
-      ],
-      "change_summary": [
-        "No material trust change since the last snapshot."
-      ]
-    },
-    {
-      "snapshot_date": "2026-08-16",
-      "timestamp_utc": "2026-08-16 07:35:00 UTC",
-      "checked_at_utc": "2026-08-16T07:35:01.174Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
