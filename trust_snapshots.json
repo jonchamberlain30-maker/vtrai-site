@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-09-22 07:35:00 UTC",
-  "generated_at_iso": "2026-09-22T07:35:00Z",
+  "generated_at_utc": "2026-09-23 07:35:06 UTC",
+  "generated_at_iso": "2026-09-23T07:35:06Z",
   "status": "ok",
   "subject": {
     "label": "Vectora (VTRAI)",
@@ -8,9 +8,9 @@
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
   },
   "latest": {
-    "snapshot_date": "2026-09-22",
-    "timestamp_utc": "2026-09-22 07:35:00 UTC",
-    "checked_at_utc": "2026-09-22T07:35:01.998Z",
+    "snapshot_date": "2026-09-23",
+    "timestamp_utc": "2026-09-23 07:35:06 UTC",
+    "checked_at_utc": "2026-09-23T07:35:08.173Z",
     "network_id": "solana",
     "network_label": "Solana",
     "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
@@ -80,14 +80,86 @@
       }
     ],
     "change_summary": [
-      "Supply changed from Unknown to 1,000,000,000.",
-      "Metadata mutable changed from Unknown to Yes.",
-      "Token changed from Unknown (?) to Vectora (VTRAI).",
-      "New watch item: Metadata mutability.",
-      "Reason changed for Evidence gaps."
+      "No material trust change since the last snapshot."
     ]
   },
   "items": [
+    {
+      "snapshot_date": "2026-09-23",
+      "timestamp_utc": "2026-09-23 07:35:06 UTC",
+      "checked_at_utc": "2026-09-23T07:35:08.173Z",
+      "network_id": "solana",
+      "network_label": "Solana",
+      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
+      "level": "unknown",
+      "title": "Insufficient evidence",
+      "summary": "A limited assessment of reported authorities, transfer controls and exact-market evidence. Unknown fields remain unknown; this is not a safety guarantee.",
+      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
+      "meta": [
+        {
+          "label": "Network",
+          "value": "Solana"
+        },
+        {
+          "label": "Token",
+          "value": "Vectora (VTRAI)"
+        },
+        {
+          "label": "Supply",
+          "value": "1,000,000,000"
+        },
+        {
+          "label": "Top liquidity",
+          "value": "Unknown"
+        },
+        {
+          "label": "Top venue",
+          "value": "Unknown"
+        },
+        {
+          "label": "Metadata mutable",
+          "value": "Yes"
+        },
+        {
+          "label": "Identity",
+          "value": "Official Vectora mint match; not a risk endorsement"
+        }
+      ],
+      "reasons": [
+        {
+          "label": "Metadata mutability",
+          "text": "Mutable."
+        },
+        {
+          "label": "Evidence gaps",
+          "text": "Not established: Exact market liquidity. Missing evidence is not a clean result."
+        }
+      ],
+      "notes": [
+        "Mint authority: Reported revoked.",
+        "Freeze authority: Reported revoked.",
+        "Metadata mutability: Mutable.",
+        "Non-transferable: Not flagged by the source.",
+        "Disclosure: Vectora operates this checker and publishes VTRAI. The mint match does not override this risk assessment."
+      ],
+      "links": [
+        {
+          "label": "Open explorer",
+          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Search on DexScreener",
+          "url": "https://dexscreener.com/search?q=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        },
+        {
+          "label": "Open Raydium route",
+          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
+        }
+      ],
+      "change_summary": [
+        "No material trust change since the last snapshot."
+      ]
+    },
     {
       "snapshot_date": "2026-09-22",
       "timestamp_utc": "2026-09-22 07:35:00 UTC",
@@ -2152,74 +2224,6 @@
       "snapshot_date": "2026-08-23",
       "timestamp_utc": "2026-08-23 07:35:04 UTC",
       "checked_at_utc": "2026-08-23T07:35:05.614Z",
-      "network_id": "solana",
-      "network_label": "Solana",
-      "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
-      "level": "verified",
-      "title": "Verified official token",
-      "summary": "This mint matches the canonical Vectora contract published on the site, in Telegram, and in official launch posts.",
-      "image_url": "https://getvectora.ai/assets/vtrai-token-mark-128.png",
-      "meta": [
-        {
-          "label": "Network",
-          "value": "Solana"
-        },
-        {
-          "label": "Token",
-          "value": "Vectora (VTRAI)"
-        },
-        {
-          "label": "Supply",
-          "value": "1,000,000,000"
-        },
-        {
-          "label": "Top liquidity",
-          "value": "Unknown"
-        },
-        {
-          "label": "Top venue",
-          "value": "Unknown / "
-        },
-        {
-          "label": "Metadata mutable",
-          "value": "Yes"
-        }
-      ],
-      "reasons": [
-        {
-          "label": "Official match",
-          "text": "The pasted mint exactly matches the canonical Vectora contract."
-        },
-        {
-          "label": "Mint control",
-          "text": "Mint authority is revoked."
-        },
-        {
-          "label": "Freeze control",
-          "text": "Freeze authority is revoked."
-        }
-      ],
-      "notes": [
-        "Metadata mutability: mutable."
-      ],
-      "links": [
-        {
-          "label": "Open Solscan",
-          "url": "https://solscan.io/token/Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-        },
-        {
-          "label": "Open Raydium route",
-          "url": "https://raydium.io/swap/?inputMint=sol&outputMint=Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J"
-        }
-      ],
-      "change_summary": [
-        "No material trust change since the last snapshot."
-      ]
-    },
-    {
-      "snapshot_date": "2026-08-22",
-      "timestamp_utc": "2026-08-22 07:35:04 UTC",
-      "checked_at_utc": "2026-08-22T07:35:06.401Z",
       "network_id": "solana",
       "network_label": "Solana",
       "address": "Ly4h6n9V4G2N7iBzM4zDmxSFtPYL4L4KbXZjeGf6x2J",
